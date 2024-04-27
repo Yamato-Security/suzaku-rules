@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: SigmaHQ/sigma
-          path: sigma-repo
+          path: sigma
           token: ${{ secrets.GITHUB_TOKEN }} ## This is necessary for executing on a local machine by act(Local GitHub Action Runner). We have to specify the github token explicitly.
 
       - name: clone suzaku rule repo
