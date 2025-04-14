@@ -1,0 +1,25 @@
+title: Console Login With MFA
+id: dd9381d0-bde9-464d-ba68-dba31fe177e1
+status: test
+description: Detects a console login with MFA
+references:
+    - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/compromising-aws-console-credentials/
+    - https://hackingthe.cloud/aws/post_exploitation/create_a_console_session_from_iam_credentials/
+    - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
+author: Zach Mathis (@yamatosecurity)
+date: 2025-04-13
+modified: 2025-04-13
+tags:
+    - attack.initial-access
+    - attack.t1078 # Valid Accounts
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: signin.amazonaws.com
+        eventName: 'ConsoleLogin'
+        additionalEventData.MFAUsed: 'Yes'
+    condition: selection
+falsepositives:
+level: informational

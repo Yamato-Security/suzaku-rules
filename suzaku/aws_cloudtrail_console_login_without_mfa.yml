@@ -1,0 +1,25 @@
+title: Console Login Without MFA
+id: 4ae38c23-b180-4120-87bf-7bf5cb18dd5b
+status: test
+description: Detects a console login without MFA
+references:
+    - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/compromising-aws-console-credentials/
+    - https://hackingthe.cloud/aws/post_exploitation/create_a_console_session_from_iam_credentials/
+    - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
+author: Zach Mathis (@yamatosecurity)
+date: 2025-04-13
+modified: 2025-04-13
+tags:
+    - attack.initial-access
+    - attack.t1078 # Valid Accounts
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: signin.amazonaws.com
+        eventName: 'ConsoleLogin'
+        additionalEventData.MFAUsed: 'No'
+    condition: selection
+falsepositives:
+level: medium
