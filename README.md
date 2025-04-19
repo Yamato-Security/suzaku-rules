@@ -9,7 +9,7 @@
 
 <p align="center">
     <a href="Maintenance Level"><img src="https://img.shields.io/badge/Maintenance%20Level-Actively%20Developed-brightgreen.svg" /></a>
-    <a href="Total Commits"><img src="https://img.shields.io/github/commit-activity/t/Yamato-Security/suzaku/main" /></a>
+    <a href="Total Commits"><img src="https://img.shields.io/github/commit-activity/t/Yamato-Security/suzaku-rules/main" /></a>
     <a href="https://twitter.com/SecurityYamato"><img src="https://img.shields.io/twitter/follow/SecurityYamato?style=social"/></a>
 </p>
 
