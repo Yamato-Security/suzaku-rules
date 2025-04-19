@@ -73,17 +73,11 @@ jobs:
 
       - name: Enable Pull Request Automerge
         if: steps.cpr.outputs.pull-request-operation == 'created' # This only runs if there were sigma rules updates and a new PR was created.
-        uses: peter-evans/enable-pull-request-automerge@v3
+        uses: peter-evans/enable-pull-request-automerge@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
           merge-method: squash
-
-      - name: Auto approve
-        if: steps.cpr.outputs.pull-request-operation == 'created'
-        run: gh pr review --approve "${{ steps.cpr.outputs.pull-request-number }}"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: upload change log
         if: env.change_exist == 'true'
