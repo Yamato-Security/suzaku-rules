@@ -31,6 +31,27 @@ jobs:
           rm -rf suzaku-rules/sigma/cloud/aws/
           mv sigma/rules/cloud/aws suzaku-rules/sigma/cloud
 
+      - name: Remove filtered sigma rules
+        run: |
+          set -e
+          FILTER_FILE="suzaku-rules/config/filtered_sigma_rules.txt"
+          SIGMA_DIR="suzaku-rules/sigma/cloud"
+          if [ ! -f "$FILTER_FILE" ]; then
+            echo "$FILTER_FILE not found. Skipping."
+            exit 0
+          fi
+          while IFS= read -r line; do
+            uuid=$(echo "$line" | grep -oE '^[a-f0-9\-]{36}')
+            echo "Processing UUID: $uuid"
+            [ -z "$uuid" ] && continue
+            files=$(grep -rl "$uuid" "$SIGMA_DIR" --include='*.yml')
+            for f in $files; do
+              echo "Deleting $f (matched UUID: $uuid)"
+              rm -f "$f"
+            done
+          done < "$FILTER_FILE"
+        shell: bash
+
       - name: Create Text
         id: create-text
         run: |
