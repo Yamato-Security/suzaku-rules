@@ -42,6 +42,7 @@ jobs:
           fi
           while IFS= read -r line; do
             uuid=$(echo "$line" | grep -oE '^[a-f0-9\-]{36}')
+            echo "Processing UUID: $uuid"
             [ -z "$uuid" ] && continue
             files=$(grep -rl "$uuid" "$SIGMA_DIR" --include='*.yml')
             for f in $files; do
