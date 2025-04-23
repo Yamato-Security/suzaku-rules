@@ -1,0 +1,28 @@
+title: Attempt To Create API Key
+id: 3b07ff19-d7b8-44ba-afa5-d2d6fb8cb22f
+status: test
+description: |
+    An attacker may have attemped to create an API key for persistence but it failed.
+    Ex: aws appsync create-api-key --api-id ApiId
+    I have seen this in the eventSource of `appsync.amazonaws.com` and `apigateway.amazonaws.com`.
+    There are probably other services that can create API keys as well so I am leaving the eventSource open.
+references:
+    - https://medium.com/@adan.alvarez/distorting-the-sync-how-aws-appsync-can-be-turned-into-an-attackers-backdoor-8c015b8e52b8
+    - https://traildiscover.cloud/#AppSync-CreateApiKey
+author: Zach Mathis (@yamatosecurity)
+date: 2025-04-23
+modified: 2025-04-23
+tags:
+    - attack.defense-evasion
+    - attack.persistence
+    - attack.t1098.001 #Persistence: Additional Cloud Credentials
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventName: 'CreateApiKey'
+        errorCode: 'AccessDenied'
+    condition: selection
+falsepositives:
+level: medium

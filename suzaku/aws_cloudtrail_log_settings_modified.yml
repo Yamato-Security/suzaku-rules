@@ -1,0 +1,32 @@
+title: CloudTrail Log Settings Modified
+id: 0f11648b-4759-4491-9ff0-e61a28010bfd
+status: test
+description: |
+    An attacker may have attempted to modify CloudTrail log settings for anti-forensics but it was denied due to a lack of permissions.
+    An attacker can use the `update-trail` command to disable multi-region logging, so their attacks do not get logged to the other regions.
+    Ex: `aws cloudtrail update-trail --name [my-trail] --no-is-multi-region-trail --no-include-global-service-events`
+    The attacker may also modify the settings so that the logs get encrypted with a key the attacker only has to prevent reading of the logs.
+    The attacker may also redirect the logs to a S3 bucket they control.
+references:
+    - https://medium.com/daniel-grzelak/disrupting-aws-logging-a42e437d6594
+    - https://logrhythm.com/blog/aws-defense-evasion-and-centralized-multi-account-logging/
+    - https://traildiscover.cloud/#CloudTrail-UpdateTrail
+author: Zach Mathis (@yamatosecurity)
+date: 2025-04-23
+modified: 2025-04-23
+tags:
+    - attack.defense-evasion
+    - attack.t1562.008 # Impair Defenses: Disable or Modify Cloud Logs
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: 'cloudtrail.amazonaws.com'
+        eventName: 'UpdateTrail'
+    filter:
+        errorCode: 'AccessDenied'
+    condition: selection and not filter
+falsepositives:
+    - Admins modified log settings.
+level: high
