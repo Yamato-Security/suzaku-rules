@@ -1,0 +1,27 @@
+title: Get Signin Token
+id: dbd3daf6-4e63-4d58-ab76-5f91a18e42c5
+status: experimental
+description: |
+    Generate a SigninToken that can be used to login to the the AWS Management Console.
+    Attackers might access via a Federated identity (such as AWS SSO) to the Management Console.
+references:
+    - https://fwdcloudsec.org/assets/presentations/2024/europe/sebastian-walla-cloud-conscious-tactics-techniques-and-procedures-an-overview.pdf
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-unwanted-visitor/
+    - https://traildiscover.cloud/#SignIn-GetSigninToken
+author: Zach Mathis (@yamatosecurity)
+date: 2025-04-23
+modified: 2025-04-23
+tags:
+    - attack.credential-access
+    - attack.t1078.004 # Valid Accounts: Cloud Accounts
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventName: 'GetSigninToken'
+    filter:
+        errorCode: 'AccessDenied'
+    condition: selection and not filter
+falsepositives:
+level: high

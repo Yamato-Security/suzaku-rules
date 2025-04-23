@@ -1,0 +1,29 @@
+title: Attempt To Delete A CloudTrail Log
+id: b6f02c52-1158-4d31-98a8-a4751718f3db
+status: test
+description: |
+    A attacker may have attempted to delete a CloudTrail log but it was denied due to a lack of permissions.
+    Sample command line: aws cloudtrail delete-trail --name TrailName
+references:
+    - https://research.splunk.com/cloud/82092925-9ca1-4e06-98b8-85a2d3889552/
+    - https://expel.com/blog/following-cloudtrail-generating-aws-security-signals-sumo-logic/
+    - https://medium.com/daniel-grzelak/disrupting-aws-logging-a42e437d6594
+    - https://traildiscover.cloud/#CloudTrail-DeleteTrail
+author: Zach Mathis (@yamatosecurity)
+date: 2025-04-23
+modified: 2025-04-23
+tags:
+    - attack.defense-evasion
+    - attack.t1562.008 # Impair Defenses: Disable or Modify Cloud Logs
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: 'cloudtrail.amazonaws.com'
+        eventName: 'DeleteTrail'
+        errorCode: 'AccessDenied'
+    condition: selection
+falsepositives:
+    - Admins trying to delete unneeded logs but lacked permissions.
+level: medium

@@ -1,0 +1,30 @@
+title: Attempt To Get Federation Token
+id: c7c08505-e4ed-49e0-bb61-292f445060d5
+status: experimental
+description: |
+    Returns a set of temporary security credentials (consisting of an access key ID, a secret access key, and a security token) for a user.
+    Ex: aws sts get-federation-token --name TrailName --policy PolicyName
+references:
+    - https://www.crowdstrike.com/blog/how-adversaries-persist-with-aws-user-federation/
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://fwdcloudsec.org/assets/presentations/2024/europe/sebastian-walla-cloud-conscious-tactics-techniques-and-procedures-an-overview.pdf
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-unwanted-visitor/
+    - https://hackingthe.cloud/aws/post_exploitation/create_a_console_session_from_iam_credentials/
+    - https://hackingthe.cloud/aws/post_exploitation/survive_access_key_deletion_with_sts_getfederationtoken/
+    - https://traildiscover.cloud/#STS-GetFederationToken
+author: Zach Mathis (@yamatosecurity)
+date: 2025-04-23
+modified: 2025-04-23
+tags:
+    - attack.credential-access
+    - attack.t1078.004 # Valid Accounts: Cloud Accounts
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventName: 'GetFederationToken'
+        errorCode: 'AccessDenied'
+    condition: selection
+falsepositives:
+level: medium
