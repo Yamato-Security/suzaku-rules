@@ -1,0 +1,22 @@
+title: User Enumeration 
+id: 6125226d-0eb4-4dc8-8cb6-ac5ad01973ab
+status: test
+description: An attacker may have enumerated users with `aws iam list-users`.
+references:
+    - https://attack.mitre.org/techniques/T1087/004/
+author: Zach Mathis (@yamatosecurity)
+date: 2025-04-24
+modified: 2025-04-24
+tags:
+    - attack.discovery
+    - attack.t1087.004 # Account Discovery: Cloud Accounts
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: 'iam.amazonaws.com'
+        eventName: 'ListUsers'
+    condition: selection
+falsepositives:
+level: low

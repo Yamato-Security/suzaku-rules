@@ -1,0 +1,27 @@
+title: Ingress Port 22 Opened 
+id: 372d79d1-73c5-48db-aa98-18b1a03fc9fc
+status: test
+description: |
+    Ingress port 22 was opened in a security group for an EC2 instance.
+    This is a common tactic used by attackers to establish access into the environment via SSH for a variety of reasons (exfil, etc...).
+references:
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.exfiltration.ec2-security-group-open-port-22-ingress/
+author: Zach Mathis (@yamatosecurity)
+date: 2025-04-24
+modified: 2025-04-24
+tags:
+    - attack.exfiltration
+    - attack.persistence
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: 'ec2.amazonaws.com'
+        eventName: 'AuthorizeSecurityGroupIngress'
+    selection_port_ranges:
+        - requestParameters.fromPort: '22'
+        - requestParameters.toPort: '22'
+    condition: selection and selection_port_ranges
+falsepositives:
+level: medium

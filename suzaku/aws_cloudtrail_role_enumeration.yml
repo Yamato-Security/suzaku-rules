@@ -1,0 +1,22 @@
+title: Role Enumeration 
+id: a74c0244-43fa-47ea-90bf-802500dd3140
+status: test
+description: An attacker may have enumerated roles (groups of permissions(policies)) with `aws iam list-roles`.
+references:
+    - https://attack.mitre.org/techniques/T1087/004/
+author: Zach Mathis (@yamatosecurity)
+date: 2025-04-24
+modified: 2025-04-24
+tags:
+    - attack.discovery
+    - attack.t1087.004 # Account Discovery: Cloud Accounts
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: 'iam.amazonaws.com'
+        eventName: 'ListRoles'
+    condition: selection
+falsepositives:
+level: low
