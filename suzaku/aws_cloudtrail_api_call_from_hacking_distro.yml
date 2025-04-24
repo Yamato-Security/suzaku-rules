@@ -1,0 +1,26 @@
+title: API Call From Hacking Distro
+id: c85a99f2-bdfa-4d4a-8645-52628b2e4106
+status: test
+description: |
+    An API call was invoked from a Linux hacking distribution (ex: Kali Linux, Parrot OS, etc.).
+    When using the aws client, the default user agent is "aws-cli/{version} Python/{python_version} {platform}".
+    This rule relies on the user agent string so it is easily bypassed by attackers who hardcode a benign-looing user agent in the botocore library.
+references:
+    - https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/
+author: Zach Mathis (@yamatosecurity)
+date: 2025-04-24
+modified: 2025-04-24
+tags:
+    - attack.command-and-control
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        userAgent|contains: 
+            - 'kali'
+            - 'parrot'
+            - 'pentoo'
+    condition: selection
+falsepositives:
+level: medium
