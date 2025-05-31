@@ -1,5 +1,5 @@
 title: Get Caller Identity
-id: 3b07ff19-d7b8-44ba-afa5-d2d6fb8cb22f
+id: 0e854216-b78f-4e05-9d62-1314cf16bb40
 status: test
 description: |
     The "whoami" for AWS. Attackers will often use this to determine the identity of the current user or role. This is a common first step in AWS reconnaissance.
@@ -9,7 +9,7 @@ references:
     - https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/
 author: Zach Mathis (@yamatosecurity)
 date: 2025-04-24
-modified: 2025-04-24
+modified: 2025-05-31
 tags:
     - attack.discovery
 logsource:
