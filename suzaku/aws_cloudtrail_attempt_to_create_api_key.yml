@@ -1,5 +1,5 @@
 title: Attempt To Create API Key
-id: 3b07ff19-d7b8-44ba-afa5-d2d6fb8cb22f
+id: 1497f3a3-7898-484e-b1e8-22fe99efd8a4
 status: test
 description: |
     An attacker may have attemped to create an API key for persistence but it failed.
@@ -11,7 +11,7 @@ references:
     - https://traildiscover.cloud/#AppSync-CreateApiKey
 author: Zach Mathis (@yamatosecurity)
 date: 2025-04-23
-modified: 2025-04-23
+modified: 2025-05-31
 tags:
     - attack.defense-evasion
     - attack.persistence
