@@ -1,5 +1,5 @@
 title: CloudTrail Log Settings Modified
-id: 0f11648b-4759-4491-9ff0-e61a28010bfd
+id: 295b96b0-3345-4856-bd2f-2ca61ec89add
 status: test
 description: |
     An attacker may have attempted to modify CloudTrail log settings for anti-forensics but it was denied due to a lack of permissions.
