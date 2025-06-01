@@ -1,0 +1,26 @@
+name: Check duplicate UUID in sigma rules
+on:
+  push:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+jobs:
+  checkDuplicateUUID:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          repository: Yamato-Security/suzaku
+          path: suzaku
+
+      - name: Check for duplicate id in yml files
+        run: |
+          cd suzaku
+          shopt -s globstar
+          count=$(grep -h '^id:' **/*.yml 2>/dev/null | sort | uniq -c | awk '$1 > 1 {print $0}' | wc -l)
+          if [ "$count" -ne 0 ]; then
+            echo "Duplicate uuid found in yml files"
+            exit 1
+          fi
