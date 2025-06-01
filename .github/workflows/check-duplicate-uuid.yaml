@@ -17,7 +17,7 @@ jobs:
 
       - name: Check for duplicate id in yml files
         run: |
-          count=$(grep -h '^id:' **/*.yml | sort | uniq -c | sort -nr | grep -v "1 id" | wc -l)
+          count=$(grep -h '^id:' **/*.yml | sort | uniq -c | awk '$1 > 1 {print $0}' | wc -l)
           if [ "$count" -ne 0 ]; then
             echo "Duplicate uuid found in yml files"
             exit 1
