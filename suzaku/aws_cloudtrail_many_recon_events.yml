@@ -25,7 +25,7 @@ correlation:
     condition:
         gte: 3
         field: eventName
-    generate: true
+    generate: false
 level: high
 ---
 title: Recon Event
