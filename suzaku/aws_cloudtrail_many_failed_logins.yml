@@ -1,0 +1,49 @@
+
+title: Many Failed Logins
+id: 68f8de62-97cd-4a9a-afba-7804fddf43d4
+status: test
+description: |
+    Detects multiple failed console login attempts, which may indicate an attacker attempting password guessing or password spraying.
+    This rule can be evaded if the attacker uses a different source IP address for each login attempt, so you may want to not group by source IP address to detect that evasion.
+    Also, you may want to group on user agents as well to reduce false positives, however, that will also make it easier to evade detection.
+references:
+author: Zach Mathis (@yamatosecurity)
+date: 2025-08-02
+modified: 2025-08-02
+tags:
+    - attack.initial_access
+logsource:
+    product: aws
+    service: cloudtrail
+correlation:
+    type: event_count
+    rules:
+        - Failed Console Login
+    group-by:
+        - sourceIPAddress
+    timespan: 5m
+    condition:
+        gte: 3
+    generate: false
+level: high
+---
+title: Failed Console Login
+id: 978c15f1-3468-42b2-bf0f-bb29ae6168cc
+status: test
+description: Detects failed console login attempts, which may indicate an attacker attempting to gain access to
+references:
+author: Zach Mathis (@yamatosecurity)
+date: 2025-08-02
+modified: 2025-08-02
+tags:
+    - attack.initial_access
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: signin.amazonaws.com
+        eventName: 'ConsoleLogin'
+        responseElements.ConsoleLogin: 'Failure'
+    condition: selection
+level: low

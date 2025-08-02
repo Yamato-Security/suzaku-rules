@@ -1,0 +1,23 @@
+title: IAM Login Profile Deleted
+id: 3a6ed7dc-4f99-4574-8cfa-d65124dc89f0
+status: test
+description: Detects when an IAM login profile is deleted, which may indicate an attacker removing access to a compromised account or an administrator performing account cleanup.
+references:
+    - https://attack.mitre.org/techniques/T1531/
+author: Zach Mathis (@yamatosecurity)
+date: 2025-08-02
+modified: 2025-08-02
+tags:
+    - attack.impact
+    - attack.t1531 # Account Access Removal
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: 'iam.amazonaws.com'
+        eventName: 'DeleteLoginProfile'
+    condition: selection
+falsepositives:
+    - Legitimate deletion of a login profile by an administrator.
+level: low
