@@ -1,0 +1,20 @@
+title: Failed Console Login
+id: 978c15f1-3468-42b2-bf0f-bb29ae6168cc
+status: test
+description: Detects failed console login attempts, which may indicate an attacker attempting to gain access to
+references:
+author: Zach Mathis (@yamatosecurity)
+date: 2025-08-02
+modified: 2025-08-02
+tags:
+    - attack.initial_access
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: signin.amazonaws.com
+        eventName: 'ConsoleLogin'
+        responseElements.ConsoleLogin: 'Failure'
+    condition: selection
+level: low

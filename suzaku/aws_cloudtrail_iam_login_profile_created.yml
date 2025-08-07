@@ -1,0 +1,34 @@
+title: IAM Login Profile Created
+id: 2070cb71-0958-4504-906f-f8d4163d7505
+status: test
+description: |
+    Establishes persistence by creating a Login Profile on an existing IAM user.
+    This allows an attacker to access an IAM user intended to be used programmatically through the AWS console usual login process.
+    This can also be detected with UpdateLoginProfile events.
+    If an account is meant to be used only programmatically, it should not have a login profile.
+references:
+    - https://aws-samples.github.io/threat-technique-catalog-for-aws/Techniques/T1098.001.html
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.persistence.iam-create-user-login-profile/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://permiso.io/blog/s/approach-to-detection-androxgh0st-greenbot-persistence/
+    - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
+    - https://blog.darklab.hk/2021/07/06/trouble-in-paradise/
+    - https://expel.com/blog/incident-report-from-cli-to-console-chasing-an-attacker-in-aws/
+    - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
+author: Zach Mathis (@yamatosecurity)
+date: 2025-08-02
+modified: 2025-08-02
+tags:
+    - attack.persistence
+    - attack.t1098.001 # Account Manipulation: Additional Cloud Credentials
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: 'iam.amazonaws.com'
+        eventName: 'CreateLoginProfile'
+    condition: selection
+falsepositives:
+    - Legitimate creation of a login profile by an administrator.
+level: medium

@@ -1,0 +1,94 @@
+
+title: Many Recon Events
+id: 08d8b077-cc1c-4b74-8e9c-e07f84b203f0
+status: test
+description: |
+    Detects multiple reconnaissance events, which may indicate an attacker attempting to gather information about the target environment.
+    For each user ARN, it will look for three or more different reconnaissance events within a one minute timespan.
+    If you are getting too many false positives, you can lower the timespan or increase the number of events required to trigger an alert.
+references:
+author: Zach Mathis (@yamatosecurity)
+date: 2025-08-02
+modified: 2025-08-02
+tags:
+    - attack.reconnaissance
+logsource:
+    product: aws
+    service: cloudtrail
+correlation:
+    type: value_count
+    rules:
+        - Recon Event
+    group-by:
+        - userIdentity.arn
+    timespan: 1m
+    condition:
+        gte: 3
+        field: eventName
+    generate: false
+level: high
+---
+title: Recon Event
+id: 33ecb0d0-389f-4954-ae8e-7b62f9e369b8
+status: test
+description: Detects reconnaissance activity.
+references:
+author: Zach Mathis (@yamatosecurity)
+date: 2025-08-02
+modified: 2025-08-02
+tags:
+    - attack.reconnaissance
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: 'iam.amazonaws.com'
+    selection_recon:
+          eventName:
+            - ListUsers
+            - ListRoles
+            - ListGroups
+            - ListAttachedRolePolicies
+            - ListAttachedUserPolicies
+            - ListUserPolicies
+            - ListAccessKeys
+            - GetCredentialReport
+            - GetAccountAuthorizationDetails
+            - GetCallerIdentity
+            - GetPolicy
+            - GetPolicyVersion
+            - GetRole
+            - GetRolePolicy
+            - GetUser
+            - GetUserPolicy
+            - DescribeRegions
+            - DescribeAvailabilityZones
+            - DescribeVpcs
+            - DescribeSubnets
+            - DescribeSecurityGroups
+            - DescribeInstances
+            - DescribeVolumes
+            - DescribeImages
+            - DescribeNetworkInterfaces
+            - ListServiceQuotas
+            - ListServices
+            - ListBuckets
+            - GetBucketAcl
+            - GetBucketPolicy
+            - ListTables
+            - DescribeTable
+            - ListRepositories
+            - DescribeRepositories
+            - GetSessionToken
+            - LookupEvents
+            - DescribeTrails
+            - GetTrailStatus
+            - ListTrails
+            - ListFunctions
+            - ListTopics   
+            - ListQueues   
+            - ListClusters 
+            - DescribeCluster
+    condition: all of selection*
+level: low
