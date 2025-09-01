@@ -30,6 +30,7 @@ jobs:
         run: |
           rm -rf suzaku-rules/sigma/cloud/aws/
           mv sigma/rules/cloud/aws suzaku-rules/sigma/cloud
+          mv sigma/rules/cloud/azure suzaku-rules/sigma/cloud
 
       - name: Remove filtered sigma rules
         run: |
