@@ -28,15 +28,16 @@ jobs:
 
       - name: Update sigma rules
         run: |
-          rm -rf suzaku-rules/sigma/cloud/aws/
-          mv sigma/rules/cloud/aws suzaku-rules/sigma/cloud
-          mv sigma/rules/cloud/azure suzaku-rules/sigma/cloud
+          rm -rf suzaku-rules/sigma/
+          mkdir -p suzaku-rules/sigma/
+          mv sigma/rules/cloud/aws suzaku-rules/sigma/
+          mv sigma/rules/cloud/azure suzaku-rules/sigma/
 
       - name: Remove filtered sigma rules
         run: |
           set -e
           FILTER_FILE="suzaku-rules/config/filtered_sigma_rules.txt"
-          SIGMA_DIR="suzaku-rules/sigma/cloud"
+          SIGMA_DIR="suzaku-rules/sigma/"
           if [ ! -f "$FILTER_FILE" ]; then
             echo "$FILTER_FILE not found. Skipping."
             exit 0
