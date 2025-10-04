@@ -1,1 +1,2 @@
 4db60cc0-36fb-42b7-9b58-a5b53019fb74 # AWS CloudTrail Important Change - Replaced by Suzaku rules because it is too generic
+28870ae4-6a13-4616-bd1a-235a7fad7458 # Failed Authentications From Countries You Do Not Operate Out Of
