@@ -1,0 +1,21 @@
+title: Network Security Group Rule Created
+id: 63bbdbed-e157-47ba-b731-5d7db61112b1
+status: test
+description:
+    Creates a network security group rule.
+references:
+    - https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#network-security-group-rule
+author: Fukusuke Takahashi
+date: 2025-12-02
+tags:
+    - attack.persistence
+logsource:
+    product: azure
+    service: activitylogs
+detection:
+    selection:
+        operationName: MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/SECURITYRULES/WRITE
+        properties.statusCode: Created
+    condition: selection
+falsepositives:
+level: informational
