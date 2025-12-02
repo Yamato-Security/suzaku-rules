@@ -1,0 +1,21 @@
+title: Role Assignment Created
+id: c3425eff-76ea-42f5-8874-aeaa30d499fb
+status: test
+description:
+    Create role assignment.
+references:
+    - https://learn.microsoft.com/en-us/azure/role-based-access-control/change-history-report#interpret-a-log-entry
+author: Fukusuke Takahashi
+date: 2025-12-02
+tags:
+    - attack.privilege-escalation
+logsource:
+    product: azure
+    service: activitylogs
+detection:
+    selection:
+        operationName: MICROSOFT.AUTHORIZATION/ROLEASSIGNMENTS/WRITE
+        properties.statusCode: Created
+    condition: selection
+falsepositives:
+level: informational
