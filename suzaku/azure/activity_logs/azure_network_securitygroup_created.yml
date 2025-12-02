@@ -2,7 +2,7 @@ title: Network security group rule Created
 id: 63bbdbed-e157-47ba-b731-5d7db61112b1
 status: test
 description:
-    Create a Network security group rule.
+    Creates a network security group rule.
 references:
     - https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#network-security-group-rule
 author: Fukusuke Takahashi
