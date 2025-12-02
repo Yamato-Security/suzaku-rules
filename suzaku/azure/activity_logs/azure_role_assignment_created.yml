@@ -2,7 +2,7 @@ title: Role Assignment Created
 id: c3425eff-76ea-42f5-8874-aeaa30d499fb
 status: test
 description:
-    Create role assignment.
+    Creates role assignment.
 references:
     - https://learn.microsoft.com/en-us/azure/role-based-access-control/change-history-report#interpret-a-log-entry
 author: Fukusuke Takahashi
