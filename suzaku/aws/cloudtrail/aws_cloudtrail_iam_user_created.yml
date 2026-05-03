@@ -1,0 +1,32 @@
+title: IAM User Created
+id: 8f3a7b2c-1d4e-5f6a-9b0c-2e3d4f5a6b7c
+status: test
+description: |
+    Detects when an IAM user creates a new IAM user via CreateUser.
+    This is a common persistence technique where an attacker with compromised
+    credentials creates a backdoor IAM user for continued access even after
+    the originally compromised credentials are rotated.
+references:
+    - https://attack.mitre.org/techniques/T1136/001/
+    - https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html
+    - https://hackingthe.cloud/aws/post_exploitation/create_a_console_session_from_iam_credentials/
+author: i-wind (@iwind)
+date: 2026-05-03
+modified: 2026-05-03
+tags:
+    - attack.persistence
+    - attack.t1136.001
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: CreateUser
+    filter:
+        errorCode: AccessDenied
+    condition: selection and not filter
+falsepositives:
+    - Legitimate IAM administrators creating new users
+    - Automated provisioning systems (Terraform, CloudFormation, SCIM)
+level: high

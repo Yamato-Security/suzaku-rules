@@ -1,0 +1,27 @@
+title: Attempt To Create IAM User
+id: 8f3a7b2c-1d4e-5f6a-9b0c-2e3d4f5a6b7d
+status: test
+description: |
+    Detects a failed attempt to create an IAM user (AccessDenied).
+    Even though the attempt failed, it indicates the attacker has valid
+    credentials and is attempting persistence via IAM user creation.
+references:
+    - https://attack.mitre.org/techniques/T1136/001/
+    - https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html
+author: i-wind (@iwind)
+date: 2026-05-03
+modified: 2026-05-03
+tags:
+    - attack.persistence
+    - attack.t1136.001
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: CreateUser
+        errorCode: AccessDenied
+    condition: selection
+falsepositives:
+level: medium

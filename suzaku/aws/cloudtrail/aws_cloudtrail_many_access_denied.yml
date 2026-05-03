@@ -1,0 +1,52 @@
+title: Many AccessDenied Errors from Single IP
+id: 4a6b8c0d-2e3f-5a7b-9c1d-3e4f5a6b7c8d
+status: test
+description: |
+    Detects multiple AccessDenied errors from the same source IP within a short time window.
+    This pattern indicates an attacker probing AWS APIs with stolen credentials that have
+    restricted permissions (e.g., a deny-all policy on a honeypot canary user, or a
+    compromised user with limited permissions).
+    Attackers who obtain credentials via SSRF, leaked .env files, or code repositories
+    typically enumerate dozens of AWS APIs to discover what they can access.
+references:
+    - https://attack.mitre.org/techniques/T1580/
+    - https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/
+author: i-wind (@iwind)
+date: 2026-05-03
+modified: 2026-05-03
+tags:
+    - attack.discovery
+    - attack.t1580
+logsource:
+    product: aws
+    service: cloudtrail
+correlation:
+    type: event_count
+    rules:
+        - AccessDenied Error
+    group-by:
+        - sourceIPAddress
+    timespan: 10m
+    condition:
+        gte: 10
+    generate: false
+level: high
+---
+title: AccessDenied Error
+id: 4a6b8c0d-2e3f-5a7b-9c1d-3e4f5a6b7c8e
+status: test
+description: Base rule for AccessDenied correlation.
+references:
+author: i-wind (@iwind)
+date: 2026-05-03
+modified: 2026-05-03
+tags:
+    - attack.discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        errorCode: AccessDenied
+    condition: selection
+level: informational
