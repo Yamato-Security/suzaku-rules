@@ -1,2 +1,6 @@
 4db60cc0-36fb-42b7-9b58-a5b53019fb74 # AWS CloudTrail Important Change - Replaced by Suzaku rules because it is too generic
 28870ae4-6a13-4616-bd1a-235a7fad7458 # Failed Authentications From Countries You Do Not Operate Out Of
+8c944ecb-6970-4541-8496-be554b8e2846 # Placeholder rule
+5f521e4b-0105-4b72-845b-2198a54487b9 # Placeholder rule
+60f6535a-760f-42a9-be3f-c9a0a025906e # Placeholder rule
+905d389b-b853-46d0-9d3d-dea0d3a3cd49 # AWS STS AssumeRole Misuse
