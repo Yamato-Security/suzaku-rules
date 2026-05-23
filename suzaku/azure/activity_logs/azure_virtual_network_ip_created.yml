@@ -1,0 +1,21 @@
+title: Public IP Created
+id: 390a6131-d707-47b2-96f9-71ec40ed3ed6
+status: test
+description:
+    Creates a public IP address.
+references:
+    - https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/monitor-public-ip-reference#activity-log
+author: Fukusuke Takahashi
+date: 2025-12-02
+tags:
+    - attack.execution
+logsource:
+    product: azure
+    service: activitylogs
+detection:
+    selection:
+        operationName: MICROSOFT.NETWORK/PUBLICIPADDRESSES/WRITE
+        properties.statusCode: Created
+    condition: selection
+falsepositives:
+level: informational

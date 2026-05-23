@@ -1,0 +1,21 @@
+title: Virtual Machine Created
+id: fa1feca0-3566-4e3a-9bcf-8f399ea2db3f
+status: test
+description: |
+    Creates a new virtual machine.
+references:
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/queries/azureactivity#vm-creation
+author: Fukusuke Takahashi
+date: 2025-12-02
+tags:
+    - attack.execution
+logsource:
+    product: azure
+    service: activitylogs
+detection:
+    selection:
+        operationName: MICROSOFT.COMPUTE/VIRTUALMACHINES/WRITE
+        properties.statusCode: Created
+    condition: selection
+falsepositives:
+level: informational
