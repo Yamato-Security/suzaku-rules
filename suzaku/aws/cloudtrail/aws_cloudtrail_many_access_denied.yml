@@ -2,9 +2,10 @@ title: Many AccessDenied Errors from Single Source
 id: 4a6b8c0d-2e3f-5a7b-9c1d-3e4f5a6b7c8d
 status: test
 description: |
-    Detects multiple AccessDenied errors from the same source IP and access key
-    within a short time window. This pattern indicates an attacker probing AWS
-    APIs with stolen credentials that have restricted permissions.
+    Detects multiple authorization failure errors from the same source IP and
+    access key within a short time window. This pattern indicates an attacker
+    probing AWS APIs with stolen credentials that have restricted permissions.
+    Covers both IAM-level AccessDenied and EC2-style Client.UnauthorizedOperation.
     Attackers who obtain credentials via SSRF, leaked .env files, or code
     repositories typically enumerate dozens of AWS APIs to discover what they
     can access.
@@ -48,6 +49,8 @@ logsource:
     service: cloudtrail
 detection:
     selection:
-        errorCode: AccessDenied
+        errorCode:
+            - AccessDenied
+            - Client.UnauthorizedOperation
     condition: selection
 level: informational
