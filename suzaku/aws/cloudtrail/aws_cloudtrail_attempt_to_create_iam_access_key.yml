@@ -10,7 +10,7 @@ description: |
 references:
     - https://attack.mitre.org/techniques/T1098/001/
     - https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html
-author: i-wind (@iwind)
+author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
 modified: 2026-05-28
 tags:

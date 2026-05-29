@@ -11,7 +11,7 @@ references:
     - https://attack.mitre.org/techniques/T1136/001/
     - https://attack.mitre.org/techniques/T1098/001/
     - https://hackingthe.cloud/aws/post_exploitation/create_a_console_session_from_iam_credentials/
-author: i-wind (@iwind)
+author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
 modified: 2026-05-03
 tags:
@@ -37,7 +37,7 @@ id: 8e0f2a4b-6c7d-9e1f-3a5b-7c8d9e0f1a2c
 status: test
 description: Base rule for IAM CreateUser correlation.
 references:
-author: i-wind (@iwind)
+author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
 modified: 2026-05-03
 tags:
@@ -57,7 +57,7 @@ id: 8e0f2a4b-6c7d-9e1f-3a5b-7c8d9e0f1a2d
 status: test
 description: Base rule for IAM CreateAccessKey correlation.
 references:
-author: i-wind (@iwind)
+author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
 modified: 2026-05-03
 tags:

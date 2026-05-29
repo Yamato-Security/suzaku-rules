@@ -11,7 +11,7 @@ references:
     - https://attack.mitre.org/techniques/T1098/003/
     - https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
-author: i-wind (@iwind)
+author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
 modified: 2026-05-03
 tags:

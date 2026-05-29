@@ -11,7 +11,7 @@ description: |
 references:
     - https://attack.mitre.org/techniques/T1580/
     - https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/
-author: i-wind (@iwind)
+author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
 modified: 2026-05-03
 tags:
@@ -37,7 +37,7 @@ id: 4a6b8c0d-2e3f-5a7b-9c1d-3e4f5a6b7c8e
 status: test
 description: Base rule for AccessDenied correlation.
 references:
-author: i-wind (@iwind)
+author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
 modified: 2026-05-03
 tags:

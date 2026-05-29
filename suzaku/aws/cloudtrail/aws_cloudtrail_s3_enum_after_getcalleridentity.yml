@@ -11,7 +11,7 @@ references:
     - https://attack.mitre.org/techniques/T1530/
     - https://attack.mitre.org/techniques/T1078/004/
     - https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/
-author: i-wind (@iwind)
+author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
 modified: 2026-05-03
 tags:
@@ -38,7 +38,7 @@ id: 6c8d0e2f-4a5b-7c9d-1e3f-5a6b7c8d9e10
 status: test
 description: Base rule for GetCallerIdentity correlation.
 references:
-author: i-wind (@iwind)
+author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
 modified: 2026-05-03
 tags:
@@ -58,7 +58,7 @@ id: 6c8d0e2f-4a5b-7c9d-1e3f-5a6b7c8d9e11
 status: test
 description: Base rule for S3 ListBuckets correlation.
 references:
-author: i-wind (@iwind)
+author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
 modified: 2026-05-03
 tags:
