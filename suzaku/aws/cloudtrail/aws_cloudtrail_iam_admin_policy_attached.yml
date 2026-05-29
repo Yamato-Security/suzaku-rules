@@ -13,9 +13,9 @@ references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
 author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
-modified: 2026-05-03
+modified: 2026-05-29
 tags:
-    - attack.privilege_escalation
+    - attack.privilege-escalation
     - attack.persistence
     - attack.t1098.003
 logsource:
@@ -34,7 +34,7 @@ detection:
             - PowerUserAccess
             - IAMFullAccess
     filter:
-        errorCode: AccessDenied
+        errorCode|exists: true
     condition: selection and selection_admin and not filter
 falsepositives:
     - Legitimate IAM administrators granting access during onboarding

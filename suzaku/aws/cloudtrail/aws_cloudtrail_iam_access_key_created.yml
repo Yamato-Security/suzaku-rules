@@ -11,7 +11,7 @@ references:
     - https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html
 author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
-modified: 2026-05-03
+modified: 2026-05-29
 tags:
     - attack.persistence
     - attack.t1098.001
@@ -23,7 +23,7 @@ detection:
         eventSource: iam.amazonaws.com
         eventName: CreateAccessKey
     filter:
-        errorCode: AccessDenied
+        errorCode|exists: true
     condition: selection and not filter
 falsepositives:
     - Legitimate key rotation by administrators or automation

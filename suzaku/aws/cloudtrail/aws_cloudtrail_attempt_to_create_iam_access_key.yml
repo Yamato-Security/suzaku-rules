@@ -5,14 +5,12 @@ description: |
     Detects a failed attempt to create an IAM access key (AccessDenied).
     Even though the attempt failed, it indicates the attacker has valid
     credentials and is attempting persistence via access key creation.
-    Commonly observed when stolen credentials have a deny-all or
-    limited-permission policy (e.g., canary/honeypot tokens).
 references:
     - https://attack.mitre.org/techniques/T1098/001/
     - https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html
 author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
-modified: 2026-05-28
+modified: 2026-05-29
 tags:
     - attack.persistence
     - attack.t1098.001

@@ -13,7 +13,7 @@ references:
     - https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/
 author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
-modified: 2026-05-03
+modified: 2026-05-29
 tags:
     - attack.discovery
     - attack.collection
@@ -29,6 +29,7 @@ correlation:
         - S3 ListBuckets Call
     group-by:
         - sourceIPAddress
+        - userIdentity.accessKeyId
     timespan: 5m
     generate: false
 level: high
@@ -40,7 +41,7 @@ description: Base rule for GetCallerIdentity correlation.
 references:
 author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
-modified: 2026-05-03
+modified: 2026-05-29
 tags:
     - attack.discovery
 logsource:
@@ -60,7 +61,7 @@ description: Base rule for S3 ListBuckets correlation.
 references:
 author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
-modified: 2026-05-03
+modified: 2026-05-29
 tags:
     - attack.collection
 logsource:

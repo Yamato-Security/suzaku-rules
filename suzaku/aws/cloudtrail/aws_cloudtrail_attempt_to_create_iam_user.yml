@@ -6,14 +6,14 @@ description: |
     Even though the attempt failed, it indicates the attacker has valid
     credentials and is attempting persistence via IAM user creation.
 references:
-    - https://attack.mitre.org/techniques/T1136/001/
+    - https://attack.mitre.org/techniques/T1136/003/
     - https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html
 author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
-modified: 2026-05-03
+modified: 2026-05-29
 tags:
     - attack.persistence
-    - attack.t1136.001
+    - attack.t1136.003
 logsource:
     product: aws
     service: cloudtrail

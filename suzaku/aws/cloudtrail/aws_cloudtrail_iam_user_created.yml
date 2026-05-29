@@ -7,15 +7,15 @@ description: |
     credentials creates a backdoor IAM user for continued access even after
     the originally compromised credentials are rotated.
 references:
-    - https://attack.mitre.org/techniques/T1136/001/
+    - https://attack.mitre.org/techniques/T1136/003/
     - https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html
     - https://hackingthe.cloud/aws/post_exploitation/create_a_console_session_from_iam_credentials/
 author: nishikawaakira (@nishikawaakira)
 date: 2026-05-03
-modified: 2026-05-03
+modified: 2026-05-29
 tags:
     - attack.persistence
-    - attack.t1136.001
+    - attack.t1136.003
 logsource:
     product: aws
     service: cloudtrail
@@ -24,7 +24,7 @@ detection:
         eventSource: iam.amazonaws.com
         eventName: CreateUser
     filter:
-        errorCode: AccessDenied
+        errorCode|exists: true
     condition: selection and not filter
 falsepositives:
     - Legitimate IAM administrators creating new users
