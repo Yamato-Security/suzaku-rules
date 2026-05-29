@@ -1,0 +1,75 @@
+title: S3 Enumeration After GetCallerIdentity
+id: 6c8d0e2f-4a5b-7c9d-1e3f-5a6b7c8d9e0f
+status: test
+description: |
+    Detects a pattern commonly observed with stolen AWS credentials:
+    the attacker first calls sts:GetCallerIdentity to verify the credentials work,
+    then enumerates S3 buckets with s3:ListBuckets.
+    This temporal sequence is a strong indicator of credential theft because
+    legitimate applications rarely call GetCallerIdentity before S3 operations.
+references:
+    - https://attack.mitre.org/techniques/T1530/
+    - https://attack.mitre.org/techniques/T1078/004/
+    - https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/
+author: nishikawaakira (@nishikawaakira)
+date: 2026-05-03
+modified: 2026-05-29
+tags:
+    - attack.discovery
+    - attack.collection
+    - attack.t1530
+    - attack.t1078.004
+logsource:
+    product: aws
+    service: cloudtrail
+correlation:
+    type: temporal_ordered
+    rules:
+        - GetCallerIdentity Call
+        - S3 ListBuckets Call
+    group-by:
+        - sourceIPAddress
+        - userIdentity.accessKeyId
+    timespan: 5m
+    generate: false
+level: high
+---
+title: GetCallerIdentity Call
+id: 6c8d0e2f-4a5b-7c9d-1e3f-5a6b7c8d9e10
+status: test
+description: Base rule for GetCallerIdentity correlation.
+references:
+author: nishikawaakira (@nishikawaakira)
+date: 2026-05-03
+modified: 2026-05-29
+tags:
+    - attack.discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sts.amazonaws.com
+        eventName: GetCallerIdentity
+    condition: selection
+level: informational
+---
+title: S3 ListBuckets Call
+id: 6c8d0e2f-4a5b-7c9d-1e3f-5a6b7c8d9e11
+status: test
+description: Base rule for S3 ListBuckets correlation.
+references:
+author: nishikawaakira (@nishikawaakira)
+date: 2026-05-03
+modified: 2026-05-29
+tags:
+    - attack.collection
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: ListBuckets
+    condition: selection
+level: informational

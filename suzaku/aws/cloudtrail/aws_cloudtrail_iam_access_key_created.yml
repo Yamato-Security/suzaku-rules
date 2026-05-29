@@ -1,0 +1,30 @@
+title: IAM Access Key Created
+id: 2c4d6e8f-0a1b-3c5d-7e9f-1a2b3c4d5e6f
+status: test
+description: |
+    Detects when an IAM access key is created via CreateAccessKey.
+    Attackers create access keys for persistence after compromising an account,
+    often targeting an existing user or a newly created backdoor user.
+    Note: This is different from CreateApiKey (AppSync/API Gateway).
+references:
+    - https://attack.mitre.org/techniques/T1098/001/
+    - https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html
+author: nishikawaakira (@nishikawaakira)
+date: 2026-05-03
+modified: 2026-05-29
+tags:
+    - attack.persistence
+    - attack.t1098.001
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: CreateAccessKey
+    filter:
+        errorCode|exists: true
+    condition: selection and not filter
+falsepositives:
+    - Legitimate key rotation by administrators or automation
+level: medium

@@ -1,0 +1,35 @@
+title: Attempt To Attach Policy
+id: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5e
+status: test
+description: |
+    Detects a failed attempt to attach an IAM policy to a user, group, or role.
+    Even though the attempt was denied, it indicates the attacker has valid
+    credentials and is attempting privilege escalation. This is commonly
+    observed when attackers use stolen credentials that lack IAM write
+    permissions.
+    Note: AccessDenied events may have empty requestParameters, so this rule
+    does not filter by policy name to avoid missing detections.
+references:
+    - https://attack.mitre.org/techniques/T1098/003/
+    - https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+author: nishikawaakira (@nishikawaakira)
+date: 2026-05-28
+modified: 2026-05-29
+tags:
+    - attack.privilege-escalation
+    - attack.t1098.003
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName:
+            - AttachUserPolicy
+            - AttachGroupPolicy
+            - AttachRolePolicy
+        errorCode: AccessDenied
+    condition: selection
+falsepositives:
+level: medium

@@ -1,0 +1,56 @@
+title: Many AccessDenied Errors from Single Source
+id: 4a6b8c0d-2e3f-5a7b-9c1d-3e4f5a6b7c8d
+status: test
+description: |
+    Detects multiple authorization failure errors from the same source IP and
+    access key within a short time window. This pattern indicates an attacker
+    probing AWS APIs with stolen credentials that have restricted permissions.
+    Covers both IAM-level AccessDenied and EC2-style Client.UnauthorizedOperation.
+    Attackers who obtain credentials via SSRF, leaked .env files, or code
+    repositories typically enumerate dozens of AWS APIs to discover what they
+    can access.
+references:
+    - https://attack.mitre.org/techniques/T1580/
+    - https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/
+author: nishikawaakira (@nishikawaakira)
+date: 2026-05-03
+modified: 2026-05-29
+tags:
+    - attack.discovery
+    - attack.t1580
+logsource:
+    product: aws
+    service: cloudtrail
+correlation:
+    type: event_count
+    rules:
+        - AccessDenied Error
+    group-by:
+        - sourceIPAddress
+        - userIdentity.accessKeyId
+    timespan: 10m
+    condition:
+        gte: 10
+    generate: false
+level: high
+---
+title: AccessDenied Error
+id: 4a6b8c0d-2e3f-5a7b-9c1d-3e4f5a6b7c8e
+status: test
+description: Base rule for AccessDenied correlation.
+references:
+author: nishikawaakira (@nishikawaakira)
+date: 2026-05-03
+modified: 2026-05-29
+tags:
+    - attack.discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        errorCode:
+            - AccessDenied
+            - Client.UnauthorizedOperation
+    condition: selection
+level: informational
