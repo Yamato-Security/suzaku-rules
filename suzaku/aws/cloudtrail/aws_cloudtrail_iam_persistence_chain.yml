@@ -1,0 +1,78 @@
+title: IAM Persis Chain via User and Access Key Creation
+id: 8e0f2a4b-6c7d-9e1f-3a5b-7c8d9e0f1a2b
+status: test
+description: |
+    Detects the full IAM persistence attack chain: CreateUser followed by
+    CreateAccessKey from the same source IP within a short time window.
+    This two-step sequence is a classic post-compromise persistence technique
+    to ensure continued access even after the originally compromised credentials
+    are rotated. Only fires on successful operations (no errorCode).
+references:
+    - https://attack.mitre.org/techniques/T1136/003/
+    - https://attack.mitre.org/techniques/T1098/001/
+    - https://hackingthe.cloud/aws/post_exploitation/create_a_console_session_from_iam_credentials/
+author: nishikawaakira (@nishikawaakira)
+date: 2026-05-03
+modified: 2026-05-29
+tags:
+    - attack.persistence
+    - attack.t1136.003
+    - attack.t1098.001
+logsource:
+    product: aws
+    service: cloudtrail
+correlation:
+    type: temporal_ordered
+    rules:
+        - IAM CreateUser
+        - IAM CreateAccessKey
+    group-by:
+        - sourceIPAddress
+        - userIdentity.accessKeyId
+    timespan: 10m
+    generate: false
+level: critical
+---
+title: IAM CreateUser
+id: 8e0f2a4b-6c7d-9e1f-3a5b-7c8d9e0f1a2c
+status: test
+description: Base rule for successful IAM CreateUser correlation.
+references:
+author: nishikawaakira (@nishikawaakira)
+date: 2026-05-03
+modified: 2026-05-29
+tags:
+    - attack.persistence
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: CreateUser
+    filter:
+        errorCode|exists: true
+    condition: selection and not filter
+level: informational
+---
+title: IAM CreateAccessKey
+id: 8e0f2a4b-6c7d-9e1f-3a5b-7c8d9e0f1a2d
+status: test
+description: Base rule for successful IAM CreateAccessKey correlation.
+references:
+author: nishikawaakira (@nishikawaakira)
+date: 2026-05-03
+modified: 2026-05-29
+tags:
+    - attack.persistence
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: CreateAccessKey
+    filter:
+        errorCode|exists: true
+    condition: selection and not filter
+level: informational

@@ -1,0 +1,42 @@
+title: IAM Admin Policy Attached
+id: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+status: test
+description: |
+    Detects when an administrative IAM policy (AdministratorAccess,
+    PowerUserAccess, or IAMFullAccess) is attached to a user, group, or role.
+    This is a privilege escalation technique where an attacker elevates
+    permissions of a compromised or newly created principal to gain full
+    control of the AWS account.
+references:
+    - https://attack.mitre.org/techniques/T1098/003/
+    - https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+author: nishikawaakira (@nishikawaakira)
+date: 2026-05-03
+modified: 2026-05-29
+tags:
+    - attack.privilege-escalation
+    - attack.persistence
+    - attack.t1098.003
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName:
+            - AttachUserPolicy
+            - AttachGroupPolicy
+            - AttachRolePolicy
+    selection_admin:
+        requestParameters.policyArn|contains:
+            - AdministratorAccess
+            - PowerUserAccess
+            - IAMFullAccess
+    filter:
+        errorCode|exists: true
+    condition: selection and selection_admin and not filter
+falsepositives:
+    - Legitimate IAM administrators granting access during onboarding
+    - Infrastructure-as-code deployments (Terraform, CloudFormation)
+level: critical
