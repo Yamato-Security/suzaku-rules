@@ -6,7 +6,6 @@ references:
     - https://learn.microsoft.com/en-us/entra/architecture/security-operations-devices#device-administrator-roles
 author: Michael Epping, '@mepples21'
 date: 2022-06-28
-modified: 2026-05-09
 tags:
     - attack.persistence
     - attack.initial-access
@@ -18,11 +17,11 @@ logsource:
     service: auditlogs
 detection:
     selection:
-        category: RoleManagement
-        operationName|contains|all:
+        Category: RoleManagement
+        OperationName|contains|all:
             - 'Add'
             - 'member to role'
-        properties.targetResources|contains:
+        TargetResources|contains:
             - '7698a772-787b-4ac8-901f-60d6b08affd2'
             - '62e90394-69f5-4237-9190-012177145e10'
     condition: selection
