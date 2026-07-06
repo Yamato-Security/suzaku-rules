@@ -7,7 +7,6 @@ references:
     - https://www.microsoft.com/en-us/security/blog/2021/10/26/protect-your-business-from-password-sprays-with-microsoft-dart-recommendations/
 author: Harjot Singh, '@cyb3rjy0t'
 date: 2023-03-20
-modified: 2026-05-08
 tags:
     - attack.privilege-escalation
     - attack.persistence
@@ -21,8 +20,8 @@ logsource:
     service: signinlogs
 detection:
     selection:
-        resultType: 0
-        properties.userAgent|contains:
+        Status: 'Success'
+        userAgent|contains:
             - 'BAV2ROPC'
             - 'CBAinPROD'
             - 'CBAinTAR'
