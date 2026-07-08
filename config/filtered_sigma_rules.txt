@@ -4,3 +4,58 @@
 5f521e4b-0105-4b72-845b-2198a54487b9 # Placeholder rule
 60f6535a-760f-42a9-be3f-c9a0a025906e # Placeholder rule
 905d389b-b853-46d0-9d3d-dea0d3a3cd49 # AWS STS AssumeRole Misuse
+288a39fc-4914-4831-9ada-270e9dc12cb4 # Azure Active Directory Hybrid Health AD FS New Server
+48739819-8230-4ee3-a8ea-e0289d1fb0ff # Azure Active Directory Hybrid Health AD FS Service Delete
+26e7c5e2-6545-481e-b7e6-050143459635 # CA Policy Removed by Non Approved Actor
+50a3c7aa-ec29-44a4-92c1-fce229eef6fc # CA Policy Updated by Non Approved Actor
+0922467f-db53-4348-b7bf-dee8d0d348c6 # New CA Policy by Non-approved Actor
+6f583da0-3a90-4566-a4ed-83c09fe18bbf # Account Created And Deleted Within A Close Time Frame
+a0413867-daf3-43dd-9245-734b3a787942 # Bitlocker Key Retrieval
+c2496b41-16a9-4016-a776-b23f8910dc58 # Certificate-Based Authentication Enabled
+9494bff8-959f-4440-bbce-fb87a208d517 # Changes to Device Registration Policy
+4bb80281-3756-4ec8-a88e-523c5a6fda9e # New Root Certificate Authority Added
+11c767ae-500b-423b-bae3-b234450736ed # Users Added to Global or Device Admin Roles
+1b45b0d1-773f-4f23-aedc-814b759563b1 # Application AppID Uri Configuration Changes
+cbb67ecc-fb70-4467-9350-c910bdf7c628 # Added Credentials to Existing Application
+a6355fbe-f36f-45d8-8efc-ab42465cbc52 # Delegated Permissions Granted For All Users
+9b2cc4c4-2ad4-416d-8e8e-ee6aa6f5035a # End User Consent
+7091372f-623c-4293-bc37-20c32b3492be # End User Consent Blocked
+74298991-9fc4-460e-a92e-511aa60baec1 # Added Owner To Application
+c1d147ae-a951-48e5-8b41-dcd0170c7213 # App Granted Microsoft Permissions
+5aecf3d5-f8a0-48e7-99be-3a759df7358f # App Granted Privileged Delegated Or App Permissions
+b04934b2-0a68-4845-8a19-bdfed3a68a7a # App Assigned To Azure RBAC/Microsoft Entra Role
+0055ad1f-be85-4798-83cf-a6da17c993b3 # Application URI Configuration Changes
+a4b25073-8947-489c-a8dd-93b41c23f26d # Windows LAPS Credential Dump From Entra ID
+4d78a000-ab52-4564-88a5-7ab5242b20c7 # Change to Authentication Method
+352a54e1-74ba-4929-9d47-8193d67aba1e # Azure Domain Federation Settings Modified
+91c95675-1f27-46d0-bead-d1ae96b97cd3 # User Added To Group With CA Policy Modification Access
+665e2d43-70dc-4ccc-9d27-026c9dd7ed9c # User Removed From Group With CA Policy Modification Access
+0b4b72e3-4c53-4d5b-b198-2c58cfef39a9 # Guest User Invited By Non Approved Inviters
+8dee7a0d-43fd-4b3c-8cd1-605e189d195e # User State Changed From Guest To Member
+039a7469-0296-4450-84c0-f6966b16dc6d # PIM Approvals And Deny Elevation
+aeaef14c-e5bf-4690-a9c8-835caad458bd # PIM Alert Setting Changes To Disabled
+db6c06c4-bf3b-421c-aa88-15672b88c743 # Changes To PIM Settings
+49a268a4-72f4-4e38-8a7b-885be690c5b5 # User Added To Privilege Role
+102e11e3-2db5-4c9e-bc26-357d42585d21 # Bulk Deletion Changes To Privileged Account Permissions
+f7b5b004-dece-46e4-a4a5-f6fd0e1c6947 # Privileged Account Creation
+ca9bf243-465e-494a-9e54-bf9fc239057d # Azure Subscription Permission Elevation Via AuditLogs
+fa84aaf5-8142-43cd-9ec2-78cfebf878ce # Temporary Access Pass Added To An Account
+d4c7758e-9417-4f2e-9109-6125d66dabef # User Risk and MFA Registration Policy Updated
+b18454c8-0be3-41f7-86bc-9c614611b839 # Multi Factor Authentication Disabled For User Account
+340ee172-4b67-4fb4-832f-f961bdc1f3aa # Password Reset By User Account
+35b781cc-1a08-4a5a-80af-42fd7c315c6b # Discovery Using AzureHound
+5afa454e-030c-4ab4-9253-a90aa7fcc581 # Device Registration or Join Without MFA
+28eea407-28d7-4e42-b0be-575d5ba60b2c # Azure AD Only Single Factor Authentication Required
+572b12d4-9062-11ed-a1eb-0242ac120002 # Suspicious SignIns From A Non Registered Device
+4f77e1d7-3982-4ee0-8489-abf2d6b75284 # Sign-ins from Non-Compliant Devices
+4d136857-6a1a-432a-82fc-5dd497ee5e7c # Sign-ins by Unknown Devices
+53bb4f7f-48a8-4475-ac30-5a82ddfdf6fc # Potential MFA Bypass Using Legacy Client Authentication
+248649b7-d64f-46f0-9fb2-a52774166fb5 # Application Using Device Code Authentication Flow
+55695bc0-c8cf-461f-a379-2535f563c854 # Applications That Are Using ROPC Authentication Flow
+4afac85c-224a-4dd7-b1af-8da40e1c60bd # Account Disabled or Blocked for Sign in Attempts
+b4a6d707-9430-4f5f-af68-0337f52d5c42 # Sign-in Failure Due to Conditional Access Requirements Not Met
+908655e0-25cf-4ae1-b775-1c8ce9cf43d8 # Login to Disabled Account
+e40f4962-b02b-4192-9bfe-245f7ece1f99 # Multifactor Authentication Denied
+5496ff55-42ec-4369-81cb-00f417029e25 # Multifactor Authentication Interrupted
+8366030e-7216-476b-9927-271d79f13cf3 # Azure Unusual Authentication Interruption
+9a60e676-26ac-44c3-814b-0c2a8b977adf # User Access Blocked by Azure Conditional Access
