@@ -1,0 +1,21 @@
+title: M365 Mailbox Full Access Permission Granted
+id: a1f0c2e1-0004-4a00-8a01-000000000004
+status: experimental
+description: Detects a mailbox permission (e.g. FullAccess) being granted to another principal, a common mailbox-delegation persistence technique.
+references:
+    - https://github.com/Yamato-Security/suzaku-sample-data/tree/main/azure/det-eng-samples
+author: Zach Mathis
+date: 2026-07-09
+tags:
+    - attack.persistence
+    - attack.t1098.002
+logsource:
+    product: azure
+    service: m365
+detection:
+    selection:
+        Operation: 'Add-MailboxPermission'
+    condition: selection
+falsepositives:
+    - Legitimate delegation such as shared-mailbox or assistant access.
+level: medium

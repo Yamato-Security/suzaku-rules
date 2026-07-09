@@ -1,0 +1,22 @@
+title: M365 Application Registered
+id: a1f0c2e1-0011-4a00-8a01-000000000011
+status: experimental
+description: Detects registration of a new application in the tenant, which can be abused for persistence (e.g. rclone / OAuth data access).
+references:
+    - https://github.com/Yamato-Security/suzaku-sample-data/tree/main/azure/det-eng-samples
+author: Zach Mathis
+date: 2026-07-09
+tags:
+    - attack.persistence
+    - attack.t1550.001
+    - attack.t1098.001
+logsource:
+    product: azure
+    service: m365
+detection:
+    selection:
+        Operation: 'Add application.'
+    condition: selection
+falsepositives:
+    - Legitimate application onboarding.
+level: medium
