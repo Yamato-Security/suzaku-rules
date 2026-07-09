@@ -1,0 +1,21 @@
+title: M365 Failed User Login (Password Spray / Brute Force)
+id: a1f0c2e1-0006-4a00-8a01-000000000006
+status: experimental
+description: Detects failed M365 sign-ins. A burst of these across many users is indicative of password spraying or brute forcing (msolspray/o365spray).
+references:
+    - https://github.com/Yamato-Security/suzaku-sample-data/tree/main/azure/det-eng-samples
+author: Zach Mathis
+date: 2026-07-09
+tags:
+    - attack.credential-access
+    - attack.t1110.003
+logsource:
+    product: azure
+    service: m365
+detection:
+    selection:
+        Operation: 'UserLoginFailed'
+    condition: selection
+falsepositives:
+    - Users mistyping passwords; correlate on volume/distinct-users for higher fidelity.
+level: medium
