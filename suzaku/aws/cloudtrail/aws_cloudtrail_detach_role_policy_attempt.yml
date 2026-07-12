@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DetachRolePolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Removes the specified managed policy from the specified role.
     Security implications: Attackers might use DetachRolePolicy to remove crucial permissions from IAM roles, disrupting AWS services.
+    Ex: aws iam detach-role-policy --role-name TrailDiscover --policy-arn arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

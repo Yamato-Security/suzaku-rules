@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes a global database cluster. The primary and secondary clusters must already be detached or destroyed first.
     Security implications: Attackers might use DeleteGlobalCluster to disrupt database services by deleting global clusters in AWS RDS.
+    Ex: aws rds delete-global-cluster --global-cluster-identifier TrailDiscoverGlobalClusterIdentifier
 references:
     - https://www.elastic.co/guide/en/security/current/aws-deletion-of-rds-instance-or-cluster.html
     - https://aws.permissions.cloud/iam/rds#rds-DeleteGlobalCluster

@@ -5,8 +5,10 @@ description: |
     Failed or denied attempt to call GetAccountAuthorizationDetails — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves information about all IAM users, groups, roles, and policies in your AWS account, including their relationships to one another.
     Security implications: Attackers might use GetAccountAuthorizationDetails to gather information about IAM users, groups, roles, and policies in a targeted AWS account.
+    Ex: aws iam get-account-authorization-details
 references:
     - https://cloud.hacktricks.xyz/pentesting-cloud/aws-security/aws-services/aws-iam-enum
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.discovery.ec2-enumerate-from-instance
     - https://aws.permissions.cloud/iam/iam#iam-GetAccountAuthorizationDetails
     - https://traildiscover.cloud/#IAM-GetAccountAuthorizationDetails
 author: Zach Mathis (@YamatoSecurity)

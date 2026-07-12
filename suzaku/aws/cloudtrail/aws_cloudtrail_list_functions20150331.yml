@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns a list of Lambda functions, with the version-specific configuration of each.
     Security implications: Attackers might use ListFunctions to enumerate Lambda functions, identifying targets that may contain hardcoded secrets or have overly permissive IAM roles attached.
+    Ex: aws lambda list-functions
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

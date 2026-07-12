@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns metadata about the images in a repository.
     Security implications: Attackers might use DescribeImages to enumerate available container image versions and tags in ECR repositories, identifying targets for exfiltration.
+    Ex: aws ecr describe-images --repository-name traildiscoverrepo
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

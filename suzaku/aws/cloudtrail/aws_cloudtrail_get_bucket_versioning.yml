@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns the versioning state of a bucket.
     Security implications: Attackers might use GetBucketVersioning to identify unsecured S3 buckets with versioning disabled, making it easier to manipulate or delete data.
+    Ex: aws s3api get-bucket-versioning --bucket TrailDiscoverBucket
     Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud; Muddled Libra’s Evolution to the Cloud; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
 references:
     - https://www.invictus-ir.com/news/ransomware-in-the-cloud

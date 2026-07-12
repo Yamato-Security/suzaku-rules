@@ -13,6 +13,9 @@ references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
     - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
     - https://badshah.io/case-studies/saas-aws-breach/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.impact.s3-ransomware-client-side-encryption
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.impact.s3-ransomware-batch-deletion
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.impact.s3-ransomware-individual-deletion
     - https://aws.permissions.cloud/iam/s3#s3-DeleteObject
     - https://traildiscover.cloud/#S3-DeleteObject
 author: Zach Mathis (@YamatoSecurity)

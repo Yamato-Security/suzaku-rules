@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeleteGlobalCluster — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes a global database cluster. The primary and secondary clusters must already be detached or destroyed first.
     Security implications: Attackers might use DeleteGlobalCluster to disrupt database services by deleting global clusters in AWS RDS.
+    Ex: aws rds delete-global-cluster --global-cluster-identifier TrailDiscoverGlobalClusterIdentifier
 references:
     - https://www.elastic.co/guide/en/security/current/aws-deletion-of-rds-instance-or-cluster.html
     - https://aws.permissions.cloud/iam/rds#rds-DeleteGlobalCluster

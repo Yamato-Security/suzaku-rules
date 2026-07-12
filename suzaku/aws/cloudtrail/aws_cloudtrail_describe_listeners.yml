@@ -4,6 +4,7 @@ status: experimental
 description: |
     Describes the specified listeners or the listeners for the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
     Security implications: Attackers might use DescribeListeners to get information about the load balancers listeners for potential future modifications.
+    Ex: aws elbv2 describe-listeners
 references:
     - https://medium.com/@adan.alvarez/rigging-the-rules-manipulating-aws-alb-to-mine-sensitive-data-20e33dbc4994
     - https://aws.permissions.cloud/iam/elasticloadbalancing#elasticloadbalancing-DescribeListeners

@@ -4,6 +4,7 @@ status: experimental
 description: |
     Retrieves the applied quota value for the specified account-level or resource-level quota.
     Security implications: Attackers might use GetServiceQuota to enumerate EC2 or other service limits before launching resource hijacking campaigns such as cryptomining.
+    Ex: aws service-quotas get-service-quota --service-code ec2 --quota-code L-1216C47A
     Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
 references:
     - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/

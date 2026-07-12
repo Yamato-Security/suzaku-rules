@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns a list of the custom models that you have created with the CreateModelCustomizationJob operation.
     Security implications: Attackers might use ListCustomModels to discover proprietary fine-tunes worth stealing or sabotaging and to gauge potential GPU spend to hijack.
+    Ex: aws bedrock list-custom-models
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes

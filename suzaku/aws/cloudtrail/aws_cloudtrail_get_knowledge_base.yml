@@ -4,6 +4,7 @@ status: experimental
 description: |
     Retrieves configuration details for a specific Amazon Bedrock knowledge base.
     Security implications: Attackers might use GetKnowledgeBase to understand how proprietary data is ingested and where to pivot for data exfiltration or tampering.
+    Ex: aws bedrock-agent get-knowledge-base --knowledge-base-id kb-1234567890
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes

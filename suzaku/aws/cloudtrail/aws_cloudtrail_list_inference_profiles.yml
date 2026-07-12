@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns a list of inference profiles that you can use.
     Security implications: Attackers might use ListInferenceProfiles to identify high-cost deployments they can hijack for ML workload abuse or target for disruption.
+    Ex: aws bedrock list-inference-profiles
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes

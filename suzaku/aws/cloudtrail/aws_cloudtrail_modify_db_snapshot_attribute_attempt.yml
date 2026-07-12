@@ -5,12 +5,14 @@ description: |
     Failed or denied attempt to call ModifyDBSnapshotAttribute — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.
     Security implications: Attackers might use ModifyDBSnapshotAttribute to alter database snapshot permissions, potentially gaining unauthorized access to sensitive data via sharing it.
+    Ex: aws rds modify-db-snapshot-attribute --db-snapshot-identifier TrailDiscoverDBSnapshotIdentifier --attribute-name TrailDiscoverAttributeName --values-to-add TrailDiscoverValuesToAdd
     Observed in real-world incidents/reporting, e.g.: Imperva Security Update; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
 references:
     - https://www.imperva.com/blog/ceoblog/
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
     - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/sharing-rds-snapshot/
     - https://sysdig.com/blog/aws-rds-security-events-sysdig/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.exfiltration.rds-share-snapshot
     - https://aws.permissions.cloud/iam/rds#rds-ModifyDBSnapshotAttribute
     - https://traildiscover.cloud/#RDS-ModifyDBSnapshotAttribute
 author: Zach Mathis (@YamatoSecurity)

@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call InviteAccountToOrganization — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Sends an invitation to another account to join your organization as a member account.
     Security implications: Attackers might use InviteAccountToOrganization to add an account they control for defense evasion, resource hijacking.
+    Ex: aws organizations invite-account-to-organization --target '{"Type": "EMAIL", "Id": "traildiscover@example.com"}'
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
 references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf

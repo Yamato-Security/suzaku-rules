@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeSubnets — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes your subnets.
     Security implications: Subnet CIDRs and attributes inform reachability and potential pivot targets.
+    Ex: aws ec2 describe-subnets --max-results 5
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

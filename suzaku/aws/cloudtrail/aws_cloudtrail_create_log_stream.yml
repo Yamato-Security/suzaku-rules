@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates a log stream for the specified log group.
     Security implications: Attackers might use CreateLogStream to later add benign log entries, effectively burying any signs of his malicious activities.
+    Ex: aws logs create-log-stream --log-group-name my-logs --log-stream-name 20150601
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
 references:
     - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/

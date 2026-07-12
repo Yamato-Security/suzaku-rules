@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns information about a snapshot or cluster export to Amazon S3.
     Security implications: Export task details may expose S3 bucket names and regions, aiding in data exfiltration efforts.
+    Ex: aws rds describe-export-tasks
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

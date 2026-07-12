@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeleteAlarms — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified alarms. You can delete up to 100 alarms in one operation.
     Security implications: Attackers might use DeleteAlarms to disable critical CloudWatch alerts, undermining AWS environment monitoring
+    Ex: aws cloudwatch delete-alarms --alarm-names TrailDiscoverAlarm
 references:
     - https://www.elastic.co/guide/en/security/current/aws-cloudwatch-alarm-deletion.html
     - https://fwdcloudsec.org/assets/presentations/2024/europe/sebastian-walla-cloud-conscious-tactics-techniques-and-procedures-an-overview.pdf

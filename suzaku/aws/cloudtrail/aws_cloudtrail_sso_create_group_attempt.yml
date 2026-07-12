@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a group within the specified identity store.
     Security implications: Attackers might use CreateGroup to create groups with elevated privileges, allowing them to manipulate access controls and maintain persistence in the environment.
+    Ex: aws identitystore create-group --identity-store-id <your-identity-store-id> --display-name 'TrailDiscoverGroup'
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/

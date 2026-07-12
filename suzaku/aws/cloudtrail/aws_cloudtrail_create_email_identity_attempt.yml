@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateEmailIdentity — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Starts the process of verifying an email identity. An identity is an email address or domain that you use when you send email.
     Security implications: Attackers use CreateEmailIdentity to create its own identity for sending spam or phishing emails later.
+    Ex: aws sesv2 create-email-identity --email-identity cloudtrail.cloud
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; From Compromised Keys to Phishing Campaigns: Inside a Cloud Email Service Takeover.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

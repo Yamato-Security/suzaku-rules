@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeNetworkInterfaces — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes one or more of your network interfaces.
     Security implications: Attackers might use DescribeNetworkInterfaces to map network topology, identify public-facing resources, and plan lateral movement within the VPC.
+    Ex: aws ec2 describe-network-interfaces
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns a list of all of the email identities that are associated with your AWS account.
     Security implications: Attackers use ListEmailIdentities from SES to enumerate email addresses under the AWS account for future attacks.
+    Ex: aws sesv2 list-email-identities
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Unwanted visitor.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-unwanted-visitor/

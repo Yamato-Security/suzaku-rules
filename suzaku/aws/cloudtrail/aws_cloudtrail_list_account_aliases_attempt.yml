@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListAccountAliases — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the account aliases associated with the AWS account.
     Security implications: Attackers may list account aliases to identify the human-friendly alias of the compromised account for social engineering or further reconnaissance.
+    Ex: aws iam list-account-aliases
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

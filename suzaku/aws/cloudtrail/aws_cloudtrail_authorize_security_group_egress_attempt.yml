@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call AuthorizeSecurityGroupEgress — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds the specified outbound (egress) rules to a security group.
     Security implications: Attackers might use AuthorizeSecurityGroupEgress to allow exfiltration.
+    Ex: aws ec2 authorize-security-group-egress --group-id sg-1a2b3c4d --ip-permissions IpProtocol=tcp,FromPort=80,ToPort=80,IpRanges='[{CidrIp=10.0.0.0/16}]'
     Observed in real-world incidents/reporting, e.g.: Trouble in Paradise.
 references:
     - https://blog.darklab.hk/2021/07/06/trouble-in-paradise/

@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns a set of temporary security credentials that you can use to access AWS resources.
     Security implications: Attackers might use AssumeRole to gain unauthorized access to an AWS role. This might allow them to gain initial access, escalate privileges or in specific scenarios gain persistence.
+    Ex: aws sts assume-role --role-arn arn:aws:iam::123456789012:role/TrailDiscover --role-session-name TrailDiscover
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Trouble in Paradise; Tales from the cloud trenches: Unwanted visitor; AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

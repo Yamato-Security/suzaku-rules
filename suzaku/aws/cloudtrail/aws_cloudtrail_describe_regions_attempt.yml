@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeRegions — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the Regions that are enabled for your account, or all Regions.
     Security implications: Attackers might use DescribeRegions to identify all available AWS regions, possibly to explore regional deployment patterns and target specific regions where defenses might be weaker.
+    Ex: aws ec2 describe-regions
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
 references:
     - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab

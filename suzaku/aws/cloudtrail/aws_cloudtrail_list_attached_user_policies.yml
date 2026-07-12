@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists all managed policies that are attached to the specified IAM user.
     Security implications: Attackers might use ListAttachedUserPolicies to identify and exploit permissions associated with various users in AWS.
+    Ex: aws iam list-attached-user-policies --user-name TrailDiscover
     Observed in real-world incidents/reporting, e.g.: Datadog threat roundup: top insights for Q4 2024.
 references:
     - https://securitylabs.datadoghq.com/articles/2024-q4-threat-roundup/

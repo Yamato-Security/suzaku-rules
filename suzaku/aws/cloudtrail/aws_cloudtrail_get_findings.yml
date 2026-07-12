@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns a list of findings that match the specified criteria.
     Security implications: Attackers might use GetFindings to identify if previous actions generated alerts.
+    Ex: aws guardduty get-findings --detector-id TrailDiscoverDetectorId --finding-ids TrailDiscoverFindingIds
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

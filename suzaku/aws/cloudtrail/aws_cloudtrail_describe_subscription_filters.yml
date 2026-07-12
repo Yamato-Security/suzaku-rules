@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists the subscription filters for the specified log group.
     Security implications: Attackers might use DescribeSubscriptionFilters to discover CloudWatch log configurations.
+    Ex: aws logs describe-subscription-filters --log-group-name TrailDiscoverLogGroupName
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
 references:
     - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab

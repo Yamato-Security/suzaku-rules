@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListGroups — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the IAM groups that have the specified path prefix.
     Security implications: Attackers might use ListGroups to identify potential targets by gathering information about IAM groups and their permissions.
+    Ex: aws iam list-groups
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/

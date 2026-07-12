@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeInstanceInformation — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Provides information about one or more of your managed nodes, including the operating system platform, SSM Agent version, association status, and IP address.
     Security implications: Attackers might use DescribeInstanceInformation to gather sensitive information about the instances, potentially leading to unauthorized access.
+    Ex: aws ssm describe-instance-information --instance-information-filter-list key=InstanceIds,valueSet=TrailDiscoverInstanceIds
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

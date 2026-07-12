@@ -4,10 +4,12 @@ status: experimental
 description: |
     Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle configuration.
     Security implications: Attackers might use PutBucketLifecycle to add a lifecycle that deletes data after one day.
+    Ex: aws s3api put-bucket-lifecycle --bucket my-bucket --lifecycle-configuration '{"Rules":[{"ID":"","Status": "Enabled", "Prefix": "TrailDiscover/"}]}'
     Observed in real-world incidents/reporting, e.g.: USA VS Nickolas Sharp; New tactics and techniques for proactive threat detection.
 references:
     - https://www.justice.gov/usao-sdny/press-release/file/1452706/dl
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.defense-evasion.cloudtrail-lifecycle-rule
     - https://traildiscover.cloud/#S3-PutBucketLifecycle
 author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12

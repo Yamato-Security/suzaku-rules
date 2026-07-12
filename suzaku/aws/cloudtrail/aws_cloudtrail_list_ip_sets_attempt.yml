@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListIPSets — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the IPSets of the GuardDuty service specified by the detector ID.
     Security implications: Attackers might use ListIPSets to identify what IPs won't generate an alert.
+    Ex: aws guardduty list-ip-sets --detector-id TrailDiscoverDetectorId
 references:
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-ListIPSets

@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the specified inline policy that is embedded in the specified IAM user.
     Security implications: Attackers might use DeleteUserPolicy to remove security policies and gain unauthorized access to AWS resources.
+    Ex: aws iam delete-user-policy --user-name TrailDiscover --policy-name TrailDiscover
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

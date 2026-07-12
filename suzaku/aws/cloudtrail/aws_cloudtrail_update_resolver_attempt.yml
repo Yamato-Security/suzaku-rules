@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call UpdateResolver — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates a Resolver object.
     Security implications: Attackers might use UpdateResolver to execute custom code that could allow potential access to data and bypass protections.
+    Ex: aws appsync update-resolver --api-id TrailDiscoverApiId --type-name TrailDiscoverTypeName --field-name TrailDiscoverFieldName --pipeline-config functions=TrailDiscoverFunctions --request-mapping-template TrailDiscoverRequestMappingTemplate --response-mapping-template TrailDiscoverResponseMappingTemplate
 references:
     - https://medium.com/@adan.alvarez/distorting-the-sync-how-aws-appsync-can-be-turned-into-an-attackers-backdoor-8c015b8e52b8
     - https://aws.permissions.cloud/iam/appsync#appsync-UpdateResolver

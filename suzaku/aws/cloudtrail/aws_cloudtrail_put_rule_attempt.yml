@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call PutRule — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates or updates the specified rule.
     Security implications: Attackers might use PutRule in AWS EventBridge to create unauthorized event rules, potentially automating malicious actions to gain persistence or triggering unwarranted responses within the environment.
+    Ex: aws events put-rule --name TrailDiscoverRule --schedule-expression 'rate(5 minutes)' --state ENABLED --description "TrailDiscover rule"
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
 references:
     - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/

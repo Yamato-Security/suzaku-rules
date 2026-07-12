@@ -4,6 +4,7 @@ status: experimental
 description: |
     Retrieves an authorization token that can be used to authenticate to an Amazon ECR registry.
     Security implications: Attackers might use GetAuthorizationToken to authenticate a Docker client to Amazon ECR, enabling them to pull private container images containing proprietary code and secrets.
+    Ex: aws ecr get-login-password --region us-east-1
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeRepositories — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes image repositories in a registry.
     Security implications: Attackers might use DescribeRepositories to enumerate ECR repositories, identifying container images that may contain proprietary code, embedded secrets, or internal service logic.
+    Ex: aws ecr describe-repositories
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

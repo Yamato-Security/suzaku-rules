@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new group.
     Security implications: Attackers use CreateGroup to create a group that they can use to escalate privileges.
+    Ex: aws iam create-group --group-name TrailDiscover
 references:
     - https://www.elastic.co/guide/en/security/current/aws-iam-group-creation.html
     - https://aws.permissions.cloud/iam/iam#iam-CreateGroup

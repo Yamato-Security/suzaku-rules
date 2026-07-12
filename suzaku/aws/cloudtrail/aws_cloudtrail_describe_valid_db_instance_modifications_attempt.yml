@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeValidDBInstanceModifications — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     You can call DescribeValidDBInstanceModifications to learn what modifications you can make to your DB instance.
     Security implications: May inform attackers on upgrade/downgrade or performance-impacting changes for disruptive actions.
+    Ex: aws rds describe-valid-db-instance-modifications --db-instance-identifier example
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

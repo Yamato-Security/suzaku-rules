@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call PutBucketEncryption — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     This operation configures default encryption and Amazon S3 Bucket Keys for an existing bucket.
     Security implications: Attackers might use PutBucketEncryption to set the KMS key to one it controls for ransomware.
+    Ex: aws s3api put-bucket-encryption --bucket my-bucket --server-side-encryption-configuration '{"Rules":[{"ApplyServerSideEncryptionByDefault":{"SSEAlgorithm":"aws:kms","KMSMasterKeyID":"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"}}]}'
 references:
     - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
     - https://traildiscover.cloud/#S3-PutBucketEncryption

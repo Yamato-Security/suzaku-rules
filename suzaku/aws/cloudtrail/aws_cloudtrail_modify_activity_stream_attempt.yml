@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ModifyActivityStream — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Changes the audit policy state of a database activity stream to either locked (default) or unlocked.
     Security implications: Attackers might use ModifyActivityStream to alter the configuration of the activity stream, potentially hiding malicious activities or causing disruptions in the database operations.
+    Ex: aws rds modify-activity-stream
     Observed in real-world incidents/reporting, e.g.: Uncovering Hybrid Cloud Attacks Through Intelligence-Driven Incident Response: Part 3 – The Response.
 references:
     - https://www.gem.security/post/uncovering-hybrid-cloud-attacks-through-intelligence-driven-incident-response-part-3-the-response

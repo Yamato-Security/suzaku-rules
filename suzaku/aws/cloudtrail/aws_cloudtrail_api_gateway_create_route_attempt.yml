@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateRoute — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a Route for an API. A Route is a configuration that specifies how API requests are routed to backend integrations.
     Security implications: Attackers might use CreateRoute to create malicious routes that can be used to establish persistence in the environment.
+    Ex: aws apigatewayv2 create-route --api-id $API_ID --route-key 'GET /buckets555' --target 'integrations/$INTEGRATION_ID'
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/

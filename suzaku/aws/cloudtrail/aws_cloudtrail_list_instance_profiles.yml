@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists the instance profiles that have the specified path prefix. If there are none, the operation returns an empty list.
     Security implications: Attackers might use ListInstanceProfiles to identify potential targets for privilege escalation attacks in AWS.
+    Ex: aws iam list-instance-profiles
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

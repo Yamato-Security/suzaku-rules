@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call UpdateEventSourceMapping20150331 — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.
     Security implications: Attackers might use UpdateEventSourceMapping to pull data from a different source, leading to incorrect function results.
+    Ex: aws lambda update-event-source-mapping --uuid 'a1b2c3d4-5678-90ab-cdef-11111EXAMPLE' --batch-size 8
 references:
     - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
     - https://aws.permissions.cloud/iam/lambda#lambda-UpdateEventSourceMapping

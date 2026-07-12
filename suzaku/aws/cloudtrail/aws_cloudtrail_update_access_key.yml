@@ -4,6 +4,7 @@ status: experimental
 description: |
     Changes the status of the specified access key from Active to Inactive, or vice versa.
     Security implications: Attackers might use UpdateAccessKey to modify existing IAM user access keys, potentially gaining unauthorized access to AWS services.
+    Ex: aws iam update-access-key --access-key-id AKIAIOSFODNN7EXAMPLE --status Inactive --user-name TrailDiscover
 references:
     - https://cloud.hacktricks.xyz/pentesting-cloud/aws-security/aws-privilege-escalation/aws-iam-privesc
     - https://aws.permissions.cloud/iam/iam#iam-UpdateAccessKey

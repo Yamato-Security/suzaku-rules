@@ -4,6 +4,7 @@ status: experimental
 description: |
     Attaches the specified managed policy to the specified IAM group.
     Security implications: Attackers might use AttachGroupPolicy to assign malicious policies to a group, escalating privileges or enabling unauthorized access.
+    Ex: aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/TrailDiscover --group-name TrailDiscover
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/

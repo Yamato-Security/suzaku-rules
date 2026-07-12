@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists the IPSets of the GuardDuty service specified by the detector ID.
     Security implications: Attackers might use ListIPSets to identify what IPs won't generate an alert.
+    Ex: aws guardduty list-ip-sets --detector-id TrailDiscoverDetectorId
 references:
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-ListIPSets

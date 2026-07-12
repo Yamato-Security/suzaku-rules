@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists the IAM groups that the specified IAM user belongs to.
     Security implications: Attackers might use ListGroupsForUser to identify privileged groups and target specific users for access escalation.
+    Ex: aws iam list-groups-for-user --user-name TrailDiscover
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

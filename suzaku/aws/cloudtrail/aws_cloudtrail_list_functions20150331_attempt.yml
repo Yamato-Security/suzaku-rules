@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListFunctions20150331 — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list of Lambda functions, with the version-specific configuration of each.
     Security implications: Attackers might use ListFunctions to enumerate Lambda functions, identifying targets that may contain hardcoded secrets or have overly permissive IAM roles attached.
+    Ex: aws lambda list-functions
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

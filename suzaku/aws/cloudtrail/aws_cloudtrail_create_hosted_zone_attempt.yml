@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateHostedZone — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to route traffic on the internet for a domain, such as example.com, and its subdomains.
     Security implications: Attackers might use CreateHostedZone to create malicious DNS zones for phishing or redirecting traffic.
+    Ex: aws route53 create-hosted-zone --name traildiscover.cloud --caller-reference 2014-04-01-18:47 --hosted-zone-config Comment='traildiscover'
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

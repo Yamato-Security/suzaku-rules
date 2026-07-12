@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates a security group.
     Security implications: Attackers might use CreateSecurityGroup to establish new security groups with lax rules, facilitating unauthorized access or resource exploitation within AWS environments.
+    Ex: aws ec2 create-security-group --group-name TrailDiscoverGroupName --description "TrailDiscoverDescription"
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Behind the scenes in the Expel SOC: Alert-to-fix in AWS; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; ANATOMY OF AN ATTACK: EXPOSED KEYS TO CRYPTO MINING; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

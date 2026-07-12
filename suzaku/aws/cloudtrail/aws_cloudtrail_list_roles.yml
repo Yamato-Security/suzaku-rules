@@ -4,11 +4,13 @@ status: experimental
 description: |
     Lists the IAM roles that have the specified path prefix.
     Security implications: Attackers might use ListRoles to identify potential targets for privilege escalation attacks in AWS.
+    Ex: aws iam list-roles
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://cloud.hacktricks.xyz/pentesting-cloud/aws-security/aws-services/aws-iam-enum
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.discovery.ec2-enumerate-from-instance
     - https://aws.permissions.cloud/iam/iam#iam-ListRoles
     - https://traildiscover.cloud/#IAM-ListRoles
 author: Zach Mathis (@YamatoSecurity)

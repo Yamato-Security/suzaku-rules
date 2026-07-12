@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeDBSubnetGroups — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list of DBSubnetGroup descriptions.
     Security implications: Subnet group details reveal network placement of databases supporting lateral movement planning.
+    Ex: aws rds describe-db-subnet-groups
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

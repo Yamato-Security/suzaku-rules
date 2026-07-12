@@ -4,6 +4,7 @@ status: experimental
 description: |
     Adds or updates the policy that is specified as the IAM user's permissions boundary.
     Security implications: Attackers might use PutUserPermissionsBoundary to modify the permissions boundary for an IAM user, potentially escalating privileges or enabling unauthorized access.
+    Ex: aws iam put-user-permissions-boundary --permissions-boundary arn:aws:iam::123456789012:policy/intern-boundary --user-name TrailDiscover
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-PutUserPermissionsBoundary

@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the specified log group and permanently deletes all the archived log events associated with the log group.
     Security implications: Attackers might use DeleteLogGroup to erase CloudWatch logs, erasing evidence of their activities within AWS.
+    Ex: aws logs delete-log-group --log-group-name TrailDiscoverLogGroup
 references:
     - https://essay.utwente.nl/76955/1/Szabo_MSc_EEMCS.pdf
     - https://expel.com/blog/following-cloudtrail-generating-aws-security-signals-sumo-logic/

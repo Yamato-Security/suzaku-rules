@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists all batch inference jobs in the account.
     Security implications: Attackers might use ListModelInvocationJobs to review sensitive prompts, spot valuable outputs, or plan when to insert malicious workloads.
+    Ex: aws bedrock list-model-invocation-jobs
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes

@@ -10,6 +10,7 @@ references:
     - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
     - https://permiso.io/blog/exploiting-hosted-models
     - https://www.wiz.io/blog/jinx-2401-llm-hijacking-aws
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.impact.bedrock-invoke-model
     - https://aws.permissions.cloud/iam/bedrock#bedrock-CreateFoundationModelAgreement
     - https://traildiscover.cloud/#Bedrock-CreateFoundationModelAgreement
 author: Zach Mathis (@YamatoSecurity)

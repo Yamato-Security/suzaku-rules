@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates an Auto Scaling group with the specified name and attributes.
     Security implications: Attackers might use CreateAutoScalingGroup to deploy large numbers of EC2 instances automatically for cryptomining or other resource hijacking campaigns, with aggressive scaling parameters to maximize resource consumption.
+    Ex: aws autoscaling create-auto-scaling-group --auto-scaling-group-name TrailDiscoverASG --launch-template LaunchTemplateName=TrailDiscoverTemplate --min-size 1 --max-size 1
     Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
 references:
     - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/

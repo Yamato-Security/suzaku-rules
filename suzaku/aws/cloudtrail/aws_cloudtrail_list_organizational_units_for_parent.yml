@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists the organizational units (OUs) in a parent organizational unit or root.
     Security implications: Attackers might use ListOrganizationalUnitsForParent to map the structure of an organization's AWS environment for potential vulnerabilities.
+    Ex: aws organizations list-organizational-units-for-parent --parent-id r-traildiscover
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/

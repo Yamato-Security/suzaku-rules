@@ -1,0 +1,11 @@
+# Azure rules to ignore when loading (do not load; the .yml stays in the repo).
+# One UUIDv4 per line, with an optional reason after '#':
+#   <uuid> # <reason the rule is skipped>
+#
+# Suzaku reads this file (config/azure_ignore_rule_list.txt) when running the
+# azure-timeline command and skips loading any rule whose id matches a UUID listed here.
+# Blank lines and lines starting with '#' are ignored; an inline '# comment' after a UUID
+# is allowed. See config/aws_ignore_rule_list.txt for a populated example.
+#
+# No Azure rules are currently ignored. Add entries below, for example:
+#   00000000-0000-0000-0000-000000000000 # Example: superseded by <replacement rule>

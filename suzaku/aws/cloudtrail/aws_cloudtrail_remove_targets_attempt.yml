@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call RemoveTargets — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Removes the specified targets from the specified rule.
     Security implications: Attackers might use RemoveTargets in AWS EventBridge to eliminate crucial targets from event rules, effectively disabling intended actions or notifications triggered by specific events.
+    Ex: aws events remove-targets --rule TrailDiscoverRule --ids TrailDiscoverTargetId
 references:
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/events#events-RemoveTargets

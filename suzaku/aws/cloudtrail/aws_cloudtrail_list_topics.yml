@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns a list of the requester's topics.
     Security implications: Attackers might use ListTopics to identify potential SNS topics for unauthorized access or disruption.
+    Ex: aws sns list-topics
 references:
     - https://permiso.io/blog/s/smishing-attack-on-aws-sms-new-phone-who-dis/
     - https://aws.permissions.cloud/iam/sns#sns-ListTopics

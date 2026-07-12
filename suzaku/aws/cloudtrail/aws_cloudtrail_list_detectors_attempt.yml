@@ -5,10 +5,12 @@ description: |
     Failed or denied attempt to call ListDetectors — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists detectorIds of all the existing Amazon GuardDuty detector resources.
     Security implications: Attackers might use ListDetectors to identify active threat detection systems in AWS GuardDuty.
+    Ex: aws guardduty list-detectors
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.discovery.ec2-enumerate-from-instance
     - https://aws.permissions.cloud/iam/guardduty#guardduty-ListDetectors
     - https://traildiscover.cloud/#GuardDuty-ListDetectors
 author: Zach Mathis (@YamatoSecurity)

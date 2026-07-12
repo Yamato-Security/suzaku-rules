@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates a new group.
     Security implications: Attackers use CreateGroup to create a group that they can use to escalate privileges.
+    Ex: aws iam create-group --group-name TrailDiscover
 references:
     - https://www.elastic.co/guide/en/security/current/aws-iam-group-creation.html
     - https://aws.permissions.cloud/iam/iam#iam-CreateGroup

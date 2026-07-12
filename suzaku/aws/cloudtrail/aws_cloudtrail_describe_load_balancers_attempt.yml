@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeLoadBalancers — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified load balancers or all of your load balancers.
     Security implications: Attackers might use DescribeLoadBalancers to get information about the load balancers for potential future attacks.
+    Ex: aws elbv2 describe-load-balancers --names TrailDiscoverLoadBalancer
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://medium.com/@adan.alvarez/rigging-the-rules-manipulating-aws-alb-to-mine-sensitive-data-20e33dbc4994

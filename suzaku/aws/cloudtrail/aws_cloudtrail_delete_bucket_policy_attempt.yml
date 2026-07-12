@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeleteBucketPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the policy of a specified bucket.
     Security implications: Attackers might use DeleteBucketPolicy to remove security policies and gain unauthorized access to S3 buckets.
+    Ex: aws s3api delete-bucket-policy --bucket TrailDiscoverBucketName
 references:
     - https://www.elastic.co/guide/en/security/7.17/aws-s3-bucket-configuration-deletion.html
     - https://aws.permissions.cloud/iam/s3#s3-DeleteBucketPolicy

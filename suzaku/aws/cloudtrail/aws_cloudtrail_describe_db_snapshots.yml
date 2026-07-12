@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns information about DB snapshots.
     Security implications: Snapshot info indicates potential data backup targets for theft or ransom duplication.
+    Ex: aws rds describe-db-snapshots
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

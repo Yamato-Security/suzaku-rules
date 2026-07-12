@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListDomains — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     This operation returns all the domain names registered with Amazon Route 53 for the current AWS account if no filtering conditions are used.
     Security implications: Attackers might use ListDomains to identify potential targets for DNS hijacking or DDoS attacks.
+    Ex: aws route53domains list-domains --region us-east-1
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/

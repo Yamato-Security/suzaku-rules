@@ -4,8 +4,10 @@ status: experimental
 description: |
     Modifies the specified attribute of the specified AMI.
     Security implications: Attackers might use ModifyImageAttribute to alter permissions or settings of Amazon Machine Images (AMIs), potentially exposing them to unauthorized users or making them public.
+    Ex: aws ec2 modify-image-attribute --image-id TrailDiscoverImageId --attribute TrailDiscoverAttribute --value TrailDiscoverValue
 references:
     - https://research.splunk.com/cloud/f2132d74-cf81-4c5e-8799-ab069e67dc9f/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.exfiltration.ec2-share-ami
     - https://aws.permissions.cloud/iam/ec2#ec2-ModifyImageAttribute
     - https://traildiscover.cloud/#EC2-ModifyImageAttribute
 author: Zach Mathis (@YamatoSecurity)

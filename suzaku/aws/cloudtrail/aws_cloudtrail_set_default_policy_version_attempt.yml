@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call SetDefaultPolicyVersion — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Sets the specified version of the specified policy as the policy's default (operative) version.
     Security implications: Attackers might use SetDefaultPolicyVersion to revert IAM policies to less secure versions, potentially exposing sensitive resources.
+    Ex: aws iam set-default-policy-version --policy-arn arn:aws:iam::123456789012:policy/TrailDiscover --version-id v2
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-SetDefaultPolicyVersion

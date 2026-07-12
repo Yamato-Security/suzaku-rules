@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the specified member accounts from Security Hub.
     Security implications: Attackers might use DeleteMembers to remove specific members from the SecurityHub, disrupting security management and monitoring.
+    Ex: aws securityhub delete-members --account-ids TrailDiscoverAccountIds
 references:
     - https://www.invictus-ir.com/news/aws-cloudtrail-cheat-sheet
     - https://easttimor.github.io/aws-incident-response/

@@ -4,6 +4,7 @@ status: experimental
 description: |
     Starts an Amazon EBS-backed instance that you've previously stopped.
     Security implications: Attackers might use StartInstances to reactivate dormant EC2 instances or after having modified the user data for execution of commands.
+    Ex: aws ec2 start-instances --instance-ids TrailDiscoverInstanceID
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/

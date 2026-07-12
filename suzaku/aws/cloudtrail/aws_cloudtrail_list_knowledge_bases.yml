@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists the knowledge bases in an account. The list also includes information about each knowledge base.
     Security implications: Attackers might use ListKnowledgeBases to identify connected data repositories and prioritize follow-on data theft or sabotage.
+    Ex: aws bedrock-agent list-knowledge-bases
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes

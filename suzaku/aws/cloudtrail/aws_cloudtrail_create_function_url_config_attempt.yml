@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateFunctionUrlConfig — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a Lambda function URL with the specified authorization type.
     Security implications: Attackers might use CreateFunctionUrlConfig with AuthType NONE to create a publicly accessible Lambda endpoint as a persistence backdoor, bypassing IAM authentication.
+    Ex: aws lambda create-function-url-config --function-name TrailDiscoverFunction --auth-type NONE
     Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
 references:
     - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/

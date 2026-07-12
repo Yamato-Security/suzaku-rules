@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateLoginProfile — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
     Security implications: Attackers use CreateLoginProfile to create login credentials for IAM users, allowing them access to the user via the AWS console.
+    Ex: aws iam create-login-profile --user-name TrailDiscover --password TrailDiscover
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Incident report: From CLI to console, chasing an attacker in AWS; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR; LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD; Detecting AI resource-hijacking with Composite Alerts.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
@@ -22,6 +23,7 @@ references:
     - https://www.wiz.io/blog/hunting-for-signs-of-persistence-in-the-cloud-an-ir-guide
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://hackingthe.cloud/aws/post_exploitation/iam_persistence/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.persistence.iam-create-user-login-profile
     - https://aws.permissions.cloud/iam/iam#iam-CreateLoginProfile
     - https://traildiscover.cloud/#IAM-CreateLoginProfile
 author: Zach Mathis (@YamatoSecurity)

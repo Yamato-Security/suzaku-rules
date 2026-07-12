@@ -4,6 +4,7 @@ status: experimental
 description: |
     Describes the specified tags for your EC2 resources.
     Security implications: Tags often encode environment, application names, and ownership enabling targeted attacks or cost-evasion tactics.
+    Ex: aws ec2 describe-tags
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

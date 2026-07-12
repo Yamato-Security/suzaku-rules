@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeactivateMFADevice — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deactivates the specified MFA device and removes it from association with the user name for which it was originally enabled.
     Security implications: Attackers might use DeactivateMFADevice to disable multi-factor authentication, potentially weakening account security.
+    Ex: aws iam deactivate-mfa-device --user-name TrailDiscover --serial-number arn:aws:iam::210987654321:mfa/BobsMFADevice
 references:
     - https://www.elastic.co/guide/en/security/current/aws-iam-deactivation-of-mfa-device.html
     - https://aws.permissions.cloud/iam/iam#iam-DeactivateMFADevice

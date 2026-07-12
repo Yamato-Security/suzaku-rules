@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call GetDetector — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves an Amazon GuardDuty detector specified by the detectorId.
     Security implications: Attackers might use GetDetector to identify active threat detection systems in AWS GuardDuty.
+    Ex: aws guardduty get-detector --detector-id TrailDiscoverDetectorId
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

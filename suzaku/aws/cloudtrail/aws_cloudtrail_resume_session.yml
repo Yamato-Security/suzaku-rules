@@ -4,6 +4,7 @@ status: experimental
 description: |
     Reconnects a session to a managed node after it has been disconnected.
     Security implications: Attackers might use ResumeSession to gain unauthorized access to managed instances.
+    Ex: aws ssm resume-session --session-id TrailDiscoverTarget
 references:
     - https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/
     - https://aws.permissions.cloud/iam/ssm#ssm-ResumeSession

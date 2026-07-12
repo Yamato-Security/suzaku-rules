@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes a file system, permanently severing access to its contents.
     Security implications: Attackers might use DeleteFileSystem in AWS EFS to deliberately erase file systems, leading to data loss.
+    Ex: aws efs delete-file-system --file-system-id fs-c7a0456e
 references:
     - https://www.elastic.co/guide/en/security/7.17/aws-efs-file-system-or-mount-deleted.html
     - https://aws.permissions.cloud/iam/elasticfilesystem#elasticfilesystem-DeleteFileSystem

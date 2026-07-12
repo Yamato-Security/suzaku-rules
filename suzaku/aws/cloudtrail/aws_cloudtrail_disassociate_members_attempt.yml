@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DisassociateMembers — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Disassociates GuardDuty member accounts (from the current administrator account) specified by the account IDs.
     Security implications: Attackers might use DisassociateMembers to remove members from a GuardDuty detector, disrupting threat detection and security analysis.
+    Ex: aws guardduty disassociate-members --detector-id TrailDiscoverDetectorId --account-ids TrailDiscoverAccountIds
 references:
     - https://www.chrisfarris.com/post/reinforce-threat-hunting/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-DisassociateMembers

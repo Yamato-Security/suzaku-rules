@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns the version-specific settings of a Lambda function or version.
     Security implications: Attackers might use GetFunctionConfiguration to inspect Lambda function settings, environment variables, and attached IAM roles to extract credentials or plan privilege escalation.
+    Ex: aws lambda get-function-configuration --function-name TrailDiscoverFunction
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

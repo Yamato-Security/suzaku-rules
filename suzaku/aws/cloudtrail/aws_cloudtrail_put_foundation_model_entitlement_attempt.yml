@@ -9,6 +9,7 @@ description: |
 references:
     - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
     - https://permiso.io/blog/exploiting-hosted-models
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.impact.bedrock-invoke-model
     - https://aws.permissions.cloud/iam/bedrock#bedrock-PutFoundationModelEntitlement
     - https://traildiscover.cloud/#Bedrock-PutFoundationModelEntitlement
 author: Zach Mathis (@YamatoSecurity)

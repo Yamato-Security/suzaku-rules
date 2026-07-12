@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists training jobs.
     Security implications: Attackers might use ListTrainingJobs to discover datasets, container images, and execution roles involved in training so they can pivot to sensitive storage or tamper with future training runs.
+    Ex: aws sagemaker list-training-jobs
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes

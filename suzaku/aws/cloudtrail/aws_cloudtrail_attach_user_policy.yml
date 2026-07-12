@@ -4,6 +4,7 @@ status: experimental
 description: |
     Attaches the specified managed policy to the specified user.
     Security implications: Attackers use AttachUserPolicy to grant malicious policies to IAM users, potentially escalating privileges or enabling unauthorized access to AWS resources.
+    Ex: aws iam attach-user-policy --policy-arn arn:aws:iam::aws:policy/AdministratorAccess --user-name TrailDiscover
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Incident report: From CLI to console, chasing an attacker in AWS; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Detecting AI resource-hijacking with Composite Alerts; Tales from the cloud trenches: Unwanted visitor; Tales from the cloud trenches: The Attacker doth persist too much, methinks.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
@@ -18,6 +19,7 @@ references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
     - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.persistence.iam-create-admin-user
     - https://aws.permissions.cloud/iam/iam#iam-AttachUserPolicy
     - https://traildiscover.cloud/#IAM-AttachUserPolicy
 author: Zach Mathis (@YamatoSecurity)

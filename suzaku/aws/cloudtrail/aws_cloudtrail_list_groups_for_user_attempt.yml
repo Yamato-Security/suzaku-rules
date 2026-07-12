@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListGroupsForUser — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the IAM groups that the specified IAM user belongs to.
     Security implications: Attackers might use ListGroupsForUser to identify privileged groups and target specific users for access escalation.
+    Ex: aws iam list-groups-for-user --user-name TrailDiscover
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

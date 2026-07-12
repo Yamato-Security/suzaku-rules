@@ -4,6 +4,7 @@ status: experimental
 description: |
     Describes the properties of specific versions of DB engines.
     Security implications: Engine version info can be correlated with known vulnerabilities for exploitation.
+    Ex: aws rds describe-db-engine-versions
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

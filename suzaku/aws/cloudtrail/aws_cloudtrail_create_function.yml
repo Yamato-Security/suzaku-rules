@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates a CloudFront function.
     Security implications: Attackers might use CreateFunction to add a new function that can be use to exfiltrate date.
+    Ex: aws cloudfront create-function --name trail-discover-function --function-config Comment='TrailDiscover',Runtime=cloudfront-js-1.0 --function-code VHJhaWxEaXNjb3Zlcgo=
 references:
     - https://medium.com/@adan.alvarez/how-attackers-can-misuse-aws-cloudfront-access-to-make-it-rain-cookies-acf9ce87541c
     - https://aws.permissions.cloud/iam/cloudfront#cloudfront-CreateFunction

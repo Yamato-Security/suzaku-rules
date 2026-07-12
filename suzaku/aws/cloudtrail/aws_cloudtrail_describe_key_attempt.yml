@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeKey — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Provides detailed information about a KMS key.
     Security implications: Attackers might use DescribeKey to check information of KMS keys in ransomware attacks.
+    Ex: aws kms describe-key --key-id 1234abcd-12ab-34cd-56ef-1234567890ab
 references:
     - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
     - https://aws.permissions.cloud/iam/kms#kms-DescribeKey

@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeCluster — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes an Amazon EKS cluster.
     Security implications: Attackers might use DescribeCluster to gain insights into the configuration and status of AWS EKS clusters.
+    Ex: aws eks describe-cluster --name TrailDiscoverCluster
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

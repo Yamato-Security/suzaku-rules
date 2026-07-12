@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeleteWebACL — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified WebACL.
     Security implications: Attackers might use DeleteWebACL to remove web access control lists, thereby disrupting web application firewall protections.
+    Ex: aws wafv2 delete-web-acl --name TrailDiscoverWebACL --scope REGIONAL --id TrailDiscoverId --lock-token TrailDiscoverLockToken
 references:
     - https://easttimor.github.io/aws-incident-response/
     - https://aws.permissions.cloud/iam/wafv2#wafv2-DeleteWebACL

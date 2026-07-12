@@ -4,6 +4,7 @@ status: experimental
 description: |
     Describes one or more of your route tables.
     Security implications: Reveals network paths which enables planning for lateral movement or data exfiltration routes.
+    Ex: aws ec2 describe-route-tables --max-results 5
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

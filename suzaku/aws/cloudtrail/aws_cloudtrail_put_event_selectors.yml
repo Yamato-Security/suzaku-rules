@@ -4,11 +4,13 @@ status: experimental
 description: |
     Configures an event selector or advanced event selectors for your trail.
     Security implications: Attackers might use PutEventSelectors to disrupting AWS logging.
+    Ex: aws cloudtrail put-event-selectors --trail-name TrailDiscover --event-selectors '[{"ReadWriteType": "All", "IncludeManagementEvents":true, "DataResources": [{"Type": "AWS::S3::Object", "Values": ["arn:aws:s3"]}] }]'
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
 references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
     - https://github.com/RhinoSecurityLabs/Cloud-Security-Research/tree/master/AWS/cloudtrail_guardduty_bypass
     - https://www.solvo.cloud/blog/detecting-and-removing-risky-actions-out-of-your-iam-security-policies/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.defense-evasion.cloudtrail-event-selectors
     - https://aws.permissions.cloud/iam/cloudtrail#cloudtrail-PutEventSelectors
     - https://traildiscover.cloud/#CloudTrail-PutEventSelectors
 author: Zach Mathis (@YamatoSecurity)

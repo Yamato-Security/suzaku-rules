@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call GetIdentityVerificationAttributes — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Given a list of identities (email addresses and/or domains), returns the verification status and (for domain identities) the verification token for each identity.
     Security implications: Attackers might use GetIdentityVerificationAttributes to gather sensitive information about the verification status of email addresses and domains.
+    Ex: aws ses get-identity-verification-attributes --identities TrailDiscoverIdentity
     Observed in real-world incidents/reporting, e.g.: SES-PIONAGE.
 references:
     - https://permiso.io/blog/s/aws-ses-pionage-detecting-ses-abuse/

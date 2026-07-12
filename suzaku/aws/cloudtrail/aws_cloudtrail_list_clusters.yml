@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists the Amazon EKS clusters in your AWS account in the specified AWS Region.
     Security implications: Attackers might use ListClusters to inventory AWS EKS clusters, identifying active clusters for further exploration or to pinpoint potential targets for subsequent attacks.
+    Ex: aws eks list-clusters
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

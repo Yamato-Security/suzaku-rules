@@ -4,6 +4,7 @@ status: experimental
 description: |
     Adds or updates an inline policy document that is embedded in the specified IAM role.
     Security implications: Attackers might use PutRolePolicy to modify permissions of IAM roles, potentially granting unauthorized access to AWS resources.
+    Ex: aws iam put-role-policy --role-name TrailDiscover-Role --policy-name TrailDiscover --policy-document {}
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-PutRolePolicy

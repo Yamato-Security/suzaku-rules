@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call RegisterTaskDefinition — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Registers a new task definition from the supplied family and containerDefinitions.
     Security implications: Attackers might use RegisterTaskDefinition to deploy containers with malicious tasks in AWS ECS.
+    Ex: aws ecs register-task-definition --family 'xtdb-bench-dev' --network-mode 'awsvpc' --container-definitions '[{"name":"bench-container", "cpu":2048, "memory":4092 }]'
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
