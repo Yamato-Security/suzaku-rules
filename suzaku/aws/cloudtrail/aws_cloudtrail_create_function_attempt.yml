@@ -1,0 +1,33 @@
+title: AWS CloudFront CreateFunction Attempt
+id: 13b90ddf-5d20-5abd-ac19-4ba79bc53a3c
+status: experimental
+description: |
+    Failed or denied attempt to call CreateFunction — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates a CloudFront function.
+    Security implications: Attackers might use CreateFunction to add a new function that can be use to exfiltrate date.
+references:
+    - https://medium.com/@adan.alvarez/how-attackers-can-misuse-aws-cloudfront-access-to-make-it-rain-cookies-acf9ce87541c
+    - https://aws.permissions.cloud/iam/cloudfront#cloudfront-CreateFunction
+    - https://traildiscover.cloud/#CloudFront-CreateFunction
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.collection
+    - attack.t1119 #Automated Collection
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: cloudfront.amazonaws.com
+        eventName: CreateFunction
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: informational

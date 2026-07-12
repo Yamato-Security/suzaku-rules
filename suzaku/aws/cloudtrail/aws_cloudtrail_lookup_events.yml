@@ -1,0 +1,33 @@
+title: AWS CloudTrail LookupEvents
+id: 448459fe-3b33-5ee2-b54a-5080f4a20b40
+status: experimental
+description: |
+    Looks up management events or CloudTrail Insights events that are captured by CloudTrail.
+    Security implications: Attackers might use LookupEvents to monitoring CloudTrail logs for changes that might affect the attack.
+    Observed in real-world incidents/reporting, e.g.: UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.
+references:
+    - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
+    - https://aws.permissions.cloud/iam/cloudtrail#cloudtrail-LookupEvents
+    - https://traildiscover.cloud/#CloudTrail-LookupEvents
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1654 #Log Enumeration
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: cloudtrail.amazonaws.com
+        eventName: LookupEvents
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

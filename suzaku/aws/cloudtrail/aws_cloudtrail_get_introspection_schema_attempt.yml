@@ -1,0 +1,33 @@
+title: AWS AppSync GetIntrospectionSchema Attempt
+id: 98304d59-1bb4-5110-a841-99c63c8e377b
+status: experimental
+description: |
+    Failed or denied attempt to call GetIntrospectionSchema — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Retrieves the introspection schema for a GraphQL API.
+    Security implications: Attackers might use GetIntrospectionSchema to understand the API for future attacks or use the configuration for future modifications.
+references:
+    - https://medium.com/@adan.alvarez/distorting-the-sync-how-aws-appsync-can-be-turned-into-an-attackers-backdoor-8c015b8e52b8
+    - https://aws.permissions.cloud/iam/appsync#appsync-GetIntrospectionSchema
+    - https://traildiscover.cloud/#AppSync-GetIntrospectionSchema
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: appsync.amazonaws.com
+        eventName: GetIntrospectionSchema
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

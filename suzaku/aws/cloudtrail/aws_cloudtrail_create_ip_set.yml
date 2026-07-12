@@ -1,0 +1,33 @@
+title: AWS GuardDuty CreateIPSet
+id: 004c2b4d-c7eb-53da-b841-d84bbb327ac3
+status: experimental
+description: |
+    Creates a new IPSet, which is called a trusted IP list in the console user interface.
+    Security implications: Attackers might use CreateIPSet to add malicious IP addresses to the GuardDuty whitelist, bypassing security measures.
+references:
+    - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-CreateIPSet
+    - https://traildiscover.cloud/#GuardDuty-CreateIPSet
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: CreateIPSet
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: high

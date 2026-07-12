@@ -1,0 +1,36 @@
+title: AWS CloudWatch DeleteAlarms Attempt
+id: 34fd856b-6b93-522d-b4bd-73a45bcefea5
+status: experimental
+description: |
+    Failed or denied attempt to call DeleteAlarms — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Deletes the specified alarms. You can delete up to 100 alarms in one operation.
+    Security implications: Attackers might use DeleteAlarms to disable critical CloudWatch alerts, undermining AWS environment monitoring
+references:
+    - https://www.elastic.co/guide/en/security/current/aws-cloudwatch-alarm-deletion.html
+    - https://fwdcloudsec.org/assets/presentations/2024/europe/sebastian-walla-cloud-conscious-tactics-techniques-and-procedures-an-overview.pdf
+    - https://aws.permissions.cloud/iam/cloudwatch#cloudwatch-DeleteAlarms
+    - https://traildiscover.cloud/#CloudWatch-DeleteAlarms
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+    - attack.t1562.006 #Impair Defenses: Indicator Blocking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: monitoring.amazonaws.com
+        eventName: DeleteAlarms
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

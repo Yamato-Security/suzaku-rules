@@ -1,0 +1,33 @@
+title: AWS Health DescribeEventAggregates
+id: 781820ae-3d22-55a7-b141-4d262edb39c6
+status: experimental
+description: |
+    Returns the number of events of each event type (issue, scheduled change, and account notification).
+    Security implications: Aggregates could reveal large-scale outages an attacker might leverage for cover.
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/health#health-DescribeEventAggregates
+    - https://traildiscover.cloud/#Health-DescribeEventAggregates
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: health.amazonaws.com
+        eventName: DescribeEventAggregates
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

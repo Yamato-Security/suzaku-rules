@@ -1,0 +1,40 @@
+title: AWS EC2 TerminateInstances
+id: 24497139-870a-5c3e-8a6a-56e14cf9de6e
+status: experimental
+description: |
+    Shuts down the specified instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds.
+    Security implications: Attackers might use TerminateInstances to permanently delete EC2 instances, resulting in irreversible data loss and service disruption or for defense evasion.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR; Former Cisco engineer sentenced to prison for deleting 16k Webex accounts; Hacker Puts Hosting Service Code Spaces Out of Business; Securing a SaaS Company's AWS Environment After a Breach.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
+    - https://www.zdnet.com/article/former-cisco-engineer-sentenced-to-prison-for-deleting-16k-webex-accounts/
+    - https://threatpost.com/hacker-puts-hosting-service-code-spaces-out-of-business/106761/
+    - https://badshah.io/case-studies/saas-aws-breach/
+    - https://aws.permissions.cloud/iam/ec2#ec2-TerminateInstances
+    - https://traildiscover.cloud/#EC2-TerminateInstances
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.defense-evasion
+    - attack.t1485 #Data Destruction
+    - attack.t1070 #Indicator Removal
+    - attack.t1070.004 #Indicator Removal: File Deletion
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: TerminateInstances
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

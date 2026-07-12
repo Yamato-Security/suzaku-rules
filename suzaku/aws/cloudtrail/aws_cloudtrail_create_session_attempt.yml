@@ -1,0 +1,36 @@
+title: AWS CloudShell CreateSession Attempt
+id: a7c1d988-7aff-5dc0-aa9e-5e1aade58eb0
+status: experimental
+description: |
+    Failed or denied attempt to call CreateSession — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Occurs when a CloudShell environment is connected from the AWS Management Console.
+    Security implications: Attackers could misuse valid credentials to call CreateSession and open an interactive shell to access cloud resources.
+    Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.
+references:
+    - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
+    - https://docs.aws.amazon.com/cloudshell/latest/userguide/logging-and-monitoring.html
+    - https://aws.permissions.cloud/iam/cloudshell#cloudshell-CreateSession
+    - https://traildiscover.cloud/#CloudShell-CreateSession
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.execution
+    - attack.t1059 #Command and Scripting Interpreter
+    - attack.t1059.009 #Command and Scripting Interpreter: Cloud API
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: cloudshell.amazonaws.com
+        eventName: CreateSession
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

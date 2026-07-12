@@ -1,0 +1,34 @@
+title: AWS APIGateway CreateStage
+id: 61e16608-6768-5397-8b45-90c7f2080fba
+status: experimental
+description: |
+    Creates a Stage for an API. A Stage is a named reference to a deployment of an API.
+    Security implications: Attackers might use CreateStage to create malicious stages that can be used to establish persistence in the environment.
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://aws.permissions.cloud/iam/apigateway#apigateway-POST
+    - https://traildiscover.cloud/#APIGateway-CreateStage
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1136 #Create Account
+    - attack.t1136.003 #Create Account: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: apigateway.amazonaws.com
+        eventName: CreateStage
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

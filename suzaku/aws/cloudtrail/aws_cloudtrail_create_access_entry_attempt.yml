@@ -1,0 +1,33 @@
+title: AWS EKS CreateAccessEntry Attempt
+id: b4531563-1bb0-520b-a1d5-5c229d61a118
+status: experimental
+description: |
+    Failed or denied attempt to call CreateAccessEntry — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates an access entry.
+    Security implications: Attackers might use CreateAccessEntry to craft access entries that link to high-privileged policies, effectively granting themselves unauthorized admin-level access to clusters.
+references:
+    - https://www.wiz.io/blog/new-attack-vectors-emerge-via-recent-eks-access-entries-and-pod-identity-features
+    - https://aws.permissions.cloud/iam/eks#eks-CreateAccessEntry
+    - https://traildiscover.cloud/#EKS-CreateAccessEntry
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: eks.amazonaws.com
+        eventName: CreateAccessEntry
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

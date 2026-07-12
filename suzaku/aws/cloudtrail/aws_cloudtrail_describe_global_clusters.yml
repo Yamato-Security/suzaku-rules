@@ -1,0 +1,33 @@
+title: AWS RDS DescribeGlobalClusters
+id: 5d35baa4-e6e4-5e8b-9cfc-59c8428f990b
+status: experimental
+description: |
+    Returns information about Aurora global database clusters.
+    Security implications: Global cluster topology may expose cross-region replication targets for disruption or exfiltration.
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/rds#rds-DescribeGlobalClusters
+    - https://traildiscover.cloud/#RDS-DescribeGlobalClusters
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: DescribeGlobalClusters
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

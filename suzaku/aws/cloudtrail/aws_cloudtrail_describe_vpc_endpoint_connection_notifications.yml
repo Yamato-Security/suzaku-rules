@@ -1,0 +1,33 @@
+title: AWS EC2 DescribeVpcEndpointConnectionNotifications
+id: 5d2fa6fc-92c3-5b2a-8091-d62327cd6829
+status: experimental
+description: |
+    Describes the connection notifications for VPC endpoints and VPC endpoint services.
+    Security implications: Attackers might use DescribeVpcEndpointConnectionNotifications to monitor notification configurations for VPC endpoints.
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeVpcEndpointConnectionNotifications
+    - https://traildiscover.cloud/#EC2-DescribeVpcEndpointConnectionNotifications
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeVpcEndpointConnectionNotifications
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

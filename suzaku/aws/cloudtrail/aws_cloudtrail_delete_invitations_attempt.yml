@@ -1,0 +1,36 @@
+title: AWS GuardDuty DeleteInvitations Attempt
+id: b3603a1a-0ff4-54a0-bdc2-4d196bf5e959
+status: experimental
+description: |
+    Failed or denied attempt to call DeleteInvitations — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Deletes invitations sent to the current member account by AWS accounts specified by their account IDs.
+    Security implications: Attackers might use DeleteInvitations to avoid the use of GuardDuty, thereby evading detection of malicious activity.
+    Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.
+references:
+    - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-DeleteInvitations
+    - https://traildiscover.cloud/#GuardDuty-DeleteInvitations
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+    - attack.t1562.006 #Impair Defenses: Indicator Blocking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: DeleteInvitations
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

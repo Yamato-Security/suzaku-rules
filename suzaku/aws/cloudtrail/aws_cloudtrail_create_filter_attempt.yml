@@ -1,0 +1,34 @@
+title: AWS GuardDuty CreateFilter Attempt
+id: 528c5c8b-616d-5b11-ab39-b452c23d2710
+status: experimental
+description: |
+    Failed or denied attempt to call CreateFilter — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates a filter using the specified finding criteria.
+    Security implications: Attackers might use CreateFilter to manipulate GuardDuty settings, potentially allowing malicious activity to go undetected.
+references:
+    - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-CreateFilter
+    - https://traildiscover.cloud/#GuardDuty-CreateFilter
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: CreateFilter
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

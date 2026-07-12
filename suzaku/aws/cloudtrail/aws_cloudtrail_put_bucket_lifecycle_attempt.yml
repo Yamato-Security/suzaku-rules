@@ -1,0 +1,36 @@
+title: AWS S3 PutBucketLifecycle Attempt
+id: 5cdc27ab-6721-5acb-9de4-275a0e4c8d9b
+status: experimental
+description: |
+    Failed or denied attempt to call PutBucketLifecycle — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle configuration.
+    Security implications: Attackers might use PutBucketLifecycle to add a lifecycle that deletes data after one day.
+    Observed in real-world incidents/reporting, e.g.: USA VS Nickolas Sharp; New tactics and techniques for proactive threat detection.
+references:
+    - https://www.justice.gov/usao-sdny/press-release/file/1452706/dl
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://traildiscover.cloud/#S3-PutBucketLifecycle
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1485 #Data Destruction
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName:
+            - PutBucketLifecycle
+            - PutBucketLifecycleConfiguration
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

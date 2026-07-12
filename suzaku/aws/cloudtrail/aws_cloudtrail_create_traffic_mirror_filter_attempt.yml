@@ -1,0 +1,34 @@
+title: AWS EC2 CreateTrafficMirrorFilter Attempt
+id: 0a73a94f-68ab-5931-8e97-1866fe4548fc
+status: experimental
+description: |
+    Failed or denied attempt to call CreateTrafficMirrorFilter — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates a Traffic Mirror filter.
+    Security implications: Attackers might use CreateTrafficMirrorFilter to clandestinely mirror network traffic for analysis or exfiltration.
+references:
+    - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
+    - https://aws.permissions.cloud/iam/ec2#ec2-CreateTrafficMirrorFilter
+    - https://traildiscover.cloud/#EC2-CreateTrafficMirrorFilter
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.collection
+    - attack.t1074 #Data Staged
+    - attack.t1074.002 #Data Staged: Remote Data Staging
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: CreateTrafficMirrorFilter
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: informational

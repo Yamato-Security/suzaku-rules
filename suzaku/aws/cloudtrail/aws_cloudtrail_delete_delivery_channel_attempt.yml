@@ -1,0 +1,36 @@
+title: AWS Config DeleteDeliveryChannel Attempt
+id: e4ae619a-80c4-55d5-a08e-d5940becfd81
+status: experimental
+description: |
+    Failed or denied attempt to call DeleteDeliveryChannel — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Deletes the delivery channel.
+    Security implications: Attackers might use DeleteDeliveryChannel to disrupt the flow of configuration history and compliance data in AWS.
+references:
+    - https://www.elastic.co/guide/en/security/7.17/prebuilt-rule-7-16-4-aws-config-resource-deletion.html#prebuilt-rule-7-16-4-aws-config-resource-deletion
+    - https://docs.datadoghq.com/security/default_rules/cloudtrail-aws-config-disabled/
+    - https://www.chrisfarris.com/post/reinforce-threat-hunting/
+    - https://aws.permissions.cloud/iam/config#config-DeleteDeliveryChannel
+    - https://traildiscover.cloud/#Config-DeleteDeliveryChannel
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: config.amazonaws.com
+        eventName: DeleteDeliveryChannel
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

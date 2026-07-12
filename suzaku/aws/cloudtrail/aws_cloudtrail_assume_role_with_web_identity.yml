@@ -1,0 +1,34 @@
+title: AWS STS AssumeRoleWithWebIdentity
+id: 19dcc505-0c83-5f0e-adf6-4e9a818a630d
+status: experimental
+description: |
+    Returns a set of temporary security credentials for users who have been authenticated in a mobile or web application with a web identity provider.
+    Security implications: Attackers might use AssumeRoleWithWebIdentity to impersonate legitimate users and gain unauthorized access to an AWS role.
+references:
+    - https://www.rezonate.io/blog/github-misconfigurations-put-gcp-aws-in-account-takeover-risk/
+    - https://aws.permissions.cloud/iam/sts#sts-AssumeRoleWithWebIdentity
+    - https://traildiscover.cloud/#STS-AssumeRoleWithWebIdentity
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.initial-access
+    - attack.lateral-movement
+    - attack.t1199 #Trusted Relationship
+    - attack.t1550 #Use Alternate Authentication Material
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sts.amazonaws.com
+        eventName: AssumeRoleWithWebIdentity
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

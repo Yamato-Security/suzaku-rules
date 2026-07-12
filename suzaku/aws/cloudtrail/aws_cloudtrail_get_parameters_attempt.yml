@@ -1,0 +1,35 @@
+title: AWS SSM GetParameters Attempt
+id: 2034bd37-3059-5b1c-97d7-4d71eb556339
+status: experimental
+description: |
+    Failed or denied attempt to call GetParameters — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Get information about one or more parameters by specifying multiple parameter names.
+    Security implications: Attackers might use GetParameters to gather sensitive information such as api keys or other secrets.
+references:
+    - https://www.solvo.cloud/blog/detecting-and-removing-risky-actions-out-of-your-iam-security-policies/
+    - https://aws.permissions.cloud/iam/ssm#ssm-GetParameters
+    - https://traildiscover.cloud/#SSM-GetParameters
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.credential-access
+    - attack.t1526 #Cloud Service Discovery
+    - attack.t1552 #Unsecured Credentials
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ssm.amazonaws.com
+        eventName: GetParameters
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: medium

@@ -1,0 +1,46 @@
+title: AWS STS GetCallerIdentity
+id: 7ad11e38-f82e-5119-8484-c5b1d7116c5c
+status: experimental
+description: |
+    Returns details about the IAM user or role whose credentials are used to call the operation.
+    Security implications: Attackers might use GetCallerIdentity to know what user or role are they using. This request does not need any permission.
+    Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; GotRoot! AWS root Account Takeover; Compromised Cloud Compute Credentials: Case Studies From the Wild; Tales from the cloud trenches: Using malicious AWS activity to spot phishing campaigns; Detecting AI resource-hijacking with Composite Alerts; Cloud-Conscious Tactics, Techniques,and Procedures (TTPs).
+references:
+    - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
+    - https://medium.com/@gchib/naturesbasket-aws-root-account-takeover-e4aa5c5e95e1
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-aws-activity-to-phishing/
+    - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
+    - https://fwdcloudsec.org/assets/presentations/2024/europe/sebastian-walla-cloud-conscious-tactics-techniques-and-procedures-an-overview.pdf
+    - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
+    - https://www.wiz.io/blog/wiz-discovers-cloud-email-abuse-campaign
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/
+    - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
+    - https://www.wiz.io/blog/new-attack-vectors-emerge-via-recent-eks-access-entries-and-pod-identity-features
+    - https://hackingthe.cloud/aws/enumeration/account_id_from_ec2/
+    - https://aws.permissions.cloud/iam/sts#sts-GetCallerIdentity
+    - https://traildiscover.cloud/#STS-GetCallerIdentity
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+    - attack.t1087.004 #Account Discovery: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sts.amazonaws.com
+        eventName: GetCallerIdentity
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

@@ -1,0 +1,32 @@
+title: AWS EKS ListAssociatedAccessPolicies
+id: fd7b36cb-7f39-558d-b06b-ea4f5bfc79d3
+status: experimental
+description: |
+    Lists the access policies associated with an access entry.
+    Security implications: Attackers might use ListAssociatedAccessPolicies to enumerate policies associated with resources in AWS services, identifying overly permissive access that can be exploited to escalate privileges.
+references:
+    - https://www.wiz.io/blog/new-attack-vectors-emerge-via-recent-eks-access-entries-and-pod-identity-features
+    - https://aws.permissions.cloud/iam/eks#eks-ListAssociatedAccessPolicies
+    - https://traildiscover.cloud/#EKS-ListAssociatedAccessPolicies
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: eks.amazonaws.com
+        eventName: ListAssociatedAccessPolicies
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

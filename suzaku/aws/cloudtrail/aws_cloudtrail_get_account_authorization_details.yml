@@ -1,0 +1,33 @@
+title: AWS IAM GetAccountAuthorizationDetails
+id: 5c9d61ef-1f35-5afe-b332-a10ebe479b7b
+status: experimental
+description: |
+    Retrieves information about all IAM users, groups, roles, and policies in your AWS account, including their relationships to one another.
+    Security implications: Attackers might use GetAccountAuthorizationDetails to gather information about IAM users, groups, roles, and policies in a targeted AWS account.
+references:
+    - https://cloud.hacktricks.xyz/pentesting-cloud/aws-security/aws-services/aws-iam-enum
+    - https://aws.permissions.cloud/iam/iam#iam-GetAccountAuthorizationDetails
+    - https://traildiscover.cloud/#IAM-GetAccountAuthorizationDetails
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+    - attack.t1087.004 #Account Discovery: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: GetAccountAuthorizationDetails
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

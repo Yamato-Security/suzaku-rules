@@ -1,0 +1,35 @@
+title: AWS EC2 DescribeSecurityGroups Attempt
+id: f3bff80a-d0e0-53dc-89fb-11b0d1a1f35c
+status: experimental
+description: |
+    Failed or denied attempt to call DescribeSecurityGroups — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Describes the specified security groups or all of your security groups.
+    Security implications: Attackers might use DescribeSecurityGroups to review AWS VPC security group configurations, seeking misconfigurations that could be exploited for unauthorized access or to bypass network security controls.
+    Observed in real-world incidents/reporting, e.g.: Case Study: Responding to an Attack in AWS; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.cadosecurity.com/case-study-responding-to-an-attack-in-aws/
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeSecurityGroups
+    - https://traildiscover.cloud/#EC2-DescribeSecurityGroups
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeSecurityGroups
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

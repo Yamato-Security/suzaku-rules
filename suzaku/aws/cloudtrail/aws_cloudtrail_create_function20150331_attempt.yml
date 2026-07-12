@@ -1,0 +1,43 @@
+title: AWS Lambda CreateFunction20150331 Attempt
+id: 2a77a040-9d76-5a17-aff4-b6cf4d0b0a95
+status: experimental
+description: |
+    Failed or denied attempt to call CreateFunction20150331 — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates a Lambda function.
+    Security implications: Attackers might use CreateFunction to deploy malicious code or functions, depending on the scenario this might allow the attacker to gain persistence, escalate privileges, or hijack resources.
+    Observed in real-world incidents/reporting, e.g.: Mining Crypto; Cloud Security Stories: From Risky Permissions to Ransomware Execution; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments; Tales from the cloud trenches: The Attacker doth persist too much, methinks; GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
+references:
+    - https://twitter.com/jonnyplatt/status/1471453527390277638
+    - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/
+    - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
+    - https://www.wiz.io/blog/hunting-for-signs-of-persistence-in-the-cloud-an-ir-guide
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/lambda#lambda-CreateFunction
+    - https://traildiscover.cloud/#Lambda-CreateFunction20150331
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.privilege-escalation
+    - attack.impact
+    - attack.t1098 #Account Manipulation
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: lambda.amazonaws.com
+        eventName: CreateFunction20150331
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

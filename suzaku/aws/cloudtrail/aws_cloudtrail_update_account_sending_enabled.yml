@@ -1,0 +1,34 @@
+title: AWS SES UpdateAccountSendingEnabled
+id: 5048f61d-b860-53f0-bbba-7e0ab054255a
+status: experimental
+description: |
+    Enables or disables email sending across your entire Amazon SES account in the current AWS Region.
+    Security implications: Attackers might use UpdateAccountSendingEnabled to enable sending from compromised AWS accounts, facilitating spam or phishing campaigns.
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; SES-PIONAGE.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://permiso.io/blog/s/aws-ses-pionage-detecting-ses-abuse/
+    - https://aws.permissions.cloud/iam/ses#ses-UpdateAccountSendingEnabled
+    - https://traildiscover.cloud/#SES-UpdateAccountSendingEnabled
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ses.amazonaws.com
+        eventName: UpdateAccountSendingEnabled
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

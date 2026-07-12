@@ -1,0 +1,35 @@
+title: AWS IAM AttachGroupPolicy
+id: 94fce4ef-6b57-5adb-9716-70529c90de9c
+status: experimental
+description: |
+    Attaches the specified managed policy to the specified IAM group.
+    Security implications: Attackers might use AttachGroupPolicy to assign malicious policies to a group, escalating privileges or enabling unauthorized access.
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/iam#iam-AttachGroupPolicy
+    - https://traildiscover.cloud/#IAM-AttachGroupPolicy
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+    - attack.t1098.003 #Account Manipulation: Additional Cloud Roles
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: AttachGroupPolicy
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

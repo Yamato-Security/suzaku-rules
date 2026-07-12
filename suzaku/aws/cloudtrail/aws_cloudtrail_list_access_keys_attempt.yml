@@ -1,0 +1,35 @@
+title: AWS IAM ListAccessKeys Attempt
+id: 0f4fa74f-34ce-56d5-9aa2-3c06dc885f15
+status: experimental
+description: |
+    Failed or denied attempt to call ListAccessKeys — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Returns information about the access key IDs associated with the specified IAM user.
+    Security implications: Attackers might use ListAccessKeys to identify and exploit unused or unmonitored AWS IAM access keys.
+    Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud.
+references:
+    - https://www.invictus-ir.com/news/ransomware-in-the-cloud
+    - https://aws.permissions.cloud/iam/iam#iam-ListAccessKeys
+    - https://traildiscover.cloud/#IAM-ListAccessKeys
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+    - attack.t1087.004 #Account Discovery: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: ListAccessKeys
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

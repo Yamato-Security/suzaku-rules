@@ -1,0 +1,37 @@
+title: AWS IAM GetUser
+id: d3ac7253-2721-54a5-9d9c-de4acea5fc0c
+status: experimental
+description: |
+    Retrieves information about the specified IAM user, including the user's creation date, path, unique ID, and ARN.
+    Security implications: Attackers might use GetUser to obtain user information.
+    Observed in real-world incidents/reporting, e.g.: GotRoot! AWS root Account Takeover; Tales from the cloud trenches: Raiding for AWS vaults, buckets and secrets; Datadog threat roundup: top insights for Q4 2024; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://medium.com/@gchib/naturesbasket-aws-root-account-takeover-e4aa5c5e95e1
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-raiding-for-vaults-buckets-secrets/
+    - https://securitylabs.datadoghq.com/articles/2024-q4-threat-roundup/
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/iam#iam-GetUser
+    - https://traildiscover.cloud/#IAM-GetUser
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+    - attack.t1087.004 #Account Discovery: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: GetUser
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

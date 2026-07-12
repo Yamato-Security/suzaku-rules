@@ -1,0 +1,33 @@
+title: AWS GuardDuty CreateFilter
+id: bad589be-fcad-5092-9592-8456f12c1bd8
+status: experimental
+description: |
+    Creates a filter using the specified finding criteria.
+    Security implications: Attackers might use CreateFilter to manipulate GuardDuty settings, potentially allowing malicious activity to go undetected.
+references:
+    - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-CreateFilter
+    - https://traildiscover.cloud/#GuardDuty-CreateFilter
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: CreateFilter
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: high

@@ -1,0 +1,32 @@
+title: AWS EC2 CreateTrafficMirrorTarget
+id: e248f07b-578d-5b14-ae74-a4935781c2ec
+status: experimental
+description: |
+    Creates a target for your Traffic Mirror session.
+    Security implications: Attackers might use CreateTrafficMirrorTarget to establish destinations for mirrored traffic, potentially facilitating the unauthorized observation or capture of sensitive information.
+references:
+    - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
+    - https://aws.permissions.cloud/iam/ec2#ec2-CreateTrafficMirrorTarget
+    - https://traildiscover.cloud/#EC2-CreateTrafficMirrorTarget
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.collection
+    - attack.t1074 #Data Staged
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: CreateTrafficMirrorTarget
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

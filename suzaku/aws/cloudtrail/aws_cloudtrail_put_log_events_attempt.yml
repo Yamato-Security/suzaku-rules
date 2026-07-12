@@ -1,0 +1,35 @@
+title: AWS CloudWatchLogs PutLogEvents Attempt
+id: 3e89c440-d989-5f4c-8955-d11a56ef9231
+status: experimental
+description: |
+    Failed or denied attempt to call PutLogEvents — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Uploads a batch of log events to the specified log stream.
+    Security implications: Attackers might use PutLogEvents to add benign log entries, effectively burying any signs of his malicious activities.
+    Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
+references:
+    - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/
+    - https://aws.permissions.cloud/iam/logs#logs-PutLogEvents
+    - https://traildiscover.cloud/#CloudWatchLogs-PutLogEvents
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.008 #Impair Defenses: Disable or Modify Cloud Logs
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: logs.amazonaws.com
+        eventName: PutLogEvents
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

@@ -1,0 +1,33 @@
+title: AWS RDS StartExportTask
+id: 8e69913a-4877-50a3-a2e5-2f5958330506
+status: experimental
+description: |
+    Starts an export of DB snapshot or DB cluster data to Amazon S3.
+    Security implications: Attackers might use StartExportTask to export database snapshots to an S3 they control and gain access to the data.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://cloud.hacktricks.xyz/pentesting-cloud/aws-security/aws-post-exploitation/aws-rds-post-exploitation
+    - https://aws.permissions.cloud/iam/rds#rds-StartExportTask
+    - https://traildiscover.cloud/#RDS-StartExportTask
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: StartExportTask
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: high

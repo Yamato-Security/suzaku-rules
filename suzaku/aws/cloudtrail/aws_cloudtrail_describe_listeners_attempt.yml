@@ -1,0 +1,33 @@
+title: AWS ELBv2 DescribeListeners Attempt
+id: 28c2d0ac-b74c-5d58-b238-a1afb85048e7
+status: experimental
+description: |
+    Failed or denied attempt to call DescribeListeners — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Describes the specified listeners or the listeners for the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
+    Security implications: Attackers might use DescribeListeners to get information about the load balancers listeners for potential future modifications.
+references:
+    - https://medium.com/@adan.alvarez/rigging-the-rules-manipulating-aws-alb-to-mine-sensitive-data-20e33dbc4994
+    - https://aws.permissions.cloud/iam/elasticloadbalancing#elasticloadbalancing-DescribeListeners
+    - https://traildiscover.cloud/#ELBv2-DescribeListeners
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: elasticloadbalancing.amazonaws.com
+        eventName: DescribeListeners
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

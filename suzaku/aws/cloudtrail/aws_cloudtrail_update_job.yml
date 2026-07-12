@@ -1,0 +1,32 @@
+title: AWS Glue UpdateJob
+id: 3b0b6a29-6504-51e6-9a3e-9dfb8487ab24
+status: experimental
+description: |
+    Updates an existing job definition.
+    Security implications: Attackers might use UpdateJob to modify Glue job parameters, potentially disrupting data processing or injecting malicious code.
+references:
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/glue#glue-UpdateJob
+    - https://traildiscover.cloud/#Glue-UpdateJob
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: glue.amazonaws.com
+        eventName: UpdateJob
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

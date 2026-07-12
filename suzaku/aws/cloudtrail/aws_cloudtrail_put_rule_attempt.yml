@@ -1,0 +1,39 @@
+title: AWS events PutRule Attempt
+id: baef447c-9395-54e9-a96a-c3156646b5b1
+status: experimental
+description: |
+    Failed or denied attempt to call PutRule — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates or updates the specified rule.
+    Security implications: Attackers might use PutRule in AWS EventBridge to create unauthorized event rules, potentially automating malicious actions to gain persistence or triggering unwarranted responses within the environment.
+    Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
+references:
+    - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/
+    - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
+    - https://aws.permissions.cloud/iam/events#events-PutRule
+    - https://traildiscover.cloud/#events-PutRule
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.defense-evasion
+    - attack.persistence
+    - attack.t1489 #Service Stop
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+    - attack.t1546 #Event Triggered Execution
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: events.amazonaws.com
+        eventName: PutRule
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

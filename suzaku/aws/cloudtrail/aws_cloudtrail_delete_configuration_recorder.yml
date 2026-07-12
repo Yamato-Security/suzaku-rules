@@ -1,0 +1,33 @@
+title: AWS Config DeleteConfigurationRecorder
+id: 999e3913-32eb-5070-a650-fe7ce9ca033b
+status: experimental
+description: |
+    Deletes the configuration recorder.
+    Security implications: Attackers might use DeleteConfigurationRecorder to disrupt AWS configuration auditing.
+references:
+    - https://www.elastic.co/guide/en/security/7.17/prebuilt-rule-7-16-4-aws-config-resource-deletion.html#prebuilt-rule-7-16-4-aws-config-resource-deletion
+    - https://aws.permissions.cloud/iam/config#config-DeleteConfigurationRecorder
+    - https://traildiscover.cloud/#Config-DeleteConfigurationRecorder
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: config.amazonaws.com
+        eventName: DeleteConfigurationRecorder
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: high

@@ -1,0 +1,35 @@
+title: AWS S3 GetBucketPolicy Attempt
+id: 2b17de97-9f5d-55ae-b8b5-9b64b71f16cf
+status: experimental
+description: |
+    Failed or denied attempt to call GetBucketPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Returns the policy of a specified bucket.
+    Security implications: Attackers might use GetBucketPolicy to identify weak security policies and exploit them for unauthorized access to S3 buckets.
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Muddled Libra’s Evolution to the Cloud.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/
+    - https://aws.permissions.cloud/iam/s3#s3-GetBucketPolicy
+    - https://traildiscover.cloud/#S3-GetBucketPolicy
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: GetBucketPolicy
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

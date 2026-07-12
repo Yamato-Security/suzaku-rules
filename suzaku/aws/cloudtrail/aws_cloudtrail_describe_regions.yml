@@ -1,0 +1,34 @@
+title: AWS EC2 DescribeRegions
+id: 35bc5199-cb5a-5829-98af-69e77ab55359
+status: experimental
+description: |
+    Describes the Regions that are enabled for your account, or all Regions.
+    Security implications: Attackers might use DescribeRegions to identify all available AWS regions, possibly to explore regional deployment patterns and target specific regions where defenses might be weaker.
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeRegions
+    - https://traildiscover.cloud/#EC2-DescribeRegions
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeRegions
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

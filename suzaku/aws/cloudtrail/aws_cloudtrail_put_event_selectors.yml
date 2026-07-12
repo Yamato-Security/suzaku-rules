@@ -1,0 +1,36 @@
+title: AWS CloudTrail PutEventSelectors
+id: e2bfc869-fe6a-5890-9b95-20f14929b375
+status: experimental
+description: |
+    Configures an event selector or advanced event selectors for your trail.
+    Security implications: Attackers might use PutEventSelectors to disrupting AWS logging.
+    Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
+references:
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://github.com/RhinoSecurityLabs/Cloud-Security-Research/tree/master/AWS/cloudtrail_guardduty_bypass
+    - https://www.solvo.cloud/blog/detecting-and-removing-risky-actions-out-of-your-iam-security-policies/
+    - https://aws.permissions.cloud/iam/cloudtrail#cloudtrail-PutEventSelectors
+    - https://traildiscover.cloud/#CloudTrail-PutEventSelectors
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: cloudtrail.amazonaws.com
+        eventName: PutEventSelectors
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: high

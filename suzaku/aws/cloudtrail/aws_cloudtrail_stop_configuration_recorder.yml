@@ -1,0 +1,35 @@
+title: AWS Config StopConfigurationRecorder
+id: 5fe02c44-46fa-5ddf-84a5-06a96e9a9863
+status: experimental
+description: |
+    Stops recording configurations of the AWS resources you have selected to record in your AWS account.
+    Security implications: Attackers might use StopConfigurationRecorder to halt the recording of AWS resource configurations, hindering audit trails.
+references:
+    - https://www.elastic.co/guide/en/security/current/prebuilt-rule-8-2-1-aws-configuration-recorder-stopped.html#prebuilt-rule-8-2-1-aws-configuration-recorder-stopped
+    - https://docs.datadoghq.com/security/default_rules/cloudtrail-aws-config-disabled/
+    - https://www.chrisfarris.com/post/reinforce-threat-hunting/
+    - https://aws.permissions.cloud/iam/config#config-StopConfigurationRecorder
+    - https://traildiscover.cloud/#Config-StopConfigurationRecorder
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: config.amazonaws.com
+        eventName: StopConfigurationRecorder
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: high

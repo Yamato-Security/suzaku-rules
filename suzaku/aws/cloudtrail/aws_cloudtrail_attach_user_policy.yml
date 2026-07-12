@@ -1,0 +1,46 @@
+title: AWS IAM AttachUserPolicy
+id: 6423c1e0-7a52-5b97-9da5-d0e4e8a0b400
+status: experimental
+description: |
+    Attaches the specified managed policy to the specified user.
+    Security implications: Attackers use AttachUserPolicy to grant malicious policies to IAM users, potentially escalating privileges or enabling unauthorized access to AWS resources.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Incident report: From CLI to console, chasing an attacker in AWS; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Detecting AI resource-hijacking with Composite Alerts; Tales from the cloud trenches: Unwanted visitor; Tales from the cloud trenches: The Attacker doth persist too much, methinks.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://expel.com/blog/incident-report-from-cli-to-console-chasing-an-attacker-in-aws/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-unwanted-visitor/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://www.wiz.io/blog/wiz-discovers-cloud-email-abuse-campaign
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://zviwex.com/posts/aws-account-hacked
+    - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
+    - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/iam#iam-AttachUserPolicy
+    - https://traildiscover.cloud/#IAM-AttachUserPolicy
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+    - attack.t1098.003 #Account Manipulation: Additional Cloud Roles
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: AttachUserPolicy
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

@@ -1,0 +1,34 @@
+title: AWS EC2 DescribeNetworkInterfaces Attempt
+id: 7a5f1fa3-c78f-5b0c-9e5c-3e61b8c9b551
+status: experimental
+description: |
+    Failed or denied attempt to call DescribeNetworkInterfaces — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Describes one or more of your network interfaces.
+    Security implications: Attackers might use DescribeNetworkInterfaces to map network topology, identify public-facing resources, and plan lateral movement within the VPC.
+    Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
+references:
+    - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeNetworkInterfaces
+    - https://traildiscover.cloud/#EC2-DescribeNetworkInterfaces
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeNetworkInterfaces
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

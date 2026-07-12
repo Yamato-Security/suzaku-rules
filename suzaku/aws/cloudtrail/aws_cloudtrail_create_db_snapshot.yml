@@ -1,0 +1,36 @@
+title: AWS RDS CreateDBSnapshot
+id: aff19dc0-a783-5c80-9291-dd9264b7d7c5
+status: experimental
+description: |
+    Creates a snapshot of a DB instance.
+    Security implications: Attackers might use CreateDBSnapshot to create unauthorized backups of sensitive databases for data theft.
+    Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; New tactics and techniques for proactive threat detection; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/sharing-rds-snapshot/
+    - https://aws.permissions.cloud/iam/rds#rds-CreateDBSnapshot
+    - https://traildiscover.cloud/#RDS-CreateDBSnapshot
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: CreateDBSnapshot
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: high

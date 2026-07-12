@@ -1,0 +1,52 @@
+title: AWS IAM CreateLoginProfile
+id: 57c30b8b-521d-583f-b787-8dc3f2da2088
+status: experimental
+description: |
+    Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+    Security implications: Attackers use CreateLoginProfile to create login credentials for IAM users, allowing them access to the user via the AWS console.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Incident report: From CLI to console, chasing an attacker in AWS; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR; LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD; Detecting AI resource-hijacking with Composite Alerts.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://expel.com/blog/incident-report-from-cli-to-console-chasing-an-attacker-in-aws/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
+    - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
+    - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-unwanted-visitor/
+    - https://www.wiz.io/blog/jinx-2401-llm-hijacking-aws
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://zviwex.com/posts/aws-account-hacked
+    - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
+    - https://www.wiz.io/blog/hunting-for-signs-of-persistence-in-the-cloud-an-ir-guide
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://hackingthe.cloud/aws/post_exploitation/iam_persistence/
+    - https://aws.permissions.cloud/iam/iam#iam-CreateLoginProfile
+    - https://traildiscover.cloud/#IAM-CreateLoginProfile
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+    - attack.t1078 #Valid Accounts
+    - attack.t1078.004 #Valid Accounts: Cloud Accounts
+    - attack.t1078.001 #Valid Accounts: Local Accounts
+    - attack.t1098.001 #Account Manipulation: Additional Cloud Credentials
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: CreateLoginProfile
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

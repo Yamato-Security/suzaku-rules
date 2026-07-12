@@ -1,0 +1,33 @@
+title: AWS IAM DeleteUserPermissionsBoundary Attempt
+id: 09f6b12d-31f1-524f-a6c8-7ba53c1c4608
+status: experimental
+description: |
+    Failed or denied attempt to call DeleteUserPermissionsBoundary — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Deletes the permissions boundary for the specified IAM user.
+    Security implications: Attackers might use DeleteUserPermissionsBoundary to remove restrictions and gain unauthorized access to AWS resources.
+references:
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/iam#iam-DeleteUserPermissionsBoundary
+    - https://traildiscover.cloud/#IAM-DeleteUserPermissionsBoundary
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: DeleteUserPermissionsBoundary
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: low

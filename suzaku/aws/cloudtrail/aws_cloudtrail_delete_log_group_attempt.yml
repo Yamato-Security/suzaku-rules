@@ -1,0 +1,35 @@
+title: AWS CloudWatchLogs DeleteLogGroup Attempt
+id: ddd44769-1b80-51bc-83d5-b7d87c6c8822
+status: experimental
+description: |
+    Failed or denied attempt to call DeleteLogGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Deletes the specified log group and permanently deletes all the archived log events associated with the log group.
+    Security implications: Attackers might use DeleteLogGroup to erase CloudWatch logs, erasing evidence of their activities within AWS.
+references:
+    - https://essay.utwente.nl/76955/1/Szabo_MSc_EEMCS.pdf
+    - https://expel.com/blog/following-cloudtrail-generating-aws-security-signals-sumo-logic/
+    - https://aws.permissions.cloud/iam/logs#logs-DeleteLogGroup
+    - https://traildiscover.cloud/#CloudWatchLogs-DeleteLogGroup
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: logs.amazonaws.com
+        eventName: DeleteLogGroup
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

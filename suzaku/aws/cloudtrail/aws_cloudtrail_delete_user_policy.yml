@@ -1,0 +1,37 @@
+title: AWS IAM DeleteUserPolicy
+id: ae311175-0a0b-5ff6-94e4-0615a365eff7
+status: experimental
+description: |
+    Deletes the specified inline policy that is embedded in the specified IAM user.
+    Security implications: Attackers might use DeleteUserPolicy to remove security policies and gain unauthorized access to AWS resources.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/iam#iam-DeleteUserPolicy
+    - https://traildiscover.cloud/#IAM-DeleteUserPolicy
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.privilege-escalation
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: DeleteUserPolicy
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: high

@@ -1,0 +1,48 @@
+title: AWS EC2 CreateSecurityGroup Attempt
+id: 79929237-a2e7-5525-8a9c-112f6c343c8a
+status: experimental
+description: |
+    Failed or denied attempt to call CreateSecurityGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates a security group.
+    Security implications: Attackers might use CreateSecurityGroup to establish new security groups with lax rules, facilitating unauthorized access or resource exploitation within AWS environments.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Behind the scenes in the Expel SOC: Alert-to-fix in AWS; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; ANATOMY OF AN ATTACK: EXPOSED KEYS TO CRYPTO MINING; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://expel.com/blog/behind-the-scenes-expel-soc-alert-aws/
+    - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
+    - https://permiso.io/blog/s/anatomy-of-attack-exposed-keys-to-crypto-mining/
+    - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://zviwex.com/posts/aws-account-hacked
+    - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
+    - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
+    - https://aws.permissions.cloud/iam/ec2#ec2-CreateSecurityGroup
+    - https://traildiscover.cloud/#EC2-CreateSecurityGroup
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.lateral-movement
+    - attack.t1098 #Account Manipulation
+    - attack.t1021 #Remote Services
+    - attack.t1021.001 #Remote Services: Remote Desktop Protocol
+    - attack.t1021.004 #Remote Services: SSH
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: CreateSecurityGroup
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

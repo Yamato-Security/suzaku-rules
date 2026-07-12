@@ -1,0 +1,33 @@
+title: AWS GuardDuty GetFindings
+id: 1511badc-6103-5443-b85c-65e6132aee74
+status: experimental
+description: |
+    Returns a list of findings that match the specified criteria.
+    Security implications: Attackers might use GetFindings to identify if previous actions generated alerts.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-GetFindings
+    - https://traildiscover.cloud/#GuardDuty-GetFindings
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: GetFindings
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

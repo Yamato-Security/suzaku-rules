@@ -1,0 +1,35 @@
+title: AWS SSO CreateGroup Attempt
+id: 7070a821-7b1c-58d3-acf4-4b96b3c4d4bd
+status: experimental
+description: |
+    Failed or denied attempt to call CreateGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates a group within the specified identity store.
+    Security implications: Attackers might use CreateGroup to create groups with elevated privileges, allowing them to manipulate access controls and maintain persistence in the environment.
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://aws.permissions.cloud/iam/sso-directory#sso-directory-CreateGroup
+    - https://traildiscover.cloud/#SSO-CreateGroup
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1098 #Account Manipulation
+    - attack.t1098.003 #Account Manipulation: Additional Cloud Roles
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sso-directory.amazonaws.com
+        eventName: CreateGroup
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

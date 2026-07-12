@@ -1,0 +1,33 @@
+title: AWS route53domains ListDomains
+id: 0fae12e3-d56f-5dad-9846-7b64e9f402b2
+status: experimental
+description: |
+    This operation returns all the domain names registered with Amazon Route 53 for the current AWS account if no filtering conditions are used.
+    Security implications: Attackers might use ListDomains to identify potential targets for DNS hijacking or DDoS attacks.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
+    - https://aws.permissions.cloud/iam/route53domains#route53domains-ListDomains
+    - https://traildiscover.cloud/#route53domains-ListDomains
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: route53domains.amazonaws.com
+        eventName: ListDomains
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

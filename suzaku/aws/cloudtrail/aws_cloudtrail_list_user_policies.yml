@@ -1,0 +1,33 @@
+title: AWS IAM ListUserPolicies
+id: f7c5a289-3840-573b-b6f6-c67a719e54ce
+status: experimental
+description: |
+    Lists the names of the inline policies embedded in the specified IAM user.
+    Security implications: Attackers might use ListUserPolicies to identify permissions associated with various users in AWS.
+    Observed in real-world incidents/reporting, e.g.: Datadog threat roundup: top insights for Q4 2024.
+references:
+    - https://securitylabs.datadoghq.com/articles/2024-q4-threat-roundup/
+    - https://aws.permissions.cloud/iam/iam#iam-ListUserPolicies
+    - https://traildiscover.cloud/#IAM-ListUserPolicies
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: ListUserPolicies
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

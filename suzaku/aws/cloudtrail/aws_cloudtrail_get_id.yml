@@ -1,0 +1,35 @@
+title: AWS CognitoIdentity GetId
+id: 4990f5e0-d1c7-5c68-a0d8-6d062eb13aea
+status: experimental
+description: |
+    Generates (or retrieves) IdentityID. Supplying multiple logins will create an implicit linked account.
+    Security implications: Attackers might use GetId to get an IdentityID that might be then used to get AWS credentials.
+references:
+    - https://hackingthe.cloud/aws/exploitation/cognito_identity_pool_excessive_privileges/#exploitation
+    - https://aws.permissions.cloud/iam/cognito-identity#cognito-identity-GetId
+    - https://traildiscover.cloud/#CognitoIdentity-GetId
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1078 #Valid Accounts
+    - attack.t1078.004 #Valid Accounts: Cloud Accounts
+    - attack.t1078.002 #Valid Accounts: Domain Accounts
+    - attack.t1078.001 #Valid Accounts: Default Accounts
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: cognito-identity.amazonaws.com
+        eventName: GetId
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: medium

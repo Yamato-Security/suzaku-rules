@@ -1,0 +1,34 @@
+title: AWS IAM SimulatePrincipalPolicy
+id: fdf9dd66-bea0-5a52-a444-29be3f14f02c
+status: experimental
+description: |
+    Simulate how a set of IAM policies attached to an IAM entity works with a list of API operations and AWS resources to determine the policies' effective permissions.
+    Security implications: Attackers might use SimulatePrincipalPolicy to understand the permissions of a principal, to later potentially exploiting any over-permissive policies. Using this technique might allow attackers to evade defenses while enumerating permissions.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/iam#iam-SimulatePrincipalPolicy
+    - https://traildiscover.cloud/#IAM-SimulatePrincipalPolicy
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: SimulatePrincipalPolicy
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate administrative or automation activity.
+    - Infrastructure-as-code or CI/CD tooling performing this action.
+level: informational

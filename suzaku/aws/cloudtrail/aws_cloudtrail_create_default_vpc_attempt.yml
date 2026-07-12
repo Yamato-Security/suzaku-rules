@@ -1,0 +1,36 @@
+title: AWS EC2 CreateDefaultVpc Attempt
+id: 7cad68a8-8fd2-5ebf-b777-288353429c7c
+status: experimental
+description: |
+    Failed or denied attempt to call CreateDefaultVpc — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates a default VPC with a size /16 IPv4 CIDR block and a default subnet in each Availability Zone.
+    Security implications: Attackers might use CreateDefaultVpc to create a VPC and lauch EC2 instances.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://aws.permissions.cloud/iam/ec2#ec2-CreateDefaultVpc
+    - https://traildiscover.cloud/#EC2-CreateDefaultVpc
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.impact
+    - attack.t1098 #Account Manipulation
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: CreateDefaultVpc
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

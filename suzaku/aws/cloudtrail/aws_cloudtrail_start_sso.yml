@@ -1,0 +1,33 @@
+title: AWS SSO StartSSO
+id: 583b2cbb-922a-5d4d-959f-e91c84d93236
+status: experimental
+description: |
+    Initialize AWS IAM Identity Center
+    Security implications: Attackers use StartSSO to establish persistent footholds.
+    Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
+references:
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://aws.permissions.cloud/iam/sso#sso-StartSSO
+    - https://traildiscover.cloud/#SSO-StartSSO
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1136 #Create Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sso.amazonaws.com
+        eventName: StartSSO
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

@@ -1,0 +1,35 @@
+title: AWS APIGateway CreateApi Attempt
+id: 86369ed4-994f-5778-8955-f8e0c814f235
+status: experimental
+description: |
+    Failed or denied attempt to call CreateApi — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates an Api resource.
+    Security implications: Attackers might use CreateApi to create malicious APIs that can be used to establish persistence in the environment.
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://aws.permissions.cloud/iam/apigateway#apigateway-POST
+    - https://traildiscover.cloud/#APIGateway-CreateApi
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1136 #Create Account
+    - attack.t1136.003 #Create Account: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: apigateway.amazonaws.com
+        eventName: CreateApi
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

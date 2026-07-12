@@ -1,0 +1,33 @@
+title: AWS Bedrock ListInferenceProfiles
+id: 58be5b95-3092-5816-9856-8a6d25e12a39
+status: experimental
+description: |
+    Returns a list of inference profiles that you can use.
+    Security implications: Attackers might use ListInferenceProfiles to identify high-cost deployments they can hijack for ML workload abuse or target for disruption.
+    Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
+references:
+    - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
+    - https://aws.permissions.cloud/iam/bedrock#bedrock-ListInferenceProfiles
+    - https://traildiscover.cloud/#Bedrock-ListInferenceProfiles
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: bedrock.amazonaws.com
+        eventName: ListInferenceProfiles
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

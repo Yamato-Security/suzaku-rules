@@ -1,0 +1,33 @@
+title: AWS KMS DescribeKey Attempt
+id: 28327766-7b1c-55d7-bd73-d501f687c30b
+status: experimental
+description: |
+    Failed or denied attempt to call DescribeKey — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Provides detailed information about a KMS key.
+    Security implications: Attackers might use DescribeKey to check information of KMS keys in ransomware attacks.
+references:
+    - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
+    - https://aws.permissions.cloud/iam/kms#kms-DescribeKey
+    - https://traildiscover.cloud/#KMS-DescribeKey
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: kms.amazonaws.com
+        eventName: DescribeKey
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

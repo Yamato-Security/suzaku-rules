@@ -1,0 +1,32 @@
+title: AWS events ListRules
+id: a38bfe0f-e1fc-5a7f-83bf-616e7c536e6e
+status: experimental
+description: |
+    Lists your Amazon EventBridge rules. You can either list all the rules or you can provide a prefix to match to the rule names.
+    Security implications: Attackers might use ListRules in AWS EventBridge to catalog active event rules, identifying critical automated security mechanisms or logging functions to target for disruption or evasion.
+references:
+    - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
+    - https://aws.permissions.cloud/iam/events#events-ListRules
+    - https://traildiscover.cloud/#events-ListRules
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: events.amazonaws.com
+        eventName: ListRules
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

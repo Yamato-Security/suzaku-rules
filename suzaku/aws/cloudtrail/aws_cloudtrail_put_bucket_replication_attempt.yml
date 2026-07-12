@@ -1,0 +1,32 @@
+title: AWS S3 PutBucketReplication Attempt
+id: 70939039-50fb-5a6f-9d37-de098765ba0f
+status: experimental
+description: |
+    Failed or denied attempt to call PutBucketReplication — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates a replication configuration or replaces an existing one.
+    Security implications: Attackers might use PutBucketReplication to replicate sensitive data to unauthorized S3 buckets controlled by the attacker.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://traildiscover.cloud/#S3-PutBucketReplication
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: PutBucketReplication
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

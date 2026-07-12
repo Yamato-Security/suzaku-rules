@@ -1,0 +1,37 @@
+title: AWS IAM DeleteUser Attempt
+id: 2a2446be-a544-51c8-aeac-26aa79217637
+status: experimental
+description: |
+    Failed or denied attempt to call DeleteUser — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Deletes the specified IAM user.
+    Security implications: Attackers might use DeleteUser to remove users and their permissions, disrupting access control in AWS. Also, it can be used to delete previously used users to avoid detection.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Insider Threat Risks to Flat Environments; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://web.archive.org/web/20241004210746/https://www.mandiant.com/sites/default/files/2021-09/rpt-mtrends-2021-3.pdf
+    - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
+    - https://aws.permissions.cloud/iam/iam#iam-DeleteUser
+    - https://traildiscover.cloud/#IAM-DeleteUser
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+    - attack.t1070 #Indicator Removal
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: DeleteUser
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

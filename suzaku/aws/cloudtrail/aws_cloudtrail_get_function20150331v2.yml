@@ -1,0 +1,34 @@
+title: AWS Lambda GetFunction20150331v2
+id: 2798f1fb-aa8f-56c6-a550-000cd48e0852
+status: experimental
+description: |
+    Returns information about the function or function version, with a link to download the deployment package.
+    Security implications: Attackers might use GetFunction to retrieve Lambda function source code and configuration, potentially exposing hardcoded secrets, API keys, and proprietary business logic.
+    Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
+references:
+    - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/
+    - https://aws.permissions.cloud/iam/lambda#lambda-GetFunction
+    - https://traildiscover.cloud/#Lambda-GetFunction20150331v2
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.collection
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: lambda.amazonaws.com
+        eventName: GetFunction20150331v2
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: low

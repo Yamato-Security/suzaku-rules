@@ -1,0 +1,35 @@
+title: AWS GuardDuty ListDetectors Attempt
+id: 791632d8-e550-5fbb-a0c0-700f5a00b0d7
+status: experimental
+description: |
+    Failed or denied attempt to call ListDetectors — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Lists detectorIds of all the existing Amazon GuardDuty detector resources.
+    Security implications: Attackers might use ListDetectors to identify active threat detection systems in AWS GuardDuty.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-ListDetectors
+    - https://traildiscover.cloud/#GuardDuty-ListDetectors
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: ListDetectors
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

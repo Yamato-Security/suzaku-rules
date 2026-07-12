@@ -1,0 +1,34 @@
+title: AWS EC2 CreateImage Attempt
+id: 222d9267-cf64-526f-9cbe-7561cefbc40b
+status: experimental
+description: |
+    Failed or denied attempt to call CreateImage — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.
+    Security implications: Attackers might use CreateImage to create images from running EC2s and use them after adding their own keys
+    Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
+references:
+    - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
+    - https://aws.permissions.cloud/iam/ec2#ec2-CreateImage
+    - https://traildiscover.cloud/#EC2-CreateImage
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: CreateImage
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

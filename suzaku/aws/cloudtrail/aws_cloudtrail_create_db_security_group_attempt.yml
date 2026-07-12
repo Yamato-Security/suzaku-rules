@@ -1,0 +1,34 @@
+title: AWS RDS CreateDBSecurityGroup Attempt
+id: cf8189d6-05c5-5113-b5e9-a5b13b79bbb1
+status: experimental
+description: |
+    Failed or denied attempt to call CreateDBSecurityGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates a new DB security group. DB security groups control access to a DB instance.
+    Security implications: Attackers might use CreateDBSecurityGroup to create new security groups with lax rules, potentially allowing unauthorized access to the database.
+references:
+    - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
+    - https://sysdig.com/blog/aws-rds-security-events-sysdig/
+    - https://aws.permissions.cloud/iam/rds#rds-CreateDBSecurityGroup
+    - https://traildiscover.cloud/#RDS-CreateDBSecurityGroup
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: CreateDBSecurityGroup
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

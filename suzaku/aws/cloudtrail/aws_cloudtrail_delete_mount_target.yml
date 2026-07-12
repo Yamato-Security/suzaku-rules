@@ -1,0 +1,32 @@
+title: AWS elasticfilesystem DeleteMountTarget
+id: 8d5275e5-ea99-5b65-a37d-d3903290f5fa
+status: experimental
+description: |
+    Deletes the specified mount target.
+    Security implications: Attackers might use DeleteMountTarget in AWS EFS to remove mount targets, disrupting access to file system and as a preliminary phase before data deletion.
+references:
+    - https://www.elastic.co/guide/en/security/7.17/aws-efs-file-system-or-mount-deleted.html
+    - https://aws.permissions.cloud/iam/elasticfilesystem#elasticfilesystem-DeleteMountTarget
+    - https://traildiscover.cloud/#elasticfilesystem-DeleteMountTarget
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1485 #Data Destruction
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: elasticfilesystem.amazonaws.com
+        eventName: DeleteMountTarget
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

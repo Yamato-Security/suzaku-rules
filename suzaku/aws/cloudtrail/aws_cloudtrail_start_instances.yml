@@ -1,0 +1,37 @@
+title: AWS EC2 StartInstances
+id: 565c7c2f-9850-5efe-9798-9a494183893c
+status: experimental
+description: |
+    Starts an Amazon EBS-backed instance that you've previously stopped.
+    Security implications: Attackers might use StartInstances to reactivate dormant EC2 instances or after having modified the user data for execution of commands.
+    Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
+references:
+    - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
+    - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/executing-commands-through-user-data/
+    - https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/
+    - https://aws.permissions.cloud/iam/ec2#ec2-StartInstances
+    - https://traildiscover.cloud/#EC2-StartInstances
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.impact
+    - attack.t1098 #Account Manipulation
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: StartInstances
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

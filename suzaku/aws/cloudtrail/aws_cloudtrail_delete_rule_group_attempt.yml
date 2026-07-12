@@ -1,0 +1,35 @@
+title: AWS WAFV2 DeleteRuleGroup Attempt
+id: 19991697-46e1-5803-9048-7599145f604f
+status: experimental
+description: |
+    Failed or denied attempt to call DeleteRuleGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Deletes the specified RuleGroup.
+    Security implications: Attackers might use DeleteRuleGroup to disable security rules, making the system vulnerable to cyber attacks.
+references:
+    - https://www.elastic.co/guide/en/security/current/aws-waf-rule-or-rule-group-deletion.html
+    - https://easttimor.github.io/aws-incident-response/
+    - https://aws.permissions.cloud/iam/wafv2#wafv2-DeleteRuleGroup
+    - https://traildiscover.cloud/#WAFV2-DeleteRuleGroup
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.007 #Impair Defenses: Disable or Modify Cloud Firewall
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: wafv2.amazonaws.com
+        eventName: DeleteRuleGroup
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

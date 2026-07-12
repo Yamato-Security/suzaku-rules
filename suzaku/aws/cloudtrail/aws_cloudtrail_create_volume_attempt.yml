@@ -1,0 +1,35 @@
+title: AWS EC2 CreateVolume Attempt
+id: 253e0b7a-e115-5066-a59b-0abac0c98669
+status: experimental
+description: |
+    Failed or denied attempt to call CreateVolume — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates an EBS volume that can be attached to an instance in the same Availability Zone.
+    Security implications: Attackers might use CreateVolume to create a volume from a snapshot and mount it to an EC2 instance under their control.
+    Observed in real-world incidents/reporting, e.g.: Navigating the Cloud: Exploring Lateral Movement Techniques.
+references:
+    - https://unit42.paloaltonetworks.com/cloud-lateral-movement-techniques/
+    - https://aws.permissions.cloud/iam/ec2#ec2-CreateVolume
+    - https://traildiscover.cloud/#EC2-CreateVolume
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.lateral-movement
+    - attack.t1021 #Remote Services
+    - attack.t1021.007 #Remote Services: Cloud Services
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: CreateVolume
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

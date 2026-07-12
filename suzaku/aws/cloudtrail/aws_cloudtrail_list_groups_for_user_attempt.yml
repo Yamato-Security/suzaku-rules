@@ -1,0 +1,35 @@
+title: AWS IAM ListGroupsForUser Attempt
+id: 63366e0f-0669-5f49-a796-cc0542d54883
+status: experimental
+description: |
+    Failed or denied attempt to call ListGroupsForUser — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Lists the IAM groups that the specified IAM user belongs to.
+    Security implications: Attackers might use ListGroupsForUser to identify privileged groups and target specific users for access escalation.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://aws.permissions.cloud/iam/iam#iam-ListGroupsForUser
+    - https://traildiscover.cloud/#IAM-ListGroupsForUser
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+    - attack.t1087.004 #Account Discovery: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: ListGroupsForUser
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

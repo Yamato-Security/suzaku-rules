@@ -1,0 +1,34 @@
+title: AWS S3 GetBucketRequestPayment Attempt
+id: d7af9e69-1590-5b6c-8295-0de1be1fddc6
+status: experimental
+description: |
+    Failed or denied attempt to call GetBucketRequestPayment — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Returns the request payment configuration of a bucket.
+    Security implications: Attackers might use GetBucketRequestPayment to check who pays for request and the data download.
+    Observed in real-world incidents/reporting, e.g.: Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
+references:
+    - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
+    - https://aws.permissions.cloud/iam/s3#s3-GetBucketRequestPayment
+    - https://traildiscover.cloud/#S3-GetBucketRequestPayment
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: GetBucketRequestPayment
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

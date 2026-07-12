@@ -1,0 +1,34 @@
+title: AWS EC2 DescribeKeyPairs Attempt
+id: e33acae2-5d69-5685-832e-8ad48f4eb574
+status: experimental
+description: |
+    Failed or denied attempt to call DescribeKeyPairs — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Describes the specified key pairs or all of your key pairs.
+    Security implications: Attackers might use DescribeKeyPairs to audit the SSH key pairs associated with EC2 instances
+    Observed in real-world incidents/reporting, e.g.: Behind the scenes in the Expel SOC: Alert-to-fix in AWS.
+references:
+    - https://expel.com/blog/behind-the-scenes-expel-soc-alert-aws/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeKeyPairs
+    - https://traildiscover.cloud/#EC2-DescribeKeyPairs
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeKeyPairs
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

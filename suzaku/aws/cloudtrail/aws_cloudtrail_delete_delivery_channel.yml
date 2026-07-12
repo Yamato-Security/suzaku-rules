@@ -1,0 +1,35 @@
+title: AWS Config DeleteDeliveryChannel
+id: 8099bb1b-c787-534d-bb90-3a96a36fa312
+status: experimental
+description: |
+    Deletes the delivery channel.
+    Security implications: Attackers might use DeleteDeliveryChannel to disrupt the flow of configuration history and compliance data in AWS.
+references:
+    - https://www.elastic.co/guide/en/security/7.17/prebuilt-rule-7-16-4-aws-config-resource-deletion.html#prebuilt-rule-7-16-4-aws-config-resource-deletion
+    - https://docs.datadoghq.com/security/default_rules/cloudtrail-aws-config-disabled/
+    - https://www.chrisfarris.com/post/reinforce-threat-hunting/
+    - https://aws.permissions.cloud/iam/config#config-DeleteDeliveryChannel
+    - https://traildiscover.cloud/#Config-DeleteDeliveryChannel
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: config.amazonaws.com
+        eventName: DeleteDeliveryChannel
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: high

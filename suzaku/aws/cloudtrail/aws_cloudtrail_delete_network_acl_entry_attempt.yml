@@ -1,0 +1,35 @@
+title: AWS EC2 DeleteNetworkAclEntry Attempt
+id: c4e48df2-0673-5215-b5ec-0f1deb120caa
+status: experimental
+description: |
+    Failed or denied attempt to call DeleteNetworkAclEntry — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Deletes the specified ingress or egress entry (rule) from the specified network ACL.
+    Security implications: Attackers might use DeleteNetworkAclEntry to remove specific rules from network access control lists, potentially opening network paths for unauthorized access.
+references:
+    - https://www.intelligentdiscovery.io/controls/cloudwatch/cloudwatch-alarm-network-acl-change
+    - https://aws.permissions.cloud/iam/ec2#ec2-DeleteNetworkAclEntry
+    - https://traildiscover.cloud/#EC2-DeleteNetworkAclEntry
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Disable or Modify Tools
+    - attack.t1562.004 #Disable or Modify System Firewall
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DeleteNetworkAclEntry
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

@@ -1,0 +1,35 @@
+title: AWS Organizations CreateAccount Attempt
+id: 3b56d16d-f81e-57d9-96d5-6767a4ee719e
+status: experimental
+description: |
+    Failed or denied attempt to call CreateAccount — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Creates an AWS account that is automatically a member of the organization whose credentials made the request.
+    Security implications: Attackers might use CreateAccount to add a new account for defense evasion, resource hijacking.
+    Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
+references:
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://aws.permissions.cloud/iam/organizations#organizations-CreateAccount
+    - https://traildiscover.cloud/#Organizations-CreateAccount
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1136 #Create Account
+    - attack.t1136.003 #Create Account: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: organizations.amazonaws.com
+        eventName: CreateAccount
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

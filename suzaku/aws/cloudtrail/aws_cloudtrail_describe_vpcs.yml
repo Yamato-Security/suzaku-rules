@@ -1,0 +1,34 @@
+title: AWS EC2 DescribeVpcs
+id: cce7d7d8-590f-5ab8-9f0b-c68b019aeb4e
+status: experimental
+description: |
+    Describes one or more of your VPCs.
+    Security implications: Attackers might use DescribeVpcs to enumerate all Virtual Private Clouds (VPCs) within an AWS environment, aiming to map out network architectures.
+    Observed in real-world incidents/reporting, e.g.: Following attackers’ (Cloud)trail in AWS: Methodology and findings in the wild; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeVpcs
+    - https://traildiscover.cloud/#EC2-DescribeVpcs
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeVpcs
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

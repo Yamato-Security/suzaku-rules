@@ -1,0 +1,34 @@
+title: AWS EC2 DescribeDhcpOptions Attempt
+id: 61285ac9-02ee-5b5a-ad8f-0d5fd41b2edc
+status: experimental
+description: |
+    Failed or denied attempt to call DescribeDhcpOptions — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Describes one or more of your DHCP options sets.
+    Security implications: Attackers might use DescribeDhcpOptions to inspect DHCP configurations in an AWS VPC.
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeDhcpOptions
+    - https://traildiscover.cloud/#EC2-DescribeDhcpOptions
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeDhcpOptions
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

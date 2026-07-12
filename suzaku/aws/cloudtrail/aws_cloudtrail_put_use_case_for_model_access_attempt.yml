@@ -1,0 +1,37 @@
+title: AWS Bedrock PutUseCaseForModelAccess Attempt
+id: 720ac2ce-e4bf-5db6-9187-10fbc2230cd3
+status: experimental
+description: |
+    Failed or denied attempt to call PutUseCaseForModelAccess — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Grants permission to put a use case for model access.
+    Security implications: Attackers might use PutUseCaseForModelAccess to prepare for using foundation models for resource hijacking.
+    Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; When AI Gets Hijacked: Exploiting Hosted Models for Dark Roleplaying; New Developments in LLM Hijacking Activity; Datadog threat roundup: top insights for Q4 2024.
+references:
+    - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
+    - https://permiso.io/blog/exploiting-hosted-models
+    - https://www.wiz.io/blog/jinx-2401-llm-hijacking-aws
+    - https://securitylabs.datadoghq.com/articles/2024-q4-threat-roundup/
+    - https://aws.permissions.cloud/iam/bedrock#bedrock-PutUseCaseForModelAccess
+    - https://traildiscover.cloud/#Bedrock-PutUseCaseForModelAccess
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: bedrock.amazonaws.com
+        eventName: PutUseCaseForModelAccess
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

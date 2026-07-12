@@ -1,0 +1,34 @@
+title: AWS CloudTrail LookupEvents Attempt
+id: a6df81e3-a635-50ed-8516-a7adea7c8ed0
+status: experimental
+description: |
+    Failed or denied attempt to call LookupEvents — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Looks up management events or CloudTrail Insights events that are captured by CloudTrail.
+    Security implications: Attackers might use LookupEvents to monitoring CloudTrail logs for changes that might affect the attack.
+    Observed in real-world incidents/reporting, e.g.: UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.
+references:
+    - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
+    - https://aws.permissions.cloud/iam/cloudtrail#cloudtrail-LookupEvents
+    - https://traildiscover.cloud/#CloudTrail-LookupEvents
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1654 #Log Enumeration
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: cloudtrail.amazonaws.com
+        eventName: LookupEvents
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

@@ -1,0 +1,34 @@
+title: AWS KMS GenerateDataKeyWithoutPlaintext Attempt
+id: 19912dfa-9268-5d62-9d1a-dffea82a69c5
+status: experimental
+description: |
+    Failed or denied attempt to call GenerateDataKeyWithoutPlaintext — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Returns a unique symmetric data key for use outside of AWS KMS.
+    Security implications: Attackers might use GenerateDataKeyWithoutPlaintext to generate encryption keys that can decrypt data in a ransom.
+    Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
+references:
+    - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/
+    - https://aws.permissions.cloud/iam/kms#kms-GenerateDataKeyWithoutPlaintext
+    - https://traildiscover.cloud/#KMS-GenerateDataKeyWithoutPlaintext
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1486 #Data Encrypted for Impact
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: kms.amazonaws.com
+        eventName: GenerateDataKeyWithoutPlaintext
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: informational

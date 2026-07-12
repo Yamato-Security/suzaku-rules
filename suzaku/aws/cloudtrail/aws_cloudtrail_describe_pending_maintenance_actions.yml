@@ -1,0 +1,33 @@
+title: AWS RDS DescribePendingMaintenanceActions
+id: 3579fac7-8e88-5c37-9016-9c0345cb8db7
+status: experimental
+description: |
+    Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.
+    Security implications: Maintenance windows may present timing opportunities for stealthy operations.
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/rds#rds-DescribePendingMaintenanceActions
+    - https://traildiscover.cloud/#RDS-DescribePendingMaintenanceActions
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: DescribePendingMaintenanceActions
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

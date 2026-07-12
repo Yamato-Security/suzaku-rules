@@ -1,0 +1,43 @@
+title: AWS SES GetSendQuota Attempt
+id: 4ab0ab23-ca11-5ed1-b482-799a7521bfa4
+status: experimental
+description: |
+    Failed or denied attempt to call GetSendQuota — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
+    Provides the sending limits for the Amazon SES account.
+    Security implications: Attackers use GetSendQuota to assess the email sending capacity of an AWS account, potentially planning persistent spam or phishing campaigns by identifying limits they can exploit or escalate.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Ransomware in the cloud; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; SES-PIONAGE; Tales from the cloud trenches: Unwanted visitor; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://www.invictus-ir.com/news/ransomware-in-the-cloud
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://permiso.io/blog/s/aws-ses-pionage-detecting-ses-abuse/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-unwanted-visitor/
+    - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://www.wiz.io/blog/wiz-discovers-cloud-email-abuse-campaign
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
+    - https://aws.permissions.cloud/iam/ses#ses-GetSendQuota
+    - https://traildiscover.cloud/#SES-GetSendQuota
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ses.amazonaws.com
+        eventName: GetSendQuota
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

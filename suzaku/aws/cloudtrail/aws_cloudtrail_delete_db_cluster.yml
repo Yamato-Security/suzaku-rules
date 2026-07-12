@@ -1,0 +1,35 @@
+title: AWS RDS DeleteDBCluster
+id: 510d1fce-551f-5ced-a5fe-020b093addbf
+status: experimental
+description: |
+    The DeleteDBCluster action deletes a previously provisioned DB cluster.
+    Security implications: Attackers might use DeleteDBCluster to delete crucial databases, causing data loss and service disruption.
+    Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
+references:
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://sysdig.com/blog/aws-rds-security-events-sysdig/
+    - https://www.elastic.co/guide/en/security/current/aws-deletion-of-rds-instance-or-cluster.html
+    - https://aws.permissions.cloud/iam/rds#rds-DeleteDBCluster
+    - https://traildiscover.cloud/#RDS-DeleteDBCluster
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1485 #Data Destruction
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: DeleteDBCluster
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: high

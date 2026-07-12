@@ -1,0 +1,41 @@
+title: AWS SES ListIdentities
+id: 34d8ccf7-ca2a-525c-834e-f86d60c3e6e2
+status: experimental
+description: |
+    Returns a list containing all of the identities (email addresses and domains) for your AWS account in the current AWS Region, regardless of verification status.
+    Security implications: Attackers use ListIdentities from SES to enumerate email addresses or domains verified under the AWS account.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Ransomware in the cloud; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Compromised Cloud Compute Credentials: Case Studies From the Wild; SES-PIONAGE; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://www.invictus-ir.com/news/ransomware-in-the-cloud
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://permiso.io/blog/s/aws-ses-pionage-detecting-ses-abuse/
+    - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
+    - https://aws.permissions.cloud/iam/ses#ses-ListIdentities
+    - https://traildiscover.cloud/#SES-ListIdentities
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ses.amazonaws.com
+        eventName: ListIdentities
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational
