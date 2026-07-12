@@ -22,4 +22,6 @@ detection:
         eventName: JobCreated
     condition: selection
 falsepositives:
-level: medium
+    - Legitimate administrative or automation activity.
+    - Infrastructure-as-code or CI/CD tooling performing this action.
+level: high

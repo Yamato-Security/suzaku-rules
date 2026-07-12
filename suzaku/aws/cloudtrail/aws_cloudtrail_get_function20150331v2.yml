@@ -25,4 +25,6 @@ detection:
         eventName: GetFunction20150331v2
     condition: selection
 falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
 level: low

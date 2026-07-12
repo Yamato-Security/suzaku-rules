@@ -25,4 +25,6 @@ detection:
         eventName: UpdateResolver
     condition: selection
 falsepositives:
-level: medium
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: high
