@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists the applied quota values for the specified AWS service.
     Security implications: Attackers might use ListServiceQuotas to identify potential services to exploit by understanding their usage limits.
+    Ex: aws service-quotas list-service-quotas --service-code TrailDiscoverServiceCode
     Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud; SES-PIONAGE.
 references:
     - https://www.invictus-ir.com/news/ransomware-in-the-cloud

@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateFilter — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a filter using the specified finding criteria.
     Security implications: Attackers might use CreateFilter to manipulate GuardDuty settings, potentially allowing malicious activity to go undetected.
+    Ex: aws guardduty create-filter --detector-id TrailDiscoverDetectorId --name TrailDiscoverFilterName --finding-criteria '{"Criterion": {"service.action.actionType": {"Eq": ["TrailDiscover"]}}}' --action NOOP
 references:
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-CreateFilter

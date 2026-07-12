@@ -4,6 +4,7 @@ status: experimental
 description: |
     Instantiates an auto-scaling virtual server based on the selected file transfer protocol in AWS.
     Security implications: Attackers might use CreateServer to create a server that allows to transfer files into and out of AWS storage services.
+    Ex: aws transfer create-server --protocols SFTP --endpoint-type PUBLIC --identity-provider-type SERVICE_MANAGED
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/

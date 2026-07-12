@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListTargetsByRule — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the targets assigned to the specified rule.
     Security implications: Attackers might use ListTargetsByRule in AWS EventBridge to enumerate the targets of specific rules, gaining insights into the architecture and response mechanisms of an environment.
+    Ex: aws events list-targets-by-rule --rule TrailDiscoverRule
 references:
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/events#events-ListTargetsByRule

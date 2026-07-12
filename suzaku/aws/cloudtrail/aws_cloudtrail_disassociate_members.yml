@@ -4,6 +4,7 @@ status: experimental
 description: |
     Disassociates GuardDuty member accounts (from the current administrator account) specified by the account IDs.
     Security implications: Attackers might use DisassociateMembers to remove members from a GuardDuty detector, disrupting threat detection and security analysis.
+    Ex: aws guardduty disassociate-members --detector-id TrailDiscoverDetectorId --account-ids TrailDiscoverAccountIds
 references:
     - https://www.chrisfarris.com/post/reinforce-threat-hunting/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-DisassociateMembers

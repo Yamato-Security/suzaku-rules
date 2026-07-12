@@ -26,6 +26,9 @@ references:
     - https://hackingthe.cloud/aws/exploitation/s3_server_access_logs/
     - https://hackingthe.cloud/aws/exploitation/s3_streaming_copy/
     - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.impact.s3-ransomware-client-side-encryption
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.impact.s3-ransomware-batch-deletion
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.impact.s3-ransomware-individual-deletion
     - https://aws.permissions.cloud/iam/s3#s3-GetObject
     - https://traildiscover.cloud/#S3-GetObject
 author: Zach Mathis (@YamatoSecurity)

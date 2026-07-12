@@ -4,6 +4,7 @@ status: experimental
 description: |
     Describes your internet gateways.
     Security implications: Knowledge of internet ingress/egress points supports planning of data exfiltration.
+    Ex: aws ec2 describe-internet-gateways
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

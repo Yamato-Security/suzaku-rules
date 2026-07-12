@@ -4,6 +4,7 @@ status: experimental
 description: |
     Sets the permissions on an existing bucket using access control lists (ACL).
     Security implications: Attackers might use SetBucketAccessControlPolicy to modify access control lists, potentially granting unauthorized access to S3 buckets.
+    Ex: aws s3api put-bucket-acl --bucket TrailDiscoverBucket --acl TrailDiscoverAcl
 references:
     - https://docs.datadoghq.com/security/default_rules/aws-bucket-acl-made-public/
     - https://aws.permissions.cloud/iam/s3#s3-PutBucketAcl

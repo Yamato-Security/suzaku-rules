@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeletePublishingDestination — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the publishing definition with the specified destinationId.
     Security implications: Attackers might use DeletePublishingDestination to disrupt the security monitoring and incident response process in AWS GuardDuty.
+    Ex: aws guardduty delete-publishing-destination --detector-id TrailDiscoverDetectorId --destination-id TrailDiscoverDestinationId
 references:
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-DeletePublishingDestination

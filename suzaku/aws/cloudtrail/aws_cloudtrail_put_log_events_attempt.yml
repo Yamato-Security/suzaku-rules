@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call PutLogEvents — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Uploads a batch of log events to the specified log stream.
     Security implications: Attackers might use PutLogEvents to add benign log entries, effectively burying any signs of his malicious activities.
+    Ex: aws logs put-log-events --log-group-name my-logs --log-stream-name 20150601 --log-events timestamp=$(date +%s%3N),message='TrailDiscover'
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
 references:
     - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/

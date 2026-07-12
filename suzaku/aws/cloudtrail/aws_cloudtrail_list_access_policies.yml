@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns information about a list of OpenSearch Serverless access policies.
     Security implications: Attackers might use ListAccessPolicies to understand enforcement gaps, clone permissive rules, or stage privilege escalation against OpenSearch Serverless data.
+    Ex: aws opensearchserverless list-access-policies --type data
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes

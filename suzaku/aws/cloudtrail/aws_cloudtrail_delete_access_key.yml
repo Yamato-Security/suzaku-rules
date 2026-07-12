@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the access key pair associated with the specified IAM user.
     Security implications: Attackers might use DeleteAccessKey to revoke legitimate user access to AWS services. Also, it can be used to delete previously used keys to avoid detection.
+    Ex: aws iam delete-access-key --access-key-id AKIDPMS9RO4H3FEXAMPLE --user-name TrailDiscover
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

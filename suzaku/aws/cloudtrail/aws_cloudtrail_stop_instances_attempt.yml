@@ -5,11 +5,13 @@ description: |
     Failed or denied attempt to call StopInstances — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Stops an Amazon EBS-backed instance.
     Security implications: Attackers might use StopInstances to avoid being detected or to do changes that will be executed when the EC2 is started.
+    Ex: aws ec2 stop-instances --instance-ids TrailDiscoverInstanceID
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
     - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/executing-commands-through-user-data/
     - https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.execution.ec2-user-data
     - https://aws.permissions.cloud/iam/ec2#ec2-StopInstances
     - https://traildiscover.cloud/#EC2-StopInstances
 author: Zach Mathis (@YamatoSecurity)

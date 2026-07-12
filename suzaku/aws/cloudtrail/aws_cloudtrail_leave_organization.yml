@@ -4,9 +4,11 @@ status: experimental
 description: |
     Removes a member account from its parent organization.
     Security implications: Attackers might use LeaveOrganization to disassociate resources and disrupt the structure of AWS organizations.
+    Ex: aws organizations leave-organization
 references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
     - https://docs.datadoghq.com/security/default_rules/aws-organizations-leave-organization/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.defense-evasion.organizations-leave
     - https://aws.permissions.cloud/iam/organizations#organizations-LeaveOrganization
     - https://traildiscover.cloud/#Organizations-LeaveOrganization
 author: Zach Mathis (@YamatoSecurity)

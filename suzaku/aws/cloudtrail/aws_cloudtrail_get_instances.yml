@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns information about all Amazon Lightsail virtual private servers, or instances.
     Security implications: Attackers might use GetInstances to gather information about running instances for potential exploitation.
+    Ex: aws lightsail get-instances
 references:
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
     - https://aws.permissions.cloud/iam/lightsail#lightsail-GetInstances

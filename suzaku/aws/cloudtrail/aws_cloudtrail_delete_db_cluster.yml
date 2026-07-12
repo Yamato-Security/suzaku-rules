@@ -4,6 +4,7 @@ status: experimental
 description: |
     The DeleteDBCluster action deletes a previously provisioned DB cluster.
     Security implications: Attackers might use DeleteDBCluster to delete crucial databases, causing data loss and service disruption.
+    Ex: aws rds delete-db-cluster --db-cluster-identifier TrailDiscoverDBCluster
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
 references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf

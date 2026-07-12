@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateDBSecurityGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new DB security group. DB security groups control access to a DB instance.
     Security implications: Attackers might use CreateDBSecurityGroup to create new security groups with lax rules, potentially allowing unauthorized access to the database.
+    Ex: aws rds create-db-security-group --db-security-group-name TrailDiscoverSecurityGroupName --db-security-group-description TrailDiscoverDescription
 references:
     - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
     - https://sysdig.com/blog/aws-rds-security-events-sysdig/

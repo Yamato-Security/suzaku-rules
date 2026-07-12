@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListSigningCertificates — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about the signing certificates associated with the specified IAM user.
     Security implications: Attackers might use ListSigningCertificates to review which users have active certificates
+    Ex: aws iam list-signing-certificates --user-name traildiscover
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/

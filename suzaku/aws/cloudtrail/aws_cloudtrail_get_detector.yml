@@ -4,6 +4,7 @@ status: experimental
 description: |
     Retrieves an Amazon GuardDuty detector specified by the detectorId.
     Security implications: Attackers might use GetDetector to identify active threat detection systems in AWS GuardDuty.
+    Ex: aws guardduty get-detector --detector-id TrailDiscoverDetectorId
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

@@ -4,6 +4,7 @@ status: experimental
 description: |
     Updates an existing job definition.
     Security implications: Attackers might use UpdateJob to modify Glue job parameters, potentially disrupting data processing or injecting malicious code.
+    Ex: aws glue update-job --job-name TrailDiscoverJob --job-update '{"Role": "TrailDiscoverRole", "Command": {"Name": "glueetl", "ScriptLocation": "s3://mybucket/myscript.py"}}'
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/glue#glue-UpdateJob

@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeAlarmsForMetric — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves the alarms for the specified metric.
     Security implications: Helps determine which metrics trigger detection enabling silent abuse of unmonitored resources.
+    Ex: aws cloudwatch describe-alarms-for-metric --namespace AWS/EC2 --metric-name CPUUtilization
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

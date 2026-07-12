@@ -4,6 +4,7 @@ status: experimental
 description: |
     Describes the orderable DB instance options for a specified DB engine.
     Security implications: Available instance classes may inform cost/resource abuse strategies.
+    Ex: aws rds describe-orderable-db-instance-options --engine mysql --max-items 5
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

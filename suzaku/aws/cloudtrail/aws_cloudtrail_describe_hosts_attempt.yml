@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeHosts — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified Dedicated Hosts or all your Dedicated Hosts.
     Security implications: Provides inventory of dedicated hosts which can guide lateral movement or privilege escalation strategies.
+    Ex: aws ec2 describe-hosts --max-results 5
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

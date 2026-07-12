@@ -4,6 +4,7 @@ status: experimental
 description: |
     Stops GuardDuty monitoring for the specified member accounts.
     Security implications: Attackers might use StopMonitoringMembers to halt the surveillance of specific AWS accounts, reducing security visibility.
+    Ex: aws guardduty stop-monitoring-members --account-ids TrailDiscoverAccountIds --detector-id TrailDiscoverDetectorId
 references:
     - https://www.chrisfarris.com/post/reinforce-threat-hunting/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-StopMonitoringMembers

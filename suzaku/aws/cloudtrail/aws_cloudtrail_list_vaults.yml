@@ -4,6 +4,7 @@ status: experimental
 description: |
     This operation lists all vaults owned by the calling user’s account.
     Security implications: Attackers might use ListVaults to identify data such as archived training data or related datasets.
+    Ex: aws glacier list-vaults --account-id -
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; Tales from the cloud trenches: Raiding for AWS vaults, buckets and secrets.
 references:
     - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts

@@ -5,8 +5,10 @@ description: |
     Failed or denied attempt to call PutBucketPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Applies an Amazon S3 bucket policy to an Amazon S3 bucket.
     Security implications: Attackers might use PutBucketPolicy to modify bucket permissions, potentially allowing unauthorized access to sensitive data.
+    Ex: aws s3api put-bucket-policy --bucket TrailDiscover --policy {}
 references:
     - https://www.solvo.cloud/blog/detecting-and-removing-risky-actions-out-of-your-iam-security-policies/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.exfiltration.s3-backdoor-bucket-policy
     - https://aws.permissions.cloud/iam/s3#s3-PutBucketPolicy
     - https://traildiscover.cloud/#S3-PutBucketPolicy
 author: Zach Mathis (@YamatoSecurity)

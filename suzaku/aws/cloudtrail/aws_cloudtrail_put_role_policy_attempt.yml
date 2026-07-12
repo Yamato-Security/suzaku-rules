@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call PutRolePolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds or updates an inline policy document that is embedded in the specified IAM role.
     Security implications: Attackers might use PutRolePolicy to modify permissions of IAM roles, potentially granting unauthorized access to AWS resources.
+    Ex: aws iam put-role-policy --role-name TrailDiscover-Role --policy-name TrailDiscover --policy-document {}
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-PutRolePolicy

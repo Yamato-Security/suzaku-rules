@@ -4,6 +4,7 @@ status: experimental
 description: |
     Retrieves cost and usage metrics for your account.
     Security implications: Attackers might use GetCostAndUsage to determine how active an account is by understanding the cost within a cloud account.
+    Ex: aws ce get-cost-and-usage --time-period Start=2017-09-01,End=2017-10-01 --granularity MONTHLY --metrics 'BlendedCost' 'UnblendedCost' 'UsageQuantity' --group-by Type=DIMENSION,Key=SERVICE Type=TAG,Key=Environment
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/

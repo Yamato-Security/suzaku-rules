@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListTopics — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list of the requester's topics.
     Security implications: Attackers might use ListTopics to identify potential SNS topics for unauthorized access or disruption.
+    Ex: aws sns list-topics
 references:
     - https://permiso.io/blog/s/smishing-attack-on-aws-sms-new-phone-who-dis/
     - https://aws.permissions.cloud/iam/sns#sns-ListTopics

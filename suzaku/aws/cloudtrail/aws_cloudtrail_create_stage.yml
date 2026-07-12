@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates a Stage for an API. A Stage is a named reference to a deployment of an API.
     Security implications: Attackers might use CreateStage to create malicious stages that can be used to establish persistence in the environment.
+    Ex: aws apigatewayv2 create-stage  --api-id $API_ID --stage-name '$default' --auto-deploy
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/

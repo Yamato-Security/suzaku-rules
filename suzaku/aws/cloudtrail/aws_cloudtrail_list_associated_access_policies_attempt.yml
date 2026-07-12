@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListAssociatedAccessPolicies — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the access policies associated with an access entry.
     Security implications: Attackers might use ListAssociatedAccessPolicies to enumerate policies associated with resources in AWS services, identifying overly permissive access that can be exploited to escalate privileges.
+    Ex: aws eks list-associated-access-policies --cluster-name beta-fish --principal-arn arn:aws:iam::111122223333:role/TrailDiscover
 references:
     - https://www.wiz.io/blog/new-attack-vectors-emerge-via-recent-eks-access-entries-and-pod-identity-features
     - https://aws.permissions.cloud/iam/eks#eks-ListAssociatedAccessPolicies

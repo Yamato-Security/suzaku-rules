@@ -4,6 +4,7 @@ status: experimental
 description: |
     Describes an Amazon EKS cluster.
     Security implications: Attackers might use DescribeCluster to gain insights into the configuration and status of AWS EKS clusters.
+    Ex: aws eks describe-cluster --name TrailDiscoverCluster
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the publishing definition with the specified destinationId.
     Security implications: Attackers might use DeletePublishingDestination to disrupt the security monitoring and incident response process in AWS GuardDuty.
+    Ex: aws guardduty delete-publishing-destination --detector-id TrailDiscoverDetectorId --destination-id TrailDiscoverDestinationId
 references:
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-DeletePublishingDestination

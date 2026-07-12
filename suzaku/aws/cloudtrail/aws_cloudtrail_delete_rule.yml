@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the specified rule.
     Security implications: Attackers might use DeleteRule to disrupt automated security responses and event logging in AWS EventBridge, potentially masking unauthorized activities or compromising system integrity.
+    Ex: aws events delete-rule --name TrailDiscoverRule
 references:
     - https://www.elastic.co/guide/en/security/7.17/rules-api-delete.html
     - https://docs.datadoghq.com/security/default_rules/aws-eventbridge-rule-disabled-or-deleted/

@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeleteRuleGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified RuleGroup.
     Security implications: Attackers might use DeleteRuleGroup to disable security rules, making the system vulnerable to cyber attacks.
+    Ex: aws wafv2 delete-rule-group --name TestRuleGroup --scope REGIONAL --id a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 --lock-token 7b3bcec2-0000-0000-0000-563bf47249f0
 references:
     - https://www.elastic.co/guide/en/security/current/aws-waf-rule-or-rule-group-deletion.html
     - https://easttimor.github.io/aws-incident-response/

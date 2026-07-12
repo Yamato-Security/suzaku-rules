@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the specified mount target.
     Security implications: Attackers might use DeleteMountTarget in AWS EFS to remove mount targets, disrupting access to file system and as a preliminary phase before data deletion.
+    Ex: aws efs delete-mount-target --mount-target-id fsmt-f9a14450
 references:
     - https://www.elastic.co/guide/en/security/7.17/aws-efs-file-system-or-mount-deleted.html
     - https://aws.permissions.cloud/iam/elasticfilesystem#elasticfilesystem-DeleteMountTarget

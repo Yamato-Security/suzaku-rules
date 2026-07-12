@@ -4,6 +4,7 @@ status: experimental
 description: |
     Invokes a Lambda function.
     Security implications: Attackers might use Invoke to execute previously modified functions in AWS Lambda.
+    Ex: aws lambda invoke --function-name TrailDiscoverFunction /dev/stdout
     Observed in real-world incidents/reporting, e.g.: Mining Crypto; Cloud Security Stories: From Risky Permissions to Ransomware Execution; AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://twitter.com/jonnyplatt/status/1471453527390277638

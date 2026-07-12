@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates a new managed policy for your AWS account.
     Security implications: Attackers might use CreatePolicy to create new IAM policies that later they can use for potentially granting themselves elevated permissions.
+    Ex: aws iam create-policy --policy-name TrailDiscoverPolicy --policy-document {}
     Observed in real-world incidents/reporting, e.g.: New Developments in LLM Hijacking Activity; From Compromised Keys to Phishing Campaigns: Inside a Cloud Email Service Takeover.
 references:
     - https://www.wiz.io/blog/jinx-2401-llm-hijacking-aws

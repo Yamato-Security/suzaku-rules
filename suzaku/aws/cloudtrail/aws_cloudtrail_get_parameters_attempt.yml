@@ -5,8 +5,10 @@ description: |
     Failed or denied attempt to call GetParameters — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Get information about one or more parameters by specifying multiple parameter names.
     Security implications: Attackers might use GetParameters to gather sensitive information such as api keys or other secrets.
+    Ex: aws ssm get-parameters --names TrailDiscoverParameters
 references:
     - https://www.solvo.cloud/blog/detecting-and-removing-risky-actions-out-of-your-iam-security-policies/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.credential-access.ssm-retrieve-securestring-parameters
     - https://aws.permissions.cloud/iam/ssm#ssm-GetParameters
     - https://traildiscover.cloud/#SSM-GetParameters
 author: Zach Mathis (@YamatoSecurity)

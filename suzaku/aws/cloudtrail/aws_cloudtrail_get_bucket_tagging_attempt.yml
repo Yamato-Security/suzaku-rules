@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call GetBucketTagging — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns the tag set associated with the bucket.
     Security implications: Attackers might use GetBucketTagging to look for tags reminiscent of PII or confidential data.
+    Ex: aws s3api get-bucket-tagging --bucket TrailDiscoverBucket
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
 references:
     - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/

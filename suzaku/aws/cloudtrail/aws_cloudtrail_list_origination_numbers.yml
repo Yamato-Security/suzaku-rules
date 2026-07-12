@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists the calling AWS account's dedicated origination numbers and their metadata.
     Security implications: Attackers might use ListOriginationNumbers to identify origination numbers for potential smishing campaings.
+    Ex: aws sns list-origination-numbers
 references:
     - https://permiso.io/blog/s/smishing-attack-on-aws-sms-new-phone-who-dis/
     - https://aws.permissions.cloud/iam/sns#sns-ListOriginationNumbers

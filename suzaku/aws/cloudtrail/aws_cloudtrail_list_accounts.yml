@@ -4,6 +4,7 @@ status: experimental
 description: |
     Lists all the accounts in the organization.
     Security implications: Attackers might use ListAccounts to gather information about the structure and resources of an organization's AWS environment.
+    Ex: aws organizations list-accounts
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/

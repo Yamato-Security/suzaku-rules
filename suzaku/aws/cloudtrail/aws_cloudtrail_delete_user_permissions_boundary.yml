@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the permissions boundary for the specified IAM user.
     Security implications: Attackers might use DeleteUserPermissionsBoundary to remove restrictions and gain unauthorized access to AWS resources.
+    Ex: aws iam delete-user-permissions-boundary --user-name TrailDiscover
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-DeleteUserPermissionsBoundary

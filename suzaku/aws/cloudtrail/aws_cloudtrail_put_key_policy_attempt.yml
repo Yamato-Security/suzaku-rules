@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call PutKeyPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Attaches a key policy to the specified KMS key.
     Security implications: Attackers might put a new key policy to modify the policy of a current KMS Key and lock the data for ransomware attacks.
+    Ex: aws kms put-key-policy --key-id 1234abcd-12ab-34cd-56ef-1234567890ab --policy-name default --policy "{"Version":"2012-10-17","Id":"key-default-1","Statement":[{"Sid":"Enable IAM User Permissions","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:root"},"Action":"kms:*","Resource":"*"}]}"
 references:
     - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
     - https://aws.permissions.cloud/iam/kms#kms-PutKeyPolicy

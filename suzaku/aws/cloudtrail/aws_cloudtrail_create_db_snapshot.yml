@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates a snapshot of a DB instance.
     Security implications: Attackers might use CreateDBSnapshot to create unauthorized backups of sensitive databases for data theft.
+    Ex: aws rds create-db-snapshot --db-instance-identifier TrailDiscoverDBInstance --db-snapshot-identifier TrailDiscoverDBSnapshot
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; New tactics and techniques for proactive threat detection; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/

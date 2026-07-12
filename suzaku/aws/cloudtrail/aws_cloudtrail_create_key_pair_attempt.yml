@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateKeyPair — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the specified PEM or PPK format.
     Security implications: Attackers might use CreateKeyPair to generate keys that can latter be used to access EC2s.
+    Ex: aws ec2 create-key-pair --key-name TrailDiscoverKeyPair
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; ANATOMY OF AN ATTACK: EXPOSED KEYS TO CRYPTO MINING; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

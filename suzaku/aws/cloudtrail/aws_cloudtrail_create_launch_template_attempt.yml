@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateLaunchTemplate — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a launch template. A launch template contains the parameters to launch an instance.
     Security implications: Attackers might use CreateLaunchTemplate to define instance configurations with malicious UserData scripts, enabling automated deployment of cryptomining or other malicious workloads at scale.
+    Ex: aws ec2 create-launch-template --launch-template-name TrailDiscoverTemplate --launch-template-data '{"ImageId":"ami-0b98a32b1c5e0d105","InstanceType":"t2.micro"}'
     Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
 references:
     - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/

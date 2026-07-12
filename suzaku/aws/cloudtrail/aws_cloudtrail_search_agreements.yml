@@ -4,6 +4,7 @@ status: experimental
 description: |
     Searches across all agreements that a proposer has in AWS Marketplace.
     Security implications: Attackers might use SearchAgreements to enumerate Bedrock contracts, determine billing limits, and time their abuse before defenders notice unusual marketplace usage.
+    Ex: aws marketplace-agreement search-agreements --catalog BedrockMarketplace --max-results 20
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes

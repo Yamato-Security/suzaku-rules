@@ -4,11 +4,13 @@ status: experimental
 description: |
     Describes the specified instances or all instances.
     Security implications: Attackers might use DescribeInstances to inventory EC2 instances within an AWS environment.
+    Ex: aws ec2 describe-instances --instance-ids TrailDiscoverInstanceID
     Observed in real-world incidents/reporting, e.g.: Following attackers’ (Cloud)trail in AWS: Methodology and findings in the wild; Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/
     - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.credential-access.ec2-steal-instance-credentials
     - https://aws.permissions.cloud/iam/ec2#ec2-DescribeInstances
     - https://traildiscover.cloud/#EC2-DescribeInstances
 author: Zach Mathis (@YamatoSecurity)

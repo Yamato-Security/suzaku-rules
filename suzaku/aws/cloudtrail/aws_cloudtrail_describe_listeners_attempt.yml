@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeListeners — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified listeners or the listeners for the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
     Security implications: Attackers might use DescribeListeners to get information about the load balancers listeners for potential future modifications.
+    Ex: aws elbv2 describe-listeners
 references:
     - https://medium.com/@adan.alvarez/rigging-the-rules-manipulating-aws-alb-to-mine-sensitive-data-20e33dbc4994
     - https://aws.permissions.cloud/iam/elasticloadbalancing#elasticloadbalancing-DescribeListeners

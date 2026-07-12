@@ -4,6 +4,7 @@ status: experimental
 description: |
     Updates the configuration for a CloudFront distribution.
     Security implications: Attackers might use UpdateDistribution to add a malicious configuration such as a function to exfiltrate data.
+    Ex: aws cloudfront update-distribution --id EDFDVBD6EXAMPLE --distribution-config '{"CallerReference":"", "Origins":{"Quantity":1,"Items":[{"Id":"", "DomainName":""}]}, "DefaultCacheBehavior":{"TargetOriginId":"", "ViewerProtocolPolicy":""}, "Comment":"", "Enabled":false }'
 references:
     - https://medium.com/@adan.alvarez/how-attackers-can-misuse-aws-cloudfront-access-to-make-it-rain-cookies-acf9ce87541c
     - https://aws.permissions.cloud/iam/cloudfront#cloudfront-UpdateDistribution

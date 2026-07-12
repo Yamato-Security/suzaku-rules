@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates an AWS account that is automatically a member of the organization whose credentials made the request.
     Security implications: Attackers might use CreateAccount to add a new account for defense evasion, resource hijacking.
+    Ex: aws organizations create-account --email traildiscover@example.com --account-name "TrailDiscover Account"
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
 references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf

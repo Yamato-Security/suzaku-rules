@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateApi — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates an Api resource.
     Security implications: Attackers might use CreateApi to create malicious APIs that can be used to establish persistence in the environment.
+    Ex: aws apigatewayv2 create-api --name TrailDiscoverApi --protocol-type HTTP --query 'ApiId'
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/

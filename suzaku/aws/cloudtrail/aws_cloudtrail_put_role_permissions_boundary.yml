@@ -4,6 +4,7 @@ status: experimental
 description: |
     Adds or updates the policy that is specified as the IAM role's permissions boundary.
     Security implications: Attackers might use PutRolePermissionsBoundary to modify permissions boundaries, potentially escalating privileges or enabling unauthorized access.
+    Ex: aws iam put-role-permissions-boundary --permissions-boundary arn:aws:iam::123456789012:policy/intern-boundary --role-name TrailDiscover
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-PutRolePermissionsBoundary

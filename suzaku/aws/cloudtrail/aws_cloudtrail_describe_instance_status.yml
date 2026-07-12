@@ -4,6 +4,7 @@ status: experimental
 description: |
     Describes the status of the specified instances or all of your instances.
     Security implications: Can reveal degraded instances or maintenance events an attacker might exploit.
+    Ex: aws ec2 describe-instance-status --include-all-instances
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

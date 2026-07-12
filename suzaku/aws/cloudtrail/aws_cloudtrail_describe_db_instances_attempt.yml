@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeDBInstances — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes provisioned RDS instances.
     Security implications: DB endpoint details aid targeting for data exfiltration or privilege escalation within databases.
+    Ex: aws rds describe-db-instances
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud; Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

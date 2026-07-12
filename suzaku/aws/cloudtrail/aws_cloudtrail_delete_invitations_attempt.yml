@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeleteInvitations — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes invitations sent to the current member account by AWS accounts specified by their account IDs.
     Security implications: Attackers might use DeleteInvitations to avoid the use of GuardDuty, thereby evading detection of malicious activity.
+    Ex: aws guardduty delete-invitations --account-ids 111222333444
     Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.
 references:
     - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud

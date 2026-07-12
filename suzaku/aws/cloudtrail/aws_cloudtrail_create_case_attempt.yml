@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateCase — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a case in the Support Center.
     Security implications: Attackers might use CreateCase to create a support case to try to get bigger quotas or other changes to the AWS account.
+    Ex: aws support create-case --subject "API Test Case" --service-code "general-info" --severity-code "low" --category-code "using-aws" --communication-body "This is only a test of the AWS Support Create Case API." --issue-type "technical"
     Observed in real-world incidents/reporting, e.g.: From Compromised Keys to Phishing Campaigns: Inside a Cloud Email Service Takeover.
 references:
     - https://www.wiz.io/blog/wiz-discovers-cloud-email-abuse-campaign

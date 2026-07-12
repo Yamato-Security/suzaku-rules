@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateTrafficMirrorFilter — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a Traffic Mirror filter.
     Security implications: Attackers might use CreateTrafficMirrorFilter to clandestinely mirror network traffic for analysis or exfiltration.
+    Ex: aws ec2 create-traffic-mirror-filter --description 'TCP Filter'
 references:
     - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
     - https://aws.permissions.cloud/iam/ec2#ec2-CreateTrafficMirrorFilter

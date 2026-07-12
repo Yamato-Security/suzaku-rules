@@ -4,6 +4,7 @@ status: experimental
 description: |
     Retrieves information about the specified IAM user, including the user's creation date, path, unique ID, and ARN.
     Security implications: Attackers might use GetUser to obtain user information.
+    Ex: aws iam get-user --user-name TrailDiscover
     Observed in real-world incidents/reporting, e.g.: GotRoot! AWS root Account Takeover; Tales from the cloud trenches: Raiding for AWS vaults, buckets and secrets; Datadog threat roundup: top insights for Q4 2024; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://medium.com/@gchib/naturesbasket-aws-root-account-takeover-e4aa5c5e95e1

@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeVolumes — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified EBS volumes or all of your EBS volumes.
     Security implications: Attackers might use DescribeVolumes to enumerate EBS volumes in an AWS environment, identifying valuable data storage.
+    Ex: aws ec2 describe-volumes --volume-ids TrailDiscoverVolumeId
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab

@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call PutAccountDetails — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Update your Amazon SES account details.
     Security implications: Attackers might use PutAccountDetails to push the SES account into production mode.
+    Ex: aws sesv2 put-account-details --mail-type TRANSACTIONAL --website-url https://traildiscover.cloud --contact-language EN --use-case-description "We need to use the Amazon SES for sending the report pdf, payment receipt through email and user verify through email"
     Observed in real-world incidents/reporting, e.g.: From Compromised Keys to Phishing Campaigns: Inside a Cloud Email Service Takeover.
 references:
     - https://www.wiz.io/blog/wiz-discovers-cloud-email-abuse-campaign

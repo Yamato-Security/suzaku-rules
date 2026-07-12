@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call GetCallerIdentity — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns details about the IAM user or role whose credentials are used to call the operation.
     Security implications: Attackers might use GetCallerIdentity to know what user or role are they using. This request does not need any permission.
+    Ex: aws sts get-caller-identity
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; GotRoot! AWS root Account Takeover; Compromised Cloud Compute Credentials: Case Studies From the Wild; Tales from the cloud trenches: Using malicious AWS activity to spot phishing campaigns; Detecting AI resource-hijacking with Composite Alerts; Cloud-Conscious Tactics, Techniques,and Procedures (TTPs).
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
@@ -20,6 +21,8 @@ references:
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
     - https://www.wiz.io/blog/new-attack-vectors-emerge-via-recent-eks-access-entries-and-pod-identity-features
     - https://hackingthe.cloud/aws/enumeration/account_id_from_ec2/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.discovery.ec2-enumerate-from-instance
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.credential-access.ec2-steal-instance-credentials
     - https://aws.permissions.cloud/iam/sts#sts-GetCallerIdentity
     - https://traildiscover.cloud/#STS-GetCallerIdentity
 author: Zach Mathis (@YamatoSecurity)

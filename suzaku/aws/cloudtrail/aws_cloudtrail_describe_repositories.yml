@@ -4,6 +4,7 @@ status: experimental
 description: |
     Describes image repositories in a registry.
     Security implications: Attackers might use DescribeRepositories to enumerate ECR repositories, identifying container images that may contain proprietary code, embedded secrets, or internal service logic.
+    Ex: aws ecr describe-repositories
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

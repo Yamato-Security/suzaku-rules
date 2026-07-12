@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call PutBucketReplication — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a replication configuration or replaces an existing one.
     Security implications: Attackers might use PutBucketReplication to replicate sensitive data to unauthorized S3 buckets controlled by the attacker.
+    Ex: aws s3api put-bucket-replication --bucket AWSDOC-EXAMPLE-BUCKET1 --replication-configuration '{"Role":"","Rules":[]}'
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
     - https://traildiscover.cloud/#S3-PutBucketReplication

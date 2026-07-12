@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.
     Security implications: Maintenance windows may present timing opportunities for stealthy operations.
+    Ex: aws rds describe-pending-maintenance-actions
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

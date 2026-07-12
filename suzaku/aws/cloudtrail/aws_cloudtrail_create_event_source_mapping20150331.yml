@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates a mapping between an event source and an AWS Lambda function.
     Security implications: Attackers might use CreateEventSourceMapping to trigger unauthorized Lambda functions with malicious code.
+    Ex: aws lambda create-event-source-mapping --function-name my-function --batch-size 5 --event-source-arn arn:aws:sqs:us-west-2:123456789012:mySQSqueue
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/lambda#lambda-CreateEventSourceMapping

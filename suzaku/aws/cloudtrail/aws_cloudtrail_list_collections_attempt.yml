@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListCollections — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists all OpenSearch Serverless collections.
     Security implications: Attackers might use ListCollections to inventory search clusters, identify business-critical analytics assets, and prioritize follow-on data theft or sabotage.
+    Ex: aws opensearchserverless list-collections
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes

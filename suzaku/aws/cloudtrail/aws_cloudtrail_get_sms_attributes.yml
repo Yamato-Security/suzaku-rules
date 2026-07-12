@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns the settings for sending SMS messages from your AWS account.
     Security implications: Attackers might use GetSMSAttributes to retrieve sensitive SMS configuration details for potential usage for smishing.
+    Ex: aws sns get-sms-attributes --attributes TrailDiscoverAttributes
     Observed in real-world incidents/reporting, e.g.: NEW PHONE, WHO DIS? HOW CLOUD ENVIRONMENTS ARE EXPLOITED FOR SMISHING CAMPAIGNS; Tales from the cloud trenches: Using malicious AWS activity to spot phishing campaigns; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://permiso.io/blog/s/smishing-attack-on-aws-sms-new-phone-who-dis/

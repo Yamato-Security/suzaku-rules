@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListModels — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists models created with the CreateModel API.
     Security implications: Attackers might use ListModels to inventory proprietary ML assets, determine which ones are most valuable, and plan exfiltration or sabotage.
+    Ex: aws sagemaker list-models
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes

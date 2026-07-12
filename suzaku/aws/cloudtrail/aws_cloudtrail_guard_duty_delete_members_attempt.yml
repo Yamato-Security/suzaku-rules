@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeleteMembers — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by the account IDs.
     Security implications: Attackers might use DeleteMembers to remove members from a GuardDuty detector, disrupting threat detection and security analysis.
+    Ex: aws guardduty delete-members --account-ids TrailDiscoverAccountIds --detector-id TrailDiscoverDetectorId
 references:
     - https://www.chrisfarris.com/post/reinforce-threat-hunting/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-DeleteMembers

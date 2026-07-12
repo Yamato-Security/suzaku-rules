@@ -4,6 +4,7 @@ status: experimental
 description: |
     Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you.
     Security implications: Snapshot metadata can reveal data volume targets for exfiltration or cloning in another account.
+    Ex: aws ec2 describe-snapshots --owner-ids self
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

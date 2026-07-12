@@ -10,6 +10,7 @@ references:
     - https://unit42.paloaltonetworks.com/cloud-lateral-movement-techniques/
     - https://fwdcloudsec.org/assets/presentations/2024/europe/sebastian-walla-cloud-conscious-tactics-techniques-and-procedures-an-overview.pdf
     - https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.lateral-movement.ec2-instance-connect
     - https://aws.permissions.cloud/iam/ec2-instance-connect#ec2-instance-connect-SendSSHPublicKey
     - https://traildiscover.cloud/#EC2InstanceConnect-SendSSHPublicKey
 author: Zach Mathis (@YamatoSecurity)

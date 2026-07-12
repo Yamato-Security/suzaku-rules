@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the permissions boundary for the specified IAM role.
     Security implications: Attackers might use DeleteRolePermissionsBoundary to remove restrictions and gain unauthorized access to AWS resources.
+    Ex: aws iam delete-role-permissions-boundary --role-name trail-discover
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-DeleteRolePermissionsBoundary

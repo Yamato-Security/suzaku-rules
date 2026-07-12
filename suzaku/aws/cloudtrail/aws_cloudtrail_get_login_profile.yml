@@ -4,6 +4,7 @@ status: experimental
 description: |
     Retrieves the user name for the specified IAM user.
     Security implications: Attackers might use GetLoginProfile to know if the account has a login profile or to get its user name.
+    Ex: aws iam get-login-profile --user-name TrailDiscover
     Observed in real-world incidents/reporting, e.g.: UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.
 references:
     - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/

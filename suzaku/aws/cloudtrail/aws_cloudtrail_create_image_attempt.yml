@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateImage — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.
     Security implications: Attackers might use CreateImage to create images from running EC2s and use them after adding their own keys
+    Ex: aws ec2 create-image --instance-id TrailDiscoverInstanceId --name "TrailDiscoverImageName" --description "TrailDiscoverImageDescription"
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/

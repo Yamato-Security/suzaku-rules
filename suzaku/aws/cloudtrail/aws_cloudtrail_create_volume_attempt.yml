@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateVolume — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates an EBS volume that can be attached to an instance in the same Availability Zone.
     Security implications: Attackers might use CreateVolume to create a volume from a snapshot and mount it to an EC2 instance under their control.
+    Ex: aws ec2 create-volume --size 80 --availability-zone us-east-1a
     Observed in real-world incidents/reporting, e.g.: Navigating the Cloud: Exploring Lateral Movement Techniques.
 references:
     - https://unit42.paloaltonetworks.com/cloud-lateral-movement-techniques/

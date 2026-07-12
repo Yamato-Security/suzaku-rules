@@ -4,6 +4,7 @@ status: experimental
 description: |
     This implementation of the GET action uses the acl subresource to return the access control list (ACL) of a bucket.
     Security implications: Attackers might use GetBucketAccessControlPolicy to gain unauthorized access to sensitive data stored in S3 buckets.
+    Ex: aws s3api get-bucket-acl --bucket TrailDiscoverBucket
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
 references:
     - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/

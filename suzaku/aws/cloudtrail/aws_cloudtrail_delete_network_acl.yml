@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the specified network ACL.
     Security implications: Attackers might use DeleteNetworkAcl to remove network access control lists, potentially opening up network segments for unauthorized access.
+    Ex: aws ec2 delete-network-acl --network-acl-id TrailDiscoverNetworkAclId
 references:
     - https://www.intelligentdiscovery.io/controls/cloudwatch/cloudwatch-alarm-network-acl-change
     - https://aws.permissions.cloud/iam/ec2#ec2-DeleteNetworkAcl

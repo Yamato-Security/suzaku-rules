@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the delivery channel.
     Security implications: Attackers might use DeleteDeliveryChannel to disrupt the flow of configuration history and compliance data in AWS.
+    Ex: aws configservice delete-delivery-channel --delivery-channel-name TrailDiscoverDeliveryChannel
 references:
     - https://www.elastic.co/guide/en/security/7.17/prebuilt-rule-7-16-4-aws-config-resource-deletion.html#prebuilt-rule-7-16-4-aws-config-resource-deletion
     - https://docs.datadoghq.com/security/default_rules/cloudtrail-aws-config-disabled/

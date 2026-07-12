@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeleteNetworkAclEntry — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified ingress or egress entry (rule) from the specified network ACL.
     Security implications: Attackers might use DeleteNetworkAclEntry to remove specific rules from network access control lists, potentially opening network paths for unauthorized access.
+    Ex: aws ec2 delete-network-acl-entry --network-acl-id acl-5fb85d36 --ingress --rule-number 100
 references:
     - https://www.intelligentdiscovery.io/controls/cloudwatch/cloudwatch-alarm-network-acl-change
     - https://aws.permissions.cloud/iam/ec2#ec2-DeleteNetworkAclEntry

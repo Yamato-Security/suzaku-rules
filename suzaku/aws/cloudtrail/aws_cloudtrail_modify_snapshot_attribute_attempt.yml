@@ -5,9 +5,11 @@ description: |
     Failed or denied attempt to call ModifySnapshotAttribute — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds or removes permission settings for the specified snapshot.
     Security implications: Attackers might use ModifySnapshotAttribute to change permissions on Amazon EBS snapshots, potentially making them accessible to unauthorized users or public.
+    Ex: aws ec2 modify-snapshot-attribute --snapshot-id snap-046281ab24d756c50 --attribute createVolumePermission --operation-type remove --user-ids 123456789012
     Observed in real-world incidents/reporting, e.g.: CrowdStrike’s work with the Democratic National Committee: Setting the record straight.
 references:
     - https://www.crowdstrike.com/blog/bears-midst-intrusion-democratic-national-committee/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.exfiltration.ec2-share-ebs-snapshot
     - https://aws.permissions.cloud/iam/ec2#ec2-ModifySnapshotAttribute
     - https://traildiscover.cloud/#EC2-ModifySnapshotAttribute
 author: Zach Mathis (@YamatoSecurity)

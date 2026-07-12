@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call CreateDevEndpoint — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new development endpoint.
     Security implications: Attackers might use CreateDevEndpoint in AWS Glue to escalate privileges or provision development endpoints, potentially exploiting them.
+    Ex: aws glue create-dev-endpoint --endpoint-name TrailDiscover --role-arn arn:aws:iam::111122223333:role/TrailDiscover
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/glue#glue-CreateDevEndpoint

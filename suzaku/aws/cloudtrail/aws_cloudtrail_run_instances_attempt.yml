@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call RunInstances — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Launches the specified number of instances using an AMI for which you have permissions.
     Security implications: Attackers might use RunInstances to programmatically launch unauthorized EC2 instances for crypto mining or to create a foothold within the AWS environment for further exploitation.
+    Ex: aws ec2 run-instances --image-id ami-0b98a32b1c5e0d105 --instance-type t2.micro --key-name MyKeyPair
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; DXC spills AWS private keys on public GitHub; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Behind the scenes in the Expel SOC: Alert-to-fix in AWS; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; SCARLETEEL 2.0: Fargate, Kubernetes, and Crypto.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
@@ -28,6 +29,7 @@ references:
     - https://www.wiz.io/blog/hunting-for-signs-of-persistence-in-the-cloud-an-ir-guide
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.execution.ec2-launch-unusual-instances
     - https://aws.permissions.cloud/iam/ec2#ec2-RunInstances
     - https://traildiscover.cloud/#EC2-RunInstances
 author: Zach Mathis (@YamatoSecurity)

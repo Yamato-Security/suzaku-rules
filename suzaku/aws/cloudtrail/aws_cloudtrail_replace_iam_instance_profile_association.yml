@@ -4,6 +4,7 @@ status: experimental
 description: |
     Replaces an IAM instance profile for the specified running instance.
     Security implications: Attackers might use ReplaceIamInstanceProfileAssociation to replace the IAM instance profile on an instance they control with one that has higher privileges.
+    Ex: aws ec2 replace-iam-instance-profile-association --iam-instance-profile Name=TrailDiscoverAdminRole --association-id iip-assoc-060bae234aac2e7fa
     Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.
 references:
     - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud

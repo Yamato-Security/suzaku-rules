@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call AuthorizeDBSecurityGroupIngress — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Enables ingress to a DBSecurityGroup using one of two forms of authorization.
     Security implications: Attackers might use AuthorizeDBSecurityGroupIngress to allow unauthorized access to the database by modifying security group rules.
+    Ex: aws rds authorize-db-security-group-ingress --db-security-group-name TrailDiscoverDBSecurityGroupName --cidrip TrailDiscoverCIDRIP
 references:
     - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
     - https://sysdig.com/blog/aws-rds-security-events-sysdig/

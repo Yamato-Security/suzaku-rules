@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates a default VPC with a size /16 IPv4 CIDR block and a default subnet in each Availability Zone.
     Security implications: Attackers might use CreateDefaultVpc to create a VPC and lauch EC2 instances.
+    Ex: aws ec2 create-default-vpc
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

@@ -4,6 +4,7 @@ status: experimental
 description: |
     Gets information about the associations for the specified transit gateway route table.
     Security implications: Attackers might use GetTransitGatewayRouteTableAssociations to examine the associations between transit gateway route tables and attached resources, potentially to understand network routing policies.
+    Ex: aws ec2 get-transit-gateway-route-table-associations --transit-gateway-route-table-id tgw-rtb-0a823edbdeEXAMPLE
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
 references:
     - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab

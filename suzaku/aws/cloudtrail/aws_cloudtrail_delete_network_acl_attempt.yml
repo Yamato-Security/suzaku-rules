@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeleteNetworkAcl — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified network ACL.
     Security implications: Attackers might use DeleteNetworkAcl to remove network access control lists, potentially opening up network segments for unauthorized access.
+    Ex: aws ec2 delete-network-acl --network-acl-id TrailDiscoverNetworkAclId
 references:
     - https://www.intelligentdiscovery.io/controls/cloudwatch/cloudwatch-alarm-network-acl-change
     - https://aws.permissions.cloud/iam/ec2#ec2-DeleteNetworkAcl

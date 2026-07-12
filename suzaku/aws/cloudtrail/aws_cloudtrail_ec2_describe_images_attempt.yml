@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DescribeImages — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.
     Security implications: Attackers might use DescribeImages to identify AMIs (Amazon Machine Images) within AWS.
+    Ex: aws ec2 describe-images --filters Name=name,Values=TrailDiscover
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
 references:
     - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab

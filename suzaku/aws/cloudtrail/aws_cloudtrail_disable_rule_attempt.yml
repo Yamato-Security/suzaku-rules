@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DisableRule — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Disables the specified rule.
     Security implications: Attackers might use DisableRule to deactivate AWS EventBridge rules, effectively silencing alarms and automated responses designed for incident detection and mitigation.
+    Ex: aws events disable-rule --name TrailDiscoverRule --event-bus-name TrailDiscoverBus
 references:
     - https://www.elastic.co/guide/en/security/7.17/rules-api-delete.html
     - https://docs.datadoghq.com/security/default_rules/aws-eventbridge-rule-disabled-or-deleted/

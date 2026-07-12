@@ -4,6 +4,7 @@ status: experimental
 description: |
     Returns information about Aurora global database clusters.
     Security implications: Global cluster topology may expose cross-region replication targets for disruption or exfiltration.
+    Ex: aws rds describe-global-clusters
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/

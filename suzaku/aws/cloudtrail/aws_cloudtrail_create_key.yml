@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates a unique customer managed KMS key in your AWS account and Region.
     Security implications: Attackers might create keys only accessible by the identity they have compromised, for later encrypt data and delete access to it for ransomware attacks.
+    Ex: aws kms create-key
 references:
     - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
     - https://aws.permissions.cloud/iam/kms#kms-CreateKey

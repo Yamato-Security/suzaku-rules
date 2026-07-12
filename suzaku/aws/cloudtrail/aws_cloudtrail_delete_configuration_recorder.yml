@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the configuration recorder.
     Security implications: Attackers might use DeleteConfigurationRecorder to disrupt AWS configuration auditing.
+    Ex: aws configservice delete-configuration-recorder --configuration-recorder-name TrailDiscoverRecorder
 references:
     - https://www.elastic.co/guide/en/security/7.17/prebuilt-rule-7-16-4-aws-config-resource-deletion.html#prebuilt-rule-7-16-4-aws-config-resource-deletion
     - https://aws.permissions.cloud/iam/config#config-DeleteConfigurationRecorder

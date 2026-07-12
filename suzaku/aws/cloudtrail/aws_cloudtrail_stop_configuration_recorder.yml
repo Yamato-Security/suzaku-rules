@@ -4,6 +4,7 @@ status: experimental
 description: |
     Stops recording configurations of the AWS resources you have selected to record in your AWS account.
     Security implications: Attackers might use StopConfigurationRecorder to halt the recording of AWS resource configurations, hindering audit trails.
+    Ex: aws configservice stop-configuration-recorder --configuration-recorder-name TrailDiscoverRecorder
 references:
     - https://www.elastic.co/guide/en/security/current/prebuilt-rule-8-2-1-aws-configuration-recorder-stopped.html#prebuilt-rule-8-2-1-aws-configuration-recorder-stopped
     - https://docs.datadoghq.com/security/default_rules/cloudtrail-aws-config-disabled/

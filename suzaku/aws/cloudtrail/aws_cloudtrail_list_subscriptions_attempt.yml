@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListSubscriptions — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list of the requester's subscriptions to Amazon SNS topics.
     Security implications: Attackers might use ListSubscriptions to enumerate SNS topic subscriptions (endpoints and protocols) for reconnaissance, or to find data flows to hijack or redirect.
+    Ex: aws sns list-subscriptions
 references:
     - https://permiso.io/blog/s/smishing-attack-on-aws-sms-new-phone-who-dis/
     - https://aws.permissions.cloud/iam/sns#sns-ListSubscriptions

@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DetachUserPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Removes the specified managed policy from the specified user.
     Security implications: Attackers might use DetachUserPolicy to remove security policies and gain unauthorized access to AWS resources.
+    Ex: aws iam detach-user-policy --user-name TrailDiscover --policy-arn arn:aws:iam::123456789012:policy/TesterPolicy
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me

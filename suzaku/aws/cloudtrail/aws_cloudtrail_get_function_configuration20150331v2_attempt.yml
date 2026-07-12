@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call GetFunctionConfiguration20150331v2 — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns the version-specific settings of a Lambda function or version.
     Security implications: Attackers might use GetFunctionConfiguration to inspect Lambda function settings, environment variables, and attached IAM roles to extract credentials or plan privilege escalation.
+    Ex: aws lambda get-function-configuration --function-name TrailDiscoverFunction
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/

@@ -4,6 +4,7 @@ status: experimental
 description: |
     Creates a Traffic Mirror filter.
     Security implications: Attackers might use CreateTrafficMirrorFilter to clandestinely mirror network traffic for analysis or exfiltration.
+    Ex: aws ec2 create-traffic-mirror-filter --description 'TCP Filter'
 references:
     - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
     - https://aws.permissions.cloud/iam/ec2#ec2-CreateTrafficMirrorFilter

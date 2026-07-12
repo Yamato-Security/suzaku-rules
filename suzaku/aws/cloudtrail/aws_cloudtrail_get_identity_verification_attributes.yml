@@ -4,6 +4,7 @@ status: experimental
 description: |
     Given a list of identities (email addresses and/or domains), returns the verification status and (for domain identities) the verification token for each identity.
     Security implications: Attackers might use GetIdentityVerificationAttributes to gather sensitive information about the verification status of email addresses and domains.
+    Ex: aws ses get-identity-verification-attributes --identities TrailDiscoverIdentity
     Observed in real-world incidents/reporting, e.g.: SES-PIONAGE.
 references:
     - https://permiso.io/blog/s/aws-ses-pionage-detecting-ses-abuse/

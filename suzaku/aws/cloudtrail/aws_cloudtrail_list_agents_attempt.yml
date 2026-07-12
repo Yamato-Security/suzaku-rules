@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call ListAgents — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the agents belonging to an account and information about each agent.
     Security implications: Attackers might use ListAgents to inventory AI agents, map their integrations, and select high-impact targets for further compromise.
+    Ex: aws bedrock-agent list-agents
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes

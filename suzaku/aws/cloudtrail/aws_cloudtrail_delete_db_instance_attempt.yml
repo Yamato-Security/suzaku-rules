@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeleteDBInstance — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes a previously provisioned DB instance.
     Security implications: Attackers might use DeleteDBInstance to delete crucial databases, causing data loss and service disruption.
+    Ex: aws rds delete-db-instance --db-instance-identifier TrailDiscoverDB
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
 references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf

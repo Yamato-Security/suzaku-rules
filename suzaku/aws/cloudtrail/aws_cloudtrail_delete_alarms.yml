@@ -4,6 +4,7 @@ status: experimental
 description: |
     Deletes the specified alarms. You can delete up to 100 alarms in one operation.
     Security implications: Attackers might use DeleteAlarms to disable critical CloudWatch alerts, undermining AWS environment monitoring
+    Ex: aws cloudwatch delete-alarms --alarm-names TrailDiscoverAlarm
 references:
     - https://www.elastic.co/guide/en/security/current/aws-cloudwatch-alarm-deletion.html
     - https://fwdcloudsec.org/assets/presentations/2024/europe/sebastian-walla-cloud-conscious-tactics-techniques-and-procedures-an-overview.pdf

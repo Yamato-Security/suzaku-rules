@@ -5,6 +5,7 @@ description: |
     Failed or denied attempt to call DeleteLogStream — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified log stream and permanently deletes all the archived log events associated with the log stream.
     Security implications: Attackers might use DeleteLogStream to erase CloudWatch logs, erasing evidence of their activities within AWS.
+    Ex: aws logs delete-log-stream --log-group-name TrailDiscoverLogGroupName --log-stream-name TrailDiscoverLogStreamName
 references:
     - https://expel.com/blog/following-cloudtrail-generating-aws-security-signals-sumo-logic/
     - https://aws.permissions.cloud/iam/logs#logs-DeleteLogStream
