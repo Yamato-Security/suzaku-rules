@@ -28,4 +28,4 @@ detection:
 falsepositives:
     - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
     - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
-level: medium
+level: critical
