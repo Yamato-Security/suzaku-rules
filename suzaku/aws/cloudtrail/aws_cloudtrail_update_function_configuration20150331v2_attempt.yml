@@ -1,0 +1,36 @@
+title: AWS Lambda UpdateFunctionConfiguration20150331v2 Attempt
+id: 3c9497d5-9917-5407-af4d-12d2cf68ccb1
+status: experimental
+description: |
+    Modify the version-specific settings of a Lambda function.
+    Security implications: Attackers might use UpdateFunctionConfiguration to modify the behavior of Lambda functions, adding a layer that can allow persistence and/or data exfiltration.
+    Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
+references:
+    - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
+    - https://www.clearvector.com/blog/lambda-spy/
+    - https://aws.permissions.cloud/iam/lambda#lambda-UpdateFunctionConfiguration
+    - https://traildiscover.cloud/#Lambda-UpdateFunctionConfiguration20150331v2
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: lambda.amazonaws.com
+        eventName: UpdateFunctionConfiguration20150331v2
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

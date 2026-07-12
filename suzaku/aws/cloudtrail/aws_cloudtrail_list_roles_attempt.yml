@@ -1,0 +1,35 @@
+title: AWS IAM ListRoles Attempt
+id: 8b5a8cec-313e-563f-948d-3bec9d4fb319
+status: experimental
+description: |
+    Lists the IAM roles that have the specified path prefix.
+    Security implications: Attackers might use ListRoles to identify potential targets for privilege escalation attacks in AWS.
+    Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://cloud.hacktricks.xyz/pentesting-cloud/aws-security/aws-services/aws-iam-enum
+    - https://aws.permissions.cloud/iam/iam#iam-ListRoles
+    - https://traildiscover.cloud/#IAM-ListRoles
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: ListRoles
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

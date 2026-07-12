@@ -1,0 +1,33 @@
+title: AWS ECR DescribeImages Attempt
+id: 25058021-c449-50dc-9853-a7a9a7860634
+status: experimental
+description: |
+    Returns metadata about the images in a repository.
+    Security implications: Attackers might use DescribeImages to enumerate available container image versions and tags in ECR repositories, identifying targets for exfiltration.
+    Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
+references:
+    - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/
+    - https://aws.permissions.cloud/iam/ecr#ecr-DescribeImages
+    - https://traildiscover.cloud/#ECR-DescribeImages
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ecr.amazonaws.com
+        eventName: DescribeImages
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

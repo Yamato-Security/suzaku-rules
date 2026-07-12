@@ -1,0 +1,33 @@
+title: AWS RDS DescribeDBClusters Attempt
+id: dd3de0cd-f245-50d2-893c-be433e90c161
+status: experimental
+description: |
+    Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters.
+    Security implications: Cluster endpoints and replication settings help plan targeted data theft or disruption.
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/rds#rds-DescribeDBClusters
+    - https://traildiscover.cloud/#RDS-DescribeDBClusters
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: DescribeDBClusters
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

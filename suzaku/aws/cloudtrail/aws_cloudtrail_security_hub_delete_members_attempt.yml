@@ -1,0 +1,33 @@
+title: AWS SecurityHub DeleteMembers Attempt
+id: c72d980e-cb85-50c9-994b-cd5532066962
+status: experimental
+description: |
+    Deletes the specified member accounts from Security Hub.
+    Security implications: Attackers might use DeleteMembers to remove specific members from the SecurityHub, disrupting security management and monitoring.
+references:
+    - https://www.invictus-ir.com/news/aws-cloudtrail-cheat-sheet
+    - https://easttimor.github.io/aws-incident-response/
+    - https://aws.permissions.cloud/iam/securityhub#securityhub-DeleteMembers
+    - https://traildiscover.cloud/#SecurityHub-DeleteMembers
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: securityhub.amazonaws.com
+        eventName: DeleteMembers
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

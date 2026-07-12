@@ -1,0 +1,32 @@
+title: AWS ACMPCA IssueCertificate Attempt
+id: c9a49cf6-229a-5e2b-9632-941c10fd6503
+status: experimental
+description: |
+    Uses your private certificate authority (CA), or one that has been shared with you, to issue a client certificate.
+    Security implications: Attackers might use IssueCertificate combined with Route 53 control to intercept and read data from AWS API calls.
+references:
+    - https://hackingthe.cloud/aws/exploitation/route53_modification_privilege_escalation/
+    - https://aws.permissions.cloud/iam/acm-pca#acm-pca-IssueCertificate
+    - https://traildiscover.cloud/#ACMPCA-IssueCertificate
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1040 #Network Sniffing
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: acm-pca.amazonaws.com
+        eventName: IssueCertificate
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate administrative or automation activity.
+    - Infrastructure-as-code or CI/CD tooling performing this action.
+level: informational

@@ -1,0 +1,33 @@
+title: AWS EC2 DescribeTransitGatewayMulticastDomains Attempt
+id: c6bb05b7-4a5b-59a2-b380-3bc9d99ef43e
+status: experimental
+description: |
+    Describes one or more transit gateway multicast domains.
+    Security implications: Attackers might use DescribeTransitGatewayMulticastDomains to obtain details on multicast domains within AWS Transit Gateways, identifying network segments and multicast configurations.
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeTransitGatewayMulticastDomains
+    - https://traildiscover.cloud/#EC2-DescribeTransitGatewayMulticastDomains
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeTransitGatewayMulticastDomains
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

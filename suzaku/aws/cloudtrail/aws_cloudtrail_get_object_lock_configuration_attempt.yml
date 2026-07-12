@@ -1,0 +1,33 @@
+title: AWS S3 GetObjectLockConfiguration Attempt
+id: 8229a94f-ba67-5b96-a4ec-ce7d688af222
+status: experimental
+description: |
+    Gets the Object Lock configuration for a bucket.
+    Security implications: Attackers might use GetObjectLockConfiguration to check if object lock is active before ransomware attacks.
+    Observed in real-world incidents/reporting, e.g.: Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
+references:
+    - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
+    - https://aws.permissions.cloud/iam/s3#s3-GetBucketObjectLockConfiguration
+    - https://traildiscover.cloud/#S3-GetObjectLockConfiguration
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: GetObjectLockConfiguration
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

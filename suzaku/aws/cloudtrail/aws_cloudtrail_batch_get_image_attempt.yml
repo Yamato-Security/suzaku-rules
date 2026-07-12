@@ -1,0 +1,34 @@
+title: AWS ECR BatchGetImage Attempt
+id: efb24bca-46bd-5640-915e-23b7fde5bf93
+status: experimental
+description: |
+    Gets detailed information for an image. Images are specified with either an imageTag or imageDigest.
+    Security implications: Attackers might use BatchGetImage (triggered by docker pull) to exfiltrate private container images containing proprietary application code, embedded secrets, and internal configuration.
+    Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
+references:
+    - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/
+    - https://aws.permissions.cloud/iam/ecr#ecr-BatchGetImage
+    - https://traildiscover.cloud/#ECR-BatchGetImage
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.collection
+    - attack.exfiltration
+    - attack.t1530 #Data from Cloud Storage Object
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ecr.amazonaws.com
+        eventName: BatchGetImage
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: medium

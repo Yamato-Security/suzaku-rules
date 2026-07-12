@@ -1,0 +1,36 @@
+title: AWS RDS ModifyDBSnapshotAttribute Attempt
+id: 4ef414a9-adb6-53c9-a682-b56e3284350c
+status: experimental
+description: |
+    Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.
+    Security implications: Attackers might use ModifyDBSnapshotAttribute to alter database snapshot permissions, potentially gaining unauthorized access to sensitive data via sharing it.
+    Observed in real-world incidents/reporting, e.g.: Imperva Security Update; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
+references:
+    - https://www.imperva.com/blog/ceoblog/
+    - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
+    - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/sharing-rds-snapshot/
+    - https://sysdig.com/blog/aws-rds-security-events-sysdig/
+    - https://aws.permissions.cloud/iam/rds#rds-ModifyDBSnapshotAttribute
+    - https://traildiscover.cloud/#RDS-ModifyDBSnapshotAttribute
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: ModifyDBSnapshotAttribute
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

@@ -1,0 +1,32 @@
+title: AWS events ListTargetsByRule Attempt
+id: 6696670c-9756-5dd0-8d73-9fe760699737
+status: experimental
+description: |
+    Lists the targets assigned to the specified rule.
+    Security implications: Attackers might use ListTargetsByRule in AWS EventBridge to enumerate the targets of specific rules, gaining insights into the architecture and response mechanisms of an environment.
+references:
+    - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
+    - https://aws.permissions.cloud/iam/events#events-ListTargetsByRule
+    - https://traildiscover.cloud/#events-ListTargetsByRule
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: events.amazonaws.com
+        eventName: ListTargetsByRule
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

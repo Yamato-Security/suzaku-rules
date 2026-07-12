@@ -1,0 +1,33 @@
+title: AWS EC2 DescribeHosts Attempt
+id: 7b8b0bb8-2f4e-5c53-897b-cd21612ada58
+status: experimental
+description: |
+    Describes the specified Dedicated Hosts or all your Dedicated Hosts.
+    Security implications: Provides inventory of dedicated hosts which can guide lateral movement or privilege escalation strategies.
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeHosts
+    - https://traildiscover.cloud/#EC2-DescribeHosts
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeHosts
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

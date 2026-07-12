@@ -1,0 +1,38 @@
+title: AWS SSM StartSession Attempt
+id: 84c376f8-f3b1-5750-aa51-1c84b662c34b
+status: experimental
+description: |
+    Initiates a connection to a target (for example, a managed node) for a Session Manager session.
+    Security implications: Attackers might use StartSession to gain unauthorized access to managed instances.
+    Observed in real-world incidents/reporting, e.g.: Navigating the Cloud: Exploring Lateral Movement Techniques.
+references:
+    - https://unit42.paloaltonetworks.com/cloud-lateral-movement-techniques/
+    - https://www.wiz.io/blog/hunting-for-signs-of-persistence-in-the-cloud-an-ir-guide
+    - https://hackingthe.cloud/aws/post_exploitation/run_shell_commands_on_ec2/
+    - https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/
+    - https://aws.permissions.cloud/iam/ssm#ssm-StartSession
+    - https://traildiscover.cloud/#SSM-StartSession
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.lateral-movement
+    - attack.execution
+    - attack.t1021 #Remote Services
+    - attack.t1651 #Cloud Administration Command
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ssm.amazonaws.com
+        eventName: StartSession
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

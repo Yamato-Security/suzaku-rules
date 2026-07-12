@@ -1,0 +1,32 @@
+title: AWS SNS ListSubscriptions Attempt
+id: f8a9f0f7-025d-5fa3-86a5-9ce0e6852e69
+status: experimental
+description: |
+    Returns a list of the requester's subscriptions to Amazon SNS topics.
+    Security implications: Attackers might use ListSubscriptions to enumerate SNS topic subscriptions (endpoints and protocols) for reconnaissance, or to find data flows to hijack or redirect.
+references:
+    - https://permiso.io/blog/s/smishing-attack-on-aws-sms-new-phone-who-dis/
+    - https://aws.permissions.cloud/iam/sns#sns-ListSubscriptions
+    - https://traildiscover.cloud/#SNS-ListSubscriptions
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sns.amazonaws.com
+        eventName: ListSubscriptions
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

@@ -35,7 +35,11 @@ detection:
     selection:
         eventSource: iam.amazonaws.com
         eventName: AttachUserPolicy
-    condition: selection
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
 falsepositives:
     - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
     - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.

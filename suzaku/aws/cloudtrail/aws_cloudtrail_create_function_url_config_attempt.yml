@@ -1,0 +1,35 @@
+title: AWS Lambda CreateFunctionUrlConfig Attempt
+id: f79b6216-6516-536b-95e5-2104fa6383d7
+status: experimental
+description: |
+    Creates a Lambda function URL with the specified authorization type.
+    Security implications: Attackers might use CreateFunctionUrlConfig with AuthType NONE to create a publicly accessible Lambda endpoint as a persistence backdoor, bypassing IAM authentication.
+    Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
+references:
+    - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
+    - https://aws.permissions.cloud/iam/lambda#lambda-CreateFunctionUrlConfig
+    - https://traildiscover.cloud/#Lambda-CreateFunctionUrlConfig
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.initial-access
+    - attack.t1098 #Account Manipulation
+    - attack.t1133 #External Remote Services
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: lambda.amazonaws.com
+        eventName: CreateFunctionUrlConfig
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

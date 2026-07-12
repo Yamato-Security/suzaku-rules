@@ -1,0 +1,33 @@
+title: AWS SSO UpdateSsoConfiguration Attempt
+id: bf86aff0-456e-53a7-865f-94211636eff8
+status: experimental
+description: |
+    Updates the SSO configuration for the specified instance.
+    Security implications: Attackers might use UpdateSsoConfiguration to modify the SSO settings, such as disabling mandatory MFA or changing the session duration, which can lead to unauthorized access and persistence in the environment.
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://aws.permissions.cloud/iam/sso#sso-UpdateSSOConfiguration
+    - https://traildiscover.cloud/#SSO-UpdateSsoConfiguration
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sso.amazonaws.com
+        eventName: UpdateSsoConfiguration
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

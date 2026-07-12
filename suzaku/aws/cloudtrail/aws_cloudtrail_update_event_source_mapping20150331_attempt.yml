@@ -1,0 +1,32 @@
+title: AWS Lambda UpdateEventSourceMapping20150331 Attempt
+id: bde54503-aca9-5116-9b81-0d8ac7789f73
+status: experimental
+description: |
+    Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.
+    Security implications: Attackers might use UpdateEventSourceMapping to pull data from a different source, leading to incorrect function results.
+references:
+    - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
+    - https://aws.permissions.cloud/iam/lambda#lambda-UpdateEventSourceMapping
+    - https://traildiscover.cloud/#Lambda-UpdateEventSourceMapping20150331
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: lambda.amazonaws.com
+        eventName: UpdateEventSourceMapping20150331
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

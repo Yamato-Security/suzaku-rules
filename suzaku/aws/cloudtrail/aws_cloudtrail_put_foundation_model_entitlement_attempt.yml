@@ -1,0 +1,34 @@
+title: AWS Bedrock PutFoundationModelEntitlement Attempt
+id: ae10b019-5473-5273-88ec-29dfa2ab0c99
+status: experimental
+description: |
+    Grants permission to put entitlement to access a foundation model.
+    Security implications: Attackers might use PutFoundationModelEntitlement to prepare for using foundation models for resource hijacking.
+    Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; When AI Gets Hijacked: Exploiting Hosted Models for Dark Roleplaying.
+references:
+    - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
+    - https://permiso.io/blog/exploiting-hosted-models
+    - https://aws.permissions.cloud/iam/bedrock#bedrock-PutFoundationModelEntitlement
+    - https://traildiscover.cloud/#Bedrock-PutFoundationModelEntitlement
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: bedrock.amazonaws.com
+        eventName: PutFoundationModelEntitlement
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

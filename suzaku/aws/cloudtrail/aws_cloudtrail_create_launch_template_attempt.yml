@@ -1,0 +1,34 @@
+title: AWS EC2 CreateLaunchTemplate Attempt
+id: c9a68630-79f7-5842-8933-3fcb52f9ac2c
+status: experimental
+description: |
+    Creates a launch template. A launch template contains the parameters to launch an instance.
+    Security implications: Attackers might use CreateLaunchTemplate to define instance configurations with malicious UserData scripts, enabling automated deployment of cryptomining or other malicious workloads at scale.
+    Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
+references:
+    - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
+    - https://aws.permissions.cloud/iam/ec2#ec2-CreateLaunchTemplate
+    - https://traildiscover.cloud/#EC2-CreateLaunchTemplate
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.execution
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: CreateLaunchTemplate
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

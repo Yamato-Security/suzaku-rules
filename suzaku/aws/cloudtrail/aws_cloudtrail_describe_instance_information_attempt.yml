@@ -1,0 +1,33 @@
+title: AWS SSM DescribeInstanceInformation Attempt
+id: a8296903-f34f-53ed-a6d2-d7ebadb01a5c
+status: experimental
+description: |
+    Provides information about one or more of your managed nodes, including the operating system platform, SSM Agent version, association status, and IP address.
+    Security implications: Attackers might use DescribeInstanceInformation to gather sensitive information about the instances, potentially leading to unauthorized access.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://aws.permissions.cloud/iam/ssm#ssm-DescribeInstanceInformation
+    - https://traildiscover.cloud/#SSM-DescribeInstanceInformation
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ssm.amazonaws.com
+        eventName: DescribeInstanceInformation
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

@@ -1,0 +1,32 @@
+title: AWS elasticfilesystem DeleteFileSystem Attempt
+id: e792e656-b4a6-50cb-8aae-f108c7c888af
+status: experimental
+description: |
+    Deletes a file system, permanently severing access to its contents.
+    Security implications: Attackers might use DeleteFileSystem in AWS EFS to deliberately erase file systems, leading to data loss.
+references:
+    - https://www.elastic.co/guide/en/security/7.17/aws-efs-file-system-or-mount-deleted.html
+    - https://aws.permissions.cloud/iam/elasticfilesystem#elasticfilesystem-DeleteFileSystem
+    - https://traildiscover.cloud/#elasticfilesystem-DeleteFileSystem
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1485 #Data Destruction
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: elasticfilesystem.amazonaws.com
+        eventName: DeleteFileSystem
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: low

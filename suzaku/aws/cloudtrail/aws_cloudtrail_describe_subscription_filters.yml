@@ -22,7 +22,11 @@ detection:
     selection:
         eventSource: logs.amazonaws.com
         eventName: DescribeSubscriptionFilters
-    condition: selection
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
 falsepositives:
     - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
     - Security, backup, or cost-management tooling that periodically reads this resource.

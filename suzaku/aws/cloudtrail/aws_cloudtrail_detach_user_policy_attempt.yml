@@ -1,0 +1,36 @@
+title: AWS IAM DetachUserPolicy Attempt
+id: 5ec3eda7-a366-5f0b-9e98-815e139977a2
+status: experimental
+description: |
+    Removes the specified managed policy from the specified user.
+    Security implications: Attackers might use DetachUserPolicy to remove security policies and gain unauthorized access to AWS resources.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/iam#iam-DetachUserPolicy
+    - https://traildiscover.cloud/#IAM-DetachUserPolicy
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.privilege-escalation
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: DetachUserPolicy
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

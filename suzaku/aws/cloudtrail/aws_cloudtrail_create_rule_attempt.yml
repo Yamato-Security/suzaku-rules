@@ -1,0 +1,32 @@
+title: AWS ELBv2 CreateRule Attempt
+id: 6b4ec699-0e26-5ed6-a1c8-7e7d48cb53d3
+status: experimental
+description: |
+    Creates a rule for the specified listener.
+    Security implications: Attackers might use CreateRule to add rules that allow them access bypassing potential restrictions such as authentication.
+references:
+    - https://medium.com/@adan.alvarez/rigging-the-rules-manipulating-aws-alb-to-mine-sensitive-data-20e33dbc4994
+    - https://aws.permissions.cloud/iam/elasticloadbalancing#elasticloadbalancing-CreateRule
+    - https://traildiscover.cloud/#ELBv2-CreateRule
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: elasticloadbalancing.amazonaws.com
+        eventName: CreateRule
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

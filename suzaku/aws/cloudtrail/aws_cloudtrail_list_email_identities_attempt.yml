@@ -1,0 +1,33 @@
+title: AWS SES ListEmailIdentities Attempt
+id: b7a136e7-a387-5d0c-b6dc-4c39eb29ec87
+status: experimental
+description: |
+    Returns a list of all of the email identities that are associated with your AWS account.
+    Security implications: Attackers use ListEmailIdentities from SES to enumerate email addresses under the AWS account for future attacks.
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Unwanted visitor.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-unwanted-visitor/
+    - https://aws.permissions.cloud/iam/ses#ses-ListEmailIdentities
+    - https://traildiscover.cloud/#SES-ListEmailIdentities
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ses.amazonaws.com
+        eventName: ListEmailIdentities
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

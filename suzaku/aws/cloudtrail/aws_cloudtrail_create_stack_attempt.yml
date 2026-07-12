@@ -1,0 +1,33 @@
+title: AWS CloudFormation CreateStack Attempt
+id: f057b828-f08e-54cf-b81e-6cf93d245efd
+status: experimental
+description: |
+    Creates a stack as specified in the template.
+    Security implications: Attackers might use CreateStack to provision unauthorized resources
+    Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
+references:
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://aws.permissions.cloud/iam/cloudformation#cloudformation-CreateStack
+    - https://traildiscover.cloud/#CloudFormation-CreateStack
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: cloudformation.amazonaws.com
+        eventName: CreateStack
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

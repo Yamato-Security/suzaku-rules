@@ -1,0 +1,37 @@
+title: AWS EC2 ImportKeyPair Attempt
+id: 67279f83-eee8-5387-a494-053b7a4fff2b
+status: experimental
+description: |
+    Imports the public key from an RSA or ED25519 key pair that you created with a third-party tool.
+    Security implications: Attackers might use ImportKeyPair to upload malicious SSH keys to AWS EC2 instances, granting unauthorized access.
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Behind the scenes in the Expel SOC: Alert-to-fix in AWS; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://expel.com/blog/behind-the-scenes-expel-soc-alert-aws/
+    - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
+    - https://www.wiz.io/blog/hunting-for-signs-of-persistence-in-the-cloud-an-ir-guide
+    - https://aws.permissions.cloud/iam/ec2#ec2-ImportKeyPair
+    - https://traildiscover.cloud/#EC2-ImportKeyPair
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1098 #Account Manipulation
+    - attack.t1098.001 #Account Manipulation: Additional Cloud Credentials
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: ImportKeyPair
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

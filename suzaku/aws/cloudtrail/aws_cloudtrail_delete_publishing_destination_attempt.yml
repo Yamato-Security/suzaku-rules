@@ -1,0 +1,33 @@
+title: AWS GuardDuty DeletePublishingDestination Attempt
+id: 2157137e-6a29-5b6a-9cc0-428738255d1e
+status: experimental
+description: |
+    Deletes the publishing definition with the specified destinationId.
+    Security implications: Attackers might use DeletePublishingDestination to disrupt the security monitoring and incident response process in AWS GuardDuty.
+references:
+    - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-DeletePublishingDestination
+    - https://traildiscover.cloud/#GuardDuty-DeletePublishingDestination
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: DeletePublishingDestination
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

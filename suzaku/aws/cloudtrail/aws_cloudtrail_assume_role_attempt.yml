@@ -1,0 +1,42 @@
+title: AWS STS AssumeRole Attempt
+id: 9801c604-f281-5f47-975b-7d658db7c6fb
+status: experimental
+description: |
+    Returns a set of temporary security credentials that you can use to access AWS resources.
+    Security implications: Attackers might use AssumeRole to gain unauthorized access to an AWS role. This might allow them to gain initial access, escalate privileges or in specific scenarios gain persistence.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Trouble in Paradise; Tales from the cloud trenches: Unwanted visitor; AI-assisted cloud intrusion achieves admin access in 8 minutes.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://blog.darklab.hk/2021/07/06/trouble-in-paradise/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-unwanted-visitor/
+    - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
+    - https://hackingthe.cloud/aws/post_exploitation/role-chain-juggling/
+    - https://www.solvo.cloud/blog/detecting-and-removing-risky-actions-out-of-your-iam-security-policies/
+    - https://aws.permissions.cloud/iam/sts#sts-AssumeRole
+    - https://traildiscover.cloud/#STS-AssumeRole
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.initial-access
+    - attack.persistence
+    - attack.privilege-escalation
+    - attack.t1199 #Trusted Relationship
+    - attack.t1078 #Valid Accounts
+    - attack.t1078.004 #Valid Accounts: Cloud Accounts
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sts.amazonaws.com
+        eventName: AssumeRole
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

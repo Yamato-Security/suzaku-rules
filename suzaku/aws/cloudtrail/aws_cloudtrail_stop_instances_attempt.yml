@@ -1,0 +1,38 @@
+title: AWS EC2 StopInstances Attempt
+id: 5162ca2e-9f14-54d0-b04b-01a419f3f059
+status: experimental
+description: |
+    Stops an Amazon EBS-backed instance.
+    Security implications: Attackers might use StopInstances to avoid being detected or to do changes that will be executed when the EC2 is started.
+    Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
+references:
+    - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
+    - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/executing-commands-through-user-data/
+    - https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/
+    - https://aws.permissions.cloud/iam/ec2#ec2-StopInstances
+    - https://traildiscover.cloud/#EC2-StopInstances
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.defense-evasion
+    - attack.t1499 #Endpoint Denial of Service
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+    - attack.t1578.003 #Modify Cloud Compute Infrastructure: Delete Cloud Instance
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: StopInstances
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

@@ -1,0 +1,33 @@
+title: AWS SES GetIdentityVerificationAttributes Attempt
+id: 9b85408f-ecbc-5302-85ee-b68461c06381
+status: experimental
+description: |
+    Given a list of identities (email addresses and/or domains), returns the verification status and (for domain identities) the verification token for each identity.
+    Security implications: Attackers might use GetIdentityVerificationAttributes to gather sensitive information about the verification status of email addresses and domains.
+    Observed in real-world incidents/reporting, e.g.: SES-PIONAGE.
+references:
+    - https://permiso.io/blog/s/aws-ses-pionage-detecting-ses-abuse/
+    - https://aws.permissions.cloud/iam/ses#ses-GetIdentityVerificationAttributes
+    - https://traildiscover.cloud/#SES-GetIdentityVerificationAttributes
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ses.amazonaws.com
+        eventName: GetIdentityVerificationAttributes
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

@@ -1,0 +1,33 @@
+title: AWS WAFV2 DeleteWebACL Attempt
+id: 658a2e53-a7aa-50d2-891d-ca0756f682bf
+status: experimental
+description: |
+    Deletes the specified WebACL.
+    Security implications: Attackers might use DeleteWebACL to remove web access control lists, thereby disrupting web application firewall protections.
+references:
+    - https://easttimor.github.io/aws-incident-response/
+    - https://aws.permissions.cloud/iam/wafv2#wafv2-DeleteWebACL
+    - https://traildiscover.cloud/#WAFV2-DeleteWebACL
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.007 #Impair Defenses: Disable or Modify Cloud Firewall
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: wafv2.amazonaws.com
+        eventName: DeleteWebACL
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

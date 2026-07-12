@@ -1,0 +1,33 @@
+title: AWS Organizations InviteAccountToOrganization Attempt
+id: 54847d65-2be0-53b5-b552-0e98191375b7
+status: experimental
+description: |
+    Sends an invitation to another account to join your organization as a member account.
+    Security implications: Attackers might use InviteAccountToOrganization to add an account they control for defense evasion, resource hijacking.
+    Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
+references:
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://aws.permissions.cloud/iam/organizations#organizations-InviteAccountToOrganization
+    - https://traildiscover.cloud/#Organizations-InviteAccountToOrganization
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1535 #Unused/Unsupported Cloud Regions
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: organizations.amazonaws.com
+        eventName: InviteAccountToOrganization
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate administrative or automation activity.
+    - Infrastructure-as-code or CI/CD tooling performing this action.
+level: medium

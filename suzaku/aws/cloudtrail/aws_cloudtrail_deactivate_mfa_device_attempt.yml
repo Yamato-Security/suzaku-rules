@@ -1,0 +1,33 @@
+title: AWS IAM DeactivateMFADevice Attempt
+id: a56096b3-ff00-53c6-a587-2b3ce73cd628
+status: experimental
+description: |
+    Deactivates the specified MFA device and removes it from association with the user name for which it was originally enabled.
+    Security implications: Attackers might use DeactivateMFADevice to disable multi-factor authentication, potentially weakening account security.
+references:
+    - https://www.elastic.co/guide/en/security/current/aws-iam-deactivation-of-mfa-device.html
+    - https://aws.permissions.cloud/iam/iam#iam-DeactivateMFADevice
+    - https://traildiscover.cloud/#IAM-DeactivateMFADevice
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: DeactivateMFADevice
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: medium

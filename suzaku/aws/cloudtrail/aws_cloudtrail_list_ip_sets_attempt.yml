@@ -1,0 +1,32 @@
+title: AWS GuardDuty ListIPSets Attempt
+id: 04fbe627-0375-552b-9c3c-9c5fd94eeb1b
+status: experimental
+description: |
+    Lists the IPSets of the GuardDuty service specified by the detector ID.
+    Security implications: Attackers might use ListIPSets to identify what IPs won't generate an alert.
+references:
+    - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-ListIPSets
+    - https://traildiscover.cloud/#GuardDuty-ListIPSets
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: ListIPSets
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

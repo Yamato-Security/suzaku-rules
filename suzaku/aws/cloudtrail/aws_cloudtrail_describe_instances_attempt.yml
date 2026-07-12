@@ -1,0 +1,35 @@
+title: AWS EC2 DescribeInstances Attempt
+id: 1ab2ccfe-dad0-5f0a-be82-e5a5f83e8024
+status: experimental
+description: |
+    Describes the specified instances or all instances.
+    Security implications: Attackers might use DescribeInstances to inventory EC2 instances within an AWS environment.
+    Observed in real-world incidents/reporting, e.g.: Following attackers’ (Cloud)trail in AWS: Methodology and findings in the wild; Investigating Suspected DPRK-Linked Crypto Intrusions.
+references:
+    - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
+    - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/
+    - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeInstances
+    - https://traildiscover.cloud/#EC2-DescribeInstances
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeInstances
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

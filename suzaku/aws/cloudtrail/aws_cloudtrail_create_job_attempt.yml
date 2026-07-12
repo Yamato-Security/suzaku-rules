@@ -1,0 +1,32 @@
+title: AWS Glue CreateJob Attempt
+id: 1766ccb3-f0d2-5bae-a180-08b4ff2c67b8
+status: experimental
+description: |
+    Creates a new job definition.
+    Security implications: Attackers might use CreateJob to create a glue job with a role with higer privileges to gain these privileges.
+references:
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/glue#glue-CreateJob
+    - https://traildiscover.cloud/#Glue-CreateJob
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: glue.amazonaws.com
+        eventName: CreateJob
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

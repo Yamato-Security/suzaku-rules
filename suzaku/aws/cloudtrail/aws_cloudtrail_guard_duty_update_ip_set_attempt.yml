@@ -1,0 +1,33 @@
+title: AWS GuardDuty UpdateIPSet Attempt
+id: 1adf9aa4-be9d-5531-b1cc-aa95cb56b8c2
+status: experimental
+description: |
+    Updates the IPSet specified by the IPSet ID.
+    Security implications: Attackers might use UpdateIPSet to modify the IP address filters, potentially allowing malicious traffic to bypass detection.
+references:
+    - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-UpdateIPSet
+    - https://traildiscover.cloud/#GuardDuty-UpdateIPSet
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: UpdateIPSet
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

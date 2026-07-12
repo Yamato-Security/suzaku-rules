@@ -1,0 +1,32 @@
+title: AWS KMS PutKeyPolicy Attempt
+id: 931bb111-14ab-56ee-97ab-3a16c6629e84
+status: experimental
+description: |
+    Attaches a key policy to the specified KMS key.
+    Security implications: Attackers might put a new key policy to modify the policy of a current KMS Key and lock the data for ransomware attacks.
+references:
+    - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
+    - https://aws.permissions.cloud/iam/kms#kms-PutKeyPolicy
+    - https://traildiscover.cloud/#KMS-PutKeyPolicy
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1486 #Data Encrypted for Impact
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: kms.amazonaws.com
+        eventName: PutKeyPolicy
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

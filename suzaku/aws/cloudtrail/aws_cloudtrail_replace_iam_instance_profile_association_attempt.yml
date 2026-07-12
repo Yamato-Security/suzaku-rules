@@ -1,0 +1,34 @@
+title: AWS EC2 ReplaceIamInstanceProfileAssociation Attempt
+id: 75baa163-b3a8-553e-b95d-c0005582316e
+status: experimental
+description: |
+    Replaces an IAM instance profile for the specified running instance.
+    Security implications: Attackers might use ReplaceIamInstanceProfileAssociation to replace the IAM instance profile on an instance they control with one that has higher privileges.
+    Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.
+references:
+    - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
+    - https://aws.permissions.cloud/iam/ec2#ec2-ReplaceIamInstanceProfileAssociation
+    - https://traildiscover.cloud/#EC2-ReplaceIamInstanceProfileAssociation
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+    - attack.t1098.003 #Account Manipulation: Additional Cloud Roles
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: ReplaceIamInstanceProfileAssociation
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

@@ -1,0 +1,35 @@
+title: AWS Bedrock InvokeModelWithResponseStream Attempt
+id: 7d3042fe-6d94-5acf-8aa4-9c1b65832c95
+status: experimental
+description: |
+    Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body with streaming response.
+    Security implications: Attackers might use InvokeModelWithResponseStream to invoke the model for resource hijacking.
+    Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; New tactics and techniques for proactive threat detection; New Developments in LLM Hijacking Activity.
+references:
+    - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://www.wiz.io/blog/jinx-2401-llm-hijacking-aws
+    - https://aws.permissions.cloud/iam/bedrock#bedrock-InvokeModelWithResponseStream
+    - https://traildiscover.cloud/#Bedrock-InvokeModelWithResponseStream
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: bedrock.amazonaws.com
+        eventName: InvokeModelWithResponseStream
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

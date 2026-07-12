@@ -1,0 +1,34 @@
+title: AWS IAM ListInstanceProfiles Attempt
+id: 5d08db06-f24b-51b1-b168-52e4f13578f0
+status: experimental
+description: |
+    Lists the instance profiles that have the specified path prefix. If there are none, the operation returns an empty list.
+    Security implications: Attackers might use ListInstanceProfiles to identify potential targets for privilege escalation attacks in AWS.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://aws.permissions.cloud/iam/iam#iam-ListInstanceProfiles
+    - https://traildiscover.cloud/#IAM-ListInstanceProfiles
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+    - attack.t1087.004 #Account Discovery: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: ListInstanceProfiles
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

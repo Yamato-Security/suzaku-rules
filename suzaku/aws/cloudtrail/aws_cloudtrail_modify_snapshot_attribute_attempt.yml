@@ -1,0 +1,33 @@
+title: AWS EC2 ModifySnapshotAttribute Attempt
+id: 95d104b6-9d0d-5d36-8077-7f6934395176
+status: experimental
+description: |
+    Adds or removes permission settings for the specified snapshot.
+    Security implications: Attackers might use ModifySnapshotAttribute to change permissions on Amazon EBS snapshots, potentially making them accessible to unauthorized users or public.
+    Observed in real-world incidents/reporting, e.g.: CrowdStrike’s work with the Democratic National Committee: Setting the record straight.
+references:
+    - https://www.crowdstrike.com/blog/bears-midst-intrusion-democratic-national-committee/
+    - https://aws.permissions.cloud/iam/ec2#ec2-ModifySnapshotAttribute
+    - https://traildiscover.cloud/#EC2-ModifySnapshotAttribute
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: ModifySnapshotAttribute
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

@@ -1,0 +1,36 @@
+title: AWS S3 PutObject Attempt
+id: 7c4ecf6c-a0ae-5f71-af14-addc15f5a815
+status: experimental
+description: |
+    Adds an object to a bucket.
+    Security implications: Attackers might use PutObject to upload malicious content or overwrite existing files in S3 buckets.
+    Observed in real-world incidents/reporting, e.g.: Incident Report: TaskRouter JS SDK Security Incident - July 19, 2020; LA Times homicide website throttles cryptojacking attack.
+references:
+    - https://www.twilio.com/en-us/blog/incident-report-taskrouter-js-sdk-july-2020
+    - https://www.tripwire.com/state-of-security/la-times-website-cryptojacking-attack
+    - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
+    - https://aws.permissions.cloud/iam/s3#s3-PutObject
+    - https://traildiscover.cloud/#S3-PutObject
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1565 #Data Manipulation
+    - attack.t1565.001 #Data Manipulation: Stored Data Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: PutObject
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

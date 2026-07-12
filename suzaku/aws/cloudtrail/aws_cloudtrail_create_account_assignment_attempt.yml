@@ -1,0 +1,33 @@
+title: AWS SSO CreateAccountAssignment Attempt
+id: ea1adc58-266a-5286-8a16-c77f63a5bac5
+status: experimental
+description: |
+    Assigns access to a principal for a specified AWS account using a specified permission set.
+    Security implications: Attackers might use CreateAccountAssignment to assign themselves or compromised users access to AWS accounts with elevated privileges, allowing them to manipulate resources and maintain persistence in the environment.
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://aws.permissions.cloud/iam/sso#sso-CreateAccountAssignment
+    - https://traildiscover.cloud/#SSO-CreateAccountAssignment
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sso.amazonaws.com
+        eventName: CreateAccountAssignment
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

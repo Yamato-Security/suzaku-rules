@@ -1,0 +1,33 @@
+title: AWS ServiceQuotas GetServiceQuota Attempt
+id: c66f0c07-c4d2-5f41-ae2b-029bb8b064bb
+status: experimental
+description: |
+    Retrieves the applied quota value for the specified account-level or resource-level quota.
+    Security implications: Attackers might use GetServiceQuota to enumerate EC2 or other service limits before launching resource hijacking campaigns such as cryptomining.
+    Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
+references:
+    - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
+    - https://aws.permissions.cloud/iam/servicequotas#servicequotas-GetServiceQuota
+    - https://traildiscover.cloud/#ServiceQuotas-GetServiceQuota
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: servicequotas.amazonaws.com
+        eventName: GetServiceQuota
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

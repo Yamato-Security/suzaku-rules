@@ -1,0 +1,34 @@
+title: AWS ECS CreateService Attempt
+id: e63ba114-7d2f-53e0-815a-a5b00690e31f
+status: experimental
+description: |
+    Runs and maintains your desired number of tasks from a specified task definition.
+    Security implications: Attackers might use CreateService in AWS ECS to orchestrate and deploy unauthorized services, potentially for malicious activities such as resource hijacking.
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
+    - https://aws.permissions.cloud/iam/ecs#ecs-CreateService
+    - https://traildiscover.cloud/#ECS-CreateService
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ecs.amazonaws.com
+        eventName: CreateService
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

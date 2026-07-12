@@ -1,0 +1,32 @@
+title: AWS SNS ListOriginationNumbers Attempt
+id: ab238dc4-424a-5ba4-9d7d-3bb3b4a9a5a8
+status: experimental
+description: |
+    Lists the calling AWS account's dedicated origination numbers and their metadata.
+    Security implications: Attackers might use ListOriginationNumbers to identify origination numbers for potential smishing campaings.
+references:
+    - https://permiso.io/blog/s/smishing-attack-on-aws-sms-new-phone-who-dis/
+    - https://aws.permissions.cloud/iam/sns#sns-ListOriginationNumbers
+    - https://traildiscover.cloud/#SNS-ListOriginationNumbers
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sns.amazonaws.com
+        eventName: ListOriginationNumbers
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

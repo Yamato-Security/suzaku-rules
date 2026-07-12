@@ -1,0 +1,32 @@
+title: AWS RDS DeleteGlobalCluster Attempt
+id: a7873f9d-56e8-5bcc-817d-5e7f796df524
+status: experimental
+description: |
+    Deletes a global database cluster. The primary and secondary clusters must already be detached or destroyed first.
+    Security implications: Attackers might use DeleteGlobalCluster to disrupt database services by deleting global clusters in AWS RDS.
+references:
+    - https://www.elastic.co/guide/en/security/current/aws-deletion-of-rds-instance-or-cluster.html
+    - https://aws.permissions.cloud/iam/rds#rds-DeleteGlobalCluster
+    - https://traildiscover.cloud/#RDS-DeleteGlobalCluster
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1485 #Data Destruction
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: DeleteGlobalCluster
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: low

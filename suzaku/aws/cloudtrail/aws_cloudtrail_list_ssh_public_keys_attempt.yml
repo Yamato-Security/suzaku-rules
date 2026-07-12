@@ -1,0 +1,34 @@
+title: AWS IAM ListSSHPublicKeys Attempt
+id: cdfeb1d7-0be6-59ee-89b6-387b8ca03183
+status: experimental
+description: |
+    Returns information about the SSH public keys associated with the specified IAM user.
+    Security implications: Attackers might use ListSSHPublicKeys to get information about the user and the potential use of CodeCommit.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Muddled Libra’s Evolution to the Cloud.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/
+    - https://aws.permissions.cloud/iam/iam#iam-ListSSHPublicKeys
+    - https://traildiscover.cloud/#IAM-ListSSHPublicKeys
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: ListSSHPublicKeys
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

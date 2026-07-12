@@ -1,0 +1,33 @@
+title: AWS S3 GetBucketLifecycle Attempt
+id: a4cfe149-ae48-5ff2-bb10-11d29710a5d7
+status: experimental
+description: |
+    Returns the lifecycle configuration information set on the bucket.
+    Security implications: Attackers might use GetBucketLifecycle to check if the S3 has any lifecycle policy.
+    Observed in real-world incidents/reporting, e.g.: Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
+references:
+    - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
+    - https://aws.permissions.cloud/iam/s3#s3-GetLifecycleConfiguration
+    - https://traildiscover.cloud/#S3-GetBucketLifecycle
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: GetBucketLifecycle
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

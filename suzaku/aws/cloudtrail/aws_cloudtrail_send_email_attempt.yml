@@ -1,0 +1,37 @@
+title: AWS SES SendEmail Attempt
+id: 7974f7b6-6a19-50ec-83cc-dbdecfbf420a
+status: experimental
+description: |
+    Composes an email message and immediately queues it for sending.
+    Security implications: Sending emails from a compromised account can enable phishing, data exfiltration, or brand abuse.
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/ses#ses-SendEmail
+    - https://traildiscover.cloud/#SES-SendEmail
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.collection
+    - attack.command-and-control
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+    - attack.t1567 #Exfiltration Over Web Service
+    - attack.t1496.004 #Resource Hijacking: Cloud Service Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ses.amazonaws.com
+        eventName: SendEmail
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

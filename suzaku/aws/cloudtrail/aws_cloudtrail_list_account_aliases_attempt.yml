@@ -1,0 +1,34 @@
+title: AWS IAM ListAccountAliases Attempt
+id: d89421dd-5955-536a-a598-3caaed6e8d0c
+status: experimental
+description: |
+    Lists the account aliases associated with the AWS account.
+    Security implications: Attackers may list account aliases to identify the human-friendly alias of the compromised account for social engineering or further reconnaissance.
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/iam#iam-ListAccountAliases
+    - https://traildiscover.cloud/#IAM-ListAccountAliases
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+    - attack.t1087.004 #Account Discovery: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: ListAccountAliases
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

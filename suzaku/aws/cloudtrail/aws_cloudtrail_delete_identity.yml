@@ -23,7 +23,11 @@ detection:
     selection:
         eventSource: ses.amazonaws.com
         eventName: DeleteIdentity
-    condition: selection
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and not (error_code or error_msg)
 falsepositives:
     - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
     - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.

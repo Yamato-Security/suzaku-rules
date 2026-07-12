@@ -1,0 +1,33 @@
+title: AWS RDS DescribeValidDBInstanceModifications Attempt
+id: 5285601a-436b-5d0e-97e9-ee3e2f6f7210
+status: experimental
+description: |
+    You can call DescribeValidDBInstanceModifications to learn what modifications you can make to your DB instance.
+    Security implications: May inform attackers on upgrade/downgrade or performance-impacting changes for disruptive actions.
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/rds#rds-DescribeValidDBInstanceModifications
+    - https://traildiscover.cloud/#RDS-DescribeValidDBInstanceModifications
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: DescribeValidDBInstanceModifications
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

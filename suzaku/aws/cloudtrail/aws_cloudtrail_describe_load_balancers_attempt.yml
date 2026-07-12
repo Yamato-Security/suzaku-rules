@@ -1,0 +1,33 @@
+title: AWS ELBv2 DescribeLoadBalancers Attempt
+id: 816cd4c1-6d0a-5620-9ada-e52e87d60272
+status: experimental
+description: |
+    Describes the specified load balancers or all of your load balancers.
+    Security implications: Attackers might use DescribeLoadBalancers to get information about the load balancers for potential future attacks.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://medium.com/@adan.alvarez/rigging-the-rules-manipulating-aws-alb-to-mine-sensitive-data-20e33dbc4994
+    - https://aws.permissions.cloud/iam/elasticloadbalancing#elasticloadbalancing-DescribeLoadBalancers
+    - https://traildiscover.cloud/#ELBv2-DescribeLoadBalancers
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: elasticloadbalancing.amazonaws.com
+        eventName: DescribeLoadBalancers
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

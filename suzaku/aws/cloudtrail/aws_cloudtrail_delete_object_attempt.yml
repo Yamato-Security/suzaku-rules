@@ -1,0 +1,39 @@
+title: AWS S3 DeleteObject Attempt
+id: b99fbb32-4c3e-53f5-9f03-dbedea2cd7c5
+status: experimental
+description: |
+    Removes an object from a bucket. The behavior depends on the bucket's versioning state.
+    Security implications: Attackers might use DeleteObject to erase crucial data from S3 buckets.
+    Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud; The attack on ONUS – A real-life case of the Log4Shell vulnerability; 20/20 Eye Care Network and Hearing Care Network notify 3,253,822 health plan members of breach that deleted contents of AWS buckets; Hacker Puts Hosting Service Code Spaces Out of Business; New tactics and techniques for proactive threat detection; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
+references:
+    - https://www.invictus-ir.com/news/ransomware-in-the-cloud
+    - https://cystack.net/research/the-attack-on-onus-a-real-life-case-of-the-log4shell-vulnerability
+    - https://www.databreaches.net/20-20-eye-care-network-and-hearing-care-network-notify-3253822-health-plan-members-of-breach-that-deleted-contents-of-aws-buckets/
+    - https://threatpost.com/hacker-puts-hosting-service-code-spaces-out-of-business/106761/
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
+    - https://badshah.io/case-studies/saas-aws-breach/
+    - https://aws.permissions.cloud/iam/s3#s3-DeleteObject
+    - https://traildiscover.cloud/#S3-DeleteObject
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1485 #Data Destruction
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: DeleteObject
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: low

@@ -1,0 +1,34 @@
+title: AWS SES CreateEmailIdentity Attempt
+id: 3232e3e3-8c32-5479-a6b2-7c90ba8b4377
+status: experimental
+description: |
+    Starts the process of verifying an email identity. An identity is an email address or domain that you use when you send email.
+    Security implications: Attackers use CreateEmailIdentity to create its own identity for sending spam or phishing emails later.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; From Compromised Keys to Phishing Campaigns: Inside a Cloud Email Service Takeover.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://www.wiz.io/blog/wiz-discovers-cloud-email-abuse-campaign
+    - https://aws.permissions.cloud/iam/ses#ses-CreateEmailIdentity
+    - https://traildiscover.cloud/#SES-CreateEmailIdentity
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ses.amazonaws.com
+        eventName: CreateEmailIdentity
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

@@ -1,0 +1,33 @@
+title: AWS WAFV2 UpdateIPSet Attempt
+id: b2af21ff-0e75-5cc0-b40a-041ab7c516ac
+status: experimental
+description: |
+    Updates the specified IPSet.
+    Security implications: Attackers might use UpdateIPSet to modify IP address rules, potentially allowing unauthorized access from IPs they control.
+references:
+    - https://easttimor.github.io/aws-incident-response/
+    - https://aws.permissions.cloud/iam/wafv2#wafv2-UpdateIPSet
+    - https://traildiscover.cloud/#WAFV2-UpdateIPSet
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.007 #Impair Defenses: Disable or Modify Cloud Firewall
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: wafv2.amazonaws.com
+        eventName: UpdateIPSet
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

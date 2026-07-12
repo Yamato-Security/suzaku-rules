@@ -1,0 +1,35 @@
+title: AWS S3 GetBucketLogging Attempt
+id: e3e6a92f-af44-523c-8f2b-7d3ca44b463e
+status: experimental
+description: |
+    Returns the logging status of a bucket and the permissions users have to view and modify that status.
+    Security implications: Attackers might use GetBucketLoggingStatus to identify if logging is enabled, potentially helping them avoid detection during unauthorized activities.
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Muddled Libra’s Evolution to the Cloud; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/
+    - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
+    - https://aws.permissions.cloud/iam/s3#s3-GetBucketLogging
+    - https://traildiscover.cloud/#S3-GetBucketLogging
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: GetBucketLogging
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational

@@ -1,0 +1,33 @@
+title: AWS GuardDuty ListFindings Attempt
+id: 0e2aa483-c095-5f57-a94b-114a7bc4f0fe
+status: experimental
+description: |
+    Lists GuardDuty findings for the specified detector ID.
+    Security implications: Attackers might use ListFindings to identify if previous actions generated alerts.
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-ListFindings
+    - https://traildiscover.cloud/#GuardDuty-ListFindings
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: ListFindings
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and (error_code or error_msg)
+falsepositives:
+    - Routine enumeration by administrators, monitoring/inventory tools, or the AWS Console and SDKs.
+    - Security, backup, or cost-management tooling that periodically reads this resource.
+level: informational
