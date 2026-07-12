@@ -1,0 +1,30 @@
+title: AWS APIGateway CreateIntegration
+id: e7441be8-63fc-539e-877c-b79865e48b70
+status: experimental
+description: |
+    Creates an Integration. An Integration is a configuration that specifies the backend endpoint for an API route.
+
+    Security implications: Attackers might use CreateIntegration to create malicious integrations that can be used to establish persistence in the environment.
+
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://aws.permissions.cloud/iam/apigateway#apigateway-POST
+    - https://traildiscover.cloud/#APIGateway-CreateIntegration
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1136 #Create Account
+    - attack.t1136.003 #Create Account: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: apigateway.amazonaws.com
+        eventName: CreateIntegration
+    condition: selection
+falsepositives:
+level: medium

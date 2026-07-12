@@ -1,0 +1,29 @@
+title: AWS SageMaker ListModels
+id: f2476454-1dd3-57e3-9b38-706415f2539c
+status: experimental
+description: |
+    Lists models created with the CreateModel API.
+
+    Security implications: Attackers might use ListModels to inventory proprietary ML assets, determine which ones are most valuable, and plan exfiltration or sabotage.
+
+    Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
+references:
+    - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
+    - https://aws.permissions.cloud/iam/sagemaker#sagemaker-ListModels
+    - https://traildiscover.cloud/#SageMaker-ListModels
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sagemaker.amazonaws.com
+        eventName: ListModels
+    condition: selection
+falsepositives:
+level: low

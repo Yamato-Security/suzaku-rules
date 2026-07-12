@@ -1,0 +1,30 @@
+title: AWS S3 ListVaults
+id: f1e92015-bd85-57b8-b170-dc14745b45a9
+status: experimental
+description: |
+    This operation lists all vaults owned by the calling user’s account.
+
+    Security implications: Attackers might use ListVaults to identify data such as archived training data or related datasets.
+
+    Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; Tales from the cloud trenches: Raiding for AWS vaults, buckets and secrets.
+references:
+    - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-raiding-for-vaults-buckets-secrets/
+    - https://aws.permissions.cloud/iam/glacier#glacier-ListVaults
+    - https://traildiscover.cloud/#S3-ListVaults
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1619 #Cloud Storage Object Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: glacier.amazonaws.com
+        eventName: ListVaults
+    condition: selection
+falsepositives:
+level: low

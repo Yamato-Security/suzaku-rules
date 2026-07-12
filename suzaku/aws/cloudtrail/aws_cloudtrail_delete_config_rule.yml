@@ -1,0 +1,28 @@
+title: AWS Config DeleteConfigRule
+id: 263ccdbd-3bbb-53bd-93a9-e53ecb318584
+status: experimental
+description: |
+    Deletes the specified AWS Config rule and all of its evaluation results.
+
+    Security implications: Attackers might use DeleteConfigRule to remove compliance rules, potentially affecting the response plan.
+references:
+    - https://www.elastic.co/guide/en/security/7.17/prebuilt-rule-7-16-4-aws-config-resource-deletion.html#prebuilt-rule-7-16-4-aws-config-resource-deletion
+    - https://aws.permissions.cloud/iam/config#config-DeleteConfigRule
+    - https://traildiscover.cloud/#Config-DeleteConfigRule
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: config.amazonaws.com
+        eventName: DeleteConfigRule
+    condition: selection
+falsepositives:
+level: medium

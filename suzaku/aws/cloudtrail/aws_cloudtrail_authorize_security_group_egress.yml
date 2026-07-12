@@ -1,0 +1,29 @@
+title: AWS EC2 AuthorizeSecurityGroupEgress
+id: eec24c08-a04c-51c7-8000-c62e165c0fae
+status: experimental
+description: |
+    Adds the specified outbound (egress) rules to a security group.
+
+    Security implications: Attackers might use AuthorizeSecurityGroupEgress to allow exfiltration.
+
+    Observed in real-world incidents/reporting, e.g.: Trouble in Paradise.
+references:
+    - https://blog.darklab.hk/2021/07/06/trouble-in-paradise/
+    - https://aws.permissions.cloud/iam/ec2#ec2-AuthorizeSecurityGroupEgress
+    - https://traildiscover.cloud/#EC2-AuthorizeSecurityGroupEgress
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1048 #Exfiltration Over Alternative Protocol
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: AuthorizeSecurityGroupEgress
+    condition: selection
+falsepositives:
+level: medium

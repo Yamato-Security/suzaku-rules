@@ -1,0 +1,53 @@
+title: AWS EC2 RunInstances
+id: 5baf3a88-3eda-596d-bffb-64adbda961ae
+status: experimental
+description: |
+    Launches the specified number of instances using an AMI for which you have permissions.
+
+    Security implications: Attackers might use RunInstances to programmatically launch unauthorized EC2 instances for crypto mining or to create a foothold within the AWS environment for further exploitation.
+
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; DXC spills AWS private keys on public GitHub; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Behind the scenes in the Expel SOC: Alert-to-fix in AWS; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; SCARLETEEL 2.0: Fargate, Kubernetes, and Crypto.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://www.theregister.com/2017/11/14/dxc_github_aws_keys_leaked/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://expel.com/blog/behind-the-scenes-expel-soc-alert-aws/
+    - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
+    - https://sysdig.com/blog/scarleteel-2-0/
+    - https://permiso.io/blog/s/anatomy-of-attack-exposed-keys-to-crypto-mining/
+    - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
+    - https://urancompany.com/blog/clear-and-uncommon-story-about-overcoming-issues-aws
+    - https://web.archive.org/web/20210620180614/https://www.onelogin.com/blog/may-31-2017-security-incident
+    - https://www.databreaches.net/browserstack-analysis-unpatched-inactive-machine-compromised-by-shellshock-vulnerability/
+    - https://unit42.paloaltonetworks.com/cloud-lateral-movement-techniques/
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://zviwex.com/posts/aws-account-hacked
+    - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
+    - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/launching-ec2-instances/
+    - https://www.wiz.io/blog/hunting-for-signs-of-persistence-in-the-cloud-an-ir-guide
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
+    - https://aws.permissions.cloud/iam/ec2#ec2-RunInstances
+    - https://traildiscover.cloud/#EC2-RunInstances
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.impact
+    - attack.lateral-movement
+    - attack.t1098 #Account Manipulation
+    - attack.t1496 #Resource Hijacking
+    - attack.t1021 #Remote Services
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: RunInstances
+    condition: selection
+falsepositives:
+level: medium

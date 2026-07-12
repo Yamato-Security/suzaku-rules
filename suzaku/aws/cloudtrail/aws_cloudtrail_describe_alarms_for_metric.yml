@@ -1,0 +1,29 @@
+title: AWS CloudWatch DescribeAlarmsForMetric
+id: cdc57a3d-dd7b-562a-be65-7b95a4b332fa
+status: experimental
+description: |
+    Retrieves the alarms for the specified metric.
+
+    Security implications: Helps determine which metrics trigger detection enabling silent abuse of unmonitored resources.
+
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/monitoring#monitoring-DescribeAlarmsForMetric
+    - https://traildiscover.cloud/#CloudWatch-DescribeAlarmsForMetric
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: monitoring.amazonaws.com
+        eventName: DescribeAlarmsForMetric
+    condition: selection
+falsepositives:
+level: low

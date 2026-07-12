@@ -1,0 +1,29 @@
+title: AWS WAFV2 DeleteRuleGroup
+id: feaa0ea0-eb76-5f7d-9e2c-b7312262ee91
+status: experimental
+description: |
+    Deletes the specified RuleGroup.
+
+    Security implications: Attackers might use DeleteRuleGroup to disable security rules, making the system vulnerable to cyber attacks.
+references:
+    - https://www.elastic.co/guide/en/security/current/aws-waf-rule-or-rule-group-deletion.html
+    - https://easttimor.github.io/aws-incident-response/
+    - https://aws.permissions.cloud/iam/wafv2#wafv2-DeleteRuleGroup
+    - https://traildiscover.cloud/#WAFV2-DeleteRuleGroup
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.007 #Impair Defenses: Disable or Modify Cloud Firewall
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: wafv2.amazonaws.com
+        eventName: DeleteRuleGroup
+    condition: selection
+falsepositives:
+level: medium

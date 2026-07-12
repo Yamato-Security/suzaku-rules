@@ -1,0 +1,34 @@
+title: AWS EC2 StopInstances
+id: 736b00ed-76b9-57b8-bcf2-d3d5492259a4
+status: experimental
+description: |
+    Stops an Amazon EBS-backed instance.
+
+    Security implications: Attackers might use StopInstances to avoid being detected or to do changes that will be executed when the EC2 is started.
+
+    Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
+references:
+    - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
+    - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/executing-commands-through-user-data/
+    - https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/
+    - https://aws.permissions.cloud/iam/ec2#ec2-StopInstances
+    - https://traildiscover.cloud/#EC2-StopInstances
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.defense-evasion
+    - attack.t1499 #Endpoint Denial of Service
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+    - attack.t1578.003 #Modify Cloud Compute Infrastructure: Delete Cloud Instance
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: StopInstances
+    condition: selection
+falsepositives:
+level: medium

@@ -1,0 +1,29 @@
+title: AWS Bedrock ListFoundationModelAgreementOffers
+id: 5e6e7cdc-1c91-5609-ae9b-c0acf0b3bb28
+status: experimental
+description: |
+    Grants permission to get a list of foundation model agreement offers.
+
+    Security implications: Attackers might use ListFoundationModelAgreementOffers to enumerate accessible models.
+
+    Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts.
+references:
+    - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
+    - https://aws.permissions.cloud/iam/bedrock#bedrock-ListFoundationModelAgreementOffers
+    - https://traildiscover.cloud/#Bedrock-ListFoundationModelAgreementOffers
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: bedrock.amazonaws.com
+        eventName: ListFoundationModelAgreementOffers
+    condition: selection
+falsepositives:
+level: low

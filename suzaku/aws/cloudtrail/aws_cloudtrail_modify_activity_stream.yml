@@ -1,0 +1,29 @@
+title: AWS RDS ModifyActivityStream
+id: 15a68894-d172-5565-b54f-0f02e56d9127
+status: experimental
+description: |
+    Changes the audit policy state of a database activity stream to either locked (default) or unlocked.
+
+    Security implications: Attackers might use ModifyActivityStream to alter the configuration of the activity stream, potentially hiding malicious activities or causing disruptions in the database operations.
+
+    Observed in real-world incidents/reporting, e.g.: Uncovering Hybrid Cloud Attacks Through Intelligence-Driven Incident Response: Part 3 – The Response.
+references:
+    - https://www.gem.security/post/uncovering-hybrid-cloud-attacks-through-intelligence-driven-incident-response-part-3-the-response
+    - https://aws.permissions.cloud/iam/rds#rds-ModifyActivityStream
+    - https://traildiscover.cloud/#RDS-ModifyActivityStream
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: ModifyActivityStream
+    condition: selection
+falsepositives:
+level: medium

@@ -1,0 +1,30 @@
+title: AWS Route53 ChangeResourceRecordSets
+id: b52ea7e1-914c-5325-ad7f-d622ac9684b9
+status: experimental
+description: |
+    Creates, changes, or deletes a resource record set, which contains authoritative DNS information for a specified domain name or subdomain name.
+
+    Security implications: Attackers might use ChangeResourceRecordSets to redirect traffic to malicious websites.
+
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://hackingthe.cloud/aws/exploitation/route53_modification_privilege_escalation/
+    - https://aws.permissions.cloud/iam/route53#route53-ChangeResourceRecordSets
+    - https://traildiscover.cloud/#Route53-ChangeResourceRecordSets
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: route53.amazonaws.com
+        eventName: ChangeResourceRecordSets
+    condition: selection
+falsepositives:
+level: medium

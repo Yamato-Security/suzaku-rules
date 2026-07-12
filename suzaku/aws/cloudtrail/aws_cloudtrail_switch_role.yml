@@ -1,0 +1,29 @@
+title: AWS SignIn SwitchRole
+id: 4bc4882c-c0bf-5be4-b9bd-603e145a0de7
+status: experimental
+description: |
+    This event is recorded when a user manually switches to a different IAM role within the AWS Management Console.
+
+    Security implications: Attackers might use SwitchRole when using the console to escalate privileges and gain unauthorized access to AWS resources.
+
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Unwanted visitor.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-unwanted-visitor/
+    - https://www.invictus-ir.com/news/aws-cloudtrail-cheat-sheet
+    - https://traildiscover.cloud/#SignIn-SwitchRole
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.lateral-movement
+    - attack.t1021 #Remote Services
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: signin.amazonaws.com
+        eventName: SwitchRole
+    condition: selection
+falsepositives:
+level: medium

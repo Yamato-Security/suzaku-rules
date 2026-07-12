@@ -1,0 +1,32 @@
+title: AWS SNS GetSMSAttributes
+id: 7eb4d7ef-eca8-5565-98a1-bacfb6c48819
+status: experimental
+description: |
+    Returns the settings for sending SMS messages from your AWS account.
+
+    Security implications: Attackers might use GetSMSAttributes to retrieve sensitive SMS configuration details for potential usage for smishing.
+
+    Observed in real-world incidents/reporting, e.g.: NEW PHONE, WHO DIS? HOW CLOUD ENVIRONMENTS ARE EXPLOITED FOR SMISHING CAMPAIGNS; Tales from the cloud trenches: Using malicious AWS activity to spot phishing campaigns; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://permiso.io/blog/s/smishing-attack-on-aws-sms-new-phone-who-dis/
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-aws-activity-to-phishing/
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
+    - https://aws.permissions.cloud/iam/sns#sns-GetSMSAttributes
+    - https://traildiscover.cloud/#SNS-GetSMSAttributes
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sns.amazonaws.com
+        eventName: GetSMSAttributes
+    condition: selection
+falsepositives:
+level: low

@@ -1,0 +1,27 @@
+title: AWS Lambda CreateEventSourceMapping20150331
+id: b5fafc74-114b-5812-a061-91d5a2801b0b
+status: experimental
+description: |
+    Creates a mapping between an event source and an AWS Lambda function.
+
+    Security implications: Attackers might use CreateEventSourceMapping to trigger unauthorized Lambda functions with malicious code.
+references:
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/lambda#lambda-CreateEventSourceMapping
+    - https://traildiscover.cloud/#Lambda-CreateEventSourceMapping20150331
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: lambda.amazonaws.com
+        eventName: CreateEventSourceMapping20150331
+    condition: selection
+falsepositives:
+level: medium

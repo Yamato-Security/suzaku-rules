@@ -1,0 +1,29 @@
+title: AWS TransferFamily CreateServer
+id: 278caf4b-6af9-541f-88ab-b3676703c3e9
+status: experimental
+description: |
+    Instantiates an auto-scaling virtual server based on the selected file transfer protocol in AWS.
+
+    Security implications: Attackers might use CreateServer to create a server that allows to transfer files into and out of AWS storage services.
+
+    Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud.
+references:
+    - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/
+    - https://aws.permissions.cloud/iam/transfer#transfer-CreateServer
+    - https://traildiscover.cloud/#TransferFamily-CreateServer
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: transfer.amazonaws.com
+        eventName: CreateServer
+    condition: selection
+falsepositives:
+level: medium

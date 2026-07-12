@@ -1,0 +1,29 @@
+title: AWS EC2 GetTransitGatewayRouteTableAssociations
+id: 1a349451-3603-5d17-a8d8-5b4139fb52ac
+status: experimental
+description: |
+    Gets information about the associations for the specified transit gateway route table.
+
+    Security implications: Attackers might use GetTransitGatewayRouteTableAssociations to examine the associations between transit gateway route tables and attached resources, potentially to understand network routing policies.
+
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://aws.permissions.cloud/iam/ec2#ec2-GetTransitGatewayRouteTableAssociations
+    - https://traildiscover.cloud/#EC2-GetTransitGatewayRouteTableAssociations
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: GetTransitGatewayRouteTableAssociations
+    condition: selection
+falsepositives:
+level: low

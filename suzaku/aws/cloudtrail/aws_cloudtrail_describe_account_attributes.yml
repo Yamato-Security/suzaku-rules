@@ -1,0 +1,29 @@
+title: AWS EC2 DescribeAccountAttributes
+id: 08e7d906-8d73-5c6d-b60a-2a9884fe6bc5
+status: experimental
+description: |
+    Describes attributes of your AWS account.
+
+    Security implications: Attackers might use DescribeAccountAttributes to gather detailed information about AWS account configurations and limits.
+
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeAccountAttributes
+    - https://traildiscover.cloud/#EC2-DescribeAccountAttributes
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeAccountAttributes
+    condition: selection
+falsepositives:
+level: low

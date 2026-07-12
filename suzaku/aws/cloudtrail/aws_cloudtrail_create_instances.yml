@@ -1,0 +1,32 @@
+title: AWS Lightsail CreateInstances
+id: 6f899023-75ea-5420-b2a2-d5df9639e4a7
+status: experimental
+description: |
+    Creates one or more Amazon Lightsail instances.
+
+    Security implications: Attackers might use CreateInstances to rapidly deploy malicious instances, causing financial loss and resource exhaustion. The use of lightsail might not be monitored.
+
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://aws.permissions.cloud/iam/lightsail#lightsail-CreateInstances
+    - https://traildiscover.cloud/#Lightsail-CreateInstances
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.impact
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+    - attack.t1496 #Resource Hijacking
+    - attack.t1578.002 #Modify Cloud Compute Infrastructure: Create Cloud Instance
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: lightsail.amazonaws.com
+        eventName: CreateInstances
+    condition: selection
+falsepositives:
+level: medium

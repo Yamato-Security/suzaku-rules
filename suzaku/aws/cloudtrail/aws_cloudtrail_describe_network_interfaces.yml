@@ -1,0 +1,29 @@
+title: AWS EC2 DescribeNetworkInterfaces
+id: dd7ba1c5-b47c-588b-bf20-08adb035234a
+status: experimental
+description: |
+    Describes one or more of your network interfaces.
+
+    Security implications: Attackers might use DescribeNetworkInterfaces to map network topology, identify public-facing resources, and plan lateral movement within the VPC.
+
+    Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
+references:
+    - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeNetworkInterfaces
+    - https://traildiscover.cloud/#EC2-DescribeNetworkInterfaces
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeNetworkInterfaces
+    condition: selection
+falsepositives:
+level: low

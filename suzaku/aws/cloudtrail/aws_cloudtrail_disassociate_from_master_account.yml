@@ -1,0 +1,31 @@
+title: AWS GuardDuty DisassociateFromMasterAccount
+id: 6f519d4a-20bb-5d7b-82d7-5073a38d5dfd
+status: experimental
+description: |
+    Disassociates the current GuardDuty member account from its administrator account.
+
+    Security implications: Attackers might use DisassociateFromMasterAccount to remove the link to the master GuardDuty account, disrupting centralized security monitoring and analysis.
+
+    Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.
+references:
+    - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
+    - https://www.chrisfarris.com/post/reinforce-threat-hunting/
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-DisassociateFromMasterAccount
+    - https://traildiscover.cloud/#GuardDuty-DisassociateFromMasterAccount
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: DisassociateFromMasterAccount
+    condition: selection
+falsepositives:
+level: medium

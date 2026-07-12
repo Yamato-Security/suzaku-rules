@@ -1,0 +1,26 @@
+title: AWS S3 JobCreated
+id: 8a315841-2ab6-5ffc-b54a-e8f2eb4d1404
+status: experimental
+description: |
+    When a Batch Operations job is created, it is recorded as a JobCreated event in CloudTrail.
+
+    Security implications: Attackers might use Batch Operations jobs to initiate unauthorized data transfer or manipulation tasks in S3.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://traildiscover.cloud/#S3-JobCreated
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: JobCreated
+    condition: selection
+falsepositives:
+level: medium

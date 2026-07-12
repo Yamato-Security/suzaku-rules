@@ -1,0 +1,31 @@
+title: AWS IAM CreatePolicy
+id: 157dc4e5-4acb-5101-a1a2-8f065b6642e3
+status: experimental
+description: |
+    Creates a new managed policy for your AWS account.
+
+    Security implications: Attackers might use CreatePolicy to create new IAM policies that later they can use for potentially granting themselves elevated permissions.
+
+    Observed in real-world incidents/reporting, e.g.: New Developments in LLM Hijacking Activity; From Compromised Keys to Phishing Campaigns: Inside a Cloud Email Service Takeover.
+references:
+    - https://www.wiz.io/blog/jinx-2401-llm-hijacking-aws
+    - https://www.wiz.io/blog/wiz-discovers-cloud-email-abuse-campaign
+    - https://aws.permissions.cloud/iam/iam#iam-CreatePolicy
+    - https://traildiscover.cloud/#IAM-CreatePolicy
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+    - attack.t1098.003 #Account Manipulation: Additional Cloud Roles
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: CreatePolicy
+    condition: selection
+falsepositives:
+level: medium

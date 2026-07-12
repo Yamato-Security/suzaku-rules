@@ -1,0 +1,27 @@
+title: AWS Glue UpdateDevEndpoint
+id: bda68450-f700-5a27-8aec-623a4b7cc59b
+status: experimental
+description: |
+    Updates a specified development endpoint.
+
+    Security implications: Attackers might use UpdateDevEndpoint to modify the settings of a development endpoint, potentially disrupting data processing tasks or gaining unauthorized access to data.
+references:
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/glue#glue-UpdateDevEndpoint
+    - https://traildiscover.cloud/#Glue-UpdateDevEndpoint
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: glue.amazonaws.com
+        eventName: UpdateDevEndpoint
+    condition: selection
+falsepositives:
+level: medium

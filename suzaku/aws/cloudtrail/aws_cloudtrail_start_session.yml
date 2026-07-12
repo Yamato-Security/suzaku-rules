@@ -1,0 +1,34 @@
+title: AWS SSM StartSession
+id: e5bfbdd6-bd1c-5c08-afce-4c3a03d1c5a3
+status: experimental
+description: |
+    Initiates a connection to a target (for example, a managed node) for a Session Manager session.
+
+    Security implications: Attackers might use StartSession to gain unauthorized access to managed instances.
+
+    Observed in real-world incidents/reporting, e.g.: Navigating the Cloud: Exploring Lateral Movement Techniques.
+references:
+    - https://unit42.paloaltonetworks.com/cloud-lateral-movement-techniques/
+    - https://www.wiz.io/blog/hunting-for-signs-of-persistence-in-the-cloud-an-ir-guide
+    - https://hackingthe.cloud/aws/post_exploitation/run_shell_commands_on_ec2/
+    - https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/
+    - https://aws.permissions.cloud/iam/ssm#ssm-StartSession
+    - https://traildiscover.cloud/#SSM-StartSession
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.lateral-movement
+    - attack.execution
+    - attack.t1021 #Remote Services
+    - attack.t1651 #Cloud Administration Command
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ssm.amazonaws.com
+        eventName: StartSession
+    condition: selection
+falsepositives:
+level: medium

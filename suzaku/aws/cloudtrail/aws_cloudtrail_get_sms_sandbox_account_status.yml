@@ -1,0 +1,30 @@
+title: AWS SNS GetSMSSandboxAccountStatus
+id: 72e16b66-9ca7-5722-94c0-a756b6cbd35d
+status: experimental
+description: |
+    Retrieves the SMS sandbox status for the calling AWS account in the target AWS Region.
+
+    Security implications: Attackers might use GetSMSSandboxAccountStatus to monitor the status of a target's AWS SNS sandbox account for potential usage for smishing.
+
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Using malicious AWS activity to spot phishing campaigns.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-aws-activity-to-phishing/
+    - https://permiso.io/blog/s/smishing-attack-on-aws-sms-new-phone-who-dis/
+    - https://aws.permissions.cloud/iam/sns#sns-GetSMSSandboxAccountStatus
+    - https://traildiscover.cloud/#SNS-GetSMSSandboxAccountStatus
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sns.amazonaws.com
+        eventName: GetSMSSandboxAccountStatus
+    condition: selection
+falsepositives:
+level: low

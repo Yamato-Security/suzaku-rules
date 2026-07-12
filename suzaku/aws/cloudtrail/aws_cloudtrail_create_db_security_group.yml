@@ -1,0 +1,28 @@
+title: AWS RDS CreateDBSecurityGroup
+id: 8c55696e-9085-5049-a4e1-aa7d7f9ae847
+status: experimental
+description: |
+    Creates a new DB security group. DB security groups control access to a DB instance.
+
+    Security implications: Attackers might use CreateDBSecurityGroup to create new security groups with lax rules, potentially allowing unauthorized access to the database.
+references:
+    - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
+    - https://sysdig.com/blog/aws-rds-security-events-sysdig/
+    - https://aws.permissions.cloud/iam/rds#rds-CreateDBSecurityGroup
+    - https://traildiscover.cloud/#RDS-CreateDBSecurityGroup
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: CreateDBSecurityGroup
+    condition: selection
+falsepositives:
+level: medium

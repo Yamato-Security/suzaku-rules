@@ -1,0 +1,29 @@
+title: AWS ResourceExplorer Search
+id: dd3f7d2a-ac6f-507a-886e-dea5c6700e64
+status: experimental
+description: |
+    Searches for resources and displays details about all resources that match the specified criteria.
+
+    Security implications: Attackers might use Search to list resorces.
+
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://aws.permissions.cloud/iam/resource-explorer-2#resource-explorer-2-Search
+    - https://traildiscover.cloud/#ResourceExplorer-Search
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: resource-explorer-2.amazonaws.com
+        eventName: Search
+    condition: selection
+falsepositives:
+level: low

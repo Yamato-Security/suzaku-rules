@@ -1,0 +1,30 @@
+title: AWS events DeleteRule
+id: 10b2d3f0-ac00-51d8-bc0d-56691f588287
+status: experimental
+description: |
+    Deletes the specified rule.
+
+    Security implications: Attackers might use DeleteRule to disrupt automated security responses and event logging in AWS EventBridge, potentially masking unauthorized activities or compromising system integrity.
+references:
+    - https://www.elastic.co/guide/en/security/7.17/rules-api-delete.html
+    - https://docs.datadoghq.com/security/default_rules/aws-eventbridge-rule-disabled-or-deleted/
+    - https://aws.permissions.cloud/iam/events#events-DeleteRule
+    - https://traildiscover.cloud/#events-DeleteRule
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.defense-evasion
+    - attack.t1489 #Service Stop
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: events.amazonaws.com
+        eventName: DeleteRule
+    condition: selection
+falsepositives:
+level: medium

@@ -1,0 +1,30 @@
+title: AWS Organizations CreateAccount
+id: cb1b7579-6c26-5b0c-b12c-73df95505278
+status: experimental
+description: |
+    Creates an AWS account that is automatically a member of the organization whose credentials made the request.
+
+    Security implications: Attackers might use CreateAccount to add a new account for defense evasion, resource hijacking.
+
+    Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
+references:
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://aws.permissions.cloud/iam/organizations#organizations-CreateAccount
+    - https://traildiscover.cloud/#Organizations-CreateAccount
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1136 #Create Account
+    - attack.t1136.003 #Create Account: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: organizations.amazonaws.com
+        eventName: CreateAccount
+    condition: selection
+falsepositives:
+level: medium

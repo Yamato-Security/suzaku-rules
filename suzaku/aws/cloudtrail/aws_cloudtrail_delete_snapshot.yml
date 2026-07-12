@@ -1,0 +1,29 @@
+title: AWS EC2 DeleteSnapshot
+id: a077bd33-3783-5f12-8588-6af9b1fd0d0c
+status: experimental
+description: |
+    Deletes the specified snapshot.
+
+    Security implications: Attackers might use DeleteSnapshot to erase Amazon EBS snapshots, potentially destroying backup data and hampering recovery efforts after an attack.
+
+    Observed in real-world incidents/reporting, e.g.: Hacker Puts Hosting Service Code Spaces Out of Business.
+references:
+    - https://threatpost.com/hacker-puts-hosting-service-code-spaces-out-of-business/106761/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DeleteSnapshot
+    - https://traildiscover.cloud/#EC2-DeleteSnapshot
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1485 #Data Destruction
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DeleteSnapshot
+    condition: selection
+falsepositives:
+level: medium

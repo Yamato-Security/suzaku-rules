@@ -1,0 +1,30 @@
+title: AWS IAM CreateSAMLProvider
+id: afce7d35-17a3-5142-a1f6-37aaeebe90b3
+status: experimental
+description: |
+    Creates an IAM resource that describes an identity provider (IdP) that supports SAML 2.0.
+
+    Security implications: Attackers use CreateSAMLProvider to establish persistent footholds.
+
+    Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
+references:
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://aws.permissions.cloud/iam/iam#iam-CreateSAMLProvider
+    - https://traildiscover.cloud/#IAM-CreateSAMLProvider
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1136 #Create Account
+    - attack.t1136.003 #Create Account: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: CreateSAMLProvider
+    condition: selection
+falsepositives:
+level: medium

@@ -1,0 +1,29 @@
+title: AWS EC2 DeleteVolume
+id: 0eb8bc7e-522f-508b-8a3d-a629e7cb4e10
+status: experimental
+description: |
+    Deletes the specified EBS volume. The volume must be in the available state (not attached to an instance).
+
+    Security implications: Attackers might use DeleteVolume to remove Elastic Block Store (EBS) volumes, leading to data loss and potentially disrupting operations.
+
+    Observed in real-world incidents/reporting, e.g.: Hacker Puts Hosting Service Code Spaces Out of Business.
+references:
+    - https://threatpost.com/hacker-puts-hosting-service-code-spaces-out-of-business/106761/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DeleteVolume
+    - https://traildiscover.cloud/#EC2-DeleteVolume
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1485 #Data Destruction
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DeleteVolume
+    condition: selection
+falsepositives:
+level: medium

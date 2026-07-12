@@ -1,0 +1,29 @@
+title: AWS S3 PutBucketLifecycle
+id: 6d73413a-61d0-5d95-84f8-8b31c0519886
+status: experimental
+description: |
+    Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle configuration.
+
+    Security implications: Attackers might use PutBucketLifecycle to add a lifecycle that deletes data after one day.
+
+    Observed in real-world incidents/reporting, e.g.: USA VS Nickolas Sharp; New tactics and techniques for proactive threat detection.
+references:
+    - https://www.justice.gov/usao-sdny/press-release/file/1452706/dl
+    - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
+    - https://traildiscover.cloud/#S3-PutBucketLifecycle
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1485 #Data Destruction
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: PutBucketLifecycle
+    condition: selection
+falsepositives:
+level: medium

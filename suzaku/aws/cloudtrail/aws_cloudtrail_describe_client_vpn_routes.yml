@@ -1,0 +1,29 @@
+title: AWS EC2 DescribeClientVpnRoutes
+id: 60f5847d-9674-580d-bdef-ba263437a1fe
+status: experimental
+description: |
+    Describes the routes for the specified Client VPN endpoint.
+
+    Security implications: Attackers might use DescribeClientVpnRoutes to gather information about the routing configuration of an AWS Client VPN endpoint, potentially identifying routes that could be exploited for network access.
+
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeClientVpnRoutes
+    - https://traildiscover.cloud/#EC2-DescribeClientVpnRoutes
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeClientVpnRoutes
+    condition: selection
+falsepositives:
+level: low

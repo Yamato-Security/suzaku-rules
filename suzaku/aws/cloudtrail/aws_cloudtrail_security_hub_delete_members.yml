@@ -1,0 +1,28 @@
+title: AWS SecurityHub DeleteMembers
+id: bfd2a910-bd63-5621-88d1-5ba160b23f5c
+status: experimental
+description: |
+    Deletes the specified member accounts from Security Hub.
+
+    Security implications: Attackers might use DeleteMembers to remove specific members from the SecurityHub, disrupting security management and monitoring.
+references:
+    - https://www.invictus-ir.com/news/aws-cloudtrail-cheat-sheet
+    - https://easttimor.github.io/aws-incident-response/
+    - https://aws.permissions.cloud/iam/securityhub#securityhub-DeleteMembers
+    - https://traildiscover.cloud/#SecurityHub-DeleteMembers
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: securityhub.amazonaws.com
+        eventName: DeleteMembers
+    condition: selection
+falsepositives:
+level: medium

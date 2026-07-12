@@ -1,0 +1,31 @@
+title: AWS IAM DeleteAccessKey
+id: 11b23686-6f80-536c-a821-0ef0df133dd6
+status: experimental
+description: |
+    Deletes the access key pair associated with the specified IAM user.
+
+    Security implications: Attackers might use DeleteAccessKey to revoke legitimate user access to AWS services. Also, it can be used to delete previously used keys to avoid detection.
+
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
+    - https://aws.permissions.cloud/iam/iam#iam-DeleteAccessKey
+    - https://traildiscover.cloud/#IAM-DeleteAccessKey
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+    - attack.t1070 #Indicator Removal
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: DeleteAccessKey
+    condition: selection
+falsepositives:
+level: medium

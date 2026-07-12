@@ -1,0 +1,29 @@
+title: AWS CloudWatchLogs DescribeLogGroups
+id: c9361a81-a34f-5ebd-9854-d9c8243e2322
+status: experimental
+description: |
+    Lists the specified log groups.
+
+    Security implications: Attackers might use DescribeLogGroups to discover CloudWatch log configurations.
+
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://aws.permissions.cloud/iam/logs#logs-DescribeLogGroups
+    - https://traildiscover.cloud/#CloudWatchLogs-DescribeLogGroups
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: logs.amazonaws.com
+        eventName: DescribeLogGroups
+    condition: selection
+falsepositives:
+level: low

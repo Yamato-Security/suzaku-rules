@@ -1,0 +1,30 @@
+title: AWS ECS RegisterTaskDefinition
+id: 524189e2-6b22-594b-a1d0-a641a6b443c8
+status: experimental
+description: |
+    Registers a new task definition from the supplied family and containerDefinitions.
+
+    Security implications: Attackers might use RegisterTaskDefinition to deploy containers with malicious tasks in AWS ECS.
+
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
+    - https://aws.permissions.cloud/iam/ecs#ecs-RegisterTaskDefinition
+    - https://traildiscover.cloud/#ECS-RegisterTaskDefinition
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ecs.amazonaws.com
+        eventName: RegisterTaskDefinition
+    condition: selection
+falsepositives:
+level: medium

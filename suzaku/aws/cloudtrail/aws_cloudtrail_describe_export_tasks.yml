@@ -1,0 +1,29 @@
+title: AWS RDS DescribeExportTasks
+id: 122dc045-0366-506b-b0ce-feed17d06de0
+status: experimental
+description: |
+    Returns information about a snapshot or cluster export to Amazon S3.
+
+    Security implications: Export task details may expose S3 bucket names and regions, aiding in data exfiltration efforts.
+
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/rds#rds-DescribeExportTasks
+    - https://traildiscover.cloud/#RDS-DescribeExportTasks
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: DescribeExportTasks
+    condition: selection
+falsepositives:
+level: low

@@ -1,0 +1,27 @@
+title: AWS Glue CreateDevEndpoint
+id: ba788971-3c93-58d3-86a7-bfaa11d9c162
+status: experimental
+description: |
+    Creates a new development endpoint.
+
+    Security implications: Attackers might use CreateDevEndpoint in AWS Glue to escalate privileges or provision development endpoints, potentially exploiting them.
+references:
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/glue#glue-CreateDevEndpoint
+    - https://traildiscover.cloud/#Glue-CreateDevEndpoint
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: glue.amazonaws.com
+        eventName: CreateDevEndpoint
+    condition: selection
+falsepositives:
+level: medium

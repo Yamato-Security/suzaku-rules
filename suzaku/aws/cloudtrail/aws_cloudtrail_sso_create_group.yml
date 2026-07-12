@@ -1,0 +1,30 @@
+title: AWS SSO CreateGroup
+id: 2b14711c-40d7-53dc-b37c-8e22edfa154b
+status: experimental
+description: |
+    Creates a group within the specified identity store.
+
+    Security implications: Attackers might use CreateGroup to create groups with elevated privileges, allowing them to manipulate access controls and maintain persistence in the environment.
+
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
+    - https://aws.permissions.cloud/iam/sso-directory#sso-directory-CreateGroup
+    - https://traildiscover.cloud/#SSO-CreateGroup
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1098 #Account Manipulation
+    - attack.t1098.003 #Account Manipulation: Additional Cloud Roles
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sso-directory.amazonaws.com
+        eventName: CreateGroup
+    condition: selection
+falsepositives:
+level: medium

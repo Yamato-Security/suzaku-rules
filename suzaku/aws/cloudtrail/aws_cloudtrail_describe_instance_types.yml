@@ -1,0 +1,30 @@
+title: AWS EC2 DescribeInstanceTypes
+id: 0ab9b05c-e642-5440-85dc-afef9138a73e
+status: experimental
+description: |
+    Describes the details of the instance types that are offered in a location.
+
+    Security implications: Attackers might use DescribeInstanceTypes to assess the capabilities and resources of EC2 instance types.
+
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeInstanceTypes
+    - https://traildiscover.cloud/#EC2-DescribeInstanceTypes
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeInstanceTypes
+    condition: selection
+falsepositives:
+level: low

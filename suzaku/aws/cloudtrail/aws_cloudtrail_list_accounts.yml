@@ -1,0 +1,29 @@
+title: AWS Organizations ListAccounts
+id: 477226da-a6f5-5be8-9fad-99794dacaa0f
+status: experimental
+description: |
+    Lists all the accounts in the organization.
+
+    Security implications: Attackers might use ListAccounts to gather information about the structure and resources of an organization's AWS environment.
+
+    Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
+references:
+    - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
+    - https://aws.permissions.cloud/iam/organizations#organizations-ListAccounts
+    - https://traildiscover.cloud/#Organizations-ListAccounts
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: organizations.amazonaws.com
+        eventName: ListAccounts
+    condition: selection
+falsepositives:
+level: low

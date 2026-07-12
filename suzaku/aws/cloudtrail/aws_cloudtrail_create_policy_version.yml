@@ -1,0 +1,28 @@
+title: AWS IAM CreatePolicyVersion
+id: 6450f6b9-80fe-54f6-bd85-9800794803dc
+status: experimental
+description: |
+    Creates a new version of the specified managed policy.
+
+    Security implications: Attackers might use CreatePolicyVersion to modify IAM policies, potentially granting themselves elevated permissions.
+references:
+    - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
+    - https://aws.permissions.cloud/iam/iam#iam-CreatePolicyVersion
+    - https://traildiscover.cloud/#IAM-CreatePolicyVersion
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.privilege-escalation
+    - attack.t1098 #Account Manipulation
+    - attack.t1098.003 #Account Manipulation: Additional Cloud Roles
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: CreatePolicyVersion
+    condition: selection
+falsepositives:
+level: medium

@@ -1,0 +1,27 @@
+title: AWS CloudFront CreateFunction
+id: 623ff67d-4dfe-5cdb-b720-72ea3bd8d915
+status: experimental
+description: |
+    Creates a CloudFront function.
+
+    Security implications: Attackers might use CreateFunction to add a new function that can be use to exfiltrate date.
+references:
+    - https://medium.com/@adan.alvarez/how-attackers-can-misuse-aws-cloudfront-access-to-make-it-rain-cookies-acf9ce87541c
+    - https://aws.permissions.cloud/iam/cloudfront#cloudfront-CreateFunction
+    - https://traildiscover.cloud/#CloudFront-CreateFunction
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.collection
+    - attack.t1119 #Automated Collection
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: cloudfront.amazonaws.com
+        eventName: CreateFunction
+    condition: selection
+falsepositives:
+level: low

@@ -1,0 +1,35 @@
+title: AWS EC2 CreateSnapshot
+id: 1f743dbe-94c8-506d-af05-bf1be563d466
+status: experimental
+description: |
+    Creates a snapshot of an EBS volume and stores it in Amazon S3.
+
+    Security implications: Attackers might create a snapshot of an EBS volume so it can later be shared or copied to an attacker-controlled account or region to exfiltrate its data.
+
+    Observed in real-world incidents/reporting, e.g.: CrowdStrike’s work with the Democratic National Committee: Setting the record straight; Navigating the Cloud: Exploring Lateral Movement Techniques; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.crowdstrike.com/blog/bears-midst-intrusion-democratic-national-committee/
+    - https://unit42.paloaltonetworks.com/cloud-lateral-movement-techniques/
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/sharing-ebs-snapshot/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.exfiltration.ec2-share-ebs-snapshot/
+    - https://aws.permissions.cloud/iam/ec2#ec2-ModifySnapshotAttribute
+    - https://traildiscover.cloud/#EC2-CreateSnapshot
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.lateral-movement
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+    - attack.t1021 #Remote Services
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: CreateSnapshot
+    condition: selection
+falsepositives:
+level: medium

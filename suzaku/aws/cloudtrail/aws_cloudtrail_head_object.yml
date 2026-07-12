@@ -1,0 +1,28 @@
+title: AWS S3 HeadObject
+id: 5a58735d-4f9e-57e8-b101-02d1f88cf16d
+status: experimental
+description: |
+    The HEAD operation retrieves metadata from an object without returning the object itself.
+
+    Security implications: Attackers might use HeadObject to gather metadata about sensitive files stored in S3.
+
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
+    - https://traildiscover.cloud/#S3-HeadObject
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1619 #Cloud Storage Object Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: HeadObject
+    condition: selection
+falsepositives:
+level: low

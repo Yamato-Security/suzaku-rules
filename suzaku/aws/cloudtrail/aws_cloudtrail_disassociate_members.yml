@@ -1,0 +1,28 @@
+title: AWS GuardDuty DisassociateMembers
+id: e945701b-9847-549e-89e7-7e48a8e02808
+status: experimental
+description: |
+    Disassociates GuardDuty member accounts (from the current administrator account) specified by the account IDs.
+
+    Security implications: Attackers might use DisassociateMembers to remove members from a GuardDuty detector, disrupting threat detection and security analysis.
+references:
+    - https://www.chrisfarris.com/post/reinforce-threat-hunting/
+    - https://aws.permissions.cloud/iam/guardduty#guardduty-DisassociateMembers
+    - https://traildiscover.cloud/#GuardDuty-DisassociateMembers
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1562 #Impair Defenses
+    - attack.t1562.001 #Impair Defenses: Disable or Modify Tools
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: guardduty.amazonaws.com
+        eventName: DisassociateMembers
+    condition: selection
+falsepositives:
+level: medium

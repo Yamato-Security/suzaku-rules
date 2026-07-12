@@ -1,0 +1,27 @@
+title: AWS S3 PutBucketAcl
+id: d7838465-619d-5fd5-8242-90d0f0e440a4
+status: experimental
+description: |
+    Sets the permissions on an existing bucket using access control lists (ACL).
+
+    Security implications: Attackers might use SetBucketAccessControlPolicy to modify access control lists, potentially granting unauthorized access to S3 buckets.
+references:
+    - https://docs.datadoghq.com/security/default_rules/aws-bucket-acl-made-public/
+    - https://aws.permissions.cloud/iam/s3#s3-PutBucketAcl
+    - https://traildiscover.cloud/#S3-PutBucketAcl
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1048 #Exfiltration Over Alternative Protocol
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: PutBucketAcl
+    condition: selection
+falsepositives:
+level: medium

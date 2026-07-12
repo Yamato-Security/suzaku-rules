@@ -1,0 +1,27 @@
+title: AWS CloudFront PublishFunction
+id: ef36fd18-3a0b-52ae-b4a1-04740a247da0
+status: experimental
+description: |
+    Publishes a CloudFront function by copying the function code from the DEVELOPMENT stage to LIVE.
+
+    Security implications: Attackers might use PublishFunction to publish a malicious function that might be used to exfiltrate data.
+references:
+    - https://medium.com/@adan.alvarez/how-attackers-can-misuse-aws-cloudfront-access-to-make-it-rain-cookies-acf9ce87541c
+    - https://aws.permissions.cloud/iam/cloudfront#cloudfront-PublishFunction
+    - https://traildiscover.cloud/#CloudFront-PublishFunction
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.collection
+    - attack.t1119 #Automated Collection
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: cloudfront.amazonaws.com
+        eventName: PublishFunction
+    condition: selection
+falsepositives:
+level: low

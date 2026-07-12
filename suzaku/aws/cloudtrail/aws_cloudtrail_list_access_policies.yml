@@ -1,0 +1,29 @@
+title: AWS OpenSearchServerless ListAccessPolicies
+id: 97200eed-885c-5171-9421-5507a6d5543b
+status: experimental
+description: |
+    Returns information about a list of OpenSearch Serverless access policies.
+
+    Security implications: Attackers might use ListAccessPolicies to understand enforcement gaps, clone permissive rules, or stage privilege escalation against OpenSearch Serverless data.
+
+    Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
+references:
+    - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
+    - https://aws.permissions.cloud/iam/aoss#aoss-ListAccessPolicies
+    - https://traildiscover.cloud/#OpenSearchServerless-ListAccessPolicies
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1069 #Permission Groups Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: aoss.amazonaws.com
+        eventName: ListAccessPolicies
+    condition: selection
+falsepositives:
+level: low

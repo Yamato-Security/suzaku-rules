@@ -1,0 +1,30 @@
+title: AWS KMS Encrypt
+id: 909587f8-d01b-57bc-9b60-73af06130772
+status: experimental
+description: |
+    Encrypts plaintext of up to 4,096 bytes using a KMS key.
+
+    Security implications: Attackers might use Encrypt to encrypt data for ransom.
+
+    Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
+references:
+    - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/
+    - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
+    - https://aws.permissions.cloud/iam/kms#kms-Encrypt
+    - https://traildiscover.cloud/#KMS-Encrypt
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1486 #Data Encrypted for Impact
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: kms.amazonaws.com
+        eventName: Encrypt
+    condition: selection
+falsepositives:
+level: medium

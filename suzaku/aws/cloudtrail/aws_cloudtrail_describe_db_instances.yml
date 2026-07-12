@@ -1,0 +1,30 @@
+title: AWS RDS DescribeDBInstances
+id: 69e64022-c227-593c-8dd7-bc1be60bf972
+status: experimental
+description: |
+    Describes provisioned RDS instances.
+
+    Security implications: DB endpoint details aid targeting for data exfiltration or privilege escalation within databases.
+
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud; Investigating Suspected DPRK-Linked Crypto Intrusions.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/
+    - https://aws.permissions.cloud/iam/rds#rds-DescribeDBInstances
+    - https://traildiscover.cloud/#RDS-DescribeDBInstances
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: rds.amazonaws.com
+        eventName: DescribeDBInstances
+    condition: selection
+falsepositives:
+level: low

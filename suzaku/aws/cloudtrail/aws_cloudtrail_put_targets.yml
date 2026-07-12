@@ -1,0 +1,29 @@
+title: AWS events PutTargets
+id: c96b6ee8-25f8-58a0-a90b-e059319ed38c
+status: experimental
+description: |
+    Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+
+    Security implications: Attackers might use PutTargets in AWS EventBridge to trigger a malicious Lambda function periodically.
+
+    Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
+references:
+    - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/
+    - https://aws.permissions.cloud/iam/events#events-PutTargets
+    - https://traildiscover.cloud/#events-PutTargets
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1546 #Event Triggered Execution
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: events.amazonaws.com
+        eventName: PutTargets
+    condition: selection
+falsepositives:
+level: medium

@@ -1,0 +1,27 @@
+title: AWS KMS CreateKey
+id: a0679c58-f802-5f76-9b2d-5844dbc05f1a
+status: experimental
+description: |
+    Creates a unique customer managed KMS key in your AWS account and Region.
+
+    Security implications: Attackers might create keys only accessible by the identity they have compromised, for later encrypt data and delete access to it for ransomware attacks.
+references:
+    - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
+    - https://aws.permissions.cloud/iam/kms#kms-CreateKey
+    - https://traildiscover.cloud/#KMS-CreateKey
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1486 #Data Encrypted for Impact
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: kms.amazonaws.com
+        eventName: CreateKey
+    condition: selection
+falsepositives:
+level: medium

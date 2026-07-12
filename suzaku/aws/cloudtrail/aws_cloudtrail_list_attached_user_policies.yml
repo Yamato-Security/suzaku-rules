@@ -1,0 +1,30 @@
+title: AWS IAM ListAttachedUserPolicies
+id: ca1c2a35-a5e2-5fda-a976-b320fd5d98f1
+status: experimental
+description: |
+    Lists all managed policies that are attached to the specified IAM user.
+
+    Security implications: Attackers might use ListAttachedUserPolicies to identify and exploit permissions associated with various users in AWS.
+
+    Observed in real-world incidents/reporting, e.g.: Datadog threat roundup: top insights for Q4 2024.
+references:
+    - https://securitylabs.datadoghq.com/articles/2024-q4-threat-roundup/
+    - https://aws.permissions.cloud/iam/iam#iam-ListAttachedUserPolicies
+    - https://traildiscover.cloud/#IAM-ListAttachedUserPolicies
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1087 #Account Discovery
+    - attack.t1087.004 #Account Discovery: Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: ListAttachedUserPolicies
+    condition: selection
+falsepositives:
+level: low

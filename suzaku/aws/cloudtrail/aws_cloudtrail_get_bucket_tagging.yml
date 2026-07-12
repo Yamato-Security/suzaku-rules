@@ -1,0 +1,29 @@
+title: AWS S3 GetBucketTagging
+id: 0a567d1b-4695-538b-b67a-b72cf000e6cc
+status: experimental
+description: |
+    Returns the tag set associated with the bucket.
+
+    Security implications: Attackers might use GetBucketTagging to look for tags reminiscent of PII or confidential data.
+
+    Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
+references:
+    - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/
+    - https://aws.permissions.cloud/iam/s3#s3-GetBucketTagging
+    - https://traildiscover.cloud/#S3-GetBucketTagging
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: s3.amazonaws.com
+        eventName: GetBucketTagging
+    condition: selection
+falsepositives:
+level: low

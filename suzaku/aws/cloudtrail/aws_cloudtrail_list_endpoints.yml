@@ -1,0 +1,29 @@
+title: AWS SageMaker ListEndpoints
+id: 58dfb654-232f-59e0-b1ef-f2fca56d61d3
+status: experimental
+description: |
+    Lists endpoints.
+
+    Security implications: Attackers might use ListEndpoints to find live ML services that can be hijacked for inference abuse, data theft, or service disruption.
+
+    Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
+references:
+    - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
+    - https://aws.permissions.cloud/iam/sagemaker#sagemaker-ListEndpoints
+    - https://traildiscover.cloud/#SageMaker-ListEndpoints
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sagemaker.amazonaws.com
+        eventName: ListEndpoints
+    condition: selection
+falsepositives:
+level: low

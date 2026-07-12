@@ -1,0 +1,27 @@
+title: AWS EC2 ModifyImageAttribute
+id: ccea56fb-fcff-542e-a290-0cfd48d7e907
+status: experimental
+description: |
+    Modifies the specified attribute of the specified AMI.
+
+    Security implications: Attackers might use ModifyImageAttribute to alter permissions or settings of Amazon Machine Images (AMIs), potentially exposing them to unauthorized users or making them public.
+references:
+    - https://research.splunk.com/cloud/f2132d74-cf81-4c5e-8799-ab069e67dc9f/
+    - https://aws.permissions.cloud/iam/ec2#ec2-ModifyImageAttribute
+    - https://traildiscover.cloud/#EC2-ModifyImageAttribute
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: ModifyImageAttribute
+    condition: selection
+falsepositives:
+level: medium

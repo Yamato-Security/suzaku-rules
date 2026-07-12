@@ -1,0 +1,29 @@
+title: AWS EC2 DescribeTags
+id: b110e3fb-bd79-5a88-a131-016c2d5c8593
+status: experimental
+description: |
+    Describes the specified tags for your EC2 resources.
+
+    Security implications: Tags often encode environment, application names, and ownership enabling targeted attacks or cost-evasion tactics.
+
+    Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
+references:
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://aws.permissions.cloud/iam/ec2#ec2-DescribeTags
+    - https://traildiscover.cloud/#EC2-DescribeTags
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: DescribeTags
+    condition: selection
+falsepositives:
+level: low

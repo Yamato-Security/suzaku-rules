@@ -1,0 +1,30 @@
+title: AWS route53domains RegisterDomain
+id: f0e15c99-b46f-57b7-913d-694dbf40ab17
+status: experimental
+description: |
+    This operation registers a domain. For some top-level domains (TLDs), this operation requires extra parameters.
+
+    Security implications: Attackers might use RegisterDomain to register malicious domains for phishing or malware distribution.
+
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://aws.permissions.cloud/iam/route53domains#route53domains-RegisterDomain
+    - https://traildiscover.cloud/#route53domains-RegisterDomain
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.resource-development
+    - attack.t1583 #Acquire Infrastructure
+    - attack.t1583.001 #Acquire Infrastructure: Domains
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: route53domains.amazonaws.com
+        eventName: RegisterDomain
+    condition: selection
+falsepositives:
+level: medium

@@ -1,0 +1,31 @@
+title: AWS Bedrock GetModelInvocationLoggingConfiguration
+id: 0f062645-342f-53d8-a87f-703fcb8190ef
+status: experimental
+description: |
+    Get the current configuration values for model invocation logging.
+
+    Security implications: Attackers might use GetModelInvocationLoggingConfiguration to check S3 and Cloudwatch logging configuration.
+
+    Observed in real-world incidents/reporting, e.g.: LLMjacking: Stolen Cloud Credentials Used in New AI Attack; New Developments in LLM Hijacking Activity; AI-assisted cloud intrusion achieves admin access in 8 minutes.
+references:
+    - https://sysdig.com/blog/llmjacking-stolen-cloud-credentials-used-in-new-ai-attack/
+    - https://www.wiz.io/blog/jinx-2401-llm-hijacking-aws
+    - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
+    - https://aws.permissions.cloud/iam/bedrock#bedrock-GetModelInvocationLoggingConfiguration
+    - https://traildiscover.cloud/#Bedrock-GetModelInvocationLoggingConfiguration
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: bedrock.amazonaws.com
+        eventName: GetModelInvocationLoggingConfiguration
+    condition: selection
+falsepositives:
+level: low

@@ -1,0 +1,30 @@
+title: AWS Route53 CreateHostedZone
+id: c564167f-e572-59af-a9f0-f1a57b6ce16c
+status: experimental
+description: |
+    Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to route traffic on the internet for a domain, such as example.com, and its subdomains.
+
+    Security implications: Attackers might use CreateHostedZone to create malicious DNS zones for phishing or redirecting traffic.
+
+    Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
+references:
+    - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
+    - https://hackingthe.cloud/aws/exploitation/route53_modification_privilege_escalation/
+    - https://aws.permissions.cloud/iam/route53#route53-CreateHostedZone
+    - https://traildiscover.cloud/#Route53-CreateHostedZone
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: route53.amazonaws.com
+        eventName: CreateHostedZone
+    condition: selection
+falsepositives:
+level: medium

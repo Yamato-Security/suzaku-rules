@@ -1,0 +1,30 @@
+title: AWS SNS Publish
+id: 910bfd51-c553-5e63-804d-2a9c2d4ffecb
+status: experimental
+description: |
+    Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone number, or a message to a mobile platform endpoint (when you specify the TargetArn).
+
+    Security implications: Attackers might use Publish for smishing campaigns.
+
+    Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Using malicious AWS activity to spot phishing campaigns; Cloud Security Stories: From Risky Permissions to Ransomware Execution.
+references:
+    - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-aws-activity-to-phishing/
+    - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/
+    - https://aws.permissions.cloud/iam/sns#sns-Publish
+    - https://traildiscover.cloud/#SNS-Publish
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: sns.amazonaws.com
+        eventName: Publish
+    condition: selection
+falsepositives:
+level: medium

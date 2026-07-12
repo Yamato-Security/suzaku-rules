@@ -1,0 +1,29 @@
+title: AWS IAM CreateServiceLinkedRole
+id: 28cc678e-0083-5313-94cf-9d086612f1ba
+status: experimental
+description: |
+    Creates an IAM role that is linked to a specific AWS service. The service controls the attached policies and when the role can be deleted.
+
+    Security implications: Attackers might use CreateServiceLinkedRole to create roles required for services like Auto Scaling as part of setting up infrastructure for resource hijacking.
+
+    Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
+references:
+    - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
+    - https://aws.permissions.cloud/iam/iam#iam-CreateServiceLinkedRole
+    - https://traildiscover.cloud/#IAM-CreateServiceLinkedRole
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: CreateServiceLinkedRole
+    condition: selection
+falsepositives:
+level: medium

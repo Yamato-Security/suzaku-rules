@@ -1,0 +1,30 @@
+title: AWS Lambda GetFunctionConfiguration20150331v2
+id: ec6dce39-1959-5cab-8e75-9c0436e67358
+status: experimental
+description: |
+    Returns the version-specific settings of a Lambda function or version.
+
+    Security implications: Attackers might use GetFunctionConfiguration to inspect Lambda function settings, environment variables, and attached IAM roles to extract credentials or plan privilege escalation.
+
+    Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.
+references:
+    - https://ctrlaltintel.com/threat%20research/DPRK-Crypto-Heist/
+    - https://aws.permissions.cloud/iam/lambda#lambda-GetFunctionConfiguration
+    - https://traildiscover.cloud/#Lambda-GetFunctionConfiguration20150331v2
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.credential-access
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: lambda.amazonaws.com
+        eventName: GetFunctionConfiguration20150331v2
+    condition: selection
+falsepositives:
+level: medium

@@ -1,0 +1,27 @@
+title: AWS IAM UpdateAccessKey
+id: 95a036e3-8ddc-5db8-b6c2-fc42e454169e
+status: experimental
+description: |
+    Changes the status of the specified access key from Active to Inactive, or vice versa.
+
+    Security implications: Attackers might use UpdateAccessKey to modify existing IAM user access keys, potentially gaining unauthorized access to AWS services.
+references:
+    - https://cloud.hacktricks.xyz/pentesting-cloud/aws-security/aws-privilege-escalation/aws-iam-privesc
+    - https://aws.permissions.cloud/iam/iam#iam-UpdateAccessKey
+    - https://traildiscover.cloud/#IAM-UpdateAccessKey
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1098 #Account Manipulation
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: UpdateAccessKey
+    condition: selection
+falsepositives:
+level: medium

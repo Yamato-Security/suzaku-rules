@@ -1,0 +1,29 @@
+title: AWS CloudWatchLogs DescribeSubscriptionFilters
+id: 98ca3311-517f-5826-a61a-ac354465991a
+status: experimental
+description: |
+    Lists the subscription filters for the specified log group.
+
+    Security implications: Attackers might use DescribeSubscriptionFilters to discover CloudWatch log configurations.
+
+    Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
+references:
+    - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
+    - https://aws.permissions.cloud/iam/logs#logs-DescribeSubscriptionFilters
+    - https://traildiscover.cloud/#CloudWatchLogs-DescribeSubscriptionFilters
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1580 #Cloud Infrastructure Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: logs.amazonaws.com
+        eventName: DescribeSubscriptionFilters
+    condition: selection
+falsepositives:
+level: low

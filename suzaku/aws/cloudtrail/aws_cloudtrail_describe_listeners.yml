@@ -1,0 +1,27 @@
+title: AWS ELBv2 DescribeListeners
+id: 4c4b40f7-db5d-5b50-81ce-c24774383c04
+status: experimental
+description: |
+    Describes the specified listeners or the listeners for the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
+
+    Security implications: Attackers might use DescribeListeners to get information about the load balancers listeners for potential future modifications.
+references:
+    - https://medium.com/@adan.alvarez/rigging-the-rules-manipulating-aws-alb-to-mine-sensitive-data-20e33dbc4994
+    - https://aws.permissions.cloud/iam/elasticloadbalancing#elasticloadbalancing-DescribeListeners
+    - https://traildiscover.cloud/#ELBv2-DescribeListeners
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.discovery
+    - attack.t1526 #Cloud Service Discovery
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: elasticloadbalancing.amazonaws.com
+        eventName: DescribeListeners
+    condition: selection
+falsepositives:
+level: low

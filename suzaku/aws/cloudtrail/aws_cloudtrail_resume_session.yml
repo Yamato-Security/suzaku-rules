@@ -1,0 +1,29 @@
+title: AWS SSM ResumeSession
+id: d5106842-64a8-5bcc-be6d-497414cd350f
+status: experimental
+description: |
+    Reconnects a session to a managed node after it has been disconnected.
+
+    Security implications: Attackers might use ResumeSession to gain unauthorized access to managed instances.
+references:
+    - https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/
+    - https://aws.permissions.cloud/iam/ssm#ssm-ResumeSession
+    - https://traildiscover.cloud/#SSM-ResumeSession
+author: Adan Alvarez (@adanalvarez), Yamato Security
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.lateral-movement
+    - attack.execution
+    - attack.t1021 #Remote Services
+    - attack.t1651 #Cloud Administration Command
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ssm.amazonaws.com
+        eventName: ResumeSession
+    condition: selection
+falsepositives:
+level: medium
