@@ -2,6 +2,7 @@ title: AWS Health DescribeEvents Attempt
 id: bcf37682-9cb3-5d76-98ca-d25bb4fd41d6
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeEvents — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about events that meet the specified filter criteria.
     Security implications: Service health events can help attackers time actions when defenses or staff attention are reduced.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

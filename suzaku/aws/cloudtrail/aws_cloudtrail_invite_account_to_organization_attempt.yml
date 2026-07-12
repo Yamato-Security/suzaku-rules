@@ -2,6 +2,7 @@ title: AWS Organizations InviteAccountToOrganization Attempt
 id: 54847d65-2be0-53b5-b552-0e98191375b7
 status: experimental
 description: |
+    Failed or denied attempt to call InviteAccountToOrganization — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Sends an invitation to another account to join your organization as a member account.
     Security implications: Attackers might use InviteAccountToOrganization to add an account they control for defense evasion, resource hijacking.
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.

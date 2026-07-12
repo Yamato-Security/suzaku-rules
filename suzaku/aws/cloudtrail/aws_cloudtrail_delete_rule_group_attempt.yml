@@ -2,6 +2,7 @@ title: AWS WAFV2 DeleteRuleGroup Attempt
 id: 19991697-46e1-5803-9048-7599145f604f
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteRuleGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified RuleGroup.
     Security implications: Attackers might use DeleteRuleGroup to disable security rules, making the system vulnerable to cyber attacks.
 references:

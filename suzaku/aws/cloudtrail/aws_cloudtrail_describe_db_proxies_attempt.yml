@@ -2,6 +2,7 @@ title: AWS RDS DescribeDBProxies Attempt
 id: 6b29e04c-de0d-5579-8e1d-96641329ee51
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeDBProxies — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about DB proxies.
     Security implications: Proxy configuration may expose auth mechanisms or targets for credential harvesting.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

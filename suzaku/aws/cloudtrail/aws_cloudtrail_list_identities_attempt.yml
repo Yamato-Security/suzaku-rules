@@ -2,6 +2,7 @@ title: AWS SES ListIdentities Attempt
 id: 7bb471a5-82ac-5226-9f0d-2d4c5f9f030e
 status: experimental
 description: |
+    Failed or denied attempt to call ListIdentities — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list containing all of the identities (email addresses and domains) for your AWS account in the current AWS Region, regardless of verification status.
     Security implications: Attackers use ListIdentities from SES to enumerate email addresses or domains verified under the AWS account.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Ransomware in the cloud; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Compromised Cloud Compute Credentials: Case Studies From the Wild; SES-PIONAGE; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.

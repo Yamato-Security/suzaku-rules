@@ -2,6 +2,7 @@ title: AWS elasticfilesystem DeleteFileSystem Attempt
 id: e792e656-b4a6-50cb-8aae-f108c7c888af
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteFileSystem — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes a file system, permanently severing access to its contents.
     Security implications: Attackers might use DeleteFileSystem in AWS EFS to deliberately erase file systems, leading to data loss.
 references:

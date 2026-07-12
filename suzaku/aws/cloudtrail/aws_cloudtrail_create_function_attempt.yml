@@ -2,6 +2,7 @@ title: AWS CloudFront CreateFunction Attempt
 id: 13b90ddf-5d20-5abd-ac19-4ba79bc53a3c
 status: experimental
 description: |
+    Failed or denied attempt to call CreateFunction — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a CloudFront function.
     Security implications: Attackers might use CreateFunction to add a new function that can be use to exfiltrate date.
 references:

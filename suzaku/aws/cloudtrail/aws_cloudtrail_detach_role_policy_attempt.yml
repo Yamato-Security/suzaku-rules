@@ -2,6 +2,7 @@ title: AWS IAM DetachRolePolicy Attempt
 id: 098a0e05-3e7e-5031-9fde-c2c2117ca6c9
 status: experimental
 description: |
+    Failed or denied attempt to call DetachRolePolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Removes the specified managed policy from the specified role.
     Security implications: Attackers might use DetachRolePolicy to remove crucial permissions from IAM roles, disrupting AWS services.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.

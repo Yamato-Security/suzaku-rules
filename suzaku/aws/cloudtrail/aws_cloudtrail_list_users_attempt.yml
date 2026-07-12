@@ -2,6 +2,7 @@ title: AWS IAM ListUsers Attempt
 id: fbdf03e7-8aab-57d3-bbcc-ebf2abb2ec47
 status: experimental
 description: |
+    Failed or denied attempt to call ListUsers — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the IAM users that have the specified path prefix. If no path prefix is specified, the operation returns all users in the AWS account.
     Security implications: Attackers might use ListUsers to enumerate IAM users for further attacks, such as adding keys or creating a login profile for persistence.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Ransomware in the cloud; Incident report: From CLI to console, chasing an attacker in AWS; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Muddled Libra’s Evolution to the Cloud; Cloud-Conscious Tactics, Techniques,and Procedures (TTPs).

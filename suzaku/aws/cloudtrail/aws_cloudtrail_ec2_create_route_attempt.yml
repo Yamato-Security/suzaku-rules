@@ -2,6 +2,7 @@ title: AWS EC2 CreateRoute Attempt
 id: c163e627-207a-51f2-bb6a-05ef74c13e78
 status: experimental
 description: |
+    Failed or denied attempt to call CreateRoute — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a route in a route table within a VPC.
     Security implications: Attackers might use CreateRoute to redirect network traffic within AWS VPCs to eavesdrop or exfiltrate data.
 references:

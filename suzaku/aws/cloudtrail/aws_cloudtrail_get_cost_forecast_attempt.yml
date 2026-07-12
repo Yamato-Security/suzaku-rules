@@ -2,6 +2,7 @@ title: AWS CostExplorer GetCostForecast Attempt
 id: f7cf409c-23fb-5329-b405-f69c0fddc615
 status: experimental
 description: |
+    Failed or denied attempt to call GetCostForecast — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves a forecast for how much Amazon Web Services predicts that you will spend over the forecast time period that you select, based on your past costs.
     Security implications: Cost forecasting can validate success of cryptomining or resource abuse while avoiding detection.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

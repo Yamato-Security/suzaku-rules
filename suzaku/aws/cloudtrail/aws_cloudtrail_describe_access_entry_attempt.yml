@@ -2,6 +2,7 @@ title: AWS EKS DescribeAccessEntry Attempt
 id: db04e024-f03e-5bae-a906-a981fb32d6b8
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeAccessEntry — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes an access entry.
     Security implications: Attackers might use DescribeAccessEntry for reconnaissance, gathering detailed information about access configurations within AWS EKS.
 references:

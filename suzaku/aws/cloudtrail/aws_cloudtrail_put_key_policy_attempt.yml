@@ -2,6 +2,7 @@ title: AWS KMS PutKeyPolicy Attempt
 id: 931bb111-14ab-56ee-97ab-3a16c6629e84
 status: experimental
 description: |
+    Failed or denied attempt to call PutKeyPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Attaches a key policy to the specified KMS key.
     Security implications: Attackers might put a new key policy to modify the policy of a current KMS Key and lock the data for ransomware attacks.
 references:

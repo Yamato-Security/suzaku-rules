@@ -2,6 +2,7 @@ title: AWS S3 PutBucketReplication Attempt
 id: 70939039-50fb-5a6f-9d37-de098765ba0f
 status: experimental
 description: |
+    Failed or denied attempt to call PutBucketReplication — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a replication configuration or replaces an existing one.
     Security implications: Attackers might use PutBucketReplication to replicate sensitive data to unauthorized S3 buckets controlled by the attacker.
 references:

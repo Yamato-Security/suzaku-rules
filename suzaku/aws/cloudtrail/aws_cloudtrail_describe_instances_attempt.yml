@@ -2,6 +2,7 @@ title: AWS EC2 DescribeInstances Attempt
 id: 1ab2ccfe-dad0-5f0a-be82-e5a5f83e8024
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeInstances — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified instances or all instances.
     Security implications: Attackers might use DescribeInstances to inventory EC2 instances within an AWS environment.
     Observed in real-world incidents/reporting, e.g.: Following attackers’ (Cloud)trail in AWS: Methodology and findings in the wild; Investigating Suspected DPRK-Linked Crypto Intrusions.

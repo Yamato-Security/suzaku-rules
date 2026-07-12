@@ -2,6 +2,7 @@ title: AWS Config DeleteConfigRule Attempt
 id: ea74c1cf-7dfa-59c8-82ae-dd8bb6e8a31f
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteConfigRule — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified AWS Config rule and all of its evaluation results.
     Security implications: Attackers might use DeleteConfigRule to remove compliance rules, potentially affecting the response plan.
 references:

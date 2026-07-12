@@ -2,6 +2,7 @@ title: AWS Bedrock ListInferenceProfiles Attempt
 id: cf3a519d-2d48-5c1b-930b-fdbb6dc1a935
 status: experimental
 description: |
+    Failed or denied attempt to call ListInferenceProfiles — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list of inference profiles that you can use.
     Security implications: Attackers might use ListInferenceProfiles to identify high-cost deployments they can hijack for ML workload abuse or target for disruption.
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.

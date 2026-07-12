@@ -2,6 +2,7 @@ title: AWS RDS StartExportTask Attempt
 id: c0415bb0-a270-55ae-8847-37daca2e90eb
 status: experimental
 description: |
+    Failed or denied attempt to call StartExportTask — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Starts an export of DB snapshot or DB cluster data to Amazon S3.
     Security implications: Attackers might use StartExportTask to export database snapshots to an S3 they control and gain access to the data.
 references:

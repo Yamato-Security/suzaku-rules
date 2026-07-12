@@ -2,6 +2,7 @@ title: AWS EC2 StartInstances Attempt
 id: 2f2d9b32-9c92-5c0b-a9bf-07dcd6996c90
 status: experimental
 description: |
+    Failed or denied attempt to call StartInstances — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Starts an Amazon EBS-backed instance that you've previously stopped.
     Security implications: Attackers might use StartInstances to reactivate dormant EC2 instances or after having modified the user data for execution of commands.
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.

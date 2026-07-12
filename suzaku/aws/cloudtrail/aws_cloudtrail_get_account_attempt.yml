@@ -2,6 +2,7 @@ title: AWS SES GetAccount Attempt
 id: 716620af-c993-5bd4-bad9-1aee01204480
 status: experimental
 description: |
+    Failed or denied attempt to call GetAccount — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Obtain information about the email-sending status and capabilities of your Amazon SES account in the current AWS Region.
     Security implications: Attackers might use GetAccount to gather sensitive information about the AWS SES account for malicious purposes.
     Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud; Compromised Cloud Compute Credentials: Case Studies From the Wild; SES-PIONAGE; Tales from the cloud trenches: Unwanted visitor; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments; Tales from the cloud trenches: The Attacker doth persist too much, methinks.

@@ -2,6 +2,7 @@ title: AWS IAM DeleteAccessKey Attempt
 id: 5e2306db-0c9d-52a6-9146-34754ea3929a
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteAccessKey — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the access key pair associated with the specified IAM user.
     Security implications: Attackers might use DeleteAccessKey to revoke legitimate user access to AWS services. Also, it can be used to delete previously used keys to avoid detection.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.

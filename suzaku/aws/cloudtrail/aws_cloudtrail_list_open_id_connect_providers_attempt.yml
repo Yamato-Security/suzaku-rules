@@ -2,6 +2,7 @@ title: AWS IAM ListOpenIDConnectProviders Attempt
 id: ea5cab37-a061-5bc1-aa38-9a3fb147e73a
 status: experimental
 description: |
+    Failed or denied attempt to call ListOpenIDConnectProviders — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists information about the IAM OpenID Connect (OIDC) provider resource objects defined in the AWS account.
     Security implications: Attackers might use ListOpenIDConnectProviders to discover if there are OIDC providers configured.
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud.

@@ -2,6 +2,7 @@ title: AWS STS AssumeRole Attempt
 id: 9801c604-f281-5f47-975b-7d658db7c6fb
 status: experimental
 description: |
+    Failed or denied attempt to call AssumeRole — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a set of temporary security credentials that you can use to access AWS resources.
     Security implications: Attackers might use AssumeRole to gain unauthorized access to an AWS role. This might allow them to gain initial access, escalate privileges or in specific scenarios gain persistence.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Trouble in Paradise; Tales from the cloud trenches: Unwanted visitor; AI-assisted cloud intrusion achieves admin access in 8 minutes.

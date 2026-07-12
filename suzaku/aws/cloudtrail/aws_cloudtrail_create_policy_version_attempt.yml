@@ -2,6 +2,7 @@ title: AWS IAM CreatePolicyVersion Attempt
 id: 50d7ff58-35c5-54d7-8be6-99d384369d79
 status: experimental
 description: |
+    Failed or denied attempt to call CreatePolicyVersion — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new version of the specified managed policy.
     Security implications: Attackers might use CreatePolicyVersion to modify IAM policies, potentially granting themselves elevated permissions.
 references:

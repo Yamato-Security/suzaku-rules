@@ -2,6 +2,7 @@ title: AWS Config DeleteDeliveryChannel Attempt
 id: e4ae619a-80c4-55d5-a08e-d5940becfd81
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteDeliveryChannel — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the delivery channel.
     Security implications: Attackers might use DeleteDeliveryChannel to disrupt the flow of configuration history and compliance data in AWS.
 references:

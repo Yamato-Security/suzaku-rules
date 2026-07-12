@@ -2,6 +2,7 @@ title: AWS EKS AssociateAccessPolicy Attempt
 id: 7e8ae818-929e-5ff6-819b-33869885f3a8
 status: experimental
 description: |
+    Failed or denied attempt to call AssociateAccessPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Associates an access policy and its scope to an access entry.
     Security implications: Attackers might use AssociateAccessPolicy to escalate privileges by linking access entries with highly privileged policies, allowing unauthorized control over clusters.
 references:

@@ -2,6 +2,7 @@ title: AWS EC2 EnableSerialConsoleAccess Attempt
 id: 0d9c236b-445a-5391-a029-3e2da5a10cf4
 status: experimental
 description: |
+    Failed or denied attempt to call EnableSerialConsoleAccess — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Enables access to the EC2 serial console of all instances for your account.
     Security implications: Attackers might use EnableSerialConsoleAccess to enable the serial console access and bypass security group rules and gain access to EC2 instances.
     Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.

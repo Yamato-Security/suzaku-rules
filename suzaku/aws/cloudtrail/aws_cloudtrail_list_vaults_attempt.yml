@@ -2,6 +2,7 @@ title: AWS S3 ListVaults Attempt
 id: 18c366e5-5bbe-56cf-9509-b4a360a1d744
 status: experimental
 description: |
+    Failed or denied attempt to call ListVaults — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     This operation lists all vaults owned by the calling user’s account.
     Security implications: Attackers might use ListVaults to identify data such as archived training data or related datasets.
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; Tales from the cloud trenches: Raiding for AWS vaults, buckets and secrets.

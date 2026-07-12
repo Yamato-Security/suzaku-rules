@@ -2,6 +2,7 @@ title: AWS Glue UpdateDevEndpoint Attempt
 id: 11a5282e-8df6-5064-8e58-51e5a109c8ea
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateDevEndpoint — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates a specified development endpoint.
     Security implications: Attackers might use UpdateDevEndpoint to modify the settings of a development endpoint, potentially disrupting data processing tasks or gaining unauthorized access to data.
 references:

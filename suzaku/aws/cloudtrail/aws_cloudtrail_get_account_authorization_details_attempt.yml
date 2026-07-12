@@ -2,6 +2,7 @@ title: AWS IAM GetAccountAuthorizationDetails Attempt
 id: 7b5709bf-1b1c-5456-8a7c-b426508c80a8
 status: experimental
 description: |
+    Failed or denied attempt to call GetAccountAuthorizationDetails — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves information about all IAM users, groups, roles, and policies in your AWS account, including their relationships to one another.
     Security implications: Attackers might use GetAccountAuthorizationDetails to gather information about IAM users, groups, roles, and policies in a targeted AWS account.
 references:

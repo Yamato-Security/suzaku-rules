@@ -2,6 +2,7 @@ title: AWS IAM DeleteUserPolicy Attempt
 id: 683dadcd-7ae7-589b-a3c1-372b4447c4e8
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteUserPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified inline policy that is embedded in the specified IAM user.
     Security implications: Attackers might use DeleteUserPolicy to remove security policies and gain unauthorized access to AWS resources.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.

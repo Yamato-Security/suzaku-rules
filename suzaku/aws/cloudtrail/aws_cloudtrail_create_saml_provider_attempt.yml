@@ -2,6 +2,7 @@ title: AWS IAM CreateSAMLProvider Attempt
 id: 9219dda8-42bd-54c8-ba3f-ae304e9610d4
 status: experimental
 description: |
+    Failed or denied attempt to call CreateSAMLProvider — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates an IAM resource that describes an identity provider (IdP) that supports SAML 2.0.
     Security implications: Attackers use CreateSAMLProvider to establish persistent footholds.
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.

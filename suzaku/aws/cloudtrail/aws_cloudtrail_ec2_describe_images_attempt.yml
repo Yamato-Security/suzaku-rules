@@ -2,6 +2,7 @@ title: AWS EC2 DescribeImages Attempt
 id: 0806f8a3-32f4-5cbc-8c93-cfea1596aff4
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeImages — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.
     Security implications: Attackers might use DescribeImages to identify AMIs (Amazon Machine Images) within AWS.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

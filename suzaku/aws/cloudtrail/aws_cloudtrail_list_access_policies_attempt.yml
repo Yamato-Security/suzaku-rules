@@ -2,6 +2,7 @@ title: AWS OpenSearchServerless ListAccessPolicies Attempt
 id: 41fb77b1-5f31-5be1-bdc2-1798b5427129
 status: experimental
 description: |
+    Failed or denied attempt to call ListAccessPolicies — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about a list of OpenSearch Serverless access policies.
     Security implications: Attackers might use ListAccessPolicies to understand enforcement gaps, clone permissive rules, or stage privilege escalation against OpenSearch Serverless data.
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.

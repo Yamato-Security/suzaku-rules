@@ -2,6 +2,7 @@ title: AWS CloudShell CreateSession Attempt
 id: a7c1d988-7aff-5dc0-aa9e-5e1aade58eb0
 status: experimental
 description: |
+    Failed or denied attempt to call CreateSession — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Occurs when a CloudShell environment is connected from the AWS Management Console.
     Security implications: Attackers could misuse valid credentials to call CreateSession and open an interactive shell to access cloud resources.
     Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.

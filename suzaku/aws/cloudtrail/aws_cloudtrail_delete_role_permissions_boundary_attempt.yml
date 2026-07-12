@@ -2,6 +2,7 @@ title: AWS IAM DeleteRolePermissionsBoundary Attempt
 id: 7004958c-9cc6-5665-a797-0a6894d56c51
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteRolePermissionsBoundary — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the permissions boundary for the specified IAM role.
     Security implications: Attackers might use DeleteRolePermissionsBoundary to remove restrictions and gain unauthorized access to AWS resources.
 references:

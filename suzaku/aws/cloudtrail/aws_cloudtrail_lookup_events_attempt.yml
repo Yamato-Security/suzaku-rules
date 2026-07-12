@@ -2,6 +2,7 @@ title: AWS CloudTrail LookupEvents Attempt
 id: a6df81e3-a635-50ed-8516-a7adea7c8ed0
 status: experimental
 description: |
+    Failed or denied attempt to call LookupEvents — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Looks up management events or CloudTrail Insights events that are captured by CloudTrail.
     Security implications: Attackers might use LookupEvents to monitoring CloudTrail logs for changes that might affect the attack.
     Observed in real-world incidents/reporting, e.g.: UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.

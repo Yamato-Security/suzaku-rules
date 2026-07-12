@@ -2,6 +2,7 @@ title: AWS Marketplace SearchAgreements Attempt
 id: 72cd9a4e-0c7a-5acc-ab41-0099a493dc67
 status: experimental
 description: |
+    Failed or denied attempt to call SearchAgreements — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Searches across all agreements that a proposer has in AWS Marketplace.
     Security implications: Attackers might use SearchAgreements to enumerate Bedrock contracts, determine billing limits, and time their abuse before defenders notice unusual marketplace usage.
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.

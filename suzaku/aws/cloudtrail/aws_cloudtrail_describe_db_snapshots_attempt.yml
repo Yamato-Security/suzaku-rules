@@ -2,6 +2,7 @@ title: AWS RDS DescribeDBSnapshots Attempt
 id: b46e0d81-9007-5c1c-8643-86b56fa34211
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeDBSnapshots — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about DB snapshots.
     Security implications: Snapshot info indicates potential data backup targets for theft or ransom duplication.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

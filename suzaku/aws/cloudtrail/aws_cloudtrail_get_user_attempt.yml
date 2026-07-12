@@ -2,6 +2,7 @@ title: AWS IAM GetUser Attempt
 id: a7c62191-3c54-5d58-87ad-a96a18719c88
 status: experimental
 description: |
+    Failed or denied attempt to call GetUser — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves information about the specified IAM user, including the user's creation date, path, unique ID, and ARN.
     Security implications: Attackers might use GetUser to obtain user information.
     Observed in real-world incidents/reporting, e.g.: GotRoot! AWS root Account Takeover; Tales from the cloud trenches: Raiding for AWS vaults, buckets and secrets; Datadog threat roundup: top insights for Q4 2024; Crimson Collective: A New Threat Group Observed Operating in the Cloud.

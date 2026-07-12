@@ -2,6 +2,7 @@ title: AWS Bedrock ListFoundationModelAgreementOffers Attempt
 id: 981e82d3-bafa-52f1-a0b4-d7cd3156d11e
 status: experimental
 description: |
+    Failed or denied attempt to call ListFoundationModelAgreementOffers — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Grants permission to get a list of foundation model agreement offers.
     Security implications: Attackers might use ListFoundationModelAgreementOffers to enumerate accessible models.
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts.

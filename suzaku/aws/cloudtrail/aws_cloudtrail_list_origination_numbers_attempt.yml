@@ -2,6 +2,7 @@ title: AWS SNS ListOriginationNumbers Attempt
 id: ab238dc4-424a-5ba4-9d7d-3bb3b4a9a5a8
 status: experimental
 description: |
+    Failed or denied attempt to call ListOriginationNumbers — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the calling AWS account's dedicated origination numbers and their metadata.
     Security implications: Attackers might use ListOriginationNumbers to identify origination numbers for potential smishing campaings.
 references:

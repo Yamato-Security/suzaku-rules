@@ -2,6 +2,7 @@ title: AWS EC2 DescribeLaunchTemplates Attempt
 id: 4a79f18a-ef7f-5ed4-a216-64ba2845a55e
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeLaunchTemplates — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes one or more launch templates.
     Security implications: Launch template details may leak AMI IDs, user data scripts, and configuration patterns useful for privilege escalation or persistence.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

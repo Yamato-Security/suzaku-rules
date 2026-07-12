@@ -2,6 +2,7 @@ title: AWS CloudTrail PutEventSelectors Attempt
 id: edc430f5-8f90-50ae-a8af-9e5ff8dcdc18
 status: experimental
 description: |
+    Failed or denied attempt to call PutEventSelectors — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Configures an event selector or advanced event selectors for your trail.
     Security implications: Attackers might use PutEventSelectors to disrupting AWS logging.
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.

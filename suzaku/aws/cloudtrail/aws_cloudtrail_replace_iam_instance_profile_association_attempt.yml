@@ -2,6 +2,7 @@ title: AWS EC2 ReplaceIamInstanceProfileAssociation Attempt
 id: 75baa163-b3a8-553e-b95d-c0005582316e
 status: experimental
 description: |
+    Failed or denied attempt to call ReplaceIamInstanceProfileAssociation — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Replaces an IAM instance profile for the specified running instance.
     Security implications: Attackers might use ReplaceIamInstanceProfileAssociation to replace the IAM instance profile on an instance they control with one that has higher privileges.
     Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.

@@ -2,6 +2,7 @@ title: AWS IAM PutGroupPolicy Attempt
 id: 11b58ead-6111-5152-9fda-4155b3e028dd
 status: experimental
 description: |
+    Failed or denied attempt to call PutGroupPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds or updates an inline policy document that is embedded in the specified IAM group.
     Security implications: Attackers might use PutGroupPolicy to modify permissions of a group, potentially granting unauthorized access to sensitive resources.
 references:

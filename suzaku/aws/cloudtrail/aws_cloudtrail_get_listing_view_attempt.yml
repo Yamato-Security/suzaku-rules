@@ -2,6 +2,7 @@ title: AWS Marketplace GetListingView Attempt
 id: c8873ee6-4cbe-5a70-a9cc-aa1b994cb8c6
 status: experimental
 description: |
+    Failed or denied attempt to call GetListingView — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves detailed metadata for an AWS Marketplace listing, including pricing, fulfillment, and entitlement options used by Bedrock.
     Security implications: Attackers might use GetListingView to learn which commercial Bedrock providers are available, their cost controls, and what entitlements must be abused to spin up expensive inference jobs.
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.

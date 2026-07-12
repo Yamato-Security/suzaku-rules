@@ -2,6 +2,7 @@ title: AWS WAFV2 DeleteWebACL Attempt
 id: 658a2e53-a7aa-50d2-891d-ca0756f682bf
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteWebACL — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified WebACL.
     Security implications: Attackers might use DeleteWebACL to remove web access control lists, thereby disrupting web application firewall protections.
 references:

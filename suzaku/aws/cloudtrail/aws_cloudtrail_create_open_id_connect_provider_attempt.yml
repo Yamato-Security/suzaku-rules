@@ -2,6 +2,7 @@ title: AWS IAM CreateOpenIDConnectProvider Attempt
 id: 21e49b67-a032-5c67-8a49-d0d902c37f93
 status: experimental
 description: |
+    Failed or denied attempt to call CreateOpenIDConnectProvider — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates an IAM entity to describe an identity provider (IdP) that supports OpenID Connect (OIDC)
     Security implications: Attackers use CreateOpenIDConnectProvider to establish persistent footholds.
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.

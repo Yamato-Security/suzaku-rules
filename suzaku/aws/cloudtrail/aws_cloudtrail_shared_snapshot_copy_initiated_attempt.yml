@@ -2,6 +2,7 @@ title: AWS EC2 SharedSnapshotCopyInitiated Attempt
 id: 6d266c96-a5e1-528d-89bf-f3886d22ffb3
 status: experimental
 description: |
+    Failed or denied attempt to call SharedSnapshotCopyInitiated — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     A snapshot shared with another AWS account was copied by that account.
     Security implications: SharedSnapshotCopyInitiated might be a signal of an attacker copying a snapshot to their account.
     Observed in real-world incidents/reporting, e.g.: M-Trends Report - 2020; Democratic National Committee hack.

@@ -2,6 +2,7 @@ title: AWS Glue CreateJob Attempt
 id: 1766ccb3-f0d2-5bae-a180-08b4ff2c67b8
 status: experimental
 description: |
+    Failed or denied attempt to call CreateJob — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new job definition.
     Security implications: Attackers might use CreateJob to create a glue job with a role with higer privileges to gain these privileges.
 references:

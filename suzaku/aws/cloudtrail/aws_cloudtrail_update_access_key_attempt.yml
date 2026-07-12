@@ -2,6 +2,7 @@ title: AWS IAM UpdateAccessKey Attempt
 id: 963d12d6-7997-5bb2-aeaa-459c485e0636
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateAccessKey — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Changes the status of the specified access key from Active to Inactive, or vice versa.
     Security implications: Attackers might use UpdateAccessKey to modify existing IAM user access keys, potentially gaining unauthorized access to AWS services.
 references:

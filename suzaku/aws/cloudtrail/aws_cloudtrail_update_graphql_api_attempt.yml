@@ -2,6 +2,7 @@ title: AWS AppSync UpdateGraphqlApi Attempt
 id: 3f3281da-12ad-5181-abeb-219b9794dcb9
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateGraphqlApi — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates a GraphqlApi object.
     Security implications: Attackers might use UpdateGraphqlApi to add additional authentications options. Bypassing current authentication and potentially allowing persistent access to data.
 references:

@@ -2,6 +2,7 @@ title: AWS EC2 SharedSnapshotVolumeCreated Attempt
 id: 8aba9f2b-a454-5c25-8a40-efe4e1738958
 status: experimental
 description: |
+    Failed or denied attempt to call SharedSnapshotVolumeCreated — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     A volume was created from a snapshot shared with another AWS account.
     Security implications: SharedSnapshotVolumeCreated might be a signal of an attacker copying a snapshot to their account.
     Observed in real-world incidents/reporting, e.g.: M-Trends Report - 2020; Democratic National Committee hack; My AWS Account Got Hacked - Here Is What Happened.

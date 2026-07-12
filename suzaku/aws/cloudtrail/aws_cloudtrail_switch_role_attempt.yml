@@ -2,6 +2,7 @@ title: AWS SignIn SwitchRole Attempt
 id: b5e3ed04-db98-5867-982b-d5c609b201ee
 status: experimental
 description: |
+    Failed or denied attempt to call SwitchRole — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     This event is recorded when a user manually switches to a different IAM role within the AWS Management Console.
     Security implications: Attackers might use SwitchRole when using the console to escalate privileges and gain unauthorized access to AWS resources.
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Unwanted visitor.

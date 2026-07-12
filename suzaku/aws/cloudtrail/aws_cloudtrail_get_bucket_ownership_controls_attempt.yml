@@ -2,6 +2,7 @@ title: AWS S3 GetBucketOwnershipControls Attempt
 id: a51edba6-84e3-55a3-9901-09e43626ac09
 status: experimental
 description: |
+    Failed or denied attempt to call GetBucketOwnershipControls — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves OwnershipControls for an Amazon S3 bucket.
     Security implications: Attackers might use GetBucketOwnershipControls to check the ownership configuration.
     Observed in real-world incidents/reporting, e.g.: Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.

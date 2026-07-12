@@ -2,6 +2,7 @@ title: AWS S3 GetBucketLocation Attempt
 id: 0cb59520-1189-5767-b0cc-0be600d7655e
 status: experimental
 description: |
+    Failed or denied attempt to call GetBucketLocation — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns the Region the bucket resides in.
     Security implications: Attackers might use GetBucketLocation to identify the region of s3 buckets
     Observed in real-world incidents/reporting, e.g.: Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments; Crimson Collective: A New Threat Group Observed Operating in the Cloud.

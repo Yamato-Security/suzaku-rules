@@ -2,6 +2,7 @@ title: AWS SNS ListSubscriptions Attempt
 id: f8a9f0f7-025d-5fa3-86a5-9ce0e6852e69
 status: experimental
 description: |
+    Failed or denied attempt to call ListSubscriptions — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list of the requester's subscriptions to Amazon SNS topics.
     Security implications: Attackers might use ListSubscriptions to enumerate SNS topic subscriptions (endpoints and protocols) for reconnaissance, or to find data flows to hijack or redirect.
 references:

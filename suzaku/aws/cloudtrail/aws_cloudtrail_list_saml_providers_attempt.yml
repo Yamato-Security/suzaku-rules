@@ -2,6 +2,7 @@ title: AWS IAM ListSAMLProviders Attempt
 id: add74d90-2cc4-53a7-8977-6b4b23eddb35
 status: experimental
 description: |
+    Failed or denied attempt to call ListSAMLProviders — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the SAML provider resource objects defined in IAM in the account.
     Security implications: Attackers might use ListSAMLProviders to discover if there are SAML providers configured.
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud.

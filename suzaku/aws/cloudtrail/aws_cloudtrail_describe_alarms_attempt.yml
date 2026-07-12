@@ -2,6 +2,7 @@ title: AWS CloudWatch DescribeAlarms Attempt
 id: 3a85977e-4929-53b4-a2cf-ab2153ee399e
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeAlarms — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves the specified alarms.
     Security implications: Knowing existing alarms helps attackers evade detection by avoiding or disabling targeted metrics.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

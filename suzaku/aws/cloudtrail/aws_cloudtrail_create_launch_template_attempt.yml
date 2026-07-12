@@ -2,6 +2,7 @@ title: AWS EC2 CreateLaunchTemplate Attempt
 id: c9a68630-79f7-5842-8933-3fcb52f9ac2c
 status: experimental
 description: |
+    Failed or denied attempt to call CreateLaunchTemplate — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a launch template. A launch template contains the parameters to launch an instance.
     Security implications: Attackers might use CreateLaunchTemplate to define instance configurations with malicious UserData scripts, enabling automated deployment of cryptomining or other malicious workloads at scale.
     Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.

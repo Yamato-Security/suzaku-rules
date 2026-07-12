@@ -2,6 +2,7 @@ title: AWS LightSail GetInstances Attempt
 id: 4557ed39-9ca9-5c4b-a358-22cf169c6e15
 status: experimental
 description: |
+    Failed or denied attempt to call GetInstances — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about all Amazon Lightsail virtual private servers, or instances.
     Security implications: Attackers might use GetInstances to gather information about running instances for potential exploitation.
 references:

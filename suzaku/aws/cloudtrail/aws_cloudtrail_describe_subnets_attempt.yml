@@ -2,6 +2,7 @@ title: AWS EC2 DescribeSubnets Attempt
 id: a8c224e9-e52f-5ae3-b292-889540d0b367
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeSubnets — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes your subnets.
     Security implications: Subnet CIDRs and attributes inform reachability and potential pivot targets.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

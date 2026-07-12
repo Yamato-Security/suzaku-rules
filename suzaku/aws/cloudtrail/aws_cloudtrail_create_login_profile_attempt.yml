@@ -2,6 +2,7 @@ title: AWS IAM CreateLoginProfile Attempt
 id: 450a8358-2026-5762-927e-5c84bf256192
 status: experimental
 description: |
+    Failed or denied attempt to call CreateLoginProfile — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
     Security implications: Attackers use CreateLoginProfile to create login credentials for IAM users, allowing them access to the user via the AWS console.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Incident report: From CLI to console, chasing an attacker in AWS; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR; LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD; Detecting AI resource-hijacking with Composite Alerts.

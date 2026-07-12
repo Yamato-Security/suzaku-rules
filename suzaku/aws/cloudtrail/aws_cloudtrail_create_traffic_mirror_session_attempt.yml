@@ -2,6 +2,7 @@ title: AWS EC2 CreateTrafficMirrorSession Attempt
 id: 4848e105-e58e-57b3-b08f-a2c4c76384cb
 status: experimental
 description: |
+    Failed or denied attempt to call CreateTrafficMirrorSession — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a Traffic Mirror session.
     Security implications: Attackers might use CreateTrafficMirrorSession to initiate a session for mirroring network traffic, potentially for malicious monitoring or data exfiltration.
 references:

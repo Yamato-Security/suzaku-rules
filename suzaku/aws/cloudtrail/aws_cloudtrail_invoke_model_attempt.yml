@@ -2,6 +2,7 @@ title: AWS Bedrock InvokeModel Attempt
 id: 22489fc3-d99e-55c2-8b61-e5328358d9e8
 status: experimental
 description: |
+    Failed or denied attempt to call InvokeModel — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Invokes the specified Amazon Bedrock model to run inference using the prompt and inference parameters provided in the request body.
     Security implications: Attackers might use InvokeModel to check if the credentials have access to the LLMs and they have been enabled and invoke the model for resource hijacking.
     Observed in real-world incidents/reporting, e.g.: LLMjacking: Stolen Cloud Credentials Used in New AI Attack; Detecting AI resource-hijacking with Composite Alerts; New tactics and techniques for proactive threat detection; When AI Gets Hijacked: Exploiting Hosted Models for Dark Roleplaying; New Developments in LLM Hijacking Activity; Datadog threat roundup: top insights for Q4 2024.

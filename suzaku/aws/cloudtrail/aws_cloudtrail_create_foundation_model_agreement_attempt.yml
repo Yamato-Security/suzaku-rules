@@ -2,6 +2,7 @@ title: AWS Bedrock CreateFoundationModelAgreement Attempt
 id: c89c5078-9eac-5c45-b99e-c152951d3424
 status: experimental
 description: |
+    Failed or denied attempt to call CreateFoundationModelAgreement — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Grants permission to create a new foundation model agreement.
     Security implications: Attackers might use CreateFoundationModelAgreement to prepare for using foundation models for resource hijacking.
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; When AI Gets Hijacked: Exploiting Hosted Models for Dark Roleplaying; New Developments in LLM Hijacking Activity.

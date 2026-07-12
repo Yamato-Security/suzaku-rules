@@ -2,6 +2,7 @@ title: AWS SSO AddMemberToGroup Attempt
 id: d6a9a626-f6be-5124-8c90-96c6eb37b8ea
 status: experimental
 description: |
+    Failed or denied attempt to call AddMemberToGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds a member to a group within the specified identity store.
     Security implications: Attackers might use AddMemberToGroup to add compromised or malicious users to groups with elevated privileges, allowing them to manipulate access controls and maintain persistence in the environment.
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.

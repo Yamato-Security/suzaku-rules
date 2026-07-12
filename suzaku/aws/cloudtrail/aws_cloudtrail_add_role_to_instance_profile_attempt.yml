@@ -2,6 +2,7 @@ title: AWS IAM AddRoleToInstanceProfile Attempt
 id: 9c0b0378-8a16-567e-b0bf-df73c3fdfbba
 status: experimental
 description: |
+    Failed or denied attempt to call AddRoleToInstanceProfile — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds the specified IAM role to the specified instance profile.
     Security implications: Attackers might use AddRoleToInstanceProfile to escalate privileges or gain unauthorized access to AWS resources.
 references:

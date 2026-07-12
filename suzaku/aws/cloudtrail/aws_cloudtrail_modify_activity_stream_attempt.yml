@@ -2,6 +2,7 @@ title: AWS RDS ModifyActivityStream Attempt
 id: 36206886-23cd-57d3-8d1b-653bdfcc3bac
 status: experimental
 description: |
+    Failed or denied attempt to call ModifyActivityStream — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Changes the audit policy state of a database activity stream to either locked (default) or unlocked.
     Security implications: Attackers might use ModifyActivityStream to alter the configuration of the activity stream, potentially hiding malicious activities or causing disruptions in the database operations.
     Observed in real-world incidents/reporting, e.g.: Uncovering Hybrid Cloud Attacks Through Intelligence-Driven Incident Response: Part 3 – The Response.

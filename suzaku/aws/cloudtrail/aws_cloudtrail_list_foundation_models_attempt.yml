@@ -2,6 +2,7 @@ title: AWS Bedrock ListFoundationModels Attempt
 id: e7a02e61-532d-533a-8469-e49639550eda
 status: experimental
 description: |
+    Failed or denied attempt to call ListFoundationModels — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Grants permission to list Bedrock foundation models that you can use.
     Security implications: Attackers might use ListFoundationModels to enumerate accessible models.
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; Datadog threat roundup: top insights for Q4 2024; AI-assisted cloud intrusion achieves admin access in 8 minutes.

@@ -2,6 +2,7 @@ title: AWS S3 JobCreated Attempt
 id: 862f0d44-09ec-5f02-ae6f-0e3a07b746d4
 status: experimental
 description: |
+    Failed or denied attempt to call JobCreated — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     When a Batch Operations job is created, it is recorded as a JobCreated event in CloudTrail.
     Security implications: Attackers might use Batch Operations jobs to initiate unauthorized data transfer or manipulation tasks in S3.
 references:

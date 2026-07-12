@@ -2,6 +2,7 @@ title: AWS APIGateway CreateRoute Attempt
 id: 8f5f4155-27a2-5826-bcc8-86a5b782e3df
 status: experimental
 description: |
+    Failed or denied attempt to call CreateRoute — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a Route for an API. A Route is a configuration that specifies how API requests are routed to backend integrations.
     Security implications: Attackers might use CreateRoute to create malicious routes that can be used to establish persistence in the environment.
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.

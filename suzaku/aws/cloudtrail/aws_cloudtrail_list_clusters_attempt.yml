@@ -2,6 +2,7 @@ title: AWS EKS ListClusters Attempt
 id: 667d3750-e4dd-5c7b-ad89-ce228d648209
 status: experimental
 description: |
+    Failed or denied attempt to call ListClusters — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the Amazon EKS clusters in your AWS account in the specified AWS Region.
     Security implications: Attackers might use ListClusters to inventory AWS EKS clusters, identifying active clusters for further exploration or to pinpoint potential targets for subsequent attacks.
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.

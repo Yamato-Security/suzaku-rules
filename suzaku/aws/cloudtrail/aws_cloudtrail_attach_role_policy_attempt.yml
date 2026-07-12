@@ -2,6 +2,7 @@ title: AWS IAM AttachRolePolicy Attempt
 id: 38ffd2b4-b1cb-5f39-8fe3-496d20205ab5
 status: experimental
 description: |
+    Failed or denied attempt to call AttachRolePolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Attaches the specified managed policy to the specified IAM role. When you attach a managed policy to a role, the managed policy becomes part of the role's permission (access) policy.
     Security implications: Attackers use AttachRolePolicy to grant malicious policies to IAM roles, potentially escalating privileges or enabling unauthorized access to AWS resources.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Tales from the cloud trenches: Unwanted visitor; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments; GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.

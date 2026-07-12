@@ -2,6 +2,7 @@ title: AWS IAM CreateRole Attempt
 id: 12a6864c-89f9-5aad-abfb-7f569ebfcaaa
 status: experimental
 description: |
+    Failed or denied attempt to call CreateRole — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new role for your AWS account.
     Security implications: Attackers use CreateRole to create roles with trust policies that allow principals from an attacker-controlled AWS account, establishing persistent unauthorized access.
     Observed in real-world incidents/reporting, e.g.: Attack Scenario 2: From Misconfigured Firewall to Cryptojacking Botnet; The curious case of DangerDev@protonmail.me; Tales from the cloud trenches: Unwanted visitor; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments; GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.

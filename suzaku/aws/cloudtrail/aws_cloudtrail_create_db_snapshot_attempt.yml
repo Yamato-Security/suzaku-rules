@@ -2,6 +2,7 @@ title: AWS RDS CreateDBSnapshot Attempt
 id: 0fe681c7-7024-5fcd-8d2e-ec35c82cf96a
 status: experimental
 description: |
+    Failed or denied attempt to call CreateDBSnapshot — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a snapshot of a DB instance.
     Security implications: Attackers might use CreateDBSnapshot to create unauthorized backups of sensitive databases for data theft.
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; New tactics and techniques for proactive threat detection; Crimson Collective: A New Threat Group Observed Operating in the Cloud.

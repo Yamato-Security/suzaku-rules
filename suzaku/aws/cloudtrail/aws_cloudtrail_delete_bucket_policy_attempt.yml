@@ -2,6 +2,7 @@ title: AWS S3 DeleteBucketPolicy Attempt
 id: 74373f1f-1ce1-577c-af1f-f44b69d90723
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteBucketPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the policy of a specified bucket.
     Security implications: Attackers might use DeleteBucketPolicy to remove security policies and gain unauthorized access to S3 buckets.
 references:

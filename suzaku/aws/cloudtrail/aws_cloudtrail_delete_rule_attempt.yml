@@ -2,6 +2,7 @@ title: AWS events DeleteRule Attempt
 id: ae12f5aa-d7ed-58f2-b746-a643040005e2
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteRule — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified rule.
     Security implications: Attackers might use DeleteRule to disrupt automated security responses and event logging in AWS EventBridge, potentially masking unauthorized activities or compromising system integrity.
 references:

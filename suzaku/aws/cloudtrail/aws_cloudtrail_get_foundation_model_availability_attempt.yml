@@ -2,6 +2,7 @@ title: AWS Bedrock GetFoundationModelAvailability Attempt
 id: 8171e0e8-1454-581a-92b3-314e15ef13bb
 status: experimental
 description: |
+    Failed or denied attempt to call GetFoundationModelAvailability — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Grants permission to get the availability of a foundation model.
     Security implications: Attackers might use GetFoundationModelAvailability to enumerate accessible models
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; When AI Gets Hijacked: Exploiting Hosted Models for Dark Roleplaying; Datadog threat roundup: top insights for Q4 2024.

@@ -2,6 +2,7 @@ title: AWS Route53 ChangeResourceRecordSets Attempt
 id: 28a2b937-d350-5709-a192-6e089c7f1399
 status: experimental
 description: |
+    Failed or denied attempt to call ChangeResourceRecordSets — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates, changes, or deletes a resource record set, which contains authoritative DNS information for a specified domain name or subdomain name.
     Security implications: Attackers might use ChangeResourceRecordSets to redirect traffic to malicious websites.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.

@@ -2,6 +2,7 @@ title: AWS GuardDuty ListDetectors Attempt
 id: 791632d8-e550-5fbb-a0c0-700f5a00b0d7
 status: experimental
 description: |
+    Failed or denied attempt to call ListDetectors — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists detectorIds of all the existing Amazon GuardDuty detector resources.
     Security implications: Attackers might use ListDetectors to identify active threat detection systems in AWS GuardDuty.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.

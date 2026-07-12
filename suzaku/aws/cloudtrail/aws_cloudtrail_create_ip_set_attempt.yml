@@ -2,6 +2,7 @@ title: AWS GuardDuty CreateIPSet Attempt
 id: e788c921-7607-5045-b626-114ac007fc6f
 status: experimental
 description: |
+    Failed or denied attempt to call CreateIPSet — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new IPSet, which is called a trusted IP list in the console user interface.
     Security implications: Attackers might use CreateIPSet to add malicious IP addresses to the GuardDuty whitelist, bypassing security measures.
 references:

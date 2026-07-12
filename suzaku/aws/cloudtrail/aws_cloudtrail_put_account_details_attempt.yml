@@ -2,6 +2,7 @@ title: AWS SES PutAccountDetails Attempt
 id: 69bca6b1-914b-5a15-b196-f3557e8d40b9
 status: experimental
 description: |
+    Failed or denied attempt to call PutAccountDetails — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Update your Amazon SES account details.
     Security implications: Attackers might use PutAccountDetails to push the SES account into production mode.
     Observed in real-world incidents/reporting, e.g.: From Compromised Keys to Phishing Campaigns: Inside a Cloud Email Service Takeover.

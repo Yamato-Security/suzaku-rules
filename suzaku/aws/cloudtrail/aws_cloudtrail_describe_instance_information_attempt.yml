@@ -2,6 +2,7 @@ title: AWS SSM DescribeInstanceInformation Attempt
 id: a8296903-f34f-53ed-a6d2-d7ebadb01a5c
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeInstanceInformation — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Provides information about one or more of your managed nodes, including the operating system platform, SSM Agent version, association status, and IP address.
     Security implications: Attackers might use DescribeInstanceInformation to gather sensitive information about the instances, potentially leading to unauthorized access.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.

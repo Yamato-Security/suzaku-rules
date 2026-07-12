@@ -2,6 +2,7 @@ title: AWS IAM ListUserPolicies Attempt
 id: 8b2f015c-d13b-5a6d-855f-fb5885f1b124
 status: experimental
 description: |
+    Failed or denied attempt to call ListUserPolicies — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the names of the inline policies embedded in the specified IAM user.
     Security implications: Attackers might use ListUserPolicies to identify permissions associated with various users in AWS.
     Observed in real-world incidents/reporting, e.g.: Datadog threat roundup: top insights for Q4 2024.

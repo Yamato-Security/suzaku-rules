@@ -2,6 +2,7 @@ title: AWS Bedrock ListKnowledgeBases Attempt
 id: c636d927-928c-5883-a6b2-38b0c4a123f2
 status: experimental
 description: |
+    Failed or denied attempt to call ListKnowledgeBases — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the knowledge bases in an account. The list also includes information about each knowledge base.
     Security implications: Attackers might use ListKnowledgeBases to identify connected data repositories and prioritize follow-on data theft or sabotage.
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.

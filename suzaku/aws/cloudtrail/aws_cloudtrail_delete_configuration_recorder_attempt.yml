@@ -2,6 +2,7 @@ title: AWS Config DeleteConfigurationRecorder Attempt
 id: 8a9340a6-eceb-5870-be00-2afad7c28c63
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteConfigurationRecorder — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the configuration recorder.
     Security implications: Attackers might use DeleteConfigurationRecorder to disrupt AWS configuration auditing.
 references:

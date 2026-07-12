@@ -2,6 +2,7 @@ title: AWS route53domains RegisterDomain Attempt
 id: 52bed480-6f6a-5499-8484-7ac41a5f90a0
 status: experimental
 description: |
+    Failed or denied attempt to call RegisterDomain — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     This operation registers a domain. For some top-level domains (TLDs), this operation requires extra parameters.
     Security implications: Attackers might use RegisterDomain to register malicious domains for phishing or malware distribution.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.

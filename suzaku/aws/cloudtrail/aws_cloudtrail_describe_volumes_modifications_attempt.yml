@@ -2,6 +2,7 @@ title: AWS EC2 DescribeVolumesModifications Attempt
 id: d674793c-3bac-50bc-b452-626af8ef6d29
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeVolumesModifications — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the most recent volume modification request for the specified EBS volumes.
     Security implications: Attackers might use DescribeVolumesModifications to track changes in EBS volumes.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

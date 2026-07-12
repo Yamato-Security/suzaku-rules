@@ -2,6 +2,7 @@ title: AWS STS AssumeRoleWithWebIdentity Attempt
 id: 512011f2-1ac5-5c1b-822e-b7b62a141e9f
 status: experimental
 description: |
+    Failed or denied attempt to call AssumeRoleWithWebIdentity — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a set of temporary security credentials for users who have been authenticated in a mobile or web application with a web identity provider.
     Security implications: Attackers might use AssumeRoleWithWebIdentity to impersonate legitimate users and gain unauthorized access to an AWS role.
 references:

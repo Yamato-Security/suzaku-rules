@@ -2,6 +2,7 @@ title: AWS GuardDuty DisassociateFromMasterAccount Attempt
 id: 4eecea3e-daca-5f47-ae39-c046bd46d4b1
 status: experimental
 description: |
+    Failed or denied attempt to call DisassociateFromMasterAccount — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Disassociates the current GuardDuty member account from its administrator account.
     Security implications: Attackers might use DisassociateFromMasterAccount to remove the link to the master GuardDuty account, disrupting centralized security monitoring and analysis.
     Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.

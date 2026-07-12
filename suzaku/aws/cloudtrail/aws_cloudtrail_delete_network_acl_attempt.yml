@@ -2,6 +2,7 @@ title: AWS EC2 DeleteNetworkAcl Attempt
 id: 9e9fad18-c31d-5229-8ec2-fda1182ef0d0
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteNetworkAcl — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified network ACL.
     Security implications: Attackers might use DeleteNetworkAcl to remove network access control lists, potentially opening up network segments for unauthorized access.
 references:

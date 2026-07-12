@@ -2,6 +2,7 @@ title: AWS SSM ResumeSession Attempt
 id: 14f0073b-3c29-5cf5-88e3-2fba243ed1ce
 status: experimental
 description: |
+    Failed or denied attempt to call ResumeSession — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Reconnects a session to a managed node after it has been disconnected.
     Security implications: Attackers might use ResumeSession to gain unauthorized access to managed instances.
 references:

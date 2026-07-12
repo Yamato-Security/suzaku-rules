@@ -2,6 +2,7 @@ title: AWS LightSail GetRegions Attempt
 id: c560168a-921b-5f27-be68-a00a7059f784
 status: experimental
 description: |
+    Failed or denied attempt to call GetRegions — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list of all valid regions for Amazon Lightsail.
     Security implications: Attackers might use GetRegions to identify potential targets in different geographical locations on AWS LightSail.
 references:

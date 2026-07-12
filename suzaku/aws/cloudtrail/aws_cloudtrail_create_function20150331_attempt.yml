@@ -2,6 +2,7 @@ title: AWS Lambda CreateFunction20150331 Attempt
 id: 2a77a040-9d76-5a17-aff4-b6cf4d0b0a95
 status: experimental
 description: |
+    Failed or denied attempt to call CreateFunction20150331 — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a Lambda function.
     Security implications: Attackers might use CreateFunction to deploy malicious code or functions, depending on the scenario this might allow the attacker to gain persistence, escalate privileges, or hijack resources.
     Observed in real-world incidents/reporting, e.g.: Mining Crypto; Cloud Security Stories: From Risky Permissions to Ransomware Execution; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments; Tales from the cloud trenches: The Attacker doth persist too much, methinks; GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.

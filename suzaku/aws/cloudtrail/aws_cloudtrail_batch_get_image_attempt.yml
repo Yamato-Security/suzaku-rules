@@ -2,6 +2,7 @@ title: AWS ECR BatchGetImage Attempt
 id: efb24bca-46bd-5640-915e-23b7fde5bf93
 status: experimental
 description: |
+    Failed or denied attempt to call BatchGetImage — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Gets detailed information for an image. Images are specified with either an imageTag or imageDigest.
     Security implications: Attackers might use BatchGetImage (triggered by docker pull) to exfiltrate private container images containing proprietary application code, embedded secrets, and internal configuration.
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.

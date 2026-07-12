@@ -2,6 +2,7 @@ title: AWS RDS DescribeGlobalClusters Attempt
 id: 0c8454aa-c0d4-5896-86f1-c0c0a86843a0
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeGlobalClusters — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about Aurora global database clusters.
     Security implications: Global cluster topology may expose cross-region replication targets for disruption or exfiltration.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

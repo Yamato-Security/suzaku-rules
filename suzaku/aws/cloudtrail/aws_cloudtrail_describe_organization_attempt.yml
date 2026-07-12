@@ -2,6 +2,7 @@ title: AWS Organizations DescribeOrganization Attempt
 id: 47a25ceb-c3aa-5c2f-838e-fa065b32add5
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeOrganization — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves information about the organization that the user's account belongs to.
     Security implications: Attackers might use DescribeOrganization to gather information about the structure and details of an AWS organization.
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.

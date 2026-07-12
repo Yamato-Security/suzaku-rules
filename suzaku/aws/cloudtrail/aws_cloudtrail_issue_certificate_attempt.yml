@@ -2,6 +2,7 @@ title: AWS ACMPCA IssueCertificate Attempt
 id: c9a49cf6-229a-5e2b-9632-941c10fd6503
 status: experimental
 description: |
+    Failed or denied attempt to call IssueCertificate — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Uses your private certificate authority (CA), or one that has been shared with you, to issue a client certificate.
     Security implications: Attackers might use IssueCertificate combined with Route 53 control to intercept and read data from AWS API calls.
 references:

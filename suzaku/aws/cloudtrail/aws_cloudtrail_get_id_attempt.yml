@@ -2,6 +2,7 @@ title: AWS CognitoIdentity GetId Attempt
 id: a4b4875e-86fa-53c8-8cfe-20b63c150045
 status: experimental
 description: |
+    Failed or denied attempt to call GetId — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Generates (or retrieves) IdentityID. Supplying multiple logins will create an implicit linked account.
     Security implications: Attackers might use GetId to get an IdentityID that might be then used to get AWS credentials.
 references:

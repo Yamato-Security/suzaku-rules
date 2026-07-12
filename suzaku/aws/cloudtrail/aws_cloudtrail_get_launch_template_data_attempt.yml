@@ -2,6 +2,7 @@ title: AWS EC2 GetLaunchTemplateData Attempt
 id: 950b9c1e-44fc-5e58-b6c5-e39c9e5284b8
 status: experimental
 description: |
+    Failed or denied attempt to call GetLaunchTemplateData — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves the configuration data of the specified instance. You can use this data to create a launch template.
     Security implications: Attackers might use GetLaunchTemplateData to obtain configurations of EC2 launch templates, identifying predefined instance settings, network configurations.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

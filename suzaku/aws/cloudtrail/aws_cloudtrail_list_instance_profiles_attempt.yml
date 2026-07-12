@@ -2,6 +2,7 @@ title: AWS IAM ListInstanceProfiles Attempt
 id: 5d08db06-f24b-51b1-b168-52e4f13578f0
 status: experimental
 description: |
+    Failed or denied attempt to call ListInstanceProfiles — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the instance profiles that have the specified path prefix. If there are none, the operation returns an empty list.
     Security implications: Attackers might use ListInstanceProfiles to identify potential targets for privilege escalation attacks in AWS.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.

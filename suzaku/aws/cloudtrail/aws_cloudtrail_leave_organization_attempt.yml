@@ -2,6 +2,7 @@ title: AWS Organizations LeaveOrganization Attempt
 id: 430b4b64-8df3-5e12-96cf-4c500b2dccc0
 status: experimental
 description: |
+    Failed or denied attempt to call LeaveOrganization — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Removes a member account from its parent organization.
     Security implications: Attackers might use LeaveOrganization to disassociate resources and disrupt the structure of AWS organizations.
 references:

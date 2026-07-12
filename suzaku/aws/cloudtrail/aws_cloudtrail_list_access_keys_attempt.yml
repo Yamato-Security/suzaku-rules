@@ -2,6 +2,7 @@ title: AWS IAM ListAccessKeys Attempt
 id: 0f4fa74f-34ce-56d5-9aa2-3c06dc885f15
 status: experimental
 description: |
+    Failed or denied attempt to call ListAccessKeys — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about the access key IDs associated with the specified IAM user.
     Security implications: Attackers might use ListAccessKeys to identify and exploit unused or unmonitored AWS IAM access keys.
     Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud.

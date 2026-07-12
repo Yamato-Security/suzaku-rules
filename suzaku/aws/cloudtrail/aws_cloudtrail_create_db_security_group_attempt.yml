@@ -2,6 +2,7 @@ title: AWS RDS CreateDBSecurityGroup Attempt
 id: cf8189d6-05c5-5113-b5e9-a5b13b79bbb1
 status: experimental
 description: |
+    Failed or denied attempt to call CreateDBSecurityGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new DB security group. DB security groups control access to a DB instance.
     Security implications: Attackers might use CreateDBSecurityGroup to create new security groups with lax rules, potentially allowing unauthorized access to the database.
 references:

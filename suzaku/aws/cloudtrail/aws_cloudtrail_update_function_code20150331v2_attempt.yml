@@ -2,6 +2,7 @@ title: AWS Lambda UpdateFunctionCode20150331v2 Attempt
 id: b6a96256-4496-596e-8db6-4fc55668d188
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateFunctionCode20150331v2 — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed by a trusted publisher.
     Security implications: Attackers might use UpdateFunctionCode to modify the code of a Lambda function, potentially injecting malicious code.
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.

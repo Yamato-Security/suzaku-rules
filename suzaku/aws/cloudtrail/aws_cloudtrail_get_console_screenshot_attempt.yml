@@ -2,6 +2,7 @@ title: AWS EC2 GetConsoleScreenshot Attempt
 id: f27df004-c6a2-500e-af9f-bebbe4b948ec
 status: experimental
 description: |
+    Failed or denied attempt to call GetConsoleScreenshot — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieve a JPG-format screenshot of a running instance to help with troubleshooting.
     Security implications: Attackers might use GetConsoleScreenshot to capture the current state of an EC2 instance's console, potentially revealing sensitive information displayed on the screen or identifying misconfigurations.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

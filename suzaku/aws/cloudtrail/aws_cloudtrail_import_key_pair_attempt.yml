@@ -2,6 +2,7 @@ title: AWS EC2 ImportKeyPair Attempt
 id: 67279f83-eee8-5387-a494-053b7a4fff2b
 status: experimental
 description: |
+    Failed or denied attempt to call ImportKeyPair — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Imports the public key from an RSA or ED25519 key pair that you created with a third-party tool.
     Security implications: Attackers might use ImportKeyPair to upload malicious SSH keys to AWS EC2 instances, granting unauthorized access.
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Behind the scenes in the Expel SOC: Alert-to-fix in AWS; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.

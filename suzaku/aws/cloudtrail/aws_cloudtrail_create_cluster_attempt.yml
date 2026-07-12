@@ -2,6 +2,7 @@ title: AWS ECS CreateCluster Attempt
 id: d8b04c24-d5e1-510c-bbcf-642b905cb148
 status: experimental
 description: |
+    Failed or denied attempt to call CreateCluster — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new Amazon ECS cluster.
     Security implications: Attackers might use CreateCluster to provision unauthorized cluster resources, aiming to deploy malicious workloads or use compute resources for cryptojacking
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; New tactics and techniques for proactive threat detection; GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.

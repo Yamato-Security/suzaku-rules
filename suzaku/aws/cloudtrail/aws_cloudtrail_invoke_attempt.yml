@@ -2,6 +2,7 @@ title: AWS Lambda Invoke Attempt
 id: 3f1fc115-4714-5b61-9924-08faba380ad2
 status: experimental
 description: |
+    Failed or denied attempt to call Invoke — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Invokes a Lambda function.
     Security implications: Attackers might use Invoke to execute previously modified functions in AWS Lambda.
     Observed in real-world incidents/reporting, e.g.: Mining Crypto; Cloud Security Stories: From Risky Permissions to Ransomware Execution; AI-assisted cloud intrusion achieves admin access in 8 minutes.

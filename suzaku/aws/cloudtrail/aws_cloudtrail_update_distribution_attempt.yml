@@ -2,6 +2,7 @@ title: AWS CloudFront UpdateDistribution Attempt
 id: d0ca6c6f-c86c-5e5a-a99d-aa34963f491f
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateDistribution — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates the configuration for a CloudFront distribution.
     Security implications: Attackers might use UpdateDistribution to add a malicious configuration such as a function to exfiltrate data.
 references:

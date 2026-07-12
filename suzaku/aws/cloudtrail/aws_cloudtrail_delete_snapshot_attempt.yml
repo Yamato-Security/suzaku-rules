@@ -2,6 +2,7 @@ title: AWS EC2 DeleteSnapshot Attempt
 id: a8a494c1-f938-504f-9611-45426d607b5c
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteSnapshot — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified snapshot.
     Security implications: Attackers might use DeleteSnapshot to erase Amazon EBS snapshots, potentially destroying backup data and hampering recovery efforts after an attack.
     Observed in real-world incidents/reporting, e.g.: Hacker Puts Hosting Service Code Spaces Out of Business.

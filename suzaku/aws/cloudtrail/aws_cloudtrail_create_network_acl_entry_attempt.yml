@@ -2,6 +2,7 @@ title: AWS EC2 CreateNetworkAclEntry Attempt
 id: 4b1ff5f9-1a8a-599d-9576-55e7c4a41b3c
 status: experimental
 description: |
+    Failed or denied attempt to call CreateNetworkAclEntry — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates an entry (a rule) in a network ACL with the specified rule number.
     Security implications: Attackers might use CreateNetworkAclEntry to allow traffic to the network from an IP they control.
 references:

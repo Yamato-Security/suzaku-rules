@@ -2,6 +2,7 @@ title: AWS EC2 ModifySnapshotAttribute Attempt
 id: 95d104b6-9d0d-5d36-8077-7f6934395176
 status: experimental
 description: |
+    Failed or denied attempt to call ModifySnapshotAttribute — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds or removes permission settings for the specified snapshot.
     Security implications: Attackers might use ModifySnapshotAttribute to change permissions on Amazon EBS snapshots, potentially making them accessible to unauthorized users or public.
     Observed in real-world incidents/reporting, e.g.: CrowdStrike’s work with the Democratic National Committee: Setting the record straight.

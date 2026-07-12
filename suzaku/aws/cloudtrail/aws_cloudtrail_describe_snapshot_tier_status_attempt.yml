@@ -2,6 +2,7 @@ title: AWS EC2 DescribeSnapshotTierStatus Attempt
 id: e16fbbb2-9c8a-511c-9b52-20271ed37743
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeSnapshotTierStatus — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the storage tier status of one or more Amazon EBS snapshots.
     Security implications: Attackers might use DescribeSnapshotTierStatus to assess the tiering status and potential lifecycle transitions of EBS snapshots, seeking to identify snapshots that are less frequently accessed or potentially unmonitored.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

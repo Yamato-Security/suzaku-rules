@@ -2,6 +2,7 @@ title: AWS IAM AddUserToGroup Attempt
 id: bc047610-7264-5a5d-b8ad-de00c5d7de5c
 status: experimental
 description: |
+    Failed or denied attempt to call AddUserToGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds the specified user to the specified group.
     Security implications: Attackers might use AddUserToGroup to add unauthorized users to privileged groups, gaining unauthorized access or escalating privileges.
 references:

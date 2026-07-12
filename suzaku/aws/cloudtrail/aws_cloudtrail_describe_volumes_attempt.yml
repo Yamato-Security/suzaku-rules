@@ -2,6 +2,7 @@ title: AWS EC2 DescribeVolumes Attempt
 id: 00081ea1-e2cc-5603-9117-47a4c59341ef
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeVolumes — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified EBS volumes or all of your EBS volumes.
     Security implications: Attackers might use DescribeVolumes to enumerate EBS volumes in an AWS environment, identifying valuable data storage.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Crimson Collective: A New Threat Group Observed Operating in the Cloud.

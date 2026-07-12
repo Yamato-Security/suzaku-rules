@@ -2,6 +2,7 @@ title: AWS IAM ListAttachedRolePolicies Attempt
 id: 3bd493d7-3465-5537-aa08-2fcd197c337f
 status: experimental
 description: |
+    Failed or denied attempt to call ListAttachedRolePolicies — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists all managed policies that are attached to the specified IAM role.
     Security implications: Attackers might use ListAttachedRolePolicies to identify and exploit permissions associated with various roles in AWS.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Investigating Suspected DPRK-Linked Crypto Intrusions.

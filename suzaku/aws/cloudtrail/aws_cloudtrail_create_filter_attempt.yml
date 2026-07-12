@@ -2,6 +2,7 @@ title: AWS GuardDuty CreateFilter Attempt
 id: 528c5c8b-616d-5b11-ab39-b452c23d2710
 status: experimental
 description: |
+    Failed or denied attempt to call CreateFilter — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a filter using the specified finding criteria.
     Security implications: Attackers might use CreateFilter to manipulate GuardDuty settings, potentially allowing malicious activity to go undetected.
 references:

@@ -2,6 +2,7 @@ title: AWS SecurityHub DeleteMembers Attempt
 id: c72d980e-cb85-50c9-994b-cd5532066962
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteMembers — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified member accounts from Security Hub.
     Security implications: Attackers might use DeleteMembers to remove specific members from the SecurityHub, disrupting security management and monitoring.
 references:

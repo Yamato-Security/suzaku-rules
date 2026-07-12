@@ -2,6 +2,7 @@ title: AWS RDS AuthorizeDBSecurityGroupIngress Attempt
 id: b2f61361-2891-507f-bec2-96a7bf5e0eb9
 status: experimental
 description: |
+    Failed or denied attempt to call AuthorizeDBSecurityGroupIngress — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Enables ingress to a DBSecurityGroup using one of two forms of authorization.
     Security implications: Attackers might use AuthorizeDBSecurityGroupIngress to allow unauthorized access to the database by modifying security group rules.
 references:

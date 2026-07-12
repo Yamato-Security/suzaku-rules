@@ -2,6 +2,7 @@ title: AWS Organizations CreateAccount Attempt
 id: 3b56d16d-f81e-57d9-96d5-6767a4ee719e
 status: experimental
 description: |
+    Failed or denied attempt to call CreateAccount — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates an AWS account that is automatically a member of the organization whose credentials made the request.
     Security implications: Attackers might use CreateAccount to add a new account for defense evasion, resource hijacking.
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.

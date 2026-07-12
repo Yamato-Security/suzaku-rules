@@ -2,6 +2,7 @@ title: AWS Config StopConfigurationRecorder Attempt
 id: cead9d95-e223-582d-84d2-cd80aec66a9a
 status: experimental
 description: |
+    Failed or denied attempt to call StopConfigurationRecorder — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Stops recording configurations of the AWS resources you have selected to record in your AWS account.
     Security implications: Attackers might use StopConfigurationRecorder to halt the recording of AWS resource configurations, hindering audit trails.
 references:

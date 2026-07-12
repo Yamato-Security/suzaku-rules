@@ -2,6 +2,7 @@ title: AWS SNS ListTopics Attempt
 id: 1f710525-f2f3-5d08-acda-1411d4d3d0e6
 status: experimental
 description: |
+    Failed or denied attempt to call ListTopics — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list of the requester's topics.
     Security implications: Attackers might use ListTopics to identify potential SNS topics for unauthorized access or disruption.
 references:

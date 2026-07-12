@@ -2,6 +2,7 @@ title: AWS events PutRule Attempt
 id: baef447c-9395-54e9-a96a-c3156646b5b1
 status: experimental
 description: |
+    Failed or denied attempt to call PutRule — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates or updates the specified rule.
     Security implications: Attackers might use PutRule in AWS EventBridge to create unauthorized event rules, potentially automating malicious actions to gain persistence or triggering unwarranted responses within the environment.
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.

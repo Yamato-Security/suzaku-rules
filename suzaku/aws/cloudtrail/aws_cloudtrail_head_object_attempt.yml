@@ -2,6 +2,7 @@ title: AWS S3 HeadObject Attempt
 id: 66fa9ca2-e4ce-547a-a2d7-e8f14bc846b8
 status: experimental
 description: |
+    Failed or denied attempt to call HeadObject — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     The HEAD operation retrieves metadata from an object without returning the object itself.
     Security implications: Attackers might use HeadObject to gather metadata about sensitive files stored in S3.
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining.

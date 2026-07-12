@@ -2,6 +2,7 @@ title: AWS EC2 DescribeSnapshotAttribute Attempt
 id: 639dd8b3-c809-5486-afbd-dd0ffb744968
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeSnapshotAttribute — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified attribute of the specified snapshot.
     Security implications: Attackers might use DescribeSnapshotAttribute to inspect attributes of EBS snapshots, such as permissions, aiming to find snapshots shared publicly or with broad access.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

@@ -2,6 +2,7 @@ title: AWS GuardDuty ListIPSets Attempt
 id: 04fbe627-0375-552b-9c3c-9c5fd94eeb1b
 status: experimental
 description: |
+    Failed or denied attempt to call ListIPSets — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the IPSets of the GuardDuty service specified by the detector ID.
     Security implications: Attackers might use ListIPSets to identify what IPs won't generate an alert.
 references:

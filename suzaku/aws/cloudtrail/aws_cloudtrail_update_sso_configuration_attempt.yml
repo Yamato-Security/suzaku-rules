@@ -2,6 +2,7 @@ title: AWS SSO UpdateSsoConfiguration Attempt
 id: bf86aff0-456e-53a7-865f-94211636eff8
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateSsoConfiguration — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates the SSO configuration for the specified instance.
     Security implications: Attackers might use UpdateSsoConfiguration to modify the SSO settings, such as disabling mandatory MFA or changing the session duration, which can lead to unauthorized access and persistence in the environment.
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.

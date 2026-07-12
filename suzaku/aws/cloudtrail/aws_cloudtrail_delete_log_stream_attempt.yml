@@ -2,6 +2,7 @@ title: AWS CloudWatchLogs DeleteLogStream Attempt
 id: 259554c7-2040-52c5-ba0c-f4684941dc0d
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteLogStream — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified log stream and permanently deletes all the archived log events associated with the log stream.
     Security implications: Attackers might use DeleteLogStream to erase CloudWatch logs, erasing evidence of their activities within AWS.
 references:

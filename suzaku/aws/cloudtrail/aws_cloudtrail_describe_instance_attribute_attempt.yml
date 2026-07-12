@@ -2,6 +2,7 @@ title: AWS EC2 DescribeInstanceAttribute Attempt
 id: 91159da2-28de-5f0c-84dc-6e95feac8a81
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeInstanceAttribute — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified attribute of the specified instance. You can specify only one attribute at a time.
     Security implications: Attackers might use DescribeInstanceAttribute to inspect detailed configurations of EC2 instances.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

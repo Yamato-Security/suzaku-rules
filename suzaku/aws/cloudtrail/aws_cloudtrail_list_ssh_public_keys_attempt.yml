@@ -2,6 +2,7 @@ title: AWS IAM ListSSHPublicKeys Attempt
 id: cdfeb1d7-0be6-59ee-89b6-387b8ca03183
 status: experimental
 description: |
+    Failed or denied attempt to call ListSSHPublicKeys — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about the SSH public keys associated with the specified IAM user.
     Security implications: Attackers might use ListSSHPublicKeys to get information about the user and the potential use of CodeCommit.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Muddled Libra’s Evolution to the Cloud.

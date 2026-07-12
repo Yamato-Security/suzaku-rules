@@ -2,6 +2,7 @@ title: AWS IAM ListRoles Attempt
 id: 8b5a8cec-313e-563f-948d-3bec9d4fb319
 status: experimental
 description: |
+    Failed or denied attempt to call ListRoles — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the IAM roles that have the specified path prefix.
     Security implications: Attackers might use ListRoles to identify potential targets for privilege escalation attacks in AWS.
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud; Crimson Collective: A New Threat Group Observed Operating in the Cloud.

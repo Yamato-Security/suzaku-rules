@@ -2,6 +2,7 @@ title: AWS ELBv2 CreateRule Attempt
 id: 6b4ec699-0e26-5ed6-a1c8-7e7d48cb53d3
 status: experimental
 description: |
+    Failed or denied attempt to call CreateRule — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a rule for the specified listener.
     Security implications: Attackers might use CreateRule to add rules that allow them access bypassing potential restrictions such as authentication.
 references:

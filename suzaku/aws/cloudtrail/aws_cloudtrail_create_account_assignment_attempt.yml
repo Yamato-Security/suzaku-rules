@@ -2,6 +2,7 @@ title: AWS SSO CreateAccountAssignment Attempt
 id: ea1adc58-266a-5286-8a16-c77f63a5bac5
 status: experimental
 description: |
+    Failed or denied attempt to call CreateAccountAssignment — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Assigns access to a principal for a specified AWS account using a specified permission set.
     Security implications: Attackers might use CreateAccountAssignment to assign themselves or compromised users access to AWS accounts with elevated privileges, allowing them to manipulate resources and maintain persistence in the environment.
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.

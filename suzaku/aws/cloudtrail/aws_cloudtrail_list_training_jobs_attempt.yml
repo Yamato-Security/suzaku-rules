@@ -2,6 +2,7 @@ title: AWS SageMaker ListTrainingJobs Attempt
 id: c33372c0-e483-54e8-83d0-42e493f65445
 status: experimental
 description: |
+    Failed or denied attempt to call ListTrainingJobs — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists training jobs.
     Security implications: Attackers might use ListTrainingJobs to discover datasets, container images, and execution roles involved in training so they can pivot to sensitive storage or tamper with future training runs.
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.

@@ -2,6 +2,7 @@ title: AWS events ListTargetsByRule Attempt
 id: 6696670c-9756-5dd0-8d73-9fe760699737
 status: experimental
 description: |
+    Failed or denied attempt to call ListTargetsByRule — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the targets assigned to the specified rule.
     Security implications: Attackers might use ListTargetsByRule in AWS EventBridge to enumerate the targets of specific rules, gaining insights into the architecture and response mechanisms of an environment.
 references:

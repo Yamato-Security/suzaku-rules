@@ -2,6 +2,7 @@ title: AWS Glue CreateDevEndpoint Attempt
 id: d24111bc-19a7-5554-b61a-1b23ed51dfc4
 status: experimental
 description: |
+    Failed or denied attempt to call CreateDevEndpoint — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new development endpoint.
     Security implications: Attackers might use CreateDevEndpoint in AWS Glue to escalate privileges or provision development endpoints, potentially exploiting them.
 references:

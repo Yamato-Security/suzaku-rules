@@ -2,6 +2,7 @@ title: AWS SSO StartSSO Attempt
 id: 58ddc56a-0f1a-5e15-acfe-33544ca3b347
 status: experimental
 description: |
+    Failed or denied attempt to call StartSSO — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Initialize AWS IAM Identity Center
     Security implications: Attackers use StartSSO to establish persistent footholds.
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.

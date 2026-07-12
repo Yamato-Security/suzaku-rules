@@ -2,6 +2,7 @@ title: AWS IAM DeleteRolePolicy Attempt
 id: a0dd62d7-ab8e-54d2-bcd8-e7764633e722
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteRolePolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified inline policy that is embedded in the specified IAM role.
     Security implications: Attackers might use DeleteRolePolicy to remove security policies, potentially escalating their privileges.
 references:

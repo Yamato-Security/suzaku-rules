@@ -2,6 +2,7 @@ title: AWS events RemoveTargets Attempt
 id: 78144d59-232f-5ad3-8d2f-4f6da9205c13
 status: experimental
 description: |
+    Failed or denied attempt to call RemoveTargets — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Removes the specified targets from the specified rule.
     Security implications: Attackers might use RemoveTargets in AWS EventBridge to eliminate crucial targets from event rules, effectively disabling intended actions or notifications triggered by specific events.
 references:

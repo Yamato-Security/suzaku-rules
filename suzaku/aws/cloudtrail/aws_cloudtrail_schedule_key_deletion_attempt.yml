@@ -2,6 +2,7 @@ title: AWS KMS ScheduleKeyDeletion Attempt
 id: 22b45cc8-6289-561d-a92f-6ffb94ea44d3
 status: experimental
 description: |
+    Failed or denied attempt to call ScheduleKeyDeletion — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Schedules the deletion of a KMS key.
     Security implications: Attackers might use ScheduleKeyDeletion to schedule the deletion of crucial encryption keys, disrupting data security and access.
 references:

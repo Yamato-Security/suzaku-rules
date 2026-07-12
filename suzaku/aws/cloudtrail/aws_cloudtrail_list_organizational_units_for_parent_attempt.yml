@@ -2,6 +2,7 @@ title: AWS Organizations ListOrganizationalUnitsForParent Attempt
 id: f8859ce0-c6fe-5e49-8fc7-d6bc747a279b
 status: experimental
 description: |
+    Failed or denied attempt to call ListOrganizationalUnitsForParent — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the organizational units (OUs) in a parent organizational unit or root.
     Security implications: Attackers might use ListOrganizationalUnitsForParent to map the structure of an organization's AWS environment for potential vulnerabilities.
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.

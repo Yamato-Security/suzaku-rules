@@ -2,6 +2,7 @@ title: AWS GuardDuty GetFindings Attempt
 id: 2519260f-2e90-50b0-8d67-e963b1420256
 status: experimental
 description: |
+    Failed or denied attempt to call GetFindings — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list of findings that match the specified criteria.
     Security implications: Attackers might use GetFindings to identify if previous actions generated alerts.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.

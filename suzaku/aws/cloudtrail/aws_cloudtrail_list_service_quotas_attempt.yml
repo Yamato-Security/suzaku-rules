@@ -2,6 +2,7 @@ title: AWS ServiceQuotas ListServiceQuotas Attempt
 id: e5f1276b-c5ec-5312-8cde-f99f51d26e30
 status: experimental
 description: |
+    Failed or denied attempt to call ListServiceQuotas — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the applied quota values for the specified AWS service.
     Security implications: Attackers might use ListServiceQuotas to identify potential services to exploit by understanding their usage limits.
     Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud; SES-PIONAGE.

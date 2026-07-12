@@ -2,6 +2,7 @@ title: AWS SNS Publish Attempt
 id: 84e527af-c9d9-584d-b7b1-d6f07bd1ff20
 status: experimental
 description: |
+    Failed or denied attempt to call Publish — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone number, or a message to a mobile platform endpoint (when you specify the TargetArn).
     Security implications: Attackers might use Publish for smishing campaigns.
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Using malicious AWS activity to spot phishing campaigns; Cloud Security Stories: From Risky Permissions to Ransomware Execution.

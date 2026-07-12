@@ -2,6 +2,7 @@ title: AWS RDS DescribeValidDBInstanceModifications Attempt
 id: 5285601a-436b-5d0e-97e9-ee3e2f6f7210
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeValidDBInstanceModifications — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     You can call DescribeValidDBInstanceModifications to learn what modifications you can make to your DB instance.
     Security implications: May inform attackers on upgrade/downgrade or performance-impacting changes for disruptive actions.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

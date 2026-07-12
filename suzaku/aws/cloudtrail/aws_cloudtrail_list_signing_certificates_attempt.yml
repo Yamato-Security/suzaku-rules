@@ -2,6 +2,7 @@ title: AWS IAM ListSigningCertificates Attempt
 id: c147d7cc-d954-5f96-9b93-365d8382fb4e
 status: experimental
 description: |
+    Failed or denied attempt to call ListSigningCertificates — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about the signing certificates associated with the specified IAM user.
     Security implications: Attackers might use ListSigningCertificates to review which users have active certificates
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud.

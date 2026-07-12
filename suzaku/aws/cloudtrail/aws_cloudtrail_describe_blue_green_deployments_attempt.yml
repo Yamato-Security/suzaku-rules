@@ -2,6 +2,7 @@ title: AWS RDS DescribeBlueGreenDeployments Attempt
 id: 337de9eb-197f-5b52-ad26-1dca2d47c97d
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeBlueGreenDeployments — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes one or more blue/green deployments.
     Security implications: Allows attackers discovery of deployment configurations and potential weaknesses.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

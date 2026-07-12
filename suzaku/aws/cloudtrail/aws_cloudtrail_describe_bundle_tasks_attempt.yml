@@ -2,6 +2,7 @@ title: AWS EC2 DescribeBundleTasks Attempt
 id: e44be469-a7ce-5814-95fc-ba3498a1aa5a
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeBundleTasks — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified bundle tasks or all of your bundle tasks.
     Security implications: Attackers might use DescribeBundleTasks to gain insights into the bundling tasks of EC2 instances.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

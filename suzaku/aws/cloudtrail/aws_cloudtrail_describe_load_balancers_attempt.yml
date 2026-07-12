@@ -2,6 +2,7 @@ title: AWS ELBv2 DescribeLoadBalancers Attempt
 id: 816cd4c1-6d0a-5620-9ada-e52e87d60272
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeLoadBalancers — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified load balancers or all of your load balancers.
     Security implications: Attackers might use DescribeLoadBalancers to get information about the load balancers for potential future attacks.
 references:

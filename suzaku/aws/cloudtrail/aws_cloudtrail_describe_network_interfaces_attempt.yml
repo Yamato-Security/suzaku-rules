@@ -2,6 +2,7 @@ title: AWS EC2 DescribeNetworkInterfaces Attempt
 id: 7a5f1fa3-c78f-5b0c-9e5c-3e61b8c9b551
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeNetworkInterfaces — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes one or more of your network interfaces.
     Security implications: Attackers might use DescribeNetworkInterfaces to map network topology, identify public-facing resources, and plan lateral movement within the VPC.
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.

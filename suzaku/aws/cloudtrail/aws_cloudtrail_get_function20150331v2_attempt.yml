@@ -2,6 +2,7 @@ title: AWS Lambda GetFunction20150331v2 Attempt
 id: 3e809da5-4ec1-537c-bb84-9a4e39ea03ac
 status: experimental
 description: |
+    Failed or denied attempt to call GetFunction20150331v2 — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about the function or function version, with a link to download the deployment package.
     Security implications: Attackers might use GetFunction to retrieve Lambda function source code and configuration, potentially exposing hardcoded secrets, API keys, and proprietary business logic.
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.

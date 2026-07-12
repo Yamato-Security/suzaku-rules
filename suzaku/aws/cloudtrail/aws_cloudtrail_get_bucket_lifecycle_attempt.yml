@@ -2,6 +2,7 @@ title: AWS S3 GetBucketLifecycle Attempt
 id: a4cfe149-ae48-5ff2-bb10-11d29710a5d7
 status: experimental
 description: |
+    Failed or denied attempt to call GetBucketLifecycle — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns the lifecycle configuration information set on the bucket.
     Security implications: Attackers might use GetBucketLifecycle to check if the S3 has any lifecycle policy.
     Observed in real-world incidents/reporting, e.g.: Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.

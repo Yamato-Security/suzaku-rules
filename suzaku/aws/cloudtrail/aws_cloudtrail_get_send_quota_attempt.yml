@@ -2,6 +2,7 @@ title: AWS SES GetSendQuota Attempt
 id: 4ab0ab23-ca11-5ed1-b482-799a7521bfa4
 status: experimental
 description: |
+    Failed or denied attempt to call GetSendQuota — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Provides the sending limits for the Amazon SES account.
     Security implications: Attackers use GetSendQuota to assess the email sending capacity of an AWS account, potentially planning persistent spam or phishing campaigns by identifying limits they can exploit or escalate.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Ransomware in the cloud; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; SES-PIONAGE; Tales from the cloud trenches: Unwanted visitor; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.

@@ -2,6 +2,7 @@ title: AWS IAM ListAccountAliases Attempt
 id: d89421dd-5955-536a-a598-3caaed6e8d0c
 status: experimental
 description: |
+    Failed or denied attempt to call ListAccountAliases — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the account aliases associated with the AWS account.
     Security implications: Attackers may list account aliases to identify the human-friendly alias of the compromised account for social engineering or further reconnaissance.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

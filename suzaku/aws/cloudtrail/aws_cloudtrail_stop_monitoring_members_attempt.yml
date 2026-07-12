@@ -2,6 +2,7 @@ title: AWS GuardDuty StopMonitoringMembers Attempt
 id: 59833275-5ab6-58fd-acec-b46c45b44182
 status: experimental
 description: |
+    Failed or denied attempt to call StopMonitoringMembers — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Stops GuardDuty monitoring for the specified member accounts.
     Security implications: Attackers might use StopMonitoringMembers to halt the surveillance of specific AWS accounts, reducing security visibility.
 references:

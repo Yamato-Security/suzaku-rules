@@ -2,6 +2,7 @@ title: AWS RDS DescribeDBClusters Attempt
 id: dd3de0cd-f245-50d2-893c-be433e90c161
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeDBClusters — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters.
     Security implications: Cluster endpoints and replication settings help plan targeted data theft or disruption.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

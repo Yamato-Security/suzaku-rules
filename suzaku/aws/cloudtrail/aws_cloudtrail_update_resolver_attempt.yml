@@ -2,6 +2,7 @@ title: AWS AppSync UpdateResolver Attempt
 id: 7f7be1bf-c109-5b9b-a6ea-b54eae68c0fa
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateResolver — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates a Resolver object.
     Security implications: Attackers might use UpdateResolver to execute custom code that could allow potential access to data and bypass protections.
 references:

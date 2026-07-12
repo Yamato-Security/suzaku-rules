@@ -2,6 +2,7 @@ title: AWS elasticfilesystem DeleteMountTarget Attempt
 id: 24335f12-6cbb-5ce3-af85-7056533af15a
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteMountTarget — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified mount target.
     Security implications: Attackers might use DeleteMountTarget in AWS EFS to remove mount targets, disrupting access to file system and as a preliminary phase before data deletion.
 references:

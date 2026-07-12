@@ -2,6 +2,7 @@ title: AWS EC2 DescribeRouteTables Attempt
 id: 4b70efd1-4d24-5a07-a3e3-dfcad94c53a7
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeRouteTables — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes one or more of your route tables.
     Security implications: Reveals network paths which enables planning for lateral movement or data exfiltration routes.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

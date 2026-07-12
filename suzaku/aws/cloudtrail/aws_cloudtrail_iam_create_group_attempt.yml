@@ -2,6 +2,7 @@ title: AWS IAM CreateGroup Attempt
 id: 12b2e946-1bc2-5835-93f3-922acfb0df4c
 status: experimental
 description: |
+    Failed or denied attempt to call CreateGroup — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a new group.
     Security implications: Attackers use CreateGroup to create a group that they can use to escalate privileges.
 references:

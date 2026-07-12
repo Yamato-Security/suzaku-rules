@@ -2,6 +2,7 @@ title: AWS SES UpdateAccountSendingEnabled Attempt
 id: cd6a6ac1-6520-5c3c-b284-ac2d24aff629
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateAccountSendingEnabled — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Enables or disables email sending across your entire Amazon SES account in the current AWS Region.
     Security implications: Attackers might use UpdateAccountSendingEnabled to enable sending from compromised AWS accounts, facilitating spam or phishing campaigns.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; SES-PIONAGE.

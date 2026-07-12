@@ -2,6 +2,7 @@ title: AWS SES GetIdentityVerificationAttributes Attempt
 id: 9b85408f-ecbc-5302-85ee-b68461c06381
 status: experimental
 description: |
+    Failed or denied attempt to call GetIdentityVerificationAttributes — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Given a list of identities (email addresses and/or domains), returns the verification status and (for domain identities) the verification token for each identity.
     Security implications: Attackers might use GetIdentityVerificationAttributes to gather sensitive information about the verification status of email addresses and domains.
     Observed in real-world incidents/reporting, e.g.: SES-PIONAGE.

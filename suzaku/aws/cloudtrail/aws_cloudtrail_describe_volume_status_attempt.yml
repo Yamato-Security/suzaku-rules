@@ -2,6 +2,7 @@ title: AWS EC2 DescribeVolumeStatus Attempt
 id: ea030c4e-ed0a-571d-aa2a-53165da9eb1b
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeVolumeStatus — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the status of your Amazon EBS volumes.
     Security implications: Volume health and events may highlight targets for ransomware-style encryption or data theft.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

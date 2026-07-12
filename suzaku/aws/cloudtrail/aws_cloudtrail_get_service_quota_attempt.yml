@@ -2,6 +2,7 @@ title: AWS ServiceQuotas GetServiceQuota Attempt
 id: c66f0c07-c4d2-5f41-ae2b-029bb8b064bb
 status: experimental
 description: |
+    Failed or denied attempt to call GetServiceQuota — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves the applied quota value for the specified account-level or resource-level quota.
     Security implications: Attackers might use GetServiceQuota to enumerate EC2 or other service limits before launching resource hijacking campaigns such as cryptomining.
     Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.

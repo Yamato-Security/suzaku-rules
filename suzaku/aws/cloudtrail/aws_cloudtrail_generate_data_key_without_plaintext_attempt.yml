@@ -2,6 +2,7 @@ title: AWS KMS GenerateDataKeyWithoutPlaintext Attempt
 id: 19912dfa-9268-5d62-9d1a-dffea82a69c5
 status: experimental
 description: |
+    Failed or denied attempt to call GenerateDataKeyWithoutPlaintext — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a unique symmetric data key for use outside of AWS KMS.
     Security implications: Attackers might use GenerateDataKeyWithoutPlaintext to generate encryption keys that can decrypt data in a ransom.
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.

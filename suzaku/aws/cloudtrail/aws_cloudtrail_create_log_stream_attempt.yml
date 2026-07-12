@@ -2,6 +2,7 @@ title: AWS CloudWatchLogs CreateLogStream Attempt
 id: 6f4205ac-d7f7-55b5-9ed4-95ea34a8b158
 status: experimental
 description: |
+    Failed or denied attempt to call CreateLogStream — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a log stream for the specified log group.
     Security implications: Attackers might use CreateLogStream to later add benign log entries, effectively burying any signs of his malicious activities.
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.

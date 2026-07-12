@@ -2,6 +2,7 @@ title: AWS EC2 ModifyImageAttribute Attempt
 id: 414d548c-551a-59c9-9048-b3633a401e98
 status: experimental
 description: |
+    Failed or denied attempt to call ModifyImageAttribute — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Modifies the specified attribute of the specified AMI.
     Security implications: Attackers might use ModifyImageAttribute to alter permissions or settings of Amazon Machine Images (AMIs), potentially exposing them to unauthorized users or making them public.
 references:

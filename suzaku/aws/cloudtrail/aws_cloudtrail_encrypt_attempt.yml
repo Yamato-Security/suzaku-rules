@@ -2,6 +2,7 @@ title: AWS KMS Encrypt Attempt
 id: eeec8391-07cd-57f9-87d2-b5d711d619cb
 status: experimental
 description: |
+    Failed or denied attempt to call Encrypt — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Encrypts plaintext of up to 4,096 bytes using a KMS key.
     Security implications: Attackers might use Encrypt to encrypt data for ransom.
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.

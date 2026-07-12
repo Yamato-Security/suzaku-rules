@@ -2,6 +2,7 @@ title: AWS CostExplorer GetCostAndUsage Attempt
 id: bb670727-3c1b-519e-a62d-0fd398ab2c8e
 status: experimental
 description: |
+    Failed or denied attempt to call GetCostAndUsage — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves cost and usage metrics for your account.
     Security implications: Attackers might use GetCostAndUsage to determine how active an account is by understanding the cost within a cloud account.
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; Crimson Collective: A New Threat Group Observed Operating in the Cloud.

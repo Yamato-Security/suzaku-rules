@@ -2,6 +2,7 @@ title: AWS Lambda CreateEventSourceMapping20150331 Attempt
 id: 061f4d80-b4d6-519f-9d1d-fcf4e816d493
 status: experimental
 description: |
+    Failed or denied attempt to call CreateEventSourceMapping20150331 — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a mapping between an event source and an AWS Lambda function.
     Security implications: Attackers might use CreateEventSourceMapping to trigger unauthorized Lambda functions with malicious code.
 references:

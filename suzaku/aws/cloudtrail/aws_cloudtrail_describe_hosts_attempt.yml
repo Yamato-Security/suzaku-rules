@@ -2,6 +2,7 @@ title: AWS EC2 DescribeHosts Attempt
 id: 7b8b0bb8-2f4e-5c53-897b-cd21612ada58
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeHosts — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified Dedicated Hosts or all your Dedicated Hosts.
     Security implications: Provides inventory of dedicated hosts which can guide lateral movement or privilege escalation strategies.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

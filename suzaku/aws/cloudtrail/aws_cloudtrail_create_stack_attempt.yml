@@ -2,6 +2,7 @@ title: AWS CloudFormation CreateStack Attempt
 id: f057b828-f08e-54cf-b81e-6cf93d245efd
 status: experimental
 description: |
+    Failed or denied attempt to call CreateStack — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a stack as specified in the template.
     Security implications: Attackers might use CreateStack to provision unauthorized resources
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.

@@ -2,6 +2,7 @@ title: AWS STS GetCallerIdentity Attempt
 id: 9335f81f-e1c8-51c3-a90a-88adc3cb6be8
 status: experimental
 description: |
+    Failed or denied attempt to call GetCallerIdentity — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns details about the IAM user or role whose credentials are used to call the operation.
     Security implications: Attackers might use GetCallerIdentity to know what user or role are they using. This request does not need any permission.
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; GotRoot! AWS root Account Takeover; Compromised Cloud Compute Credentials: Case Studies From the Wild; Tales from the cloud trenches: Using malicious AWS activity to spot phishing campaigns; Detecting AI resource-hijacking with Composite Alerts; Cloud-Conscious Tactics, Techniques,and Procedures (TTPs).

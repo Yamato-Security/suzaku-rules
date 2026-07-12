@@ -2,6 +2,7 @@ title: AWS Lambda UpdateEventSourceMapping20150331 Attempt
 id: bde54503-aca9-5116-9b81-0d8ac7789f73
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateEventSourceMapping20150331 — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.
     Security implications: Attackers might use UpdateEventSourceMapping to pull data from a different source, leading to incorrect function results.
 references:

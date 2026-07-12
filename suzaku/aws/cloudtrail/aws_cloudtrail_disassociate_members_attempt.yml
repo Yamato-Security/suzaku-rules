@@ -2,6 +2,7 @@ title: AWS GuardDuty DisassociateMembers Attempt
 id: e3eb79b1-2bb4-534e-9e68-7b21039ea9b1
 status: experimental
 description: |
+    Failed or denied attempt to call DisassociateMembers — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Disassociates GuardDuty member accounts (from the current administrator account) specified by the account IDs.
     Security implications: Attackers might use DisassociateMembers to remove members from a GuardDuty detector, disrupting threat detection and security analysis.
 references:

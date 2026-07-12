@@ -2,6 +2,7 @@ title: AWS Bedrock InvokeModelWithResponseStream Attempt
 id: 7d3042fe-6d94-5acf-8aa4-9c1b65832c95
 status: experimental
 description: |
+    Failed or denied attempt to call InvokeModelWithResponseStream — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body with streaming response.
     Security implications: Attackers might use InvokeModelWithResponseStream to invoke the model for resource hijacking.
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; New tactics and techniques for proactive threat detection; New Developments in LLM Hijacking Activity.

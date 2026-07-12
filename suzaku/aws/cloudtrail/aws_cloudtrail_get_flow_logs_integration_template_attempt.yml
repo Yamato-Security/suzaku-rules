@@ -2,6 +2,7 @@ title: AWS EC2 GetFlowLogsIntegrationTemplate Attempt
 id: 6a8a3108-4840-5240-85d3-ca5a481767b6
 status: experimental
 description: |
+    Failed or denied attempt to call GetFlowLogsIntegrationTemplate — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs with Amazon Athena.
     Security implications: Attackers might use GetFlowLogsIntegrationTemplate to create templates for integrating VPC flow logs with external monitoring solutions, potentially to configure exfiltration pathways for gathered data or to understand security monitoring setups.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

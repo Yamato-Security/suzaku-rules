@@ -2,6 +2,7 @@ title: AWS IAM PutRolePolicy Attempt
 id: 19eac775-7f2d-59fb-b565-aad4b85633fb
 status: experimental
 description: |
+    Failed or denied attempt to call PutRolePolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds or updates an inline policy document that is embedded in the specified IAM role.
     Security implications: Attackers might use PutRolePolicy to modify permissions of IAM roles, potentially granting unauthorized access to AWS resources.
 references:

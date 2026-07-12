@@ -2,6 +2,7 @@ title: AWS APIGateway CreateIntegration Attempt
 id: 537821a4-a846-5dc6-8530-d2e36ea38014
 status: experimental
 description: |
+    Failed or denied attempt to call CreateIntegration — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates an Integration. An Integration is a configuration that specifies the backend endpoint for an API route.
     Security implications: Attackers might use CreateIntegration to create malicious integrations that can be used to establish persistence in the environment.
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.

@@ -2,6 +2,7 @@ title: AWS Bedrock GetKnowledgeBase Attempt
 id: 7e3a3e03-de4b-51e2-8bb7-ed0ab721a645
 status: experimental
 description: |
+    Failed or denied attempt to call GetKnowledgeBase — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves configuration details for a specific Amazon Bedrock knowledge base.
     Security implications: Attackers might use GetKnowledgeBase to understand how proprietary data is ingested and where to pivot for data exfiltration or tampering.
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.

@@ -2,6 +2,7 @@ title: AWS EC2 DescribeDhcpOptions Attempt
 id: 61285ac9-02ee-5b5a-ad8f-0d5fd41b2edc
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeDhcpOptions — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes one or more of your DHCP options sets.
     Security implications: Attackers might use DescribeDhcpOptions to inspect DHCP configurations in an AWS VPC.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

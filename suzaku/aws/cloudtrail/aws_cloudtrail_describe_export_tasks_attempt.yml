@@ -2,6 +2,7 @@ title: AWS RDS DescribeExportTasks Attempt
 id: dc0609be-c69e-5798-865f-e65b3e64160d
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeExportTasks — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns information about a snapshot or cluster export to Amazon S3.
     Security implications: Export task details may expose S3 bucket names and regions, aiding in data exfiltration efforts.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

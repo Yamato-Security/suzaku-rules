@@ -2,6 +2,7 @@ title: AWS IAM DeleteLoginProfile Attempt
 id: 5126ee5b-b251-5b6a-948f-e7d995738b37
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteLoginProfile — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the password for the specified IAM user.
     Security implications: Attackers might use DeleteLoginProfile to remove user's login credentials, preventing legitimate access to AWS services. Also, it might be used to delete a previously added profile to avoid detection.
     Observed in real-world incidents/reporting, e.g.: UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.

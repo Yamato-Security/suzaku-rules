@@ -2,6 +2,7 @@ title: AWS EC2 DescribeSnapshots Attempt
 id: 54a3eebc-2517-59ce-b562-12304f8e9b03
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeSnapshots — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you.
     Security implications: Snapshot metadata can reveal data volume targets for exfiltration or cloning in another account.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

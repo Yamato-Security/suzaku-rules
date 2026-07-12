@@ -2,6 +2,7 @@ title: AWS EC2 CreateTrafficMirrorFilterRule Attempt
 id: 71e5d7b9-2129-516d-ac7b-6648d3392397
 status: experimental
 description: |
+    Failed or denied attempt to call CreateTrafficMirrorFilterRule — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a Traffic Mirror filter rule.
     Security implications: Attackers might use CreateTrafficMirrorFilterRule to fine-tune traffic mirroring for selective interception.
 references:

@@ -2,6 +2,7 @@ title: AWS RDS DeleteDBCluster Attempt
 id: 735cfa80-35b8-5786-ac1f-7271db451774
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteDBCluster — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     The DeleteDBCluster action deletes a previously provisioned DB cluster.
     Security implications: Attackers might use DeleteDBCluster to delete crucial databases, causing data loss and service disruption.
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.

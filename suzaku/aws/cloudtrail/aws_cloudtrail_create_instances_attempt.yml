@@ -2,6 +2,7 @@ title: AWS Lightsail CreateInstances Attempt
 id: b94e6a62-2475-5d78-a4f0-5f6ed74ce682
 status: experimental
 description: |
+    Failed or denied attempt to call CreateInstances — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates one or more Amazon Lightsail instances.
     Security implications: Attackers might use CreateInstances to rapidly deploy malicious instances, causing financial loss and resource exhaustion. The use of lightsail might not be monitored.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.

@@ -2,6 +2,7 @@ title: AWS EC2 TerminateInstances Attempt
 id: 9e219614-32f3-5722-bcda-2ec8891dee9f
 status: experimental
 description: |
+    Failed or denied attempt to call TerminateInstances — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Shuts down the specified instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds.
     Security implications: Attackers might use TerminateInstances to permanently delete EC2 instances, resulting in irreversible data loss and service disruption or for defense evasion.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR; Former Cisco engineer sentenced to prison for deleting 16k Webex accounts; Hacker Puts Hosting Service Code Spaces Out of Business; Securing a SaaS Company's AWS Environment After a Breach.

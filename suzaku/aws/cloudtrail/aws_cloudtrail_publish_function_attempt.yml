@@ -2,6 +2,7 @@ title: AWS CloudFront PublishFunction Attempt
 id: 8e5b22d9-10fa-5a16-9ad4-45e0401b04fa
 status: experimental
 description: |
+    Failed or denied attempt to call PublishFunction — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Publishes a CloudFront function by copying the function code from the DEVELOPMENT stage to LIVE.
     Security implications: Attackers might use PublishFunction to publish a malicious function that might be used to exfiltrate data.
 references:

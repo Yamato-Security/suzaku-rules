@@ -2,6 +2,7 @@ title: AWS IAM ListRolePolicies Attempt
 id: cc5cfe52-cccf-5973-8624-3905c47bc335
 status: experimental
 description: |
+    Failed or denied attempt to call ListRolePolicies — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the names of the inline policies that are embedded in the specified IAM role.
     Security implications: Attackers might use ListRolePolicies to identify permissions associated with various roles in AWS.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Datadog threat roundup: top insights for Q4 2024.

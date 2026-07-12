@@ -2,6 +2,7 @@ title: AWS Support CreateCase Attempt
 id: f762c3f5-3dea-5fd2-9dbe-dd9cf3a0162d
 status: experimental
 description: |
+    Failed or denied attempt to call CreateCase — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a case in the Support Center.
     Security implications: Attackers might use CreateCase to create a support case to try to get bigger quotas or other changes to the AWS account.
     Observed in real-world incidents/reporting, e.g.: From Compromised Keys to Phishing Campaigns: Inside a Cloud Email Service Takeover.

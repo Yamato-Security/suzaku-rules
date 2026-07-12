@@ -2,6 +2,7 @@ title: AWS CloudWatchLogs DescribeLogGroups Attempt
 id: a1598451-3904-52f5-bc50-e4fe5b15dd84
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeLogGroups — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the specified log groups.
     Security implications: Attackers might use DescribeLogGroups to discover CloudWatch log configurations.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

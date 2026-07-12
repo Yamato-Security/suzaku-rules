@@ -2,6 +2,7 @@ title: AWS WAFV2 UpdateIPSet Attempt
 id: b2af21ff-0e75-5cc0-b40a-041ab7c516ac
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateIPSet — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates the specified IPSet.
     Security implications: Attackers might use UpdateIPSet to modify IP address rules, potentially allowing unauthorized access from IPs they control.
 references:

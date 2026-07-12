@@ -2,6 +2,7 @@ title: AWS route53domains ListDomains Attempt
 id: fb984d9b-4edf-530c-a398-f9ed6cb92eaa
 status: experimental
 description: |
+    Failed or denied attempt to call ListDomains — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     This operation returns all the domain names registered with Amazon Route 53 for the current AWS account if no filtering conditions are used.
     Security implications: Attackers might use ListDomains to identify potential targets for DNS hijacking or DDoS attacks.
 references:

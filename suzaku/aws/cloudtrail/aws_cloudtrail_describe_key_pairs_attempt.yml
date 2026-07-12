@@ -2,6 +2,7 @@ title: AWS EC2 DescribeKeyPairs Attempt
 id: e33acae2-5d69-5685-832e-8ad48f4eb574
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeKeyPairs — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified key pairs or all of your key pairs.
     Security implications: Attackers might use DescribeKeyPairs to audit the SSH key pairs associated with EC2 instances
     Observed in real-world incidents/reporting, e.g.: Behind the scenes in the Expel SOC: Alert-to-fix in AWS.

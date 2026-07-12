@@ -2,6 +2,7 @@ title: AWS CloudWatchLogs PutLogEvents Attempt
 id: 3e89c440-d989-5f4c-8955-d11a56ef9231
 status: experimental
 description: |
+    Failed or denied attempt to call PutLogEvents — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Uploads a batch of log events to the specified log stream.
     Security implications: Attackers might use PutLogEvents to add benign log entries, effectively burying any signs of his malicious activities.
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.

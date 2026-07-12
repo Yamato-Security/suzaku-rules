@@ -2,6 +2,7 @@ title: AWS GuardDuty DeletePublishingDestination Attempt
 id: 2157137e-6a29-5b6a-9cc0-428738255d1e
 status: experimental
 description: |
+    Failed or denied attempt to call DeletePublishingDestination — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the publishing definition with the specified destinationId.
     Security implications: Attackers might use DeletePublishingDestination to disrupt the security monitoring and incident response process in AWS GuardDuty.
 references:

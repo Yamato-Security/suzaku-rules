@@ -2,6 +2,7 @@ title: AWS EC2 StopInstances Attempt
 id: 5162ca2e-9f14-54d0-b04b-01a419f3f059
 status: experimental
 description: |
+    Failed or denied attempt to call StopInstances — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Stops an Amazon EBS-backed instance.
     Security implications: Attackers might use StopInstances to avoid being detected or to do changes that will be executed when the EC2 is started.
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.

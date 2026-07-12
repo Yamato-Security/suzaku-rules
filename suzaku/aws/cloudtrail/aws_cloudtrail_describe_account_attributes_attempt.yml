@@ -2,6 +2,7 @@ title: AWS EC2 DescribeAccountAttributes Attempt
 id: a32d62e8-7074-5735-b700-7245c8970aa6
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeAccountAttributes — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes attributes of your AWS account.
     Security implications: Attackers might use DescribeAccountAttributes to gather detailed information about AWS account configurations and limits.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

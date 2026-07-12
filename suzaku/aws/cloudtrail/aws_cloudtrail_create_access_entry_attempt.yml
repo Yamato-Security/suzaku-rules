@@ -2,6 +2,7 @@ title: AWS EKS CreateAccessEntry Attempt
 id: b4531563-1bb0-520b-a1d5-5c229d61a118
 status: experimental
 description: |
+    Failed or denied attempt to call CreateAccessEntry — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates an access entry.
     Security implications: Attackers might use CreateAccessEntry to craft access entries that link to high-privileged policies, effectively granting themselves unauthorized admin-level access to clusters.
 references:

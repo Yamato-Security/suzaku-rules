@@ -2,6 +2,7 @@ title: AWS S3 GetBucketPolicy Attempt
 id: 2b17de97-9f5d-55ae-b8b5-9b64b71f16cf
 status: experimental
 description: |
+    Failed or denied attempt to call GetBucketPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns the policy of a specified bucket.
     Security implications: Attackers might use GetBucketPolicy to identify weak security policies and exploit them for unauthorized access to S3 buckets.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Muddled Libra’s Evolution to the Cloud.

@@ -2,6 +2,7 @@ title: AWS events DisableRule Attempt
 id: 31ac55fb-0aa7-507b-8ab5-5b850f17644b
 status: experimental
 description: |
+    Failed or denied attempt to call DisableRule — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Disables the specified rule.
     Security implications: Attackers might use DisableRule to deactivate AWS EventBridge rules, effectively silencing alarms and automated responses designed for incident detection and mitigation.
 references:

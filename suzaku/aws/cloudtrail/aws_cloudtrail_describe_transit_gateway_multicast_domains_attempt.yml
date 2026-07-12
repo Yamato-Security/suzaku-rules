@@ -2,6 +2,7 @@ title: AWS EC2 DescribeTransitGatewayMulticastDomains Attempt
 id: c6bb05b7-4a5b-59a2-b380-3bc9d99ef43e
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeTransitGatewayMulticastDomains — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes one or more transit gateway multicast domains.
     Security implications: Attackers might use DescribeTransitGatewayMulticastDomains to obtain details on multicast domains within AWS Transit Gateways, identifying network segments and multicast configurations.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

@@ -2,6 +2,7 @@ title: AWS IAM DeleteUserPermissionsBoundary Attempt
 id: 09f6b12d-31f1-524f-a6c8-7ba53c1c4608
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteUserPermissionsBoundary — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the permissions boundary for the specified IAM user.
     Security implications: Attackers might use DeleteUserPermissionsBoundary to remove restrictions and gain unauthorized access to AWS resources.
 references:

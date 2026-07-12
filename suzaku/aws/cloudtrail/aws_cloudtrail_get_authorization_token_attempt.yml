@@ -2,6 +2,7 @@ title: AWS ECR GetAuthorizationToken Attempt
 id: 093188a6-7138-5fcb-9895-ce9c43b7fcf9
 status: experimental
 description: |
+    Failed or denied attempt to call GetAuthorizationToken — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves an authorization token that can be used to authenticate to an Amazon ECR registry.
     Security implications: Attackers might use GetAuthorizationToken to authenticate a Docker client to Amazon ECR, enabling them to pull private container images containing proprietary code and secrets.
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.

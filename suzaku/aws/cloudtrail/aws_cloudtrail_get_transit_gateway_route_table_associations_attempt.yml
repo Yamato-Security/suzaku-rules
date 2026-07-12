@@ -2,6 +2,7 @@ title: AWS EC2 GetTransitGatewayRouteTableAssociations Attempt
 id: a5e9111f-b8b6-5d59-8763-fb758882f751
 status: experimental
 description: |
+    Failed or denied attempt to call GetTransitGatewayRouteTableAssociations — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Gets information about the associations for the specified transit gateway route table.
     Security implications: Attackers might use GetTransitGatewayRouteTableAssociations to examine the associations between transit gateway route tables and attached resources, potentially to understand network routing policies.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

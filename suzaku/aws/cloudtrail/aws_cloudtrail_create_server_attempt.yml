@@ -2,6 +2,7 @@ title: AWS TransferFamily CreateServer Attempt
 id: 7ca38321-716d-538d-9c37-99536eea7e8c
 status: experimental
 description: |
+    Failed or denied attempt to call CreateServer — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Instantiates an auto-scaling virtual server based on the selected file transfer protocol in AWS.
     Security implications: Attackers might use CreateServer to create a server that allows to transfer files into and out of AWS storage services.
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud.

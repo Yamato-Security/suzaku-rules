@@ -2,6 +2,7 @@ title: AWS ECR DescribeRepositories Attempt
 id: e530061d-dcb1-5318-b30d-a195c8984719
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeRepositories — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes image repositories in a registry.
     Security implications: Attackers might use DescribeRepositories to enumerate ECR repositories, identifying container images that may contain proprietary code, embedded secrets, or internal service logic.
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.

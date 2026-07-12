@@ -2,6 +2,7 @@ title: AWS EC2 DescribeTags Attempt
 id: d3b00cca-3987-5a51-a58b-7058479935c6
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeTags — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the specified tags for your EC2 resources.
     Security implications: Tags often encode environment, application names, and ownership enabling targeted attacks or cost-evasion tactics.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

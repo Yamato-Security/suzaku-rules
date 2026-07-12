@@ -2,6 +2,7 @@ title: AWS ECR DescribeImages Attempt
 id: 25058021-c449-50dc-9853-a7a9a7860634
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeImages — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns metadata about the images in a repository.
     Security implications: Attackers might use DescribeImages to enumerate available container image versions and tags in ECR repositories, identifying targets for exfiltration.
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.

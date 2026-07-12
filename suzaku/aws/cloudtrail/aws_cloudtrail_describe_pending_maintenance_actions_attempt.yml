@@ -2,6 +2,7 @@ title: AWS RDS DescribePendingMaintenanceActions Attempt
 id: 12d4781d-d2c6-5808-84b5-5faf2747839c
 status: experimental
 description: |
+    Failed or denied attempt to call DescribePendingMaintenanceActions — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.
     Security implications: Maintenance windows may present timing opportunities for stealthy operations.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

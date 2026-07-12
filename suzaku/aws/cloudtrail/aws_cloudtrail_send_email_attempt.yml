@@ -2,6 +2,7 @@ title: AWS SES SendEmail Attempt
 id: 7974f7b6-6a19-50ec-83cc-dbdecfbf420a
 status: experimental
 description: |
+    Failed or denied attempt to call SendEmail — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Composes an email message and immediately queues it for sending.
     Security implications: Sending emails from a compromised account can enable phishing, data exfiltration, or brand abuse.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

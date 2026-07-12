@@ -2,6 +2,7 @@ title: AWS SSM GetParameters Attempt
 id: 2034bd37-3059-5b1c-97d7-4d71eb556339
 status: experimental
 description: |
+    Failed or denied attempt to call GetParameters — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Get information about one or more parameters by specifying multiple parameter names.
     Security implications: Attackers might use GetParameters to gather sensitive information such as api keys or other secrets.
 references:

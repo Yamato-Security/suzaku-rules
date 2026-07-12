@@ -2,6 +2,7 @@ title: AWS IAM DeleteUser Attempt
 id: 2a2446be-a544-51c8-aeac-26aa79217637
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteUser — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified IAM user.
     Security implications: Attackers might use DeleteUser to remove users and their permissions, disrupting access control in AWS. Also, it can be used to delete previously used users to avoid detection.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Insider Threat Risks to Flat Environments; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.

@@ -2,6 +2,7 @@ title: AWS Organizations ListAccounts Attempt
 id: 798e8567-012e-5217-b7b1-338059ccd546
 status: experimental
 description: |
+    Failed or denied attempt to call ListAccounts — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists all the accounts in the organization.
     Security implications: Attackers might use ListAccounts to gather information about the structure and resources of an organization's AWS environment.
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.

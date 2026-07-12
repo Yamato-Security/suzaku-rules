@@ -2,6 +2,7 @@ title: AWS S3 GetObject Attempt
 id: d6471c5b-f637-5819-9473-8d57f0ee4824
 status: experimental
 description: |
+    Failed or denied attempt to call GetObject — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves an object from Amazon S3.
     Security implications: Attackers might use GetObject to download data from S3 buckets.
     Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Incident 2 - Additional details of the attack; Aruba Central Security Incident; Sendtech Pte. Ltd; GotRoot! AWS root Account Takeover.

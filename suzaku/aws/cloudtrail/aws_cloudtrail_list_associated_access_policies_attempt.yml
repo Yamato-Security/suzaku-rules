@@ -2,6 +2,7 @@ title: AWS EKS ListAssociatedAccessPolicies Attempt
 id: 47901ccf-286d-5e99-8d18-5533230be3a7
 status: experimental
 description: |
+    Failed or denied attempt to call ListAssociatedAccessPolicies — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the access policies associated with an access entry.
     Security implications: Attackers might use ListAssociatedAccessPolicies to enumerate policies associated with resources in AWS services, identifying overly permissive access that can be exploited to escalate privileges.
 references:

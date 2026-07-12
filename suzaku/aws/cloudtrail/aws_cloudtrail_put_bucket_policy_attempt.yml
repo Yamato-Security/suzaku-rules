@@ -2,6 +2,7 @@ title: AWS S3 PutBucketPolicy Attempt
 id: c17ca273-e760-5393-9af9-ddbce33823a7
 status: experimental
 description: |
+    Failed or denied attempt to call PutBucketPolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Applies an Amazon S3 bucket policy to an Amazon S3 bucket.
     Security implications: Attackers might use PutBucketPolicy to modify bucket permissions, potentially allowing unauthorized access to sensitive data.
 references:

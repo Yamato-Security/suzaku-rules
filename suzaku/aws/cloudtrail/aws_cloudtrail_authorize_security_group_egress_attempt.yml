@@ -2,6 +2,7 @@ title: AWS EC2 AuthorizeSecurityGroupEgress Attempt
 id: 1b12a057-c272-5d86-a198-a14c4814055b
 status: experimental
 description: |
+    Failed or denied attempt to call AuthorizeSecurityGroupEgress — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds the specified outbound (egress) rules to a security group.
     Security implications: Attackers might use AuthorizeSecurityGroupEgress to allow exfiltration.
     Observed in real-world incidents/reporting, e.g.: Trouble in Paradise.

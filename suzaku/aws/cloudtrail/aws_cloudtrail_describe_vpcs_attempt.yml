@@ -2,6 +2,7 @@ title: AWS EC2 DescribeVpcs Attempt
 id: de9ce138-fa16-55b1-92d6-67353a9d5132
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeVpcs — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes one or more of your VPCs.
     Security implications: Attackers might use DescribeVpcs to enumerate all Virtual Private Clouds (VPCs) within an AWS environment, aiming to map out network architectures.
     Observed in real-world incidents/reporting, e.g.: Following attackers’ (Cloud)trail in AWS: Methodology and findings in the wild; Crimson Collective: A New Threat Group Observed Operating in the Cloud.

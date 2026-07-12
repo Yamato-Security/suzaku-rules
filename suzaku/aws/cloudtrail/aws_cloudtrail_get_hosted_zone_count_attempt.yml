@@ -2,6 +2,7 @@ title: AWS Route53 GetHostedZoneCount Attempt
 id: d464dd17-ea14-5cfb-bc4a-7e39ba59e3c2
 status: experimental
 description: |
+    Failed or denied attempt to call GetHostedZoneCount — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves the number of hosted zones that are associated with the current AWS account.
     Security implications: Attackers might use GetHostedZoneCount to gather information about the number of hosted zones, potentially identifying targets for DNS attacks.
 references:

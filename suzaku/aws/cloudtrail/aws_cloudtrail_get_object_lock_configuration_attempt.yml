@@ -2,6 +2,7 @@ title: AWS S3 GetObjectLockConfiguration Attempt
 id: 8229a94f-ba67-5b96-a4ec-ce7d688af222
 status: experimental
 description: |
+    Failed or denied attempt to call GetObjectLockConfiguration — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Gets the Object Lock configuration for a bucket.
     Security implications: Attackers might use GetObjectLockConfiguration to check if object lock is active before ransomware attacks.
     Observed in real-world incidents/reporting, e.g.: Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.

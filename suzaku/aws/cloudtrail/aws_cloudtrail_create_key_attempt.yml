@@ -2,6 +2,7 @@ title: AWS KMS CreateKey Attempt
 id: 74702388-a60c-5f06-a080-cb4d4cf8b68f
 status: experimental
 description: |
+    Failed or denied attempt to call CreateKey — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a unique customer managed KMS key in your AWS account and Region.
     Security implications: Attackers might create keys only accessible by the identity they have compromised, for later encrypt data and delete access to it for ransomware attacks.
 references:

@@ -2,6 +2,7 @@ title: AWS RDS DescribeOrderableDBInstanceOptions Attempt
 id: 3a65dbe5-ef02-516f-9a62-730cba889a34
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeOrderableDBInstanceOptions — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the orderable DB instance options for a specified DB engine.
     Security implications: Available instance classes may inform cost/resource abuse strategies.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

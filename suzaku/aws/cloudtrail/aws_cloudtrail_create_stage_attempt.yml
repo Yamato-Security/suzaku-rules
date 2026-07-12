@@ -2,6 +2,7 @@ title: AWS APIGateway CreateStage Attempt
 id: f963fbc6-171d-5b95-8daa-ab8bff545a59
 status: experimental
 description: |
+    Failed or denied attempt to call CreateStage — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Creates a Stage for an API. A Stage is a named reference to a deployment of an API.
     Security implications: Attackers might use CreateStage to create malicious stages that can be used to establish persistence in the environment.
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.

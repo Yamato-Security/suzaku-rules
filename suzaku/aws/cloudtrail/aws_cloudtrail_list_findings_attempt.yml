@@ -2,6 +2,7 @@ title: AWS GuardDuty ListFindings Attempt
 id: 0e2aa483-c095-5f57-a94b-114a7bc4f0fe
 status: experimental
 description: |
+    Failed or denied attempt to call ListFindings — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists GuardDuty findings for the specified detector ID.
     Security implications: Attackers might use ListFindings to identify if previous actions generated alerts.
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.

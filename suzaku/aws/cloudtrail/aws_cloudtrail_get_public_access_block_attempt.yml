@@ -2,6 +2,7 @@ title: AWS S3 GetPublicAccessBlock Attempt
 id: ed3088fe-031a-58e8-94a3-7927dbe42a4c
 status: experimental
 description: |
+    Failed or denied attempt to call GetPublicAccessBlock — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves the PublicAccessBlock configuration for an Amazon S3 bucket.
     Security implications: Attackers might use GetPublicAccessBlock to identify S3 buckets with public access for potential data breaches.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Muddled Libra’s Evolution to the Cloud; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.

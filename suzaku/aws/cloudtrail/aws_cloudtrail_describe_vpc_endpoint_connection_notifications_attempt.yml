@@ -2,6 +2,7 @@ title: AWS EC2 DescribeVpcEndpointConnectionNotifications Attempt
 id: cbd1c68e-505d-5582-868b-00f05d1a9e7f
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeVpcEndpointConnectionNotifications — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the connection notifications for VPC endpoints and VPC endpoint services.
     Security implications: Attackers might use DescribeVpcEndpointConnectionNotifications to monitor notification configurations for VPC endpoints.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

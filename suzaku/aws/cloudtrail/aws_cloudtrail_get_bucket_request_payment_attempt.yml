@@ -2,6 +2,7 @@ title: AWS S3 GetBucketRequestPayment Attempt
 id: d7af9e69-1590-5b6c-8295-0de1be1fddc6
 status: experimental
 description: |
+    Failed or denied attempt to call GetBucketRequestPayment — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns the request payment configuration of a bucket.
     Security implications: Attackers might use GetBucketRequestPayment to check who pays for request and the data download.
     Observed in real-world incidents/reporting, e.g.: Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.

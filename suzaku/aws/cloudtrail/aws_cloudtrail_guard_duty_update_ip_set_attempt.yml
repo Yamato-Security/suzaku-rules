@@ -2,6 +2,7 @@ title: AWS GuardDuty UpdateIPSet Attempt
 id: 1adf9aa4-be9d-5531-b1cc-aa95cb56b8c2
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateIPSet — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates the IPSet specified by the IPSet ID.
     Security implications: Attackers might use UpdateIPSet to modify the IP address filters, potentially allowing malicious traffic to bypass detection.
 references:

@@ -2,6 +2,7 @@ title: AWS S3 GetBucketAccelerateConfiguration Attempt
 id: f08d7f78-9e9d-5b92-907c-e871b5f23baf
 status: experimental
 description: |
+    Failed or denied attempt to call GetBucketAccelerateConfiguration — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     This implementation of the GET action uses the accelerate subresource to return the Transfer Acceleration state of a bucket, which is either Enabled or Suspended.
     Security implications: Attackers might use GetBucketAccelerateConfiguration to check if S3 transfer acceleration is enabled.
     Observed in real-world incidents/reporting, e.g.: Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.

@@ -2,6 +2,7 @@ title: AWS IAM SetDefaultPolicyVersion Attempt
 id: a473a7f6-b7b2-5dd0-b12a-e4442acf7c2f
 status: experimental
 description: |
+    Failed or denied attempt to call SetDefaultPolicyVersion — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Sets the specified version of the specified policy as the policy's default (operative) version.
     Security implications: Attackers might use SetDefaultPolicyVersion to revert IAM policies to less secure versions, potentially exposing sensitive resources.
 references:

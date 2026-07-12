@@ -2,6 +2,7 @@ title: AWS Glue UpdateJob Attempt
 id: 930cc04c-edef-5550-b947-f4beba588294
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateJob — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates an existing job definition.
     Security implications: Attackers might use UpdateJob to modify Glue job parameters, potentially disrupting data processing or injecting malicious code.
 references:

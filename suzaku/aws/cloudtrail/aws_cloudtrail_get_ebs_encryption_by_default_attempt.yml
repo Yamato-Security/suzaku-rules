@@ -2,6 +2,7 @@ title: AWS EC2 GetEbsEncryptionByDefault Attempt
 id: 3a55df18-103d-571d-b7fd-dd195f78d6e5
 status: experimental
 description: |
+    Failed or denied attempt to call GetEbsEncryptionByDefault — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes whether EBS encryption by default is enabled for your account in the current Region.
     Security implications: Attackers might use GetEbsEncryptionByDefault to determine if new Amazon EBS volumes are encrypted by default, seeking to exploit unencrypted volumes.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

@@ -2,6 +2,7 @@ title: AWS Bedrock GetUseCaseForModelAccess Attempt
 id: 2030907c-2edb-52b5-82d3-a31f818c8c33
 status: experimental
 description: |
+    Failed or denied attempt to call GetUseCaseForModelAccess — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Grants permission to retrieve a use case for model access.
     Security implications: Attackers might use GetUseCaseForModelAccess to enumerate accessible models.
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; When AI Gets Hijacked: Exploiting Hosted Models for Dark Roleplaying.

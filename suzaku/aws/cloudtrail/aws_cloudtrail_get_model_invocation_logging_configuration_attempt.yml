@@ -2,6 +2,7 @@ title: AWS Bedrock GetModelInvocationLoggingConfiguration Attempt
 id: cd990cd3-0fb7-59c0-863b-0a36579799b3
 status: experimental
 description: |
+    Failed or denied attempt to call GetModelInvocationLoggingConfiguration — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Get the current configuration values for model invocation logging.
     Security implications: Attackers might use GetModelInvocationLoggingConfiguration to check S3 and Cloudwatch logging configuration.
     Observed in real-world incidents/reporting, e.g.: LLMjacking: Stolen Cloud Credentials Used in New AI Attack; New Developments in LLM Hijacking Activity; AI-assisted cloud intrusion achieves admin access in 8 minutes.

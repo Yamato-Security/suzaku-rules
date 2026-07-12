@@ -2,6 +2,7 @@ title: AWS EC2 DescribeCarrierGateways Attempt
 id: f0ca9b18-958b-5ed2-a2c1-33846864d444
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeCarrierGateways — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes one or more of your carrier gateways.
     Security implications: Attackers might use DescribeCarrierGateways to uncover details about carrier gateways in an AWS environment, which could reveal network configurations.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

@@ -2,6 +2,7 @@ title: AWS S3 GetBucketLogging Attempt
 id: e3e6a92f-af44-523c-8f2b-7d3ca44b463e
 status: experimental
 description: |
+    Failed or denied attempt to call GetBucketLogging — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns the logging status of a bucket and the permissions users have to view and modify that status.
     Security implications: Attackers might use GetBucketLoggingStatus to identify if logging is enabled, potentially helping them avoid detection during unauthorized activities.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Muddled Libra’s Evolution to the Cloud; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.

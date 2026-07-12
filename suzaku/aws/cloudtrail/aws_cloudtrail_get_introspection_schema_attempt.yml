@@ -2,6 +2,7 @@ title: AWS AppSync GetIntrospectionSchema Attempt
 id: 98304d59-1bb4-5110-a841-99c63c8e377b
 status: experimental
 description: |
+    Failed or denied attempt to call GetIntrospectionSchema — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves the introspection schema for a GraphQL API.
     Security implications: Attackers might use GetIntrospectionSchema to understand the API for future attacks or use the configuration for future modifications.
 references:

@@ -2,6 +2,7 @@ title: AWS S3 GetBucketTagging Attempt
 id: f1e694be-c3e5-57e0-9b17-5581396af4ee
 status: experimental
 description: |
+    Failed or denied attempt to call GetBucketTagging — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns the tag set associated with the bucket.
     Security implications: Attackers might use GetBucketTagging to look for tags reminiscent of PII or confidential data.
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.

@@ -2,6 +2,7 @@ title: AWS RDS DeleteDBInstance Attempt
 id: c59ea414-57d6-5072-bcda-896ada5cfa9c
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteDBInstance — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes a previously provisioned DB instance.
     Security implications: Attackers might use DeleteDBInstance to delete crucial databases, causing data loss and service disruption.
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.

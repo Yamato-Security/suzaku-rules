@@ -2,6 +2,7 @@ title: AWS EC2InstanceConnect SendSerialConsoleSSHPublicKey Attempt
 id: 28277633-eea4-5f39-80e5-853490923207
 status: experimental
 description: |
+    Failed or denied attempt to call SendSerialConsoleSSHPublicKey — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Pushes an SSH public key to the specified EC2 instance.
     Security implications: Attackers might use SendSerialConsoleSSHPublicKey to inject unauthorized SSH keys into EC2 instances, granting them access for remote control.
     Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD; Navigating the Cloud: Exploring Lateral Movement Techniques; Cloud-Conscious Tactics, Techniques,and Procedures (TTPs).

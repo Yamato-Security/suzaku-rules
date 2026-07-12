@@ -2,6 +2,7 @@ title: AWS EC2 DeleteVolume Attempt
 id: ef571e72-62f7-5871-99e6-2dde471dc749
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteVolume — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified EBS volume. The volume must be in the available state (not attached to an instance).
     Security implications: Attackers might use DeleteVolume to remove Elastic Block Store (EBS) volumes, leading to data loss and potentially disrupting operations.
     Observed in real-world incidents/reporting, e.g.: Hacker Puts Hosting Service Code Spaces Out of Business.

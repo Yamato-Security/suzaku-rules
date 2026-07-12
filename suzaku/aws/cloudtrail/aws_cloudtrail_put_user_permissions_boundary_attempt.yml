@@ -2,6 +2,7 @@ title: AWS IAM PutUserPermissionsBoundary Attempt
 id: 8d89829d-bb47-547e-999d-57f5f204c1ad
 status: experimental
 description: |
+    Failed or denied attempt to call PutUserPermissionsBoundary — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds or updates the policy that is specified as the IAM user's permissions boundary.
     Security implications: Attackers might use PutUserPermissionsBoundary to modify the permissions boundary for an IAM user, potentially escalating privileges or enabling unauthorized access.
 references:

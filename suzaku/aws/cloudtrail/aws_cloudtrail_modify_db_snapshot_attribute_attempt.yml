@@ -2,6 +2,7 @@ title: AWS RDS ModifyDBSnapshotAttribute Attempt
 id: 4ef414a9-adb6-53c9-a682-b56e3284350c
 status: experimental
 description: |
+    Failed or denied attempt to call ModifyDBSnapshotAttribute — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.
     Security implications: Attackers might use ModifyDBSnapshotAttribute to alter database snapshot permissions, potentially gaining unauthorized access to sensitive data via sharing it.
     Observed in real-world incidents/reporting, e.g.: Imperva Security Update; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.

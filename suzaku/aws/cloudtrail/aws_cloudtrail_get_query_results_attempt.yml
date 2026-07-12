@@ -2,6 +2,7 @@ title: AWS Athena GetQueryResults Attempt
 id: f3fc7fb6-07d7-55c8-8f12-bf335d206da0
 status: experimental
 description: |
+    Failed or denied attempt to call GetQueryResults — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Streams the results of a single query execution specified by QueryExecutionId from the Athena query results location in Amazon S3.
     Security implications: Attackers might use GetQueryResults from Amazon Athena to illicitly access and read potential sensitive data.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

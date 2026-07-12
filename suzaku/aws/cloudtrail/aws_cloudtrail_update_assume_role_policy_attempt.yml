@@ -2,6 +2,7 @@ title: AWS IAM UpdateAssumeRolePolicy Attempt
 id: 475d47d3-ae39-5759-863f-2179d0da15af
 status: experimental
 description: |
+    Failed or denied attempt to call UpdateAssumeRolePolicy — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Updates the policy that grants an IAM entity permission to assume a role.
     Security implications: Attackers might use UpdateAssumeRolePolicy to modify the assume role policy allowing access from an attacker compromised account.
 references:

@@ -2,6 +2,7 @@ title: AWS EC2 DescribeInstanceTypes Attempt
 id: 47c8581c-1b90-5971-9ef1-e7bc8072961f
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeInstanceTypes — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the details of the instance types that are offered in a location.
     Security implications: Attackers might use DescribeInstanceTypes to assess the capabilities and resources of EC2 instance types.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Crimson Collective: A New Threat Group Observed Operating in the Cloud.

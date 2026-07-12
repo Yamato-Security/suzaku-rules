@@ -2,6 +2,7 @@ title: AWS S3 PutBucketEncryption Attempt
 id: 10b61468-0edf-56be-9e46-b2df0cd9c08f
 status: experimental
 description: |
+    Failed or denied attempt to call PutBucketEncryption — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     This operation configures default encryption and Amazon S3 Bucket Keys for an existing bucket.
     Security implications: Attackers might use PutBucketEncryption to set the KMS key to one it controls for ransomware.
 references:

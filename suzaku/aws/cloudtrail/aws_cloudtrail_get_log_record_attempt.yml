@@ -2,6 +2,7 @@ title: AWS CloudWatchLogs GetLogRecord Attempt
 id: 0f98fe9e-4352-5a26-a238-591be8a6a202
 status: experimental
 description: |
+    Failed or denied attempt to call GetLogRecord — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Retrieves all of the fields and values of a single log event.
     Security implications: Attackers might use GetLogRecord to precisely extract information from CloudWatch logs, potentially exposing sensitive data or insights into AWS operational activities.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

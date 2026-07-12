@@ -2,6 +2,7 @@ title: AWS RDS DescribeDBEngineVersions Attempt
 id: fc78340e-4bdd-56b7-9b7a-f814ee2eaa1d
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeDBEngineVersions — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Describes the properties of specific versions of DB engines.
     Security implications: Engine version info can be correlated with known vulnerabilities for exploitation.
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.

@@ -2,6 +2,7 @@ title: AWS CloudWatchLogs DescribeSubscriptionFilters Attempt
 id: b10986eb-7881-5f86-b130-6226e6024524
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeSubscriptionFilters — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the subscription filters for the specified log group.
     Security implications: Attackers might use DescribeSubscriptionFilters to discover CloudWatch log configurations.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

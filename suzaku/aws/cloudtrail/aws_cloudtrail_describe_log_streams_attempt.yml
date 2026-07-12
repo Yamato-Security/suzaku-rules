@@ -2,6 +2,7 @@ title: AWS CloudWatchLogs DescribeLogStreams Attempt
 id: f5090976-f7e9-5458-b063-bba98eb0de4a
 status: experimental
 description: |
+    Failed or denied attempt to call DescribeLogStreams — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Lists the log streams for the specified log group.
     Security implications: Attackers might use DescribeLogStreams to discover CloudWatch log configurations.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

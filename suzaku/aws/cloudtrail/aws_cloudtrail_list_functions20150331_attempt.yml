@@ -2,6 +2,7 @@ title: AWS Lambda ListFunctions20150331 Attempt
 id: ca383e16-301b-55f0-b3b1-6dd5c37aa91b
 status: experimental
 description: |
+    Failed or denied attempt to call ListFunctions20150331 — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Returns a list of Lambda functions, with the version-specific configuration of each.
     Security implications: Attackers might use ListFunctions to enumerate Lambda functions, identifying targets that may contain hardcoded secrets or have overly permissive IAM roles attached.
     Observed in real-world incidents/reporting, e.g.: Investigating Suspected DPRK-Linked Crypto Intrusions.

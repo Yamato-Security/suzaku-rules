@@ -2,6 +2,7 @@ title: AWS SES VerifyEmailIdentity Attempt
 id: 9b819a81-1ab2-5233-807b-0b0fadb3c5ae
 status: experimental
 description: |
+    Failed or denied attempt to call VerifyEmailIdentity — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Adds an email address to the list of identities for your Amazon SES account in the current AWS Region and attempts to verify it.
     Security implications: Attackers might use VerifyEmailIdentity to send phishing emails or spam from a verified email address.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.

@@ -2,6 +2,7 @@ title: AWS SES DeleteIdentity Attempt
 id: 94181b87-923c-5fda-a61c-22a00c43fd43
 status: experimental
 description: |
+    Failed or denied attempt to call DeleteIdentity — the request returned an error, so the action did not complete. A failed attempt can indicate an adversary probing permissions, a misconfigured tool, or an incomplete attack.
     Deletes the specified identity (an email address or a domain) from the list of verified identities.
     Security implications: Attackers might use DeleteIdentity to disrupt email sending capabilities or delete an identity previously used attackers.
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
