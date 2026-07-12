@@ -25,4 +25,4 @@ detection:
 falsepositives:
     - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
     - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
-level: critical
+level: low

@@ -3,7 +3,7 @@ id: d15fbac7-e3ad-577c-af72-c5464417efca
 status: experimental
 description: |
     Attaches a key policy to the specified KMS key.
-    Security implications: Attackers might put a new key polocy to modify the policy of a current KMS Key and lock the data for ransomware attacks.
+    Security implications: Attackers might put a new key policy to modify the policy of a current KMS Key and lock the data for ransomware attacks.
 references:
     - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
     - https://aws.permissions.cloud/iam/kms#kms-PutKeyPolicy
@@ -25,4 +25,4 @@ detection:
 falsepositives:
     - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
     - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
-level: critical
+level: medium
