@@ -1,0 +1,30 @@
+title: AWS EC2 CreateNetworkAclEntry
+id: 24c0cb3b-6110-57bd-8bc9-887ea7d9b6a6
+status: experimental
+description: |
+    Creates an entry (a rule) in a network ACL with the specified rule number.
+    Security implications: Attackers might use CreateNetworkAclEntry to allow traffic to the network from an IP they control.
+references:
+    - https://www.elastic.co/guide/en/security/current/aws-ec2-network-access-control-list-creation.html
+    - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
+    - https://aws.permissions.cloud/iam/ec2#ec2-CreateNetworkAclEntry
+    - https://traildiscover.cloud/#EC2-CreateNetworkAclEntry
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.persistence
+    - attack.t1098 #Account Manipulation
+    - attack.t1133 #External Remote Services
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: CreateNetworkAclEntry
+    condition: selection
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: medium

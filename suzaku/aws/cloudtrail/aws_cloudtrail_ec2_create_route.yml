@@ -1,0 +1,29 @@
+title: AWS EC2 CreateRoute
+id: 6d9bac67-cfa4-5f50-aec1-d7633f2099fa
+status: experimental
+description: |
+    Creates a route in a route table within a VPC.
+    Security implications: Attackers might use CreateRoute to redirect network traffic within AWS VPCs to eavesdrop or exfiltrate data.
+references:
+    - https://www.intelligentdiscovery.io/controls/cloudwatch/cloudwatch-alarm-route-table-change
+    - https://easttimor.github.io/aws-incident-response/
+    - https://aws.permissions.cloud/iam/ec2#ec2-CreateRoute
+    - https://traildiscover.cloud/#EC2-CreateRoute
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.collection
+    - attack.t1074 #Data Staged
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: CreateRoute
+    condition: selection
+falsepositives:
+    - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+level: low

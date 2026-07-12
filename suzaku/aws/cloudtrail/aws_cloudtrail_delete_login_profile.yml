@@ -1,0 +1,30 @@
+title: AWS IAM DeleteLoginProfile
+id: c07be0ae-1c45-551c-a3ff-bd5f4f0d6042
+status: experimental
+description: |
+    Deletes the password for the specified IAM user.
+    Security implications: Attackers might use DeleteLoginProfile to remove user's login credentials, preventing legitimate access to AWS services. Also, it might be used to delete a previously added profile to avoid detection.
+    Observed in real-world incidents/reporting, e.g.: UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.
+references:
+    - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
+    - https://aws.permissions.cloud/iam/iam#iam-DeleteLoginProfile
+    - https://traildiscover.cloud/#IAM-DeleteLoginProfile
+author: Zach Mathis (@YamatoSecurity)
+date: 2026-07-12
+modified: 2026-07-12
+tags:
+    - attack.defense-evasion
+    - attack.t1578 #Modify Cloud Compute Infrastructure
+    - attack.t1070 #Indicator Removal
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: iam.amazonaws.com
+        eventName: DeleteLoginProfile
+    condition: selection
+falsepositives:
+    - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
+    - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+level: high

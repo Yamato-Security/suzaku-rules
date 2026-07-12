@@ -1,0 +1,24 @@
+# Rules to ignore when loading (do not load; the .yml stays in the repo).
+# One UUIDv4 per line: <id> # <reason>
+#
+# These existing rules match only on an API call (eventName, no other filtering), so they
+# are functionally identical to and superseded by the TrailDiscover-derived rules for the
+# same event(s). The TrailDiscover rules carry richer metadata (MITRE ATT&CK, real-world
+# incidents, security implications), so we load those instead and skip the originals here.
+
+07330162-dba1-4746-8121-a9647d49d297 # AWS Config Disabling Channel/Recorder [sigma] -- superseded by TrailDiscover rule(s) for DeleteDeliveryChannel, StopConfigurationRecorder
+25cb1ba1-8a19-4a23-a198-d252664c8cef # AWS EFS Fileshare Modified or Deleted [sigma] -- superseded by TrailDiscover rule(s) for DeleteFileSystem
+6a7ba45c-63d8-473e-9736-2eaabff79964 # AWS EFS Fileshare Mount Modified or Deleted [sigma] -- superseded by TrailDiscover rule(s) for DeleteMountTarget
+6e61ee20-ce00-4f8d-8aee-bedd8216f7e3 # AWS GuardDuty Important Change [sigma] -- superseded by TrailDiscover rule(s) for CreateIPSet
+92f84194-8d9a-4ee0-8699-c30bfac59780 # AWS Key Pair Import Activity [sigma] -- superseded by TrailDiscover rule(s) for ImportKeyPair
+abae8fec-57bd-4f87-aff6-6e3db989843d # AWS Snapshot Backup Exfiltration [sigma] -- superseded by TrailDiscover rule(s) for ModifySnapshotAttribute
+dca4edde-477d-46d9-a2ec-5eb2117bbaa0 # EC2 Password Data Retrieved [suzaku] -- superseded by TrailDiscover rule(s) for GetPasswordData
+0e854216-b78f-4e05-9d62-1314cf16bb40 # Get Caller Identity [suzaku] -- superseded by TrailDiscover rule(s) for GetCallerIdentity
+2070cb71-0958-4504-906f-f8d4163d7505 # IAM Login Profile Created [suzaku] -- superseded by TrailDiscover rule(s) for CreateLoginProfile
+3a6ed7dc-4f99-4574-8cfa-d65124dc89f0 # IAM Login Profile Deleted [suzaku] -- superseded by TrailDiscover rule(s) for DeleteLoginProfile
+ec541962-c05a-4420-b9ea-84de072d18f4 # New AWS Lambda Function URL Configuration Created [sigma] -- superseded by TrailDiscover rule(s) for CreateFunctionUrlConfig
+e1f7febb-7b94-4234-b5c6-00fb8500f5dd # New Network ACL Entry Added [sigma] -- superseded by TrailDiscover rule(s) for CreateNetworkAclEntry
+c803b2ce-c4a2-4836-beae-b112010390b1 # New Network Route Added [sigma] -- superseded by TrailDiscover rule(s) for CreateRoute
+a74c0244-43fa-47ea-90bf-802500dd3140 # Role Enumeration [suzaku] -- superseded by TrailDiscover rule(s) for ListRoles
+20f754db-d025-4a8f-9d74-e0037e999a9a # SES Identity Has Been Deleted [sigma] -- superseded by TrailDiscover rule(s) for DeleteIdentity
+6125226d-0eb4-4dc8-8cb6-ac5ad01973ab # User Enumeration [suzaku] -- superseded by TrailDiscover rule(s) for ListUsers
