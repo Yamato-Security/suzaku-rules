@@ -3,15 +3,13 @@ id: 448459fe-3b33-5ee2-b54a-5080f4a20b40
 status: experimental
 description: |
     Looks up management events or CloudTrail Insights events that are captured by CloudTrail.
-
     Security implications: Attackers might use LookupEvents to monitoring CloudTrail logs for changes that might affect the attack.
-
     Observed in real-world incidents/reporting, e.g.: UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.
 references:
     - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
     - https://aws.permissions.cloud/iam/cloudtrail#cloudtrail-LookupEvents
     - https://traildiscover.cloud/#CloudTrail-LookupEvents
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

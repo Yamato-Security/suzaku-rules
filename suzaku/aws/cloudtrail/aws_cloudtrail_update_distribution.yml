@@ -3,13 +3,12 @@ id: ea48d3d6-94ca-5b14-818e-559e6d212206
 status: experimental
 description: |
     Updates the configuration for a CloudFront distribution.
-
     Security implications: Attackers might use UpdateDistribution to add a malicious configuration such as a function to exfiltrate data.
 references:
     - https://medium.com/@adan.alvarez/how-attackers-can-misuse-aws-cloudfront-access-to-make-it-rain-cookies-acf9ce87541c
     - https://aws.permissions.cloud/iam/cloudfront#cloudfront-UpdateDistribution
     - https://traildiscover.cloud/#CloudFront-UpdateDistribution
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

@@ -3,9 +3,7 @@ id: db9aa364-ed93-59b8-a02f-6c94d4614cd1
 status: experimental
 description: |
     Obtain information about the email-sending status and capabilities of your Amazon SES account in the current AWS Region.
-
     Security implications: Attackers might use GetAccount to gather sensitive information about the AWS SES account for malicious purposes.
-
     Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud; Compromised Cloud Compute Credentials: Case Studies From the Wild; SES-PIONAGE; Tales from the cloud trenches: Unwanted visitor; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments; Tales from the cloud trenches: The Attacker doth persist too much, methinks.
 references:
     - https://www.invictus-ir.com/news/ransomware-in-the-cloud
@@ -18,7 +16,7 @@ references:
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
     - https://aws.permissions.cloud/iam/ses#ses-GetAccount
     - https://traildiscover.cloud/#SES-GetAccount
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

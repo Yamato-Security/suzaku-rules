@@ -3,9 +3,7 @@ id: 90639333-3f9b-512d-9b1d-6aa5618c12e5
 status: experimental
 description: |
     Returns a set of temporary security credentials that you can use to access AWS resources.
-
     Security implications: Attackers might use AssumeRole to gain unauthorized access to an AWS role. This might allow them to gain initial access, escalate privileges or in specific scenarios gain persistence.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Trouble in Paradise; Tales from the cloud trenches: Unwanted visitor; AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
@@ -16,7 +14,7 @@ references:
     - https://www.solvo.cloud/blog/detecting-and-removing-risky-actions-out-of-your-iam-security-policies/
     - https://aws.permissions.cloud/iam/sts#sts-AssumeRole
     - https://traildiscover.cloud/#STS-AssumeRole
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

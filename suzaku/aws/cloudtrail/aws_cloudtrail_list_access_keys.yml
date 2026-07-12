@@ -3,15 +3,13 @@ id: a723de60-befe-59ba-b8d8-a7b441d79337
 status: experimental
 description: |
     Returns information about the access key IDs associated with the specified IAM user.
-
     Security implications: Attackers might use ListAccessKeys to identify and exploit unused or unmonitored AWS IAM access keys.
-
     Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud.
 references:
     - https://www.invictus-ir.com/news/ransomware-in-the-cloud
     - https://aws.permissions.cloud/iam/iam#iam-ListAccessKeys
     - https://traildiscover.cloud/#IAM-ListAccessKeys
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

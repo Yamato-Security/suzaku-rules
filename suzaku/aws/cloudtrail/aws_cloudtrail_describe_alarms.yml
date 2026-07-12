@@ -3,15 +3,13 @@ id: 194f7525-f476-5af0-b3f3-a78f8c20640d
 status: experimental
 description: |
     Retrieves the specified alarms.
-
     Security implications: Knowing existing alarms helps attackers evade detection by avoiding or disabling targeted metrics.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/cloudwatch#cloudwatch-DescribeAlarms
     - https://traildiscover.cloud/#CloudWatch-DescribeAlarms
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

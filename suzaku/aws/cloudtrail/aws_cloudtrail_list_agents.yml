@@ -3,15 +3,13 @@ id: f0f94e5d-edc3-5699-84ca-3216c4399b3c
 status: experimental
 description: |
     Lists the agents belonging to an account and information about each agent.
-
     Security implications: Attackers might use ListAgents to inventory AI agents, map their integrations, and select high-impact targets for further compromise.
-
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
     - https://aws.permissions.cloud/iam/bedrock#bedrock-ListAgents
     - https://traildiscover.cloud/#Bedrock-ListAgents
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

@@ -3,15 +3,13 @@ id: 37ca5114-3a8e-50fd-9393-1be89adfcb01
 status: experimental
 description: |
     Retrieves a list of all of your applications.
-
     Security implications: Reveals cloud resources which may be targeted for further exploration or exploitation.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/appconfig#appconfig-ListApplications
     - https://traildiscover.cloud/#ServiceCatalog-ListApplications
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

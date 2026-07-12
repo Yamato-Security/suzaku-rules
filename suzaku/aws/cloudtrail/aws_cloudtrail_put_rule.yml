@@ -3,16 +3,14 @@ id: ef4f159d-91d0-53d7-b500-b01c53cbabae
 status: experimental
 description: |
     Creates or updates the specified rule.
-
     Security implications: Attackers might use PutRule in AWS EventBridge to create unauthorized event rules, potentially automating malicious actions to gain persistence or triggering unwarranted responses within the environment.
-
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
 references:
     - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/events#events-PutRule
     - https://traildiscover.cloud/#events-PutRule
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

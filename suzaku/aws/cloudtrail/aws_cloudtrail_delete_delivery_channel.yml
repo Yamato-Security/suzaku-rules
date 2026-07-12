@@ -3,7 +3,6 @@ id: 8099bb1b-c787-534d-bb90-3a96a36fa312
 status: experimental
 description: |
     Deletes the delivery channel.
-
     Security implications: Attackers might use DeleteDeliveryChannel to disrupt the flow of configuration history and compliance data in AWS.
 references:
     - https://www.elastic.co/guide/en/security/7.17/prebuilt-rule-7-16-4-aws-config-resource-deletion.html#prebuilt-rule-7-16-4-aws-config-resource-deletion
@@ -11,7 +10,7 @@ references:
     - https://www.chrisfarris.com/post/reinforce-threat-hunting/
     - https://aws.permissions.cloud/iam/config#config-DeleteDeliveryChannel
     - https://traildiscover.cloud/#Config-DeleteDeliveryChannel
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

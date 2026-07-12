@@ -3,9 +3,7 @@ id: 1e864eba-948e-5d3d-a57c-9c632d0536a3
 status: experimental
 description: |
     Creates a Lambda function.
-
     Security implications: Attackers might use CreateFunction to deploy malicious code or functions, depending on the scenario this might allow the attacker to gain persistence, escalate privileges, or hijack resources.
-
     Observed in real-world incidents/reporting, e.g.: Mining Crypto; Cloud Security Stories: From Risky Permissions to Ransomware Execution; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments; Tales from the cloud trenches: The Attacker doth persist too much, methinks; GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
 references:
     - https://twitter.com/jonnyplatt/status/1471453527390277638
@@ -17,7 +15,7 @@ references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/lambda#lambda-CreateFunction
     - https://traildiscover.cloud/#Lambda-CreateFunction20150331
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

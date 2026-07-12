@@ -3,15 +3,13 @@ id: a05f1f12-c9d2-5f8e-8d8f-2fe58b203b2e
 status: experimental
 description: |
     Retrieves a forecast for how much Amazon Web Services predicts that you will spend over the forecast time period that you select, based on your past costs.
-
     Security implications: Cost forecasting can validate success of cryptomining or resource abuse while avoiding detection.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/ce#ce-GetCostForecast
     - https://traildiscover.cloud/#CostExplorer-GetCostForecast
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

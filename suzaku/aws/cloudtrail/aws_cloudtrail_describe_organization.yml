@@ -3,15 +3,13 @@ id: 4699b8cf-f707-5763-88a4-86cd5f52a8f9
 status: experimental
 description: |
     Retrieves information about the organization that the user's account belongs to.
-
     Security implications: Attackers might use DescribeOrganization to gather information about the structure and details of an AWS organization.
-
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
     - https://aws.permissions.cloud/iam/organizations#organizations-DescribeOrganization
     - https://traildiscover.cloud/#Organizations-DescribeOrganization
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

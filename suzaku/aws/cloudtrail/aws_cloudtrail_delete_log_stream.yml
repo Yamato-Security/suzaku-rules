@@ -3,13 +3,12 @@ id: 7dda966a-1bd9-56db-b582-6f6dd29d82ef
 status: experimental
 description: |
     Deletes the specified log stream and permanently deletes all the archived log events associated with the log stream.
-
     Security implications: Attackers might use DeleteLogStream to erase CloudWatch logs, erasing evidence of their activities within AWS.
 references:
     - https://expel.com/blog/following-cloudtrail-generating-aws-security-signals-sumo-logic/
     - https://aws.permissions.cloud/iam/logs#logs-DeleteLogStream
     - https://traildiscover.cloud/#CloudWatchLogs-DeleteLogStream
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

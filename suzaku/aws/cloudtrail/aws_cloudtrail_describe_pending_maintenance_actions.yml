@@ -3,15 +3,13 @@ id: 3579fac7-8e88-5c37-9016-9c0345cb8db7
 status: experimental
 description: |
     Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.
-
     Security implications: Maintenance windows may present timing opportunities for stealthy operations.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/rds#rds-DescribePendingMaintenanceActions
     - https://traildiscover.cloud/#RDS-DescribePendingMaintenanceActions
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

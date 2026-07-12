@@ -3,15 +3,13 @@ id: 991d396f-e066-55b7-9d39-5597e63e63e4
 status: experimental
 description: |
     Deletes a previously provisioned DB instance.
-
     Security implications: Attackers might use DeleteDBInstance to delete crucial databases, causing data loss and service disruption.
-
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
 references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
     - https://aws.permissions.cloud/iam/rds#rds-DeleteDBInstance
     - https://traildiscover.cloud/#RDS-DeleteDBInstance
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

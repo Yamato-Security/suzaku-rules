@@ -3,16 +3,14 @@ id: cf286bf1-cc2e-5e9c-8028-bf6085d9f635
 status: experimental
 description: |
     Removes the specified managed policy from the specified role.
-
     Security implications: Attackers might use DetachRolePolicy to remove crucial permissions from IAM roles, disrupting AWS services.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-DetachRolePolicy
     - https://traildiscover.cloud/#IAM-DetachRolePolicy
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

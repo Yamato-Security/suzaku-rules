@@ -3,15 +3,13 @@ id: 1bbafd1a-b291-5e9b-b170-20126228b101
 status: experimental
 description: |
     Describes one or more blue/green deployments.
-
     Security implications: Allows attackers discovery of deployment configurations and potential weaknesses.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/rds#rds-DescribeBlueGreenDeployments
     - https://traildiscover.cloud/#RDS-DescribeBlueGreenDeployments
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

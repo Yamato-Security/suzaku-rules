@@ -3,9 +3,7 @@ id: 1e11877e-8d57-5e10-8aef-b8a67366565e
 status: experimental
 description: |
     Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body with streaming response.
-
     Security implications: Attackers might use InvokeModelWithResponseStream to invoke the model for resource hijacking.
-
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; New tactics and techniques for proactive threat detection; New Developments in LLM Hijacking Activity.
 references:
     - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
@@ -13,7 +11,7 @@ references:
     - https://www.wiz.io/blog/jinx-2401-llm-hijacking-aws
     - https://aws.permissions.cloud/iam/bedrock#bedrock-InvokeModelWithResponseStream
     - https://traildiscover.cloud/#Bedrock-InvokeModelWithResponseStream
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

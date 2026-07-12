@@ -3,14 +3,13 @@ id: 87dc3fe6-5cd1-5719-9c8d-33f052119380
 status: experimental
 description: |
     Retrieves the number of hosted zones that are associated with the current AWS account.
-
     Security implications: Attackers might use GetHostedZoneCount to gather information about the number of hosted zones, potentially identifying targets for DNS attacks.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
     - https://aws.permissions.cloud/iam/route53#route53-GetHostedZoneCount
     - https://traildiscover.cloud/#Route53-GetHostedZoneCount
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

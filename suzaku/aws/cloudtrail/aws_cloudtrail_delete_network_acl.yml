@@ -3,13 +3,12 @@ id: 0f672193-2201-5dc0-83b6-e62b902d6e7d
 status: experimental
 description: |
     Deletes the specified network ACL.
-
     Security implications: Attackers might use DeleteNetworkAcl to remove network access control lists, potentially opening up network segments for unauthorized access.
 references:
     - https://www.intelligentdiscovery.io/controls/cloudwatch/cloudwatch-alarm-network-acl-change
     - https://aws.permissions.cloud/iam/ec2#ec2-DeleteNetworkAcl
     - https://traildiscover.cloud/#EC2-DeleteNetworkAcl
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

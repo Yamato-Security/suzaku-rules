@@ -3,9 +3,7 @@ id: 520b0d03-ef9b-511f-809c-b2f2fb6ae01b
 status: experimental
 description: |
     Grants permission to list Bedrock foundation models that you can use.
-
     Security implications: Attackers might use ListFoundationModels to enumerate accessible models.
-
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; Datadog threat roundup: top insights for Q4 2024; AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
@@ -13,7 +11,7 @@ references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
     - https://aws.permissions.cloud/iam/bedrock#bedrock-ListFoundationModels
     - https://traildiscover.cloud/#Bedrock-ListFoundationModels
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

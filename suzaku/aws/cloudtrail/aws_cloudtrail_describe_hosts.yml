@@ -3,15 +3,13 @@ id: e61b9966-acfb-5fd6-9869-5ebd5d88dc3d
 status: experimental
 description: |
     Describes the specified Dedicated Hosts or all your Dedicated Hosts.
-
     Security implications: Provides inventory of dedicated hosts which can guide lateral movement or privilege escalation strategies.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/ec2#ec2-DescribeHosts
     - https://traildiscover.cloud/#EC2-DescribeHosts
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

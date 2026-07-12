@@ -3,9 +3,7 @@ id: 5baf3a88-3eda-596d-bffb-64adbda961ae
 status: experimental
 description: |
     Launches the specified number of instances using an AMI for which you have permissions.
-
     Security implications: Attackers might use RunInstances to programmatically launch unauthorized EC2 instances for crypto mining or to create a foothold within the AWS environment for further exploitation.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; DXC spills AWS private keys on public GitHub; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Behind the scenes in the Expel SOC: Alert-to-fix in AWS; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; SCARLETEEL 2.0: Fargate, Kubernetes, and Crypto.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
@@ -31,7 +29,7 @@ references:
     - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
     - https://aws.permissions.cloud/iam/ec2#ec2-RunInstances
     - https://traildiscover.cloud/#EC2-RunInstances
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

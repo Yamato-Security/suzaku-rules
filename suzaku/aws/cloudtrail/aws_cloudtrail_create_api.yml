@@ -3,15 +3,13 @@ id: 2200bdc6-a20e-5131-ac18-9537eb6374cd
 status: experimental
 description: |
     Creates an Api resource.
-
     Security implications: Attackers might use CreateApi to create malicious APIs that can be used to establish persistence in the environment.
-
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
     - https://aws.permissions.cloud/iam/apigateway#apigateway-POST
     - https://traildiscover.cloud/#APIGateway-CreateApi
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

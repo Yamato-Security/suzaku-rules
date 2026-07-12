@@ -3,9 +3,7 @@ id: b544d93d-8485-5b9f-aa3a-162229470680
 status: experimental
 description: |
     Retrieves an object from Amazon S3.
-
     Security implications: Attackers might use GetObject to download data from S3 buckets.
-
     Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Incident 2 - Additional details of the attack; Aruba Central Security Incident; Sendtech Pte. Ltd; GotRoot! AWS root Account Takeover.
 references:
     - https://www.invictus-ir.com/news/ransomware-in-the-cloud
@@ -29,7 +27,7 @@ references:
     - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
     - https://aws.permissions.cloud/iam/s3#s3-GetObject
     - https://traildiscover.cloud/#S3-GetObject
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

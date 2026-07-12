@@ -3,9 +3,7 @@ id: aff19dc0-a783-5c80-9291-dd9264b7d7c5
 status: experimental
 description: |
     Creates a snapshot of a DB instance.
-
     Security implications: Attackers might use CreateDBSnapshot to create unauthorized backups of sensitive databases for data theft.
-
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; New tactics and techniques for proactive threat detection; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
@@ -14,7 +12,7 @@ references:
     - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/sharing-rds-snapshot/
     - https://aws.permissions.cloud/iam/rds#rds-CreateDBSnapshot
     - https://traildiscover.cloud/#RDS-CreateDBSnapshot
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

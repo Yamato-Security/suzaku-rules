@@ -3,14 +3,13 @@ id: 9c1006be-a365-5fff-b9da-51dcd12ff61d
 status: experimental
 description: |
     Describes the specified load balancers or all of your load balancers.
-
     Security implications: Attackers might use DescribeLoadBalancers to get information about the load balancers for potential future attacks.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://medium.com/@adan.alvarez/rigging-the-rules-manipulating-aws-alb-to-mine-sensitive-data-20e33dbc4994
     - https://aws.permissions.cloud/iam/elasticloadbalancing#elasticloadbalancing-DescribeLoadBalancers
     - https://traildiscover.cloud/#ELBv2-DescribeLoadBalancers
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

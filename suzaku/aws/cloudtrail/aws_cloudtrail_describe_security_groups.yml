@@ -3,16 +3,14 @@ id: c789f6b6-9010-5313-958f-2adc181a9142
 status: experimental
 description: |
     Describes the specified security groups or all of your security groups.
-
     Security implications: Attackers might use DescribeSecurityGroups to review AWS VPC security group configurations, seeking misconfigurations that could be exploited for unauthorized access or to bypass network security controls.
-
     Observed in real-world incidents/reporting, e.g.: Case Study: Responding to an Attack in AWS; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.cadosecurity.com/case-study-responding-to-an-attack-in-aws/
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/ec2#ec2-DescribeSecurityGroups
     - https://traildiscover.cloud/#EC2-DescribeSecurityGroups
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

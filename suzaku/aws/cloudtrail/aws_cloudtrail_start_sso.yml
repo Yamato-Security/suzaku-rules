@@ -3,15 +3,13 @@ id: 583b2cbb-922a-5d4d-959f-e91c84d93236
 status: experimental
 description: |
     Initialize AWS IAM Identity Center
-
     Security implications: Attackers use StartSSO to establish persistent footholds.
-
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
 references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
     - https://aws.permissions.cloud/iam/sso#sso-StartSSO
     - https://traildiscover.cloud/#SSO-StartSSO
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

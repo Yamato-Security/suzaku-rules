@@ -3,9 +3,7 @@ id: 840542d8-2c3f-563f-979d-a4b4d447eb2a
 status: experimental
 description: |
     Deletes the specified IAM user.
-
     Security implications: Attackers might use DeleteUser to remove users and their permissions, disrupting access control in AWS. Also, it can be used to delete previously used users to avoid detection.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Insider Threat Risks to Flat Environments; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
@@ -13,7 +11,7 @@ references:
     - https://permiso.io/blog/s/unmasking-guivil-new-cloud-threat-actor/
     - https://aws.permissions.cloud/iam/iam#iam-DeleteUser
     - https://traildiscover.cloud/#IAM-DeleteUser
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

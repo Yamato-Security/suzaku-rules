@@ -3,15 +3,13 @@ id: 1b559297-a14c-5a3a-b127-c92e623ab71f
 status: experimental
 description: |
     Describes the default AWS KMS key for EBS encryption by default for your account in this Region.
-
     Security implications: Attackers might use GetEbsDefaultKmsKeyId to identify the default AWS Key Management Service (KMS) key used for encrypting new Amazon EBS volumes.
-
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
 references:
     - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
     - https://aws.permissions.cloud/iam/ec2#ec2-GetEbsDefaultKmsKeyId
     - https://traildiscover.cloud/#EC2-GetEbsDefaultKmsKeyId
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

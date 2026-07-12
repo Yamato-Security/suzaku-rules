@@ -3,13 +3,12 @@ id: 68340c1d-fbea-5a64-b540-3d1345744399
 status: experimental
 description: |
     Returns information about all Amazon Lightsail virtual private servers, or instances.
-
     Security implications: Attackers might use GetInstances to gather information about running instances for potential exploitation.
 references:
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
     - https://aws.permissions.cloud/iam/lightsail#lightsail-GetInstances
     - https://traildiscover.cloud/#LightSail-GetInstances
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

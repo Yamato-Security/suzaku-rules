@@ -3,16 +3,14 @@ id: 0623ebd2-7330-5184-9d98-a03f9e89ae89
 status: experimental
 description: |
     A snapshot shared with another AWS account was copied by that account.
-
     Security implications: SharedSnapshotCopyInitiated might be a signal of an attacker copying a snapshot to their account.
-
     Observed in real-world incidents/reporting, e.g.: M-Trends Report - 2020; Democratic National Committee hack.
 references:
     - https://web.archive.org/web/20250129185248/https://www.mandiant.com/sites/default/files/2021-09/mtrends-2020.pdf
     - https://www.politico.com/f/?id=00000168-6161-de11-af7d-ef7327ea0000
     - https://twitter.com/christophetd/status/1574681313218506753
     - https://traildiscover.cloud/#EC2-SharedSnapshotCopyInitiated
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

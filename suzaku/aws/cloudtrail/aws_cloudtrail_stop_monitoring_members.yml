@@ -3,13 +3,12 @@ id: e6a6265a-1a3e-5159-ad0e-2ff17fd5c1b4
 status: experimental
 description: |
     Stops GuardDuty monitoring for the specified member accounts.
-
     Security implications: Attackers might use StopMonitoringMembers to halt the surveillance of specific AWS accounts, reducing security visibility.
 references:
     - https://www.chrisfarris.com/post/reinforce-threat-hunting/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-StopMonitoringMembers
     - https://traildiscover.cloud/#GuardDuty-StopMonitoringMembers
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

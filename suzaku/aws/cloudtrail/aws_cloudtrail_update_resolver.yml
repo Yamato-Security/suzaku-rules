@@ -3,13 +3,12 @@ id: 52274b95-f34f-5be2-bb81-868ca2aa07a6
 status: experimental
 description: |
     Updates a Resolver object.
-
     Security implications: Attackers might use UpdateResolver to execute custom code that could allow potential access to data and bypass protections.
 references:
     - https://medium.com/@adan.alvarez/distorting-the-sync-how-aws-appsync-can-be-turned-into-an-attackers-backdoor-8c015b8e52b8
     - https://aws.permissions.cloud/iam/appsync#appsync-UpdateResolver
     - https://traildiscover.cloud/#AppSync-UpdateResolver
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

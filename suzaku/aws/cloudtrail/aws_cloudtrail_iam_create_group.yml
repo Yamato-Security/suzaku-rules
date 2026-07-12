@@ -3,13 +3,12 @@ id: c36211fa-9913-5ffc-945c-d980456f2391
 status: experimental
 description: |
     Creates a new group.
-
     Security implications: Attackers use CreateGroup to create a group that they can use to escalate privileges.
 references:
     - https://www.elastic.co/guide/en/security/current/aws-iam-group-creation.html
     - https://aws.permissions.cloud/iam/iam#iam-CreateGroup
     - https://traildiscover.cloud/#IAM-CreateGroup
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

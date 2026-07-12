@@ -3,13 +3,12 @@ id: 3b0b6a29-6504-51e6-9a3e-9dfb8487ab24
 status: experimental
 description: |
     Updates an existing job definition.
-
     Security implications: Attackers might use UpdateJob to modify Glue job parameters, potentially disrupting data processing or injecting malicious code.
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/glue#glue-UpdateJob
     - https://traildiscover.cloud/#Glue-UpdateJob
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

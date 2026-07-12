@@ -3,9 +3,7 @@ id: 89fd1d8f-394f-5068-b11c-a5c065b96766
 status: experimental
 description: |
     Creates a new Amazon ECS cluster.
-
     Security implications: Attackers might use CreateCluster to provision unauthorized cluster resources, aiming to deploy malicious workloads or use compute resources for cryptojacking
-
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; New tactics and techniques for proactive threat detection; GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
@@ -13,7 +11,7 @@ references:
     - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
     - https://aws.permissions.cloud/iam/ecs#ecs-CreateCluster
     - https://traildiscover.cloud/#ECS-CreateCluster
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

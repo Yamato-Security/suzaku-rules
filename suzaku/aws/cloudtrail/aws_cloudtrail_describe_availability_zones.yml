@@ -3,16 +3,14 @@ id: eda679fb-b4db-5037-a80b-92a608280d60
 status: experimental
 description: |
     Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to you.
-
     Security implications: Attackers might use DescribeAvailabilityZones to map the deployment regions of an AWS environment.
-
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/ec2#ec2-DescribeAvailabilityZones
     - https://traildiscover.cloud/#EC2-DescribeAvailabilityZones
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

@@ -3,15 +3,13 @@ id: e849a6e7-08e5-5bba-9548-1d57bef9eab6
 status: experimental
 description: |
     Lists the instance profiles that have the specified path prefix. If there are none, the operation returns an empty list.
-
     Security implications: Attackers might use ListInstanceProfiles to identify potential targets for privilege escalation attacks in AWS.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
     - https://aws.permissions.cloud/iam/iam#iam-ListInstanceProfiles
     - https://traildiscover.cloud/#IAM-ListInstanceProfiles
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

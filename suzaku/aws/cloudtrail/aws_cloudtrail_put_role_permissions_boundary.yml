@@ -3,13 +3,12 @@ id: 1faa9266-e470-5b75-aca4-40349873022a
 status: experimental
 description: |
     Adds or updates the policy that is specified as the IAM role's permissions boundary.
-
     Security implications: Attackers might use PutRolePermissionsBoundary to modify permissions boundaries, potentially escalating privileges or enabling unauthorized access.
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-PutRolePermissionsBoundary
     - https://traildiscover.cloud/#IAM-PutRolePermissionsBoundary
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

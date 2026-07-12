@@ -3,13 +3,12 @@ id: db386c96-ca67-5898-b9d6-96a78ca9c580
 status: experimental
 description: |
     Lists the IPSets of the GuardDuty service specified by the detector ID.
-
     Security implications: Attackers might use ListIPSets to identify what IPs won't generate an alert.
 references:
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-ListIPSets
     - https://traildiscover.cloud/#GuardDuty-ListIPSets
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

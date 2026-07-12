@@ -3,9 +3,7 @@ id: bf6d8955-0fb2-592c-a9df-e7255355e586
 status: experimental
 description: |
     Attaches the specified managed policy to the specified IAM role. When you attach a managed policy to a role, the managed policy becomes part of the role's permission (access) policy.
-
     Security implications: Attackers use AttachRolePolicy to grant malicious policies to IAM roles, potentially escalating privileges or enabling unauthorized access to AWS resources.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Tales from the cloud trenches: Unwanted visitor; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments; GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
@@ -15,7 +13,7 @@ references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-AttachRolePolicy
     - https://traildiscover.cloud/#IAM-AttachRolePolicy
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

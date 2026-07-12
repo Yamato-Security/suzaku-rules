@@ -3,15 +3,13 @@ id: 644f0210-3e04-5e4e-b104-7013a52dde8b
 status: experimental
 description: |
     Updates the SSO configuration for the specified instance.
-
     Security implications: Attackers might use UpdateSsoConfiguration to modify the SSO settings, such as disabling mandatory MFA or changing the session duration, which can lead to unauthorized access and persistence in the environment.
-
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
     - https://aws.permissions.cloud/iam/sso#sso-UpdateSSOConfiguration
     - https://traildiscover.cloud/#SSO-UpdateSsoConfiguration
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

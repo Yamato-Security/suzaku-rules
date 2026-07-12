@@ -3,15 +3,13 @@ id: 84e423cc-315a-5fee-b203-7805177b461c
 status: experimental
 description: |
     Given a list of identities (email addresses and/or domains), returns the verification status and (for domain identities) the verification token for each identity.
-
     Security implications: Attackers might use GetIdentityVerificationAttributes to gather sensitive information about the verification status of email addresses and domains.
-
     Observed in real-world incidents/reporting, e.g.: SES-PIONAGE.
 references:
     - https://permiso.io/blog/s/aws-ses-pionage-detecting-ses-abuse/
     - https://aws.permissions.cloud/iam/ses#ses-GetIdentityVerificationAttributes
     - https://traildiscover.cloud/#SES-GetIdentityVerificationAttributes
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

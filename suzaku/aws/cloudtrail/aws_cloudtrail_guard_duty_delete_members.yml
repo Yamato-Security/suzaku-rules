@@ -3,13 +3,12 @@ id: 9ff2c5ac-c2ff-5773-90ba-c6847b1e2e09
 status: experimental
 description: |
     Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by the account IDs.
-
     Security implications: Attackers might use DeleteMembers to remove members from a GuardDuty detector, disrupting threat detection and security analysis.
 references:
     - https://www.chrisfarris.com/post/reinforce-threat-hunting/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-DeleteMembers
     - https://traildiscover.cloud/#GuardDuty-DeleteMembers
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

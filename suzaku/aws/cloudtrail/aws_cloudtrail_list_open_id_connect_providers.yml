@@ -3,15 +3,13 @@ id: 54bc11ec-f706-5ebf-980d-52fc6b3161b3
 status: experimental
 description: |
     Lists information about the IAM OpenID Connect (OIDC) provider resource objects defined in the AWS account.
-
     Security implications: Attackers might use ListOpenIDConnectProviders to discover if there are OIDC providers configured.
-
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/
     - https://aws.permissions.cloud/iam/iam#iam-ListOpenIDConnectProviders
     - https://traildiscover.cloud/#IAM-ListOpenIDConnectProviders
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

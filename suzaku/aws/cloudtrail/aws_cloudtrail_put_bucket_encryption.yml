@@ -3,12 +3,11 @@ id: 7965d481-3ba6-5418-b1a6-3b27e0be828c
 status: experimental
 description: |
     This operation configures default encryption and Amazon S3 Bucket Keys for an existing bucket.
-
     Security implications: Attackers might use PutBucketEncryption to set the KMS key to one it controls for ransomware.
 references:
     - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
     - https://traildiscover.cloud/#S3-PutBucketEncryption
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

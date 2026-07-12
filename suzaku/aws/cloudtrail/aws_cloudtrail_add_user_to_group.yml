@@ -3,13 +3,12 @@ id: 424f4e74-f056-5eca-bc39-76834fe6c212
 status: experimental
 description: |
     Adds the specified user to the specified group.
-
     Security implications: Attackers might use AddUserToGroup to add unauthorized users to privileged groups, gaining unauthorized access or escalating privileges.
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-AddUserToGroup
     - https://traildiscover.cloud/#IAM-AddUserToGroup
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

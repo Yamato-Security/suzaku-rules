@@ -3,12 +3,11 @@ id: 20d3533c-b247-52c1-a0a9-4009fc8a7ebf
 status: experimental
 description: |
     Creates a replication configuration or replaces an existing one.
-
     Security implications: Attackers might use PutBucketReplication to replicate sensitive data to unauthorized S3 buckets controlled by the attacker.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-ecs-crypto-mining/
     - https://traildiscover.cloud/#S3-PutBucketReplication
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

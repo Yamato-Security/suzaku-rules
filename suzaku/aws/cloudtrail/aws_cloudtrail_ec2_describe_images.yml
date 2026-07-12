@@ -3,15 +3,13 @@ id: 74e40616-04c5-5f72-ae98-f3242c38fc85
 status: experimental
 description: |
     Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.
-
     Security implications: Attackers might use DescribeImages to identify AMIs (Amazon Machine Images) within AWS.
-
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
 references:
     - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
     - https://aws.permissions.cloud/iam/ec2#ec2-DescribeImages
     - https://traildiscover.cloud/#EC2-DescribeImages
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

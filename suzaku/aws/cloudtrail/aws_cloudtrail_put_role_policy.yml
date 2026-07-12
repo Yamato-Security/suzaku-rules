@@ -3,13 +3,12 @@ id: 9f403161-a77c-57e1-8267-00f54523bb37
 status: experimental
 description: |
     Adds or updates an inline policy document that is embedded in the specified IAM role.
-
     Security implications: Attackers might use PutRolePolicy to modify permissions of IAM roles, potentially granting unauthorized access to AWS resources.
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-PutRolePolicy
     - https://traildiscover.cloud/#IAM-PutRolePolicy
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

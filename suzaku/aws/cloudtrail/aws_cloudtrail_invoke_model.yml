@@ -3,9 +3,7 @@ id: 4c425098-2350-5cf4-a022-9e5e9935a7fd
 status: experimental
 description: |
     Invokes the specified Amazon Bedrock model to run inference using the prompt and inference parameters provided in the request body.
-
     Security implications: Attackers might use InvokeModel to check if the credentials have access to the LLMs and they have been enabled and invoke the model for resource hijacking.
-
     Observed in real-world incidents/reporting, e.g.: LLMjacking: Stolen Cloud Credentials Used in New AI Attack; Detecting AI resource-hijacking with Composite Alerts; New tactics and techniques for proactive threat detection; When AI Gets Hijacked: Exploiting Hosted Models for Dark Roleplaying; New Developments in LLM Hijacking Activity; Datadog threat roundup: top insights for Q4 2024.
 references:
     - https://sysdig.com/blog/llmjacking-stolen-cloud-credentials-used-in-new-ai-attack/
@@ -16,7 +14,7 @@ references:
     - https://securitylabs.datadoghq.com/articles/2024-q4-threat-roundup/
     - https://aws.permissions.cloud/iam/bedrock#bedrock-InvokeModel
     - https://traildiscover.cloud/#Bedrock-InvokeModel
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

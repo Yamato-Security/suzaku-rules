@@ -3,13 +3,12 @@ id: d823ce5c-fff6-5c07-b978-8d49f5a68a29
 status: experimental
 description: |
     Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.
-
     Security implications: Attackers might use UpdateEventSourceMapping to pull data from a different source, leading to incorrect function results.
 references:
     - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
     - https://aws.permissions.cloud/iam/lambda#lambda-UpdateEventSourceMapping
     - https://traildiscover.cloud/#Lambda-UpdateEventSourceMapping20150331
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

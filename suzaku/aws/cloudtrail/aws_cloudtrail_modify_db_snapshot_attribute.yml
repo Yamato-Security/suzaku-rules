@@ -3,9 +3,7 @@ id: 4a3bfa84-3a2b-5a3f-beb2-817f9ebc46f6
 status: experimental
 description: |
     Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.
-
     Security implications: Attackers might use ModifyDBSnapshotAttribute to alter database snapshot permissions, potentially gaining unauthorized access to sensitive data via sharing it.
-
     Observed in real-world incidents/reporting, e.g.: Imperva Security Update; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
 references:
     - https://www.imperva.com/blog/ceoblog/
@@ -14,7 +12,7 @@ references:
     - https://sysdig.com/blog/aws-rds-security-events-sysdig/
     - https://aws.permissions.cloud/iam/rds#rds-ModifyDBSnapshotAttribute
     - https://traildiscover.cloud/#RDS-ModifyDBSnapshotAttribute
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

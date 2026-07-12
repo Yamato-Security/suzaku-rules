@@ -3,9 +3,7 @@ id: 680bbe37-2766-5a4a-883e-c981fdf326c7
 status: experimental
 description: |
     Modify the version-specific settings of a Lambda function.
-
     Security implications: Attackers might use UpdateFunctionConfiguration to modify the behavior of Lambda functions, adding a layer that can allow persistence and/or data exfiltration.
-
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
@@ -14,7 +12,7 @@ references:
     - https://www.clearvector.com/blog/lambda-spy/
     - https://aws.permissions.cloud/iam/lambda#lambda-UpdateFunctionConfiguration
     - https://traildiscover.cloud/#Lambda-UpdateFunctionConfiguration20150331v2
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

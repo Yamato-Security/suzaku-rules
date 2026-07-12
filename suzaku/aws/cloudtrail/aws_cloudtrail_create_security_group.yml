@@ -3,9 +3,7 @@ id: 90ebf0c2-e4e8-5ec8-865b-dbfc0c5f6bb7
 status: experimental
 description: |
     Creates a security group.
-
     Security implications: Attackers might use CreateSecurityGroup to establish new security groups with lax rules, facilitating unauthorized access or resource exploitation within AWS environments.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; Behind the scenes in the Expel SOC: Alert-to-fix in AWS; When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; ANATOMY OF AN ATTACK: EXPOSED KEYS TO CRYPTO MINING; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
@@ -21,7 +19,7 @@ references:
     - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
     - https://aws.permissions.cloud/iam/ec2#ec2-CreateSecurityGroup
     - https://traildiscover.cloud/#EC2-CreateSecurityGroup
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

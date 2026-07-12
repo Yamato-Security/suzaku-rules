@@ -3,15 +3,13 @@ id: 74b819c9-804c-5feb-b503-1126098bf6d9
 status: experimental
 description: |
     Adds a member to a group within the specified identity store.
-
     Security implications: Attackers might use AddMemberToGroup to add compromised or malicious users to groups with elevated privileges, allowing them to manipulate access controls and maintain persistence in the environment.
-
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
     - https://aws.permissions.cloud/iam/sso-directory#sso-directory-AddMemberToGroup
     - https://traildiscover.cloud/#SSO-AddMemberToGroup
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

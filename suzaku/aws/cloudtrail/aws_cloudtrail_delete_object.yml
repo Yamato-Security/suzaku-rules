@@ -3,9 +3,7 @@ id: 30a08ff1-925e-5c54-91ff-afb58a6939d5
 status: experimental
 description: |
     Removes an object from a bucket. The behavior depends on the bucket's versioning state.
-
     Security implications: Attackers might use DeleteObject to erase crucial data from S3 buckets.
-
     Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud; The attack on ONUS – A real-life case of the Log4Shell vulnerability; 20/20 Eye Care Network and Hearing Care Network notify 3,253,822 health plan members of breach that deleted contents of AWS buckets; Hacker Puts Hosting Service Code Spaces Out of Business; New tactics and techniques for proactive threat detection; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
 references:
     - https://www.invictus-ir.com/news/ransomware-in-the-cloud
@@ -17,7 +15,7 @@ references:
     - https://badshah.io/case-studies/saas-aws-breach/
     - https://aws.permissions.cloud/iam/s3#s3-DeleteObject
     - https://traildiscover.cloud/#S3-DeleteObject
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

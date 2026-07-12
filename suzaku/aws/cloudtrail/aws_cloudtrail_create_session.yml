@@ -3,16 +3,14 @@ id: 1296250f-e2fe-5f40-950b-b8b101a53215
 status: experimental
 description: |
     Occurs when a CloudShell environment is connected from the AWS Management Console.
-
     Security implications: Attackers could misuse valid credentials to call CreateSession and open an interactive shell to access cloud resources.
-
     Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.
 references:
     - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
     - https://docs.aws.amazon.com/cloudshell/latest/userguide/logging-and-monitoring.html
     - https://aws.permissions.cloud/iam/cloudshell#cloudshell-CreateSession
     - https://traildiscover.cloud/#CloudShell-CreateSession
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

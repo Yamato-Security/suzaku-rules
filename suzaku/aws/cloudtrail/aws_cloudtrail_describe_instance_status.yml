@@ -3,15 +3,13 @@ id: ffa857b4-5d46-529a-9ba7-3fda220f6446
 status: experimental
 description: |
     Describes the status of the specified instances or all of your instances.
-
     Security implications: Can reveal degraded instances or maintenance events an attacker might exploit.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/ec2#ec2-DescribeInstanceStatus
     - https://traildiscover.cloud/#EC2-DescribeInstanceStatus
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

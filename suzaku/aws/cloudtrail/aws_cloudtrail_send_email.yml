@@ -3,15 +3,13 @@ id: e976654e-42d6-568a-9a6c-dbef297e30ca
 status: experimental
 description: |
     Composes an email message and immediately queues it for sending.
-
     Security implications: Sending emails from a compromised account can enable phishing, data exfiltration, or brand abuse.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/ses#ses-SendEmail
     - https://traildiscover.cloud/#SES-SendEmail
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

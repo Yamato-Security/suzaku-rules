@@ -3,13 +3,12 @@ id: e248f07b-578d-5b14-ae74-a4935781c2ec
 status: experimental
 description: |
     Creates a target for your Traffic Mirror session.
-
     Security implications: Attackers might use CreateTrafficMirrorTarget to establish destinations for mirrored traffic, potentially facilitating the unauthorized observation or capture of sensitive information.
 references:
     - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
     - https://aws.permissions.cloud/iam/ec2#ec2-CreateTrafficMirrorTarget
     - https://traildiscover.cloud/#EC2-CreateTrafficMirrorTarget
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

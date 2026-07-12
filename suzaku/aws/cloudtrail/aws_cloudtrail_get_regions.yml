@@ -3,13 +3,12 @@ id: 7299c95f-36e2-5f52-8685-cf663637cf67
 status: experimental
 description: |
     Returns a list of all valid regions for Amazon Lightsail.
-
     Security implications: Attackers might use GetRegions to identify potential targets in different geographical locations on AWS LightSail.
 references:
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
     - https://aws.permissions.cloud/iam/lightsail#lightsail-GetRegions
     - https://traildiscover.cloud/#LightSail-GetRegions
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

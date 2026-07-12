@@ -3,9 +3,7 @@ id: 510d1fce-551f-5ced-a5fe-020b093addbf
 status: experimental
 description: |
     The DeleteDBCluster action deletes a previously provisioned DB cluster.
-
     Security implications: Attackers might use DeleteDBCluster to delete crucial databases, causing data loss and service disruption.
-
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
 references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
@@ -13,7 +11,7 @@ references:
     - https://www.elastic.co/guide/en/security/current/aws-deletion-of-rds-instance-or-cluster.html
     - https://aws.permissions.cloud/iam/rds#rds-DeleteDBCluster
     - https://traildiscover.cloud/#RDS-DeleteDBCluster
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

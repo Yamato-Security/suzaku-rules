@@ -3,13 +3,12 @@ id: c344726c-cf35-58b7-a9a9-8e6d308f31f0
 status: experimental
 description: |
     Updates the specified IPSet.
-
     Security implications: Attackers might use UpdateIPSet to modify IP address rules, potentially allowing unauthorized access from IPs they control.
 references:
     - https://easttimor.github.io/aws-incident-response/
     - https://aws.permissions.cloud/iam/wafv2#wafv2-UpdateIPSet
     - https://traildiscover.cloud/#WAFV2-UpdateIPSet
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

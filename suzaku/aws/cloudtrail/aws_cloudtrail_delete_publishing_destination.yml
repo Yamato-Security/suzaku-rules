@@ -3,13 +3,12 @@ id: cc75773a-0519-52ae-9468-55000a4e718c
 status: experimental
 description: |
     Deletes the publishing definition with the specified destinationId.
-
     Security implications: Attackers might use DeletePublishingDestination to disrupt the security monitoring and incident response process in AWS GuardDuty.
 references:
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-DeletePublishingDestination
     - https://traildiscover.cloud/#GuardDuty-DeletePublishingDestination
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

@@ -3,14 +3,13 @@ id: 1d0ee09b-c2c6-5fc5-8467-532376941086
 status: experimental
 description: |
     Deletes the specified log group and permanently deletes all the archived log events associated with the log group.
-
     Security implications: Attackers might use DeleteLogGroup to erase CloudWatch logs, erasing evidence of their activities within AWS.
 references:
     - https://essay.utwente.nl/76955/1/Szabo_MSc_EEMCS.pdf
     - https://expel.com/blog/following-cloudtrail-generating-aws-security-signals-sumo-logic/
     - https://aws.permissions.cloud/iam/logs#logs-DeleteLogGroup
     - https://traildiscover.cloud/#CloudWatchLogs-DeleteLogGroup
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

@@ -3,15 +3,13 @@ id: 9b7484dd-dd8b-53a7-be84-8729dd1714b6
 status: experimental
 description: |
     Creates an IAM entity to describe an identity provider (IdP) that supports OpenID Connect (OIDC)
-
     Security implications: Attackers use CreateOpenIDConnectProvider to establish persistent footholds.
-
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
 references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
     - https://aws.permissions.cloud/iam/iam#iam-CreateOpenIDConnectProvider
     - https://traildiscover.cloud/#IAM-CreateOpenIDConnectProvider
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

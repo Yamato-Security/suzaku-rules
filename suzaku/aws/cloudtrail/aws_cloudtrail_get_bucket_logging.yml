@@ -3,9 +3,7 @@ id: bca84842-0f48-5453-a2ae-4790ce0e1ff5
 status: experimental
 description: |
     Returns the logging status of a bucket and the permissions users have to view and modify that status.
-
     Security implications: Attackers might use GetBucketLoggingStatus to identify if logging is enabled, potentially helping them avoid detection during unauthorized activities.
-
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild; Muddled Libra’s Evolution to the Cloud; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
 references:
     - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
@@ -13,7 +11,7 @@ references:
     - https://unit42.paloaltonetworks.com/large-scale-cloud-extortion-operation/
     - https://aws.permissions.cloud/iam/s3#s3-GetBucketLogging
     - https://traildiscover.cloud/#S3-GetBucketLogging
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

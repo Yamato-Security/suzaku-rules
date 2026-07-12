@@ -3,9 +3,7 @@ id: 08e9db80-e732-537d-8023-4d22bb830691
 status: experimental
 description: |
     Invokes a Lambda function.
-
     Security implications: Attackers might use Invoke to execute previously modified functions in AWS Lambda.
-
     Observed in real-world incidents/reporting, e.g.: Mining Crypto; Cloud Security Stories: From Risky Permissions to Ransomware Execution; AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://twitter.com/jonnyplatt/status/1471453527390277638
@@ -14,7 +12,7 @@ references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/lambda#lambda-InvokeFunction
     - https://traildiscover.cloud/#Lambda-Invoke
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

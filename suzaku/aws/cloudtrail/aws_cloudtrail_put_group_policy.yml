@@ -3,13 +3,12 @@ id: a73bd63f-fbd3-5f30-9d68-ce620def5b64
 status: experimental
 description: |
     Adds or updates an inline policy document that is embedded in the specified IAM group.
-
     Security implications: Attackers might use PutGroupPolicy to modify permissions of a group, potentially granting unauthorized access to sensitive resources.
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-PutGroupPolicy
     - https://traildiscover.cloud/#IAM-PutGroupPolicy
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

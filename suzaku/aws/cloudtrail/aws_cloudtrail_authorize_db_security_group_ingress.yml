@@ -3,14 +3,13 @@ id: 1adcc74c-4d34-5637-9833-75c88a9a99af
 status: experimental
 description: |
     Enables ingress to a DBSecurityGroup using one of two forms of authorization.
-
     Security implications: Attackers might use AuthorizeDBSecurityGroupIngress to allow unauthorized access to the database by modifying security group rules.
 references:
     - https://pages.awscloud.com/rs/112-TZM-766/images/Visibility_detect_respond_AWS_SANS_whitepaper.pdf
     - https://sysdig.com/blog/aws-rds-security-events-sysdig/
     - https://aws.permissions.cloud/iam/rds#rds-AuthorizeDBSecurityGroupIngress
     - https://traildiscover.cloud/#RDS-AuthorizeDBSecurityGroupIngress
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

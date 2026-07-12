@@ -3,15 +3,13 @@ id: 107795a0-571d-58b2-8a54-57d5c759c6c7
 status: experimental
 description: |
     Describes one or more of your DHCP options sets.
-
     Security implications: Attackers might use DescribeDhcpOptions to inspect DHCP configurations in an AWS VPC.
-
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
 references:
     - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
     - https://aws.permissions.cloud/iam/ec2#ec2-DescribeDhcpOptions
     - https://traildiscover.cloud/#EC2-DescribeDhcpOptions
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

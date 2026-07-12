@@ -3,13 +3,12 @@ id: 39dc497a-c775-590f-b8b3-fe2da90a6364
 status: experimental
 description: |
     Updates the IPSet specified by the IPSet ID.
-
     Security implications: Attackers might use UpdateIPSet to modify the IP address filters, potentially allowing malicious traffic to bypass detection.
 references:
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/guardduty#guardduty-UpdateIPSet
     - https://traildiscover.cloud/#GuardDuty-UpdateIPSet
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

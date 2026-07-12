@@ -3,15 +3,13 @@ id: d9cfd299-2ca3-5dbb-a9b9-5955eaf78741
 status: experimental
 description: |
     Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.
-
     Security implications: Attackers might use CreateImage to create images from running EC2s and use them after adding their own keys
-
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability.
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
     - https://aws.permissions.cloud/iam/ec2#ec2-CreateImage
     - https://traildiscover.cloud/#EC2-CreateImage
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

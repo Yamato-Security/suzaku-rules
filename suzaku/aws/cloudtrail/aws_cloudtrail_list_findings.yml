@@ -3,15 +3,13 @@ id: 243b7826-fe3b-5801-9938-90bc808debbf
 status: experimental
 description: |
     Lists GuardDuty findings for the specified detector ID.
-
     Security implications: Attackers might use ListFindings to identify if previous actions generated alerts.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
     - https://aws.permissions.cloud/iam/guardduty#guardduty-ListFindings
     - https://traildiscover.cloud/#GuardDuty-ListFindings
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

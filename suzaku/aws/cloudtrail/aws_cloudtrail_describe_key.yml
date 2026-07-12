@@ -3,13 +3,12 @@ id: 029c22b8-5509-5f48-b7fd-e448706c28a5
 status: experimental
 description: |
     Provides detailed information about a KMS key.
-
     Security implications: Attackers might use DescribeKey to check information of KMS keys in ransomware attacks.
 references:
     - https://blog.pepperclipp.com/pepperclipp-public/encrypting-buckets-for-compliance-and-ransom-how-attackers-can-use-kms-to-ransomware-s3-buckets
     - https://aws.permissions.cloud/iam/kms#kms-DescribeKey
     - https://traildiscover.cloud/#KMS-DescribeKey
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

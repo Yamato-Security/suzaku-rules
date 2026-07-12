@@ -3,13 +3,12 @@ id: fe3170a3-aef6-56c4-ae9a-28ec419ccf30
 status: experimental
 description: |
     Adds the specified IAM role to the specified instance profile.
-
     Security implications: Attackers might use AddRoleToInstanceProfile to escalate privileges or gain unauthorized access to AWS resources.
 references:
     - https://pswalia2u.medium.com/cloudgoat-aws-ctf-solution-scenerio-5-iam-privesc-by-attachment-22145650f5f5
     - https://aws.permissions.cloud/iam/iam#iam-AddRoleToInstanceProfile
     - https://traildiscover.cloud/#IAM-AddRoleToInstanceProfile
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

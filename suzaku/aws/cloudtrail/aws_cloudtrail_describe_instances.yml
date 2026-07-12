@@ -3,9 +3,7 @@ id: 0f4dd9ac-e915-5c93-9215-96c85cfad443
 status: experimental
 description: |
     Describes the specified instances or all instances.
-
     Security implications: Attackers might use DescribeInstances to inventory EC2 instances within an AWS environment.
-
     Observed in real-world incidents/reporting, e.g.: Following attackers’ (Cloud)trail in AWS: Methodology and findings in the wild; Investigating Suspected DPRK-Linked Crypto Intrusions.
 references:
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
@@ -13,7 +11,7 @@ references:
     - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
     - https://aws.permissions.cloud/iam/ec2#ec2-DescribeInstances
     - https://traildiscover.cloud/#EC2-DescribeInstances
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

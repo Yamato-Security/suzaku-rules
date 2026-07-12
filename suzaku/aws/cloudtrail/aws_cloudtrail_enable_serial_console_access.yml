@@ -3,9 +3,7 @@ id: 258a258e-dbcd-53e8-ae2d-3682f6dd57b1
 status: experimental
 description: |
     Enables access to the EC2 serial console of all instances for your account.
-
     Security implications: Attackers might use EnableSerialConsoleAccess to enable the serial console access and bypass security group rules and gain access to EC2 instances.
-
     Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.
 references:
     - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
@@ -13,7 +11,7 @@ references:
     - https://unit42.paloaltonetworks.com/cloud-virtual-machine-attack-vectors/
     - https://aws.permissions.cloud/iam/ec2#ec2-EnableSerialConsoleAccess
     - https://traildiscover.cloud/#EC2-EnableSerialConsoleAccess
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

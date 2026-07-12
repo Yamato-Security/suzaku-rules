@@ -3,9 +3,7 @@ id: cc4c54c3-9940-583a-8b82-fbbacc66f474
 status: experimental
 description: |
     Grants permission to get the availability of a foundation model.
-
     Security implications: Attackers might use GetFoundationModelAvailability to enumerate accessible models
-
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; When AI Gets Hijacked: Exploiting Hosted Models for Dark Roleplaying; Datadog threat roundup: top insights for Q4 2024.
 references:
     - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
@@ -13,7 +11,7 @@ references:
     - https://securitylabs.datadoghq.com/articles/2024-q4-threat-roundup/
     - https://aws.permissions.cloud/iam/bedrock#bedrock-GetFoundationModelAvailability
     - https://traildiscover.cloud/#Bedrock-GetFoundationModelAvailability
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

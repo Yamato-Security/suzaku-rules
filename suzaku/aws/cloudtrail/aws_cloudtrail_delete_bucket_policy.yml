@@ -3,13 +3,12 @@ id: 7513c036-5318-52ad-b6cc-93b78fcc8af8
 status: experimental
 description: |
     Deletes the policy of a specified bucket.
-
     Security implications: Attackers might use DeleteBucketPolicy to remove security policies and gain unauthorized access to S3 buckets.
 references:
     - https://www.elastic.co/guide/en/security/7.17/aws-s3-bucket-configuration-deletion.html
     - https://aws.permissions.cloud/iam/s3#s3-DeleteBucketPolicy
     - https://traildiscover.cloud/#S3-DeleteBucketPolicy
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

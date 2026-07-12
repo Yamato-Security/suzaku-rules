@@ -3,15 +3,13 @@ id: 1511badc-6103-5443-b85c-65e6132aee74
 status: experimental
 description: |
     Returns a list of findings that match the specified criteria.
-
     Security implications: Attackers might use GetFindings to identify if previous actions generated alerts.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
     - https://aws.permissions.cloud/iam/guardduty#guardduty-GetFindings
     - https://traildiscover.cloud/#GuardDuty-GetFindings
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

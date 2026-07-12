@@ -3,15 +3,13 @@ id: a3b926dc-d94a-5551-acd6-37c43a88e87c
 status: experimental
 description: |
     Creates a case in the Support Center.
-
     Security implications: Attackers might use CreateCase to create a support case to try to get bigger quotas or other changes to the AWS account.
-
     Observed in real-world incidents/reporting, e.g.: From Compromised Keys to Phishing Campaigns: Inside a Cloud Email Service Takeover.
 references:
     - https://www.wiz.io/blog/wiz-discovers-cloud-email-abuse-campaign
     - https://aws.permissions.cloud/iam/support#support-CreateCase
     - https://traildiscover.cloud/#Support-CreateCase
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

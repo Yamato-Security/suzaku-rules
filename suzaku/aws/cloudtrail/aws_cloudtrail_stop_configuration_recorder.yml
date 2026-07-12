@@ -3,7 +3,6 @@ id: 5fe02c44-46fa-5ddf-84a5-06a96e9a9863
 status: experimental
 description: |
     Stops recording configurations of the AWS resources you have selected to record in your AWS account.
-
     Security implications: Attackers might use StopConfigurationRecorder to halt the recording of AWS resource configurations, hindering audit trails.
 references:
     - https://www.elastic.co/guide/en/security/current/prebuilt-rule-8-2-1-aws-configuration-recorder-stopped.html#prebuilt-rule-8-2-1-aws-configuration-recorder-stopped
@@ -11,7 +10,7 @@ references:
     - https://www.chrisfarris.com/post/reinforce-threat-hunting/
     - https://aws.permissions.cloud/iam/config#config-StopConfigurationRecorder
     - https://traildiscover.cloud/#Config-StopConfigurationRecorder
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

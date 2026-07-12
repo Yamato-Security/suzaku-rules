@@ -3,9 +3,7 @@ id: 4796246e-9684-586c-b412-3e902baa17b3
 status: experimental
 description: |
     Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the specified PEM or PPK format.
-
     Security implications: Attackers might use CreateKeyPair to generate keys that can latter be used to access EC2s.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; ANATOMY OF AN ATTACK: EXPOSED KEYS TO CRYPTO MINING; UNMASKING GUI-VIL: FINANCIALLY MOTIVATED CLOUD THREAT ACTOR; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
@@ -15,7 +13,7 @@ references:
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
     - https://aws.permissions.cloud/iam/ec2#ec2-CreateKeyPair
     - https://traildiscover.cloud/#EC2-CreateKeyPair
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

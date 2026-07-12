@@ -3,15 +3,13 @@ id: be9812cb-c4c5-54a1-b93f-42a4db69116a
 status: experimental
 description: |
     Retrieves the configuration data of the specified instance. You can use this data to create a launch template.
-
     Security implications: Attackers might use GetLaunchTemplateData to obtain configurations of EC2 launch templates, identifying predefined instance settings, network configurations.
-
     Observed in real-world incidents/reporting, e.g.: Compromised Cloud Compute Credentials: Case Studies From the Wild.
 references:
     - https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_kdq0vw6banab
     - https://aws.permissions.cloud/iam/ec2#ec2-GetLaunchTemplateData
     - https://traildiscover.cloud/#EC2-GetLaunchTemplateData
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

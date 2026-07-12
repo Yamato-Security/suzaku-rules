@@ -3,15 +3,13 @@ id: c188eebb-be13-56d6-9bed-d0c2097beaa1
 status: experimental
 description: |
     Retrieves an Amazon GuardDuty detector specified by the detectorId.
-
     Security implications: Attackers might use GetDetector to identify active threat detection systems in AWS GuardDuty.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
     - https://aws.permissions.cloud/iam/guardduty#guardduty-GetDetector
     - https://traildiscover.cloud/#GuardDuty-GetDetector
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

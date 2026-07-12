@@ -3,15 +3,13 @@ id: 37bfda93-d701-5f95-9643-1d6782236527
 status: experimental
 description: |
     Returns a list of DBSubnetGroup descriptions.
-
     Security implications: Subnet group details reveal network placement of databases supporting lateral movement planning.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/rds#rds-DescribeDBSubnetGroups
     - https://traildiscover.cloud/#RDS-DescribeDBSubnetGroups
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

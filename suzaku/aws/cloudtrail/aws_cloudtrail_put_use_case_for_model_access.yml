@@ -3,9 +3,7 @@ id: 7cbc9da1-fd4e-5aaf-8ac2-dec0e5210ada
 status: experimental
 description: |
     Grants permission to put a use case for model access.
-
     Security implications: Attackers might use PutUseCaseForModelAccess to prepare for using foundation models for resource hijacking.
-
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts; When AI Gets Hijacked: Exploiting Hosted Models for Dark Roleplaying; New Developments in LLM Hijacking Activity; Datadog threat roundup: top insights for Q4 2024.
 references:
     - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
@@ -14,7 +12,7 @@ references:
     - https://securitylabs.datadoghq.com/articles/2024-q4-threat-roundup/
     - https://aws.permissions.cloud/iam/bedrock#bedrock-PutUseCaseForModelAccess
     - https://traildiscover.cloud/#Bedrock-PutUseCaseForModelAccess
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

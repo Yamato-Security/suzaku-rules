@@ -3,15 +3,13 @@ id: 1668c2a7-2852-594e-89a8-8711acbabb4d
 status: experimental
 description: |
     Creates a launch template. A launch template contains the parameters to launch an instance.
-
     Security implications: Attackers might use CreateLaunchTemplate to define instance configurations with malicious UserData scripts, enabling automated deployment of cryptomining or other malicious workloads at scale.
-
     Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
 references:
     - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
     - https://aws.permissions.cloud/iam/ec2#ec2-CreateLaunchTemplate
     - https://traildiscover.cloud/#EC2-CreateLaunchTemplate
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

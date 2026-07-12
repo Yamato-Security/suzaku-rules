@@ -3,15 +3,13 @@ id: d109e659-25ab-547b-9e91-51fa649edaab
 status: experimental
 description: |
     Lists the account aliases associated with the AWS account.
-
     Security implications: Attackers may list account aliases to identify the human-friendly alias of the compromised account for social engineering or further reconnaissance.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/iam#iam-ListAccountAliases
     - https://traildiscover.cloud/#IAM-ListAccountAliases
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

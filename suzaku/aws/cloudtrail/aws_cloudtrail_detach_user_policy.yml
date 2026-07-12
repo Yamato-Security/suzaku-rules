@@ -3,16 +3,14 @@ id: 355b6bc5-65b9-5065-876f-fca14a806d82
 status: experimental
 description: |
     Removes the specified managed policy from the specified user.
-
     Security implications: Attackers might use DetachUserPolicy to remove security policies and gain unauthorized access to AWS resources.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-DetachUserPolicy
     - https://traildiscover.cloud/#IAM-DetachUserPolicy
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

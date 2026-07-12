@@ -3,15 +3,13 @@ id: 45c9090f-48e4-509a-af78-5a30643602e8
 status: experimental
 description: |
     Creates a stack as specified in the template.
-
     Security implications: Attackers might use CreateStack to provision unauthorized resources
-
     Observed in real-world incidents/reporting, e.g.: New tactics and techniques for proactive threat detection.
 references:
     - https://reinforce.awsevents.com/content/dam/reinforce/2024/slides/TDR432_New-tactics-and-techniques-for-proactive-threat-detection.pdf
     - https://aws.permissions.cloud/iam/cloudformation#cloudformation-CreateStack
     - https://traildiscover.cloud/#CloudFormation-CreateStack
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

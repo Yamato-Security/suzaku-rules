@@ -3,15 +3,13 @@ id: 992e8f6e-ea1f-5c47-a3e3-c8c73318fc06
 status: experimental
 description: |
     Describes the status of your Amazon EBS volumes.
-
     Security implications: Volume health and events may highlight targets for ransomware-style encryption or data theft.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/ec2#ec2-DescribeVolumeStatus
     - https://traildiscover.cloud/#EC2-DescribeVolumeStatus
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

@@ -3,9 +3,7 @@ id: 86fa572f-8418-55bc-8770-f880689c2297
 status: experimental
 description: |
     Provides the sending limits for the Amazon SES account.
-
     Security implications: Attackers use GetSendQuota to assess the email sending capacity of an AWS account, potentially planning persistent spam or phishing campaigns by identifying limits they can exploit or escalate.
-
     Observed in real-world incidents/reporting, e.g.: The curious case of DangerDev@protonmail.me; Ransomware in the cloud; Tales from the cloud trenches: Amazon ECS is the new EC2 for crypto mining; SES-PIONAGE; Tales from the cloud trenches: Unwanted visitor; Leaked Environment Variables Allow Large-Scale Extortion Operation in Cloud Environments.
 references:
     - https://www.invictus-ir.com/news/the-curious-case-of-dangerdev-protonmail-me
@@ -20,7 +18,7 @@ references:
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
     - https://aws.permissions.cloud/iam/ses#ses-GetSendQuota
     - https://traildiscover.cloud/#SES-GetSendQuota
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

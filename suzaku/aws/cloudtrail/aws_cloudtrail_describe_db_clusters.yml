@@ -3,15 +3,13 @@ id: db118569-2d97-5b10-ae2f-266281f53f4f
 status: experimental
 description: |
     Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters.
-
     Security implications: Cluster endpoints and replication settings help plan targeted data theft or disruption.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/rds#rds-DescribeDBClusters
     - https://traildiscover.cloud/#RDS-DescribeDBClusters
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

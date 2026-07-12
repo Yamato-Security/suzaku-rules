@@ -3,16 +3,14 @@ id: 2bd25077-59ba-5688-95cb-ca54a8a1c6c8
 status: experimental
 description: |
     Retrieves cost and usage metrics for your account.
-
     Security implications: Attackers might use GetCostAndUsage to determine how active an account is by understanding the cost within a cloud account.
-
     Observed in real-world incidents/reporting, e.g.: When a Zero Day and Access Keys Collide in the Cloud: Responding to the SugarCRM Zero-Day Vulnerability; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/sugarcrm-cloud-incident-black-hat/
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/ce#ce-GetCostAndUsage
     - https://traildiscover.cloud/#CostExplorer-GetCostAndUsage
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

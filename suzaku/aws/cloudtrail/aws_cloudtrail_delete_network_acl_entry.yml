@@ -3,13 +3,12 @@ id: 316179c7-3292-5a58-855b-cf48afe5747c
 status: experimental
 description: |
     Deletes the specified ingress or egress entry (rule) from the specified network ACL.
-
     Security implications: Attackers might use DeleteNetworkAclEntry to remove specific rules from network access control lists, potentially opening network paths for unauthorized access.
 references:
     - https://www.intelligentdiscovery.io/controls/cloudwatch/cloudwatch-alarm-network-acl-change
     - https://aws.permissions.cloud/iam/ec2#ec2-DeleteNetworkAclEntry
     - https://traildiscover.cloud/#EC2-DeleteNetworkAclEntry
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

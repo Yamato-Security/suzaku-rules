@@ -3,15 +3,13 @@ id: 5e6e7cdc-1c91-5609-ae9b-c0acf0b3bb28
 status: experimental
 description: |
     Grants permission to get a list of foundation model agreement offers.
-
     Security implications: Attackers might use ListFoundationModelAgreementOffers to enumerate accessible models.
-
     Observed in real-world incidents/reporting, e.g.: Detecting AI resource-hijacking with Composite Alerts.
 references:
     - https://www.lacework.com/blog/detecting-ai-resource-hijacking-with-composite-alerts
     - https://aws.permissions.cloud/iam/bedrock#bedrock-ListFoundationModelAgreementOffers
     - https://traildiscover.cloud/#Bedrock-ListFoundationModelAgreementOffers
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

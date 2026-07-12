@@ -3,13 +3,12 @@ id: d08194a4-c4ee-53ef-9b8e-dd683e995ba2
 status: experimental
 description: |
     Creates a Traffic Mirror filter.
-
     Security implications: Attackers might use CreateTrafficMirrorFilter to clandestinely mirror network traffic for analysis or exfiltration.
 references:
     - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
     - https://aws.permissions.cloud/iam/ec2#ec2-CreateTrafficMirrorFilter
     - https://traildiscover.cloud/#EC2-CreateTrafficMirrorFilter
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

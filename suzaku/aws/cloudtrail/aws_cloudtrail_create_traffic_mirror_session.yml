@@ -3,13 +3,12 @@ id: c6af5443-3e16-51db-9fb9-0926526ac2a8
 status: experimental
 description: |
     Creates a Traffic Mirror session.
-
     Security implications: Attackers might use CreateTrafficMirrorSession to initiate a session for mirroring network traffic, potentially for malicious monitoring or data exfiltration.
 references:
     - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
     - https://aws.permissions.cloud/iam/ec2#ec2-CreateTrafficMirrorSession
     - https://traildiscover.cloud/#EC2-CreateTrafficMirrorSession
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

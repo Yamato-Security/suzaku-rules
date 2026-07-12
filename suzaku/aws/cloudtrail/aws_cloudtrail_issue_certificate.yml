@@ -3,13 +3,12 @@ id: 2c05866d-99a0-5d1e-a8ac-332ee4445e30
 status: experimental
 description: |
     Uses your private certificate authority (CA), or one that has been shared with you, to issue a client certificate.
-
     Security implications: Attackers might use IssueCertificate combined with Route 53 control to intercept and read data from AWS API calls.
 references:
     - https://hackingthe.cloud/aws/exploitation/route53_modification_privilege_escalation/
     - https://aws.permissions.cloud/iam/acm-pca#acm-pca-IssueCertificate
     - https://traildiscover.cloud/#ACMPCA-IssueCertificate
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

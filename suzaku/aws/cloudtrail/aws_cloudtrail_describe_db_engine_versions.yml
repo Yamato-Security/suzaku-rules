@@ -3,15 +3,13 @@ id: ff162041-5dd9-549f-9b55-b163cef5748f
 status: experimental
 description: |
     Describes the properties of specific versions of DB engines.
-
     Security implications: Engine version info can be correlated with known vulnerabilities for exploitation.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/rds#rds-DescribeDBEngineVersions
     - https://traildiscover.cloud/#RDS-DescribeDBEngineVersions
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

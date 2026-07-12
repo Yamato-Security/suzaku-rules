@@ -3,13 +3,12 @@ id: c01e4875-e4db-504c-bd2a-47e71e8a4ec3
 status: experimental
 description: |
     Get information about one or more parameters by specifying multiple parameter names.
-
     Security implications: Attackers might use GetParameters to gather sensitive information such as api keys or other secrets.
 references:
     - https://www.solvo.cloud/blog/detecting-and-removing-risky-actions-out-of-your-iam-security-policies/
     - https://aws.permissions.cloud/iam/ssm#ssm-GetParameters
     - https://traildiscover.cloud/#SSM-GetParameters
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

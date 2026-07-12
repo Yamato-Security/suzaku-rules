@@ -3,16 +3,14 @@ id: 94fce4ef-6b57-5adb-9716-70529c90de9c
 status: experimental
 description: |
     Attaches the specified managed policy to the specified IAM group.
-
     Security implications: Attackers might use AttachGroupPolicy to assign malicious policies to a group, escalating privileges or enabling unauthorized access.
-
     Observed in real-world incidents/reporting, e.g.: Tales from the cloud trenches: The Attacker doth persist too much, methinks.
 references:
     - https://securitylabs.datadoghq.com/articles/tales-from-the-cloud-trenches-the-attacker-doth-persist-too-much/
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-AttachGroupPolicy
     - https://traildiscover.cloud/#IAM-AttachGroupPolicy
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

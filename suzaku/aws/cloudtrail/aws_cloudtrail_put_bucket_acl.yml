@@ -3,13 +3,12 @@ id: d7838465-619d-5fd5-8242-90d0f0e440a4
 status: experimental
 description: |
     Sets the permissions on an existing bucket using access control lists (ACL).
-
     Security implications: Attackers might use SetBucketAccessControlPolicy to modify access control lists, potentially granting unauthorized access to S3 buckets.
 references:
     - https://docs.datadoghq.com/security/default_rules/aws-bucket-acl-made-public/
     - https://aws.permissions.cloud/iam/s3#s3-PutBucketAcl
     - https://traildiscover.cloud/#S3-PutBucketAcl
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

@@ -3,15 +3,13 @@ id: 4d55c01e-ed56-5397-b359-e6721bbfcc30
 status: experimental
 description: |
     Uploads a batch of log events to the specified log stream.
-
     Security implications: Attackers might use PutLogEvents to add benign log entries, effectively burying any signs of his malicious activities.
-
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
 references:
     - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/
     - https://aws.permissions.cloud/iam/logs#logs-PutLogEvents
     - https://traildiscover.cloud/#CloudWatchLogs-PutLogEvents
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

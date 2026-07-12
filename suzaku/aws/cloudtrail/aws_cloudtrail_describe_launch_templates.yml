@@ -3,15 +3,13 @@ id: 76ef8baa-1691-540e-9442-8d08c94838d2
 status: experimental
 description: |
     Describes one or more launch templates.
-
     Security implications: Launch template details may leak AMI IDs, user data scripts, and configuration patterns useful for privilege escalation or persistence.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/ec2#ec2-DescribeLaunchTemplates
     - https://traildiscover.cloud/#EC2-DescribeLaunchTemplates
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

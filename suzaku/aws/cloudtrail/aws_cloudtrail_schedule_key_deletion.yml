@@ -3,13 +3,12 @@ id: 32028d8d-a22a-56db-bc60-7b5fcb1579a7
 status: experimental
 description: |
     Schedules the deletion of a KMS key.
-
     Security implications: Attackers might use ScheduleKeyDeletion to schedule the deletion of crucial encryption keys, disrupting data security and access.
 references:
     - https://www.chrisfarris.com/post/reinforce-threat-hunting/
     - https://aws.permissions.cloud/iam/kms#kms-ScheduleKeyDeletion
     - https://traildiscover.cloud/#KMS-ScheduleKeyDeletion
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

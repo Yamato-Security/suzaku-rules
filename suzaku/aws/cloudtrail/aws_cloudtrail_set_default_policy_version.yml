@@ -3,13 +3,12 @@ id: e563899a-39cc-5805-ab4a-938a1ee057a2
 status: experimental
 description: |
     Sets the specified version of the specified policy as the policy's default (operative) version.
-
     Security implications: Attackers might use SetDefaultPolicyVersion to revert IAM policies to less secure versions, potentially exposing sensitive resources.
 references:
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/iam#iam-SetDefaultPolicyVersion
     - https://traildiscover.cloud/#IAM-SetDefaultPolicyVersion
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

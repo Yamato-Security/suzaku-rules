@@ -3,15 +3,13 @@ id: 4e3f1ddc-6a52-5a5c-9459-d2fcf1b6fd18
 status: experimental
 description: |
     Creates an Auto Scaling group with the specified name and attributes.
-
     Security implications: Attackers might use CreateAutoScalingGroup to deploy large numbers of EC2 instances automatically for cryptomining or other resource hijacking campaigns, with aggressive scaling parameters to maximize resource consumption.
-
     Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
 references:
     - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
     - https://aws.permissions.cloud/iam/autoscaling#autoscaling-CreateAutoScalingGroup
     - https://traildiscover.cloud/#EC2-CreateAutoScalingGroup
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

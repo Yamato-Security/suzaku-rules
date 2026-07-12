@@ -3,13 +3,12 @@ id: 470c5757-f92b-5604-93f9-3cf0795ef82a
 status: experimental
 description: |
     Returns a list of the requester's topics.
-
     Security implications: Attackers might use ListTopics to identify potential SNS topics for unauthorized access or disruption.
 references:
     - https://permiso.io/blog/s/smishing-attack-on-aws-sms-new-phone-who-dis/
     - https://aws.permissions.cloud/iam/sns#sns-ListTopics
     - https://traildiscover.cloud/#SNS-ListTopics
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

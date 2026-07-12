@@ -3,13 +3,12 @@ id: 48852d01-bb2e-52f4-84dc-2c5eb7b4e51b
 status: experimental
 description: |
     Deletes the specified WebACL.
-
     Security implications: Attackers might use DeleteWebACL to remove web access control lists, thereby disrupting web application firewall protections.
 references:
     - https://easttimor.github.io/aws-incident-response/
     - https://aws.permissions.cloud/iam/wafv2#wafv2-DeleteWebACL
     - https://traildiscover.cloud/#WAFV2-DeleteWebACL
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

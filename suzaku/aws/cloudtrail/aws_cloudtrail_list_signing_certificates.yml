@@ -3,15 +3,13 @@ id: 639a615e-bfeb-5816-8c93-15f8219f8909
 status: experimental
 description: |
     Returns information about the signing certificates associated with the specified IAM user.
-
     Security implications: Attackers might use ListSigningCertificates to review which users have active certificates
-
     Observed in real-world incidents/reporting, e.g.: Muddled Libra’s Evolution to the Cloud.
 references:
     - https://unit42.paloaltonetworks.com/muddled-libra-evolution-to-cloud/
     - https://aws.permissions.cloud/iam/iam#iam-ListSigningCertificates
     - https://traildiscover.cloud/#IAM-ListSigningCertificates
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

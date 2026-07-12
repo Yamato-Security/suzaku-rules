@@ -3,13 +3,12 @@ id: 5e718169-c44b-5713-be94-393f5bc59f67
 status: experimental
 description: |
     Creates a rule for the specified listener.
-
     Security implications: Attackers might use CreateRule to add rules that allow them access bypassing potential restrictions such as authentication.
 references:
     - https://medium.com/@adan.alvarez/rigging-the-rules-manipulating-aws-alb-to-mine-sensitive-data-20e33dbc4994
     - https://aws.permissions.cloud/iam/elasticloadbalancing#elasticloadbalancing-CreateRule
     - https://traildiscover.cloud/#ELBv2-CreateRule
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

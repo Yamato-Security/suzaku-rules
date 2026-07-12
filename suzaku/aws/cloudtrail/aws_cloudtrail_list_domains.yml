@@ -3,14 +3,13 @@ id: 0fae12e3-d56f-5dad-9846-7b64e9f402b2
 status: experimental
 description: |
     This operation returns all the domain names registered with Amazon Route 53 for the current AWS account if no filtering conditions are used.
-
     Security implications: Attackers might use ListDomains to identify potential targets for DNS hijacking or DDoS attacks.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
     - https://aws.permissions.cloud/iam/route53domains#route53domains-ListDomains
     - https://traildiscover.cloud/#route53domains-ListDomains
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

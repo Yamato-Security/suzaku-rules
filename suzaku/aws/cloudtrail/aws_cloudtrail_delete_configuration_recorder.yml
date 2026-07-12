@@ -3,13 +3,12 @@ id: 999e3913-32eb-5070-a650-fe7ce9ca033b
 status: experimental
 description: |
     Deletes the configuration recorder.
-
     Security implications: Attackers might use DeleteConfigurationRecorder to disrupt AWS configuration auditing.
 references:
     - https://www.elastic.co/guide/en/security/7.17/prebuilt-rule-7-16-4-aws-config-resource-deletion.html#prebuilt-rule-7-16-4-aws-config-resource-deletion
     - https://aws.permissions.cloud/iam/config#config-DeleteConfigurationRecorder
     - https://traildiscover.cloud/#Config-DeleteConfigurationRecorder
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

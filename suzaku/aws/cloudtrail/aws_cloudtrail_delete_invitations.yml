@@ -3,15 +3,13 @@ id: 111bda38-8be0-51ca-9e96-eda585b4c9b4
 status: experimental
 description: |
     Deletes invitations sent to the current member account by AWS accounts specified by their account IDs.
-
     Security implications: Attackers might use DeleteInvitations to avoid the use of GuardDuty, thereby evading detection of malicious activity.
-
     Observed in real-world incidents/reporting, e.g.: LUCR-3: SCATTERED SPIDER GETTING SAAS-Y IN THE CLOUD.
 references:
     - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
     - https://aws.permissions.cloud/iam/guardduty#guardduty-DeleteInvitations
     - https://traildiscover.cloud/#GuardDuty-DeleteInvitations
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

@@ -3,9 +3,7 @@ id: 590d5f75-ac4f-59d4-84ef-c9b2e06a249d
 status: experimental
 description: |
     A volume was created from a snapshot shared with another AWS account.
-
     Security implications: SharedSnapshotVolumeCreated might be a signal of an attacker copying a snapshot to their account.
-
     Observed in real-world incidents/reporting, e.g.: M-Trends Report - 2020; Democratic National Committee hack; My AWS Account Got Hacked - Here Is What Happened.
 references:
     - https://web.archive.org/web/20250129185248/https://www.mandiant.com/sites/default/files/2021-09/mtrends-2020.pdf
@@ -13,7 +11,7 @@ references:
     - https://zviwex.com/posts/aws-account-hacked
     - https://twitter.com/christophetd/status/1574681313218506753
     - https://traildiscover.cloud/#EC2-SharedSnapshotVolumeCreated
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

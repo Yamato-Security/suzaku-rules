@@ -3,9 +3,7 @@ id: 5ef12e89-dbab-56a6-9777-ddaa5c079342
 status: experimental
 description: |
     Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed by a trusted publisher.
-
     Security implications: Attackers might use UpdateFunctionCode to modify the code of a Lambda function, potentially injecting malicious code.
-
     Observed in real-world incidents/reporting, e.g.: AI-assisted cloud intrusion achieves admin access in 8 minutes.
 references:
     - https://www.sysdig.com/blog/ai-assisted-cloud-intrusion-achieves-admin-access-in-8-minutes
@@ -15,7 +13,7 @@ references:
     - https://medium.com/@adan.alvarez/how-attackers-can-misuse-aws-cloudfront-access-to-make-it-rain-cookies-acf9ce87541c
     - https://aws.permissions.cloud/iam/lambda#lambda-UpdateFunctionCode
     - https://traildiscover.cloud/#Lambda-UpdateFunctionCode20150331v2
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

@@ -3,15 +3,13 @@ id: b2e12b46-27fb-5bcb-816f-1700ea4062d4
 status: experimental
 description: |
     Returns a unique symmetric data key for use outside of AWS KMS.
-
     Security implications: Attackers might use GenerateDataKeyWithoutPlaintext to generate encryption keys that can decrypt data in a ransom.
-
     Observed in real-world incidents/reporting, e.g.: Cloud Security Stories: From Risky Permissions to Ransomware Execution.
 references:
     - https://sonraisecurity.com/blog/cloud-security-stories-from-risky-permissions-to-ransomware-execution/
     - https://aws.permissions.cloud/iam/kms#kms-GenerateDataKeyWithoutPlaintext
     - https://traildiscover.cloud/#KMS-GenerateDataKeyWithoutPlaintext
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

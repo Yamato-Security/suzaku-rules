@@ -3,15 +3,13 @@ id: 704a4a7e-b907-5ba0-be64-a664ff808361
 status: experimental
 description: |
     Describes your subnets.
-
     Security implications: Subnet CIDRs and attributes inform reachability and potential pivot targets.
-
     Observed in real-world incidents/reporting, e.g.: Crimson Collective: A New Threat Group Observed Operating in the Cloud.
 references:
     - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
     - https://aws.permissions.cloud/iam/ec2#ec2-DescribeSubnets
     - https://traildiscover.cloud/#EC2-DescribeSubnets
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

@@ -3,13 +3,12 @@ id: 02852d78-ad22-5d2a-aba9-ce46a1e82bde
 status: experimental
 description: |
     Removes the specified targets from the specified rule.
-
     Security implications: Attackers might use RemoveTargets in AWS EventBridge to eliminate crucial targets from event rules, effectively disabling intended actions or notifications triggered by specific events.
 references:
     - https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/
     - https://aws.permissions.cloud/iam/events#events-RemoveTargets
     - https://traildiscover.cloud/#events-RemoveTargets
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

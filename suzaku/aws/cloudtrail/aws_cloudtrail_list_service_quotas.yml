@@ -3,9 +3,7 @@ id: baa9b19e-8d42-5b8d-97c3-9056ed6a5e2b
 status: experimental
 description: |
     Lists the applied quota values for the specified AWS service.
-
     Security implications: Attackers might use ListServiceQuotas to identify potential services to exploit by understanding their usage limits.
-
     Observed in real-world incidents/reporting, e.g.: Ransomware in the cloud; SES-PIONAGE.
 references:
     - https://www.invictus-ir.com/news/ransomware-in-the-cloud
@@ -13,7 +11,7 @@ references:
     - https://securitylabs.datadoghq.com/articles/following-attackers-trail-in-aws-methodology-findings-in-the-wild/
     - https://aws.permissions.cloud/iam/servicequotas#servicequotas-ListServiceQuotas
     - https://traildiscover.cloud/#ServiceQuotas-ListServiceQuotas
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

@@ -3,14 +3,13 @@ id: a805c6c1-449a-529f-9663-db904a363110
 status: experimental
 description: |
     Disables the specified rule.
-
     Security implications: Attackers might use DisableRule to deactivate AWS EventBridge rules, effectively silencing alarms and automated responses designed for incident detection and mitigation.
 references:
     - https://www.elastic.co/guide/en/security/7.17/rules-api-delete.html
     - https://docs.datadoghq.com/security/default_rules/aws-eventbridge-rule-disabled-or-deleted/
     - https://aws.permissions.cloud/iam/events#events-DisableRule
     - https://traildiscover.cloud/#events-DisableRule
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:

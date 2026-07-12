@@ -3,16 +3,14 @@ id: 64ad5de1-1c5d-5d0b-a5c9-766bd4d5dd79
 status: experimental
 description: |
     Grants an AWS service, AWS account, or AWS organization permission to use a function.
-
     Security implications: Attackers might use AddPermission to grant unauthorized access to sensitive Lambda functions and then perform Privilege Escalation.
-
     Observed in real-world incidents/reporting, e.g.: GuardDuty Extended Threat Detection uncovers cryptomining campaign on Amazon EC2 and Amazon ECS.
 references:
     - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
     - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
     - https://aws.permissions.cloud/iam/lambda#lambda-AddPermission
     - https://traildiscover.cloud/#Lambda-AddPermission20150331v2
-author: Adan Alvarez (@adanalvarez), Yamato Security
+author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
 modified: 2026-07-12
 tags:
