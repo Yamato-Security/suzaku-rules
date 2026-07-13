@@ -33,8 +33,14 @@ jobs:
         run: |
           rm -rf suzaku-rules/sigma/
           mkdir -p suzaku-rules/sigma/
+          # Detection rules for the clouds Suzaku analyzes (AWS CloudTrail, Azure, Microsoft 365).
           mv sigma/rules/cloud/aws suzaku-rules/sigma/
           mv sigma/rules/cloud/azure suzaku-rules/sigma/
+          mv sigma/rules/cloud/m365 suzaku-rules/sigma/
+          # Threat-hunting rules for the same clouds (Sigma keeps these in a separate top-level tree).
+          mkdir -p suzaku-rules/sigma/threat-hunting/
+          mv sigma/rules-threat-hunting/cloud/azure suzaku-rules/sigma/threat-hunting/
+          mv sigma/rules-threat-hunting/cloud/m365 suzaku-rules/sigma/threat-hunting/
 
       - name: Remove filtered sigma rules
         run: |
