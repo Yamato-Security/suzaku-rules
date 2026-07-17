@@ -1,0 +1,28 @@
+title: Certificate-Based Authentication Enabled
+id: c2496b41-16a9-4016-a776-b23f8910dc58
+status: test
+description: Detects when certificate based authentication has been enabled in an Azure Active Directory tenant.
+references:
+    - https://posts.specterops.io/passwordless-persistence-and-privilege-escalation-in-azure-98a01310be3f
+    - https://goodworkaround.com/2022/02/15/digging-into-azure-ad-certificate-based-authentication/
+    - https://docs.azure.cn/en-us/entra/identity/monitoring-health/reference-audit-activities#authentication-methods
+author: Harjot Shah Singh, '@cyb3rjy0t'
+date: 2024-03-26
+modified: 2026-05-09
+tags:
+    - attack.credential-access
+    - attack.persistence
+    - attack.privilege-escalation
+    - attack.defense-impairment
+    - attack.t1556
+logsource:
+    product: azure
+    service: auditlogs
+detection:
+    selection:
+        operationName: 'Authentication Methods Policy Update'
+        properties.targetResources|contains: 'AuthenticationMethodsPolicy'
+    condition: selection
+falsepositives:
+    - Unknown
+level: medium
