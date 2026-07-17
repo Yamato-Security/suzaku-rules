@@ -1,0 +1,22 @@
+title: M365 Mailbox Audit Log Age Limit Changed
+id: a1f0c2e1-000c-4a00-8a01-00000000000c
+status: experimental
+description: Detects Set-Mailbox changing AuditLogAgeLimit (e.g. to 0), reducing or clearing retained mailbox audit data.
+references:
+    - https://github.com/Yamato-Security/suzaku-sample-data/tree/main/azure/det-eng-samples
+author: Zach Mathis
+date: 2026-07-09
+tags:
+    - attack.defense-evasion
+    - attack.t1562.001
+logsource:
+    product: azure
+    service: m365
+detection:
+    selection:
+        Operation: 'Set-Mailbox'
+        Parameters.AuditLogAgeLimit|exists: true
+    condition: selection
+falsepositives:
+    - Legitimate retention policy changes.
+level: medium
