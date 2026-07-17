@@ -1,0 +1,21 @@
+title: M365 Mailbox Audit Bypass Association Configured
+id: a1f0c2e1-000b-4a00-8a01-00000000000b
+status: experimental
+description: Detects Set-MailboxAuditBypassAssociation, which exempts a principal from mailbox audit logging to evade detection.
+references:
+    - https://github.com/Yamato-Security/suzaku-sample-data/tree/main/azure/det-eng-samples
+author: Zach Mathis
+date: 2026-07-09
+tags:
+    - attack.defense-evasion
+    - attack.t1562.008
+logsource:
+    product: azure
+    service: m365
+detection:
+    selection:
+        Operation: 'Set-MailboxAuditBypassAssociation'
+    condition: selection
+falsepositives:
+    - Rare; almost always security-relevant.
+level: high

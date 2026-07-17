@@ -1,0 +1,25 @@
+title: M365 Mailbox Forwarding Configured via Set-Mailbox
+id: a1f0c2e1-000a-4a00-8a01-00000000000a
+status: experimental
+description: Detects Set-Mailbox configuring mail forwarding (ForwardingSmtpAddress / DeliverToMailboxAndForward), a common email-exfiltration technique.
+references:
+    - https://github.com/Yamato-Security/suzaku-sample-data/tree/main/azure/det-eng-samples
+author: Zach Mathis
+date: 2026-07-09
+tags:
+    - attack.collection
+    - attack.exfiltration
+    - attack.t1114.003
+logsource:
+    product: azure
+    service: m365
+detection:
+    selection:
+        Operation: 'Set-Mailbox'
+    forwarding:
+        - Parameters.ForwardingSmtpAddress|exists: true
+        - Parameters.DeliverToMailboxAndForward|exists: true
+    condition: selection and forwarding
+falsepositives:
+    - Legitimate, business-approved mail forwarding.
+level: high
