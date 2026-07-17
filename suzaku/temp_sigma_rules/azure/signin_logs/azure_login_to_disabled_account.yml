@@ -1,0 +1,27 @@
+title: Login to Disabled Account
+id: 908655e0-25cf-4ae1-b775-1c8ce9cf43d8
+status: test
+description: Detect failed attempts to sign in to disabled accounts.
+references:
+    - https://learn.microsoft.com/en-us/entra/architecture/security-operations-privileged-accounts
+    - https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/app-integration/error-code-aadsts50057-user-account-is-disabled
+author: AlertIQ
+date: 2021-10-10
+modified: 2026-05-08
+tags:
+    - attack.privilege-escalation
+    - attack.persistence
+    - attack.initial-access
+    - attack.stealth
+    - attack.t1078.004
+logsource:
+    product: azure
+    service: signinlogs
+detection:
+    selection:
+        resultType: 50057
+        resultDescription: 'User account is disabled. The account has been disabled by an administrator.'
+    condition: selection
+falsepositives:
+    - Unknown
+level: medium
