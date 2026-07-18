@@ -1,44 +1,141 @@
 EventName,Description
+AccessKubernetesApi,Access EKS Kubernetes API (T1199.A002)
+AddUserToGroup,Add user to privileged group (T1098.003)
 AssumeRole,Lateral movement via roles
 AssumeRoleWithWebIdentity,Lateral movement via roles
+AssumeRoot,Escalate to org member root account (T1548 / AT1669)
+AttachManagedPolicyToPermissionSet,Attach policy to permission set (T1098.003)
+AttachRolePolicy,Inject permissions onto a role (T1098.003)
 AttachUserPolicy,Inject permissions
+AttachVolume,Attach volume to attacker instance (T1578.001)
+AuthorizeSecurityGroupEgress,Open outbound firewall rule (T1562.007)
+AuthorizeSecurityGroupIngress,Open inbound firewall rule (T1562.007)
+ChangeResourceRecordSets,Modify Route53 records for subdomain takeover (T1491.A001)
+ConsoleLogin,Interactive console sign-in (auth monitoring)
+Converse,Bedrock Converse API abuse for LLMjacking (T1496.A007)
+ConverseStream,Bedrock streaming Converse abuse for LLMjacking (T1496.A007)
+CopyDBSnapshot,Copy RDS snapshot for exfil/encryption (T1486.A003)
+CopyObject,Server-side copy for exfil/encryption (T1486.A001 / T1530.A001)
 CreateAccessKey,Creates long-term credentials for backdoor
+CreateAccount,Create AWS Organizations account (T1666.A001)
+CreateAccountAssignment,Assign IAM Identity Center access (T1098.003)
+CreateCluster,Create ECS/EKS cluster (T1496.A006 / T1496.A010)
+CreateEnvironment,Create CloudShell environment (T1059.009)
 CreateFunction,Deploy attacker-controlled Lambda
 CreateInstanceProfile,IAM persistence for EC2-based access
+CreateKeyPair,Create EC2 key pair for access (T1098.001)
 CreateLoginProfile,Add IAM users (login backdoors)
+CreateNetworkAclEntry,Add network ACL entry to bypass controls (T1562.007)
+CreateNodegroup,Create EKS nodegroup for crypto mining (T1496.A010)
+CreateOpenIDConnectProvider,Add OIDC federation trust (T1484.002)
+CreatePermissionSet,Create IAM Identity Center permission set (T1098.003)
 CreatePolicy,Inject permissions
+CreatePolicyVersion,Swap policy version to escalate (T1098.003)
+CreateRestApi,Create API Gateway REST API (AT1667.001)
 CreateRole,Add custom roles with privileges
+CreateSAMLProvider,Add SAML federation trust (T1484.002)
+CreateSecurityGroup,Create permissive security group (T1562.007 / T1190.A019)
+CreateService,Create ECS service (T1496.A006 / T1578.002)
+CreateSession,Create CloudShell session (T1059.009)
+CreateSnapshot,Create EBS snapshot for exfil (T1578.001)
 CreateUser,Add IAM users (login backdoors)
+CreateVolume,Create volume for data encryption/staging (T1486.A002)
+CreateWorkspaces,Provision WorkSpaces for hijacking (T1496.A009)
+DeactivateMFADevice,Disable MFA to weaken account security (T1556.006)
+DeleteBucket,Delete S3 bucket (T1485.A003)
+DeleteDBCluster,Delete RDS cluster (T1485.A001)
+DeleteDBClusterSnapshot,Delete RDS cluster snapshot (T1485.A001)
+DeleteDBInstance,Delete RDS instance (T1485.A001)
+DeleteDBSnapshot,Delete RDS snapshot (T1485.A001)
+DeleteDetector,Disable GuardDuty detector (T1562.A001)
+DeleteLogGroup,Delete CloudWatch log group (T1562.008)
+DeleteLoginProfile,Remove console access as defense evasion (T1531)
+DeleteLogStream,Delete CloudWatch log stream (T1562.008)
+DeleteMembers,Remove GuardDuty member accounts (T1562.A001)
+DeleteObjects,Bulk S3 object deletion (T1485.A003)
+DeleteObjectVersion,Delete S3 object versions to defeat recovery (T1485.A003)
 DeletePolicy,Remove audit controls
+DeleteRole,Delete IAM role to remove traces (T1070.A001 / T1531)
+DeleteSAMLProvider,Remove SAML provider (T1484.002)
+DeleteSecurityGroup,Remove security group control (T1562.007)
+DeleteSnapshot,Delete EBS snapshot (T1578.003 / T1490)
 DeleteTrail,Disable or delete CloudTrail
+DeleteUser,Delete IAM user to remove traces (T1070.A001 / T1531)
+DeleteVirtualMFADevice,Remove MFA device (account takeover)
+DeregisterImage,Delete AMI image (T1485.A002)
+DescribeCluster,EKS cluster discovery (T1190.A020)
+DescribeDBInstances,RDS discovery (AT1023.001)
+DescribeDBSnapshots,RDS snapshot discovery (AT1023.001)
 DescribeInstances,EC2 and network layout recon
 DescribeVpcs,EC2 and network layout recon
 DetachPolicy,Remove audit controls
+DisableOrganizationAdminAccount,Disable delegated GuardDuty admin (T1562.A001)
+EnableRegion,Enable unused region for stealth ops (T1535)
+ExecuteCommand,ECS container shell execution (T1496.A006)
 GetAccessKeyLastUsed,Recon for keys in use
 GetBucketAcl,S3 recon
 GetBucketPolicy,S3 recon
 GetCallerIdentity,Current credentials recon
+GetFederationToken,Obtain federated temporary credentials (T1098.001)
+GetObject,Read S3 object contents (T1530.A001 / T1552.001)
 GetParameter,Retrieves SSM Parameter Store (may include credentials)
 GetParameterHistory,Gets historical (often unencrypted) versions
+GetRegionOptStatus,Check region opt-in status (T1535 recon)
+GetRole,IAM enumeration (T1087.004)
 GetSecretValue,Retrieves Secrets Manager values
+GetSessionToken,Obtain temporary session credentials (T1098.001)
+GetTokensFromRefreshToken,Cognito refresh token abuse (T1098.A006)
+GetUser,IAM enumeration (T1087.004)
+ImportKeyPair,Import attacker-controlled EC2 key pair (T1098.001)
+InviteAccountToOrganization,Invite account to organization (T1666.A001)
+Invoke,Executes Lambda (can run attacker code)
 InvokeFunction,Executes Lambda (can run attacker code)
+InvokeModel,Bedrock model invocation for LLMjacking (T1496.A007)
+InvokeModelWithResponseStream,Bedrock streaming invocation for LLMjacking (T1496.A007)
+LeaveOrganization,Leave AWS Organization (T1666.A002)
 ListAccessKeys,Enumerates keys on IAM users
 ListBuckets,S3 recon
+ListClusters,EKS cluster enumeration (T1190.A020)
 ListGroups,IAM enumeration
+ListObjects,Enumerate S3 objects (T1619.A001)
 ListParameters,Find credential storage locations
 ListRoles,IAM enumeration
 ListSecrets,Find credential storage locations
 ListUsers,IAM enumeration
+ModifyDBInstance,Modify RDS instance for public/creds access (T1485.A001 / T1213.A013)
+ModifyInstanceAttribute,Modify instance for persistence/evasion (T1578.003)
+ModifySecurityGroupRules,Modify firewall rules (T1562.007)
 PassRole,"Pass privileges to services (e.g. Lambda, EC2)"
+Publish,SNS publish for SMS pumping (T1496.003)
+PutBucketLifecycleConfiguration,Set short lifecycle to auto-delete objects (T1485.001)
 PutBucketPolicy,Inject persistent permissions
+PutBucketVersioning,Disable S3 versioning before deletion (T1485.A003)
 PutEventSelectors,Narrow what gets logged
+PutGroupPolicy,Inject inline permissions via group (T1098.003)
+PutIntegration,Configure API Gateway integration (AT1667.001)
+PutObject,Overwrite/encrypt object for ransom (T1486.A001)
+PutRetentionPolicy,Shorten log retention to evade detection (T1562.008)
 PutRolePolicy,Add custom roles with privileges
 PutUserPolicy,Inject persistent permissions
-PutUserPolicy,Inject permissions
+RegisterDomain,Register domain via Route53 (T1583.001)
+RegisterTaskDefinition,Register ECS task for crypto mining (T1496.A006)
+RequestServiceQuotaIncrease,Raise quotas for mass resource abuse (T1578.005)
+RequestSpotFleet,Launch spot fleet for crypto mining (T1578.002)
+ResolveCase,Close AWS support case to hide activity (T1098.A001)
 RunInstances,"Spin up EC2 instances (crypto mining, tools)"
 SendCommand,Run arbitrary shell commands on EC2
+SendEmail,SES email send for spam/phishing infra (T1496.A001)
+SendRawEmail,SES raw email send for spam/phishing (T1496.A001)
+SendSSHPublicKey,EC2 Instance Connect key push for access (T1098.001)
+SetDefaultPolicyVersion,Set malicious policy version as default (T1098.003)
 StartInstances,"Spin up EC2 instances (crypto mining, tools)"
 StartSession,Interactive shell via SSM
+StopInstances,Stop EC2 instances (T1578.003)
 StopLogging,Disable or delete CloudTrail logs
+TerminateInstances,Destroy EC2 instances (T1578.003 / T1485)
+TransferDomainToAnotherAwsAccount,Transfer domain to attacker account (T1583.001)
+UpdateAccessKey,Activate/rotate access keys for persistence (T1098.001)
 UpdateAssumeRolePolicy,Modify trust relationship (backdoor a role)
+UpdateDetector,Suspend GuardDuty findings (T1562.A001)
+UpdateLoginProfile,Reset console password for hijacked user (T1098.001)
 UpdateTrail,Point logs to attacker-controlled S3
