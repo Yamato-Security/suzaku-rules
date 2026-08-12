@@ -51,25 +51,52 @@ jobs:
             echo "$FILTER_FILE not found. Skipping."
             exit 0
           fi
+          entries=0
+          matched=0
+          unmatched_entries=""
           while IFS= read -r line; do
-            uuid=$(echo "$line" | grep -oE '^[a-f0-9\-]{36}')
-            echo "Processing UUID: $uuid"
+            # `|| true` is required: under `set -e` an assignment takes the exit status of its
+            # command substitution, so a blank or comment-only line would abort the whole step
+            # on grep's exit 1 -- silently, before the guard below ever runs.
+            uuid=$(echo "$line" | grep -oE '^[a-f0-9\-]{36}' || true)
             [ -z "$uuid" ] && continue
+            entries=$((entries + 1))
+            echo "Processing UUID: $uuid"
             if files=$(grep -rl "$uuid" "$SIGMA_DIR" --include='*.yml'); then
               :
             else
               status=$?
               if [ "$status" -eq 1 ]; then
+                # The rule this entry names is not in the trees we sync, so the entry is a no-op.
+                # Do not fail the run over it -- report it instead, otherwise the list quietly
+                # accumulates dead entries as upstream deletes and moves rules.
                 echo "No matching files found for UUID: $uuid"
+                echo "::warning::filtered_sigma_rules.txt entry matches no synced rule: $line"
+                unmatched_entries="${unmatched_entries}- \`${line}\`"$'\n'
                 continue
               fi
               exit "$status"
             fi
+            matched=$((matched + 1))
             for f in $files; do
               echo "Deleting $f (matched UUID: $uuid)"
               rm -f "$f"
             done
           done < "$FILTER_FILE"
+
+          unmatched=$((entries - matched))
+          echo "Filter entries: $entries, matched: $matched, matched nothing: $unmatched"
+          {
+            echo "## Filtered Sigma rules"
+            echo ""
+            echo "\`config/filtered_sigma_rules.txt\`: **$entries** entries, **$matched** matched a synced rule, **$unmatched** matched nothing."
+            if [ "$unmatched" -gt 0 ]; then
+              echo ""
+              echo "The entries below did nothing this run. The rules they name are no longer in the trees this workflow syncs, so they can be dropped from the list:"
+              echo ""
+              printf '%s' "$unmatched_entries"
+            fi
+          } >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
         shell: bash
 
       - name: Create Text
