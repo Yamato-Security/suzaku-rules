@@ -55,7 +55,16 @@ jobs:
             uuid=$(echo "$line" | grep -oE '^[a-f0-9\-]{36}')
             echo "Processing UUID: $uuid"
             [ -z "$uuid" ] && continue
-            files=$(grep -rl "$uuid" "$SIGMA_DIR" --include='*.yml')
+            if files=$(grep -rl "$uuid" "$SIGMA_DIR" --include='*.yml'); then
+              :
+            else
+              status=$?
+              if [ "$status" -eq 1 ]; then
+                echo "No matching files found for UUID: $uuid"
+                continue
+              fi
+              exit "$status"
+            fi
             for f in $files; do
               echo "Deleting $f (matched UUID: $uuid)"
               rm -f "$f"
