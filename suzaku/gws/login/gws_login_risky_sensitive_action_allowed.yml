@@ -1,0 +1,33 @@
+title: Google Workspace Risky Sensitive Action Allowed From Suspicious Session
+id: 808f0a65-c078-47f9-8c73-5646e4767435
+status: experimental
+description: |
+    Detects a sensitive account action (`risky_sensitive_action_allowed`) that Google permitted from a session it had
+    already flagged as risky. `sensitive_action_name` names the action that was allowed, for example
+    "Allowing an app access to Google data", "Access admin.google.com", or "Change 2 Step Verification status".
+    `is_suspicious` is true on every record of this event in the sample corpus - the event only exists because Google
+    scored the session as suspicious - so it carries no selectivity and is not used as a condition here.
+    The noise in this event family is one specific action: "Periodic check in Google Ads", Google's routine
+    re-verification prompt shown to Ads users, which accounts for the large majority of these records in every tenant
+    sampled. `filter_ads` removes it so what remains is the small set of actions an attacker actually takes inside a
+    hijacked account.
+    Pair with the suspicious-login rule: the login is the entry, this event is the attacker acting inside the account.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/login
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.initial-access
+    - attack.t1078.004
+logsource:
+    product: gcp
+    service: google_workspace.login
+detection:
+    selection:
+        eventName: 'risky_sensitive_action_allowed'
+    filter_ads:
+        sensitive_action_name: 'Periodic check in Google Ads'
+    condition: selection and not filter_ads
+falsepositives:
+    - Legitimate account maintenance performed by a user Google scored as risky (new device, new location).
+level: medium

@@ -1,0 +1,63 @@
+title: Google Workspace Account Logging In From Many IP Addresses
+id: f8460451-5a73-48f9-ba3b-49fba829c54d
+status: experimental
+description: |
+    Detects a single Google Workspace account signing in successfully from three or more distinct IP addresses in a
+    one-hour window. This is the shape of a shared or stolen session: an attacker replaying a stolen cookie or password
+    alongside the legitimate user, or a credential sold on and used from several hosts at once.
+    Counts distinct `ipAddress` values grouped by `id.customerId` and `actor.email` - the tenant id is part of the key so
+    that an address reused across two tenants cannot be counted as one account. Both group-by fields are present on every
+    `login_success` record in the sample corpus, which is a requirement: a base event missing a group-by field cannot be
+    counted at all.
+    `networkInfo.ipAsn` and `networkInfo.regionCode` come free from Google on each record and are the fastest way to
+    triage a hit: three IPs in one ASN is a mobile handoff, three IPs in three countries is not.
+    The window is a fixed one-hour bucket, not a sliding window, so logins that straddle a bucket boundary can split
+    across two buckets and fall under the threshold. Tune upward for tenants with heavy VPN or mobile use.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/login
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.initial-access
+    - attack.t1078.004
+logsource:
+    product: gcp
+    service: google_workspace.login
+correlation:
+    type: value_count
+    rules:
+        - Google Workspace Successful Login
+    group-by:
+        - id.customerId
+        - actor.email
+    timespan: 1h
+    condition:
+        gte: 3
+        field: ipAddress
+    generate: false
+falsepositives:
+    - Users moving between office, home, and mobile networks, or behind a VPN or proxy pool that rotates egress addresses.
+    - Mobile devices roaming between carrier IPs.
+level: medium
+---
+title: Google Workspace Successful Login
+id: 88c3203c-cd3f-4ec2-8b61-f0682eb6cbc0
+status: experimental
+description: Base rule for Google Workspace login correlations. Matches any successful interactive sign-in.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/login
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.initial-access
+    - attack.t1078.004
+logsource:
+    product: gcp
+    service: google_workspace.login
+detection:
+    selection:
+        eventName: 'login_success'
+    condition: selection
+falsepositives:
+    - Normal sign-in activity. This base rule is not intended to alert on its own.
+level: informational

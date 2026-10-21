@@ -1,0 +1,40 @@
+title: Google Workspace Admin Role or Privilege Granted
+id: d1da9eee-39f0-4ed6-965f-c4b329ab0b44
+status: experimental
+description: |
+    Detects standing administrative capability being created or handed out inside the tenant: creating or updating an
+    admin role (`CREATE_ROLE`, `UPDATE_ROLE`), adding a privilege to a role (`ADD_PRIVILEGE`), assigning a role to a
+    user (`ASSIGN_ROLE`), and granting admin or delegated-admin privileges directly (`GRANT_ADMIN_PRIVILEGE`,
+    `GRANT_DELEGATED_ADMIN_PRIVILEGES`).
+    Any of these is a direct privilege-escalation and persistence path after an admin account is compromised, and the
+    role-object side (`CREATE_ROLE` / `ADD_PRIVILEGE` / `UPDATE_ROLE`) is the quieter half: an attacker can widen an
+    existing role that a victim account already holds without ever touching the victim's assignments.
+    Pivot on `ROLE_NAME`, `ROLE_ID`, `PRIVILEGE_NAME`, `NEW_VALUE`, and `USER_EMAIL`.
+    Coverage notes: `ASSIGN_ROLE`, `CREATE_ROLE`, and `ADD_PRIVILEGE` are present in the sample data. `UPDATE_ROLE`,
+    `GRANT_ADMIN_PRIVILEGE`, and `GRANT_DELEGATED_ADMIN_PRIVILEGES` are documented by Google, not observed in sample
+    data.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/admin-delegated-admin-settings
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/admin-user-settings
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.persistence
+    - attack.privilege-escalation
+    - attack.t1098.003
+logsource:
+    product: gcp
+    service: google_workspace.admin
+detection:
+    selection:
+        eventName:
+            - 'ASSIGN_ROLE'
+            - 'ADD_PRIVILEGE'
+            - 'CREATE_ROLE'
+            - 'UPDATE_ROLE'
+            - 'GRANT_ADMIN_PRIVILEGE'
+            - 'GRANT_DELEGATED_ADMIN_PRIVILEGES'
+    condition: selection
+falsepositives:
+    - Planned delegation of administration, onboarding of a new IT staff member, or a scoped role built for a support vendor.
+level: high

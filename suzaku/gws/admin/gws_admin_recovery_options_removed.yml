@@ -1,0 +1,34 @@
+title: Google Workspace User Recovery Options Changed or Removed by Admin
+id: f77645a9-4764-4f06-807e-f924175f1cf6
+status: experimental
+description: |
+    Detects an administrator removing or replacing a user's recovery email address or recovery phone number.
+    Stripping recovery options prevents the account owner from self-recovering and is a way to keep a victim locked out
+    after a takeover; pointing them at an attacker-controlled address is the more useful variant, because it turns the
+    recovery flow itself into a way back into the account. Either can equally be an admin cleaning up stale personal
+    contact details during offboarding.
+    The affected account is in `USER_EMAIL`; the actor is `actor.email`.
+    Coverage notes: `REMOVE_RECOVERY_EMAIL` and `REMOVE_RECOVERY_PHONE` are present in the sample data.
+    `CHANGE_RECOVERY_EMAIL` and `CHANGE_RECOVERY_PHONE` are documented by Google, not observed in sample data.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/admin-user-settings
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.persistence
+    - attack.t1098
+logsource:
+    product: gcp
+    service: google_workspace.admin
+detection:
+    selection:
+        eventName:
+            - 'REMOVE_RECOVERY_EMAIL'
+            - 'REMOVE_RECOVERY_PHONE'
+            - 'CHANGE_RECOVERY_EMAIL'
+            - 'CHANGE_RECOVERY_PHONE'
+    condition: selection
+falsepositives:
+    - Offboarding hygiene and policy-driven removal of personal recovery contacts from corporate accounts.
+    - Helpdesk correcting a mistyped recovery address or updating a user's new phone number.
+level: medium

@@ -1,0 +1,34 @@
+title: Google Workspace 2-Step Verification Disabled or Passkey Removed
+id: ab6f70b1-eff9-4607-a194-5af77358dc83
+status: experimental
+description: |
+    Detects a user weakening their own authentication by turning off 2-Step Verification (`2sv_disable`) or removing an
+    enrolled passkey (`passkey_removed`).
+    Removing the second factor is a standard post-compromise step so the attacker can return with the stolen password
+    alone, and it is also how an attacker clears a passkey that would otherwise block a re-login from their own device.
+    Both names are login-application events: the account owner performed the action themselves. The admin-driven
+    equivalents (`PASSKEY_REVOKED`, `USER_CREATED_PASSKEY_REVOKE`, `TURN_OFF_2_STEP_VERIFICATION`,
+    `UNENROLL_USER_FROM_STRONG_AUTH`, `REVOKE_SECURITY_KEY`) are admin-application events with different parameters and
+    are covered by "Google Workspace 2-Step Verification or Passkey Revoked by Admin".
+    Coverage notes: `2sv_disable` and `passkey_removed` are both documented by Google, neither is present in the sample
+    data - only `2sv_enroll` and `passkey_enrolled` appear in the corpus.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/login
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.persistence
+    - attack.defense-evasion
+    - attack.t1556.006
+logsource:
+    product: gcp
+    service: google_workspace.login
+detection:
+    selection:
+        eventName:
+            - '2sv_disable'
+            - 'passkey_removed'
+    condition: selection
+falsepositives:
+    - A user replacing a lost or retired device removes the old passkey before enrolling the new one. Correlate with a following enrollment event.
+level: high
