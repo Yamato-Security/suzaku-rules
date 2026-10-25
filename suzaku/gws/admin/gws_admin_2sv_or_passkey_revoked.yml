@@ -1,0 +1,43 @@
+title: Google Workspace 2-Step Verification or Passkey Revoked by Admin
+id: 4661b697-cfd9-4e7d-99c1-e70826681c58
+status: experimental
+description: |
+    Detects an administrator stripping a strong authenticator from a user account: revoking a passkey
+    (`PASSKEY_REVOKED`, `USER_CREATED_PASSKEY_REVOKE`), turning off 2-Step Verification for the user
+    (`TURN_OFF_2_STEP_VERIFICATION`), unenrolling the user from strong authentication
+    (`UNENROLL_USER_FROM_STRONG_AUTH`), or revoking a registered security key (`REVOKE_SECURITY_KEY`).
+    Any of these leaves the account reachable with the password alone, which is exactly what an attacker who already
+    holds admin rights needs before they move to a target account - and it is also the single most common admin action
+    taken immediately before an unexpected sign-in from a new device.
+    The affected account is in `USER_EMAIL`; the acting admin is `actor.email`. `REVOKE_SECURITY_KEY` additionally
+    carries `enrollment_type` (`user_created` or `automatically_created`).
+    This rule is the admin-application counterpart to "Google Workspace 2-Step Verification Disabled or Passkey Removed",
+    which covers the user performing the same weakening on their own account.
+    Coverage notes: `PASSKEY_REVOKED` is present in the sample data (1 observation). `USER_CREATED_PASSKEY_REVOKE`,
+    `TURN_OFF_2_STEP_VERIFICATION`, `UNENROLL_USER_FROM_STRONG_AUTH`, and `REVOKE_SECURITY_KEY` are documented by
+    Google, not observed in sample data.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/admin-user-settings
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/admin-security-settings
+author: Eric Capuano (@ecapuano)
+date: 2026-09-11
+tags:
+    - attack.persistence
+    - attack.defense-evasion
+    - attack.t1556.006
+logsource:
+    product: gcp
+    service: google_workspace.admin
+detection:
+    selection:
+        eventName:
+            - 'PASSKEY_REVOKED'
+            - 'USER_CREATED_PASSKEY_REVOKE'
+            - 'TURN_OFF_2_STEP_VERIFICATION'
+            - 'UNENROLL_USER_FROM_STRONG_AUTH'
+            - 'REVOKE_SECURITY_KEY'
+    condition: selection
+falsepositives:
+    - Helpdesk clearing a stale passkey or security key for a user who lost the device, normally paired with a re-enrollment shortly after.
+    - Admins unenrolling a user from 2SV to work around a lockout. Legitimate, but it should be temporary - check for a matching re-enrollment.
+level: high

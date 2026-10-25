@@ -1,0 +1,33 @@
+title: Google Workspace User Offboarding or Data Transfer Request
+id: d05ca7d4-e8cc-4bcd-b64d-dd8d332895ba
+status: experimental
+description: |
+    Detects administrative offboarding actions - suspend, archive, or delete a user - and the creation of a data transfer
+    request that moves a user's Drive and other application data to another account.
+    Legitimate and frequent during normal employee turnover, but the same actions are how an attacker with admin rights
+    destroys access for defenders (mass suspend or delete) or bulk-collects a departing user's data into an account they
+    control. `CREATE_DATA_TRANSFER_REQUEST` names the receiving account in `DESTINATION_USER_EMAIL`.
+    Best used as a low-level timeline event and as feed for volume-based hunting (many suspensions in a short window).
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/admin-user-settings
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.exfiltration
+    - attack.impact
+    - attack.t1537
+    - attack.t1531
+logsource:
+    product: gcp
+    service: google_workspace.admin
+detection:
+    selection:
+        eventName:
+            - 'CREATE_DATA_TRANSFER_REQUEST'
+            - 'SUSPEND_USER'
+            - 'DELETE_USER'
+            - 'ARCHIVE_USER'
+    condition: selection
+falsepositives:
+    - Routine employee offboarding. Expect a steady baseline in any tenant with normal turnover.
+level: low

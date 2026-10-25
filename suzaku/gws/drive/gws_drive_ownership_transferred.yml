@@ -1,0 +1,28 @@
+title: Google Workspace Drive Document Ownership Transferred
+id: 3b77f2b3-6a50-44f4-97df-0481a681995f
+status: experimental
+description: |
+    Detects transfer of ownership of a Drive item to another account (`change_owner`).
+    Ownership transfer moves the item out of the original owner's control - the new owner can re-share it, move it into a
+    shared drive, or delete it - which makes it both an exfiltration step and a way to place data beyond the reach of a
+    single account suspension.
+    Compare `owner` (previous) with `new_owner`, and check whether `new_owner_is_team_drive` is set.
+    Low by default because ownership transfer is common in offboarding and shared-drive migrations; raise the level or
+    add a filter for transfers to accounts outside the primary domain.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/drive
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.exfiltration
+    - attack.t1537
+logsource:
+    product: gcp
+    service: google_workspace.drive
+detection:
+    selection:
+        eventName: 'change_owner'
+    condition: selection
+falsepositives:
+    - Offboarding, shared-drive migrations, and project handovers. Very common; expect a large baseline.
+level: low

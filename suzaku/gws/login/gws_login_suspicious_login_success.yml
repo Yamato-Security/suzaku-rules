@@ -1,0 +1,33 @@
+title: Google Workspace Suspicious Login Succeeded
+id: 662ee5fa-ea01-4be9-a470-50b96408c28c
+status: experimental
+description: |
+    Detects a successful Google Workspace sign-in that Google itself flagged as suspicious (`is_suspicious`).
+    Google raises this flag on risk signals such as an unfamiliar location, device, or network, and the session
+    still completed - either the user passed the challenge or no challenge was required.
+    Re-authentication prompts (`login_type: reauth`) are excluded: in the sample corpus they are dominated by Google's
+    periodic Google Ads re-verification check, which Google flags as suspicious by design and which produces the bulk of
+    suspicious successful logins in an ordinary tenant. What remains is a first-factor sign-in Google did not recognise.
+    Parameter note: the API emits `is_suspicious` without a value when false; Suzaku drops valueless parameters, so only
+    explicit true values match.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/login
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.initial-access
+    - attack.t1078.004
+logsource:
+    product: gcp
+    service: google_workspace.login
+detection:
+    selection:
+        eventName: 'login_success'
+        is_suspicious: true
+    filter_reauth:
+        login_type: 'reauth'
+    condition: selection and not filter_reauth
+falsepositives:
+    - Users travelling, roaming onto a new mobile network, or connecting through a VPN or corporate proxy for the first time.
+    - Newly issued devices signing in for the first time.
+level: high

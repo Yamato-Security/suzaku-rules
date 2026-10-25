@@ -1,0 +1,65 @@
+title: Google Workspace Calendar Mass Invite
+id: 248fdcb8-752a-41a8-9960-005c72d70eee
+status: experimental
+description: |
+    Detects a single calendar event that gains 50 or more distinct guests in a five-minute window.
+    Calendar invites bypass most mail filtering and land directly on the recipient's calendar with a clickable
+    description, which makes a mass invite an effective phishing and lure-delivery channel from a hijacked account.
+    Google emits one `add_event_guest` sub-event per guest inside a single activity, so a blast of several hundred guests
+    is one API record; this rule only works after Suzaku splits `events[]` into one record per sub-event.
+    Counts distinct `event_guest` values rather than raw records, so a re-invite of the same guest does not inflate the
+    count. Grouped on `id.customerId` and `event_id` so that one abused invite is one alert regardless of how many
+    activities Google split it across, and so that two tenants' events can never be counted together. Both group-by
+    fields are present on every `add_event_guest` record in the sample corpus, which is a requirement: a base event
+    missing a group-by field cannot be counted at all.
+    The window is a fixed five-minute bucket, not a sliding window, so an invite that straddles a bucket boundary can
+    split across two buckets and fall under the threshold. Tune the threshold to the tenant: an all-hands invite in a
+    large organization will exceed 50 guests legitimately.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/calendar
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.initial-access
+    - attack.t1566.002
+logsource:
+    product: gcp
+    service: google_workspace.calendar
+correlation:
+    type: value_count
+    rules:
+        - Google Workspace Calendar Guest Added
+    group-by:
+        - id.customerId
+        - event_id
+    timespan: 5m
+    condition:
+        gte: 50
+        field: event_guest
+    generate: false
+falsepositives:
+    - All-hands meetings, company-wide training, and large recurring department invites.
+    - Room and resource booking automation that adds many attendees at once.
+level: high
+---
+title: Google Workspace Calendar Guest Added
+id: 32cf5e37-9965-4186-a1c8-66c5b07797bc
+status: experimental
+description: Base rule for the Google Workspace calendar mass invite correlation. Matches a single guest being added to a calendar event.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/calendar
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.initial-access
+    - attack.t1566.002
+logsource:
+    product: gcp
+    service: google_workspace.calendar
+detection:
+    selection:
+        eventName: 'add_event_guest'
+    condition: selection
+falsepositives:
+    - Normal calendar usage. This base rule is not intended to alert on its own.
+level: informational

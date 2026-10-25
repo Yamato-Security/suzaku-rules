@@ -1,0 +1,27 @@
+title: Google Workspace Mailbox Delegation Granted
+id: a134bbe6-25df-4c32-8402-c4b586a7f27a
+status: experimental
+description: |
+    Detects a user granting another account delegated access to their Gmail mailbox (`delegate_grant`).
+    The delegate can read, send as, and manage the mailbox without ever authenticating as the mailbox owner, which makes
+    delegation a durable, low-noise persistence and collection mechanism after an account takeover.
+    The delegate is named in `affected_email_address`.
+    Coverage note: `delegate_grant` is present in the sample data but is not listed in any of Google's published activity
+    appendices, so the event name is data-confirmed rather than documentation-confirmed.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/login
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.persistence
+    - attack.t1098.002
+logsource:
+    product: gcp
+    service: google_workspace.login
+detection:
+    selection:
+        eventName: 'delegate_grant'
+    condition: selection
+falsepositives:
+    - Executive assistants, shared team mailboxes, and planned leave coverage. Baseline the expected delegate pairs and filter them.
+level: medium

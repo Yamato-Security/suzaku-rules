@@ -1,0 +1,38 @@
+title: Google Workspace Gmail Routing or Compliance Setting Created or Changed
+id: 3ec412e2-f31c-468f-aec4-47262ffaff5b
+status: experimental
+description: |
+    Detects creation, modification, or deletion of a tenant-level Gmail setting, and the addition of a mail routing
+    destination. This event family covers routing rules, content compliance and objectionable-content rules, split
+    delivery, and default routing - the mechanisms an attacker uses to silently copy or divert inbound and outbound mail
+    for the entire domain, or to delete a compliance rule that would otherwise catch them.
+    Unlike a per-mailbox forwarding rule this is tenant-wide and survives password resets of any single user.
+    Read `SETTING_NAME`, `USER_DEFINED_SETTING_NAME`, `SETTING_DESCRIPTION`, `ORG_UNIT_NAME`, and `NEW_VALUE` to see what
+    changed; on `MAIL_ROUTING_DESTINATION_ADDED`, `NEW_VALUE` is the new routing destination itself.
+    Coverage notes: `CREATE_GMAIL_SETTING` is present in the sample data. `CHANGE_GMAIL_SETTING`, `DELETE_GMAIL_SETTING`,
+    `CHANGE_EMAIL_SETTING`, and `MAIL_ROUTING_DESTINATION_ADDED` are documented by Google, not observed in sample data.
+    `MAIL_ROUTING_DESTINATION_ADDED` is documented in the admin user-settings appendix rather than the Gmail-settings
+    appendix, hence the second reference below.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/admin-gmail-settings
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/admin-user-settings
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.collection
+    - attack.t1114.003
+logsource:
+    product: gcp
+    service: google_workspace.admin
+detection:
+    selection:
+        eventName:
+            - 'CREATE_GMAIL_SETTING'
+            - 'CHANGE_GMAIL_SETTING'
+            - 'DELETE_GMAIL_SETTING'
+            - 'CHANGE_EMAIL_SETTING'
+            - 'MAIL_ROUTING_DESTINATION_ADDED'
+    condition: selection
+falsepositives:
+    - Mail administrators tuning spam, compliance, or archiving rules, and onboarding of a mail security gateway.
+level: medium

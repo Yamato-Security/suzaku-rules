@@ -1,0 +1,30 @@
+title: Google Workspace Sign-In Cookies Reset or User Session Unblocked
+id: 2bd9099c-bc6c-4461-80bb-f5a520d7af70
+status: experimental
+description: |
+    Detects an administrator resetting a user's sign-in cookies (invalidating all active sessions) or unblocking a user
+    session that Google had blocked.
+    `RESET_SIGNIN_COOKIES` is normally a containment action - its presence in a timeline usually means someone already
+    suspected that account, so treat it as a marker of a prior, possibly undocumented incident.
+    `UNBLOCK_USER_SESSION` is the inverse: an admin overriding a Google-side block, which restores access to a session
+    Google considered risky.
+    Informational by design; the value is in what surrounds it in the timeline.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/admin-user-settings
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.persistence
+    - attack.t1098
+logsource:
+    product: gcp
+    service: google_workspace.admin
+detection:
+    selection:
+        eventName:
+            - 'RESET_SIGNIN_COOKIES'
+            - 'UNBLOCK_USER_SESSION'
+    condition: selection
+falsepositives:
+    - Standard helpdesk and incident-response practice. This rule is context, not a verdict.
+level: informational

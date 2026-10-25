@@ -1,0 +1,32 @@
+title: Google Workspace Out-of-Domain Email Forwarding Enabled
+id: ee4779eb-ca2c-4305-b838-9a10020ab109
+status: experimental
+description: |
+    Detects a user enabling automatic forwarding of their Gmail to an address outside the organization
+    (`email_forwarding_out_of_domain`).
+    A forwarding rule to an attacker-controlled mailbox is one of the most durable outcomes of an account takeover: it
+    keeps delivering mail - including password resets and MFA codes - long after the session is gone, the password is
+    changed, and the attacker's sign-ins have stopped. It also needs no further access to the account, so nothing else
+    in the login stream will show it continuing.
+    The destination address is in `email_forwarding_destination_address`, which is the parameter Google's own admin
+    console message renders for this event; the account that set it is `actor.email`. Google's appendix documents no
+    explicit parameter table for this event name, so treat the destination field as best-documented rather than
+    guaranteed and check the record's full parameter set when triaging.
+    Coverage notes: documented by Google in the login appendix, not observed in sample data.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/login
+author: Eric Capuano (@ecapuano)
+date: 2026-09-11
+tags:
+    - attack.collection
+    - attack.t1114.003
+logsource:
+    product: gcp
+    service: google_workspace.login
+detection:
+    selection:
+        eventName: 'email_forwarding_out_of_domain'
+    condition: selection
+falsepositives:
+    - Users forwarding corporate mail to a personal account, or to a second tenant during a merger or domain migration. Both are policy violations worth a conversation even when they are not an incident.
+level: high

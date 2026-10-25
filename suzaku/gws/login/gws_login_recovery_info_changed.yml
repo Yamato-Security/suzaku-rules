@@ -1,0 +1,31 @@
+title: Google Workspace Account Recovery Information Changed by User
+id: 306b60d0-3bda-4cd6-baac-b9f68c0a2945
+status: experimental
+description: |
+    Detects a user changing their own account recovery email address, recovery phone number, or recovery security
+    question and answer.
+    Attackers change recovery information immediately after a takeover so that the legitimate owner cannot reclaim the
+    account and so that the attacker can re-enter after a password reset.
+    Low on its own; high value when it follows a suspicious login or a risky sensitive action from the same actor.
+    Coverage notes: `recovery_email_edit` and `recovery_phone_edit` are present in the sample data.
+    `recovery_secret_qa_edit` is documented by Google, not observed in sample data.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/login
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.persistence
+    - attack.t1098
+logsource:
+    product: gcp
+    service: google_workspace.login
+detection:
+    selection:
+        eventName:
+            - 'recovery_email_edit'
+            - 'recovery_phone_edit'
+            - 'recovery_secret_qa_edit'
+    condition: selection
+falsepositives:
+    - Routine user maintenance after changing phone number or personal email provider.
+level: low

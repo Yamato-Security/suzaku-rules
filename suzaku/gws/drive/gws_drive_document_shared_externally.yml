@@ -1,0 +1,44 @@
+title: Google Workspace Drive Document Made Externally Visible
+id: e211a71d-9031-427e-aece-efc566246681
+status: experimental
+description: |
+    Detects a Drive item whose visibility changed to a state reachable from outside the organization - shared with
+    explicit external users or groups, accessible to anyone with the link, or public on the web.
+    This is the cheapest exfiltration path in Google Workspace: no mail, no download, no endpoint agent involvement,
+    just a link the attacker can fetch from anywhere.
+    Pivot on `doc_title`, `doc_id`, `owner`, `target_domain`, and `old_visibility`.
+    Field notes: `visibility` is the post-change state of the item, it is a single string value, and it is present on
+    every `change_document_visibility` and `change_document_access_scope` record in the sample corpus - so it is the only
+    field this rule needs. Google's documented enum is `shared_externally`, `shared_internally`, `people_with_link`,
+    `people_within_domain_with_link`, `public_in_the_domain`, `public_on_the_web`, `private`, and `unknown`; the three
+    matched here are the ones that put the item outside the organization. `new_value` is deliberately not used: it
+    carries a different enum (the access scope - `can_view`, `can_edit`, `can_comment`,
+    `people_within_domain_with_link`, ...) and Google emits it as a multiValue array, which sigma-rust cannot match with
+    any modifier.
+    Google emits `change_document_visibility` and `change_document_access_scope` as sibling sub-events of the same user
+    action, so one share normally produces two hits; deduplicate on `doc_id` plus timestamp when triaging.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/drive
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.exfiltration
+    - attack.t1567.002
+logsource:
+    product: gcp
+    service: google_workspace.drive
+detection:
+    selection_event:
+        eventName:
+            - 'change_document_visibility'
+            - 'change_document_access_scope'
+    selection_visibility:
+        visibility:
+            - 'shared_externally'
+            - 'people_with_link'
+            - 'public_on_the_web'
+    condition: selection_event and selection_visibility
+falsepositives:
+    - Normal collaboration with customers, partners, and contractors; published documentation; team drives whose default is link sharing.
+    - Each share produces a paired visibility and access-scope record, so hit counts are roughly double the number of user actions.
+level: medium

@@ -1,0 +1,45 @@
+title: Google Workspace Account Flagged or Disabled by Google
+id: f50bb130-9638-4e5e-9e8d-9d0dc77f92f1
+status: experimental
+description: |
+    Detects the account-warning events Google raises on its own initiative when it concludes an account is compromised
+    or abused: a blocked suspicious login (`suspicious_login`, `suspicious_login_less_secure_app`,
+    `suspicious_programmatic_login`), a session invalidated because its cookie looked stolen
+    (`user_signed_out_due_to_suspicious_session_cookie`), an account disabled for hijacking, a leaked password, spamming
+    or relay abuse (`account_disabled_hijacked`, `account_disabled_password_leak`, `account_disabled_spamming`,
+    `account_disabled_spamming_through_relay`, `account_disabled_generic`), and a government-backed attack warning
+    (`gov_attack_warning`).
+    These are not risk scores - they are Google acting. Each one means Google already made a compromise or abuse
+    determination about the account, so any hit is a confirmed incident starting point, not a lead to triage. The
+    affected account is in `affected_email_address`; the suspicious-login family also carries `login_timestamp`.
+    Coverage notes: none of these names appear in the sample corpus, which is expected - they fire only on accounts
+    Google has flagged. All ten are documented by Google in the login appendix. Note that `attack_warning` and
+    `account_warning` are event *types* in that appendix, not event names, so they are deliberately absent from the
+    selection below.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/login
+author: Eric Capuano (@ecapuano)
+date: 2026-09-11
+tags:
+    - attack.initial-access
+    - attack.t1078.004
+logsource:
+    product: gcp
+    service: google_workspace.login
+detection:
+    selection:
+        eventName:
+            - 'suspicious_login'
+            - 'suspicious_login_less_secure_app'
+            - 'suspicious_programmatic_login'
+            - 'user_signed_out_due_to_suspicious_session_cookie'
+            - 'account_disabled_hijacked'
+            - 'account_disabled_password_leak'
+            - 'account_disabled_spamming'
+            - 'account_disabled_spamming_through_relay'
+            - 'account_disabled_generic'
+            - 'gov_attack_warning'
+    condition: selection
+falsepositives:
+    - Very few. A legitimate script or integration authenticating in a way Google classes as a less secure app or programmatic login can produce the suspicious-login variants.
+level: high

@@ -1,0 +1,28 @@
+title: Google Workspace Mail Delivery Bounce Notifications Blocked
+id: 497da258-561c-44d8-aacc-b239645d05bd
+status: experimental
+description: |
+    Detects a user adding the mail delivery subsystem (mailer-daemon) to their blocked-sender list.
+    Blocking bounce notifications hides non-delivery reports from the mailbox owner and is a well-known precursor to
+    mass mailing from a hijacked mailbox: the attacker suppresses the flood of bounces that would otherwise reveal the
+    outbound spam or phishing run.
+    The `blocked_sender` event is common in real tenants, but no mailer-daemon value was observed in the sample corpus,
+    so this rule is pattern-confirmed rather than value-confirmed.
+references:
+    - https://developers.google.com/workspace/admin/reports/v1/appendix/activity/login
+author: Eric Capuano (@ecapuano)
+date: 2026-09-10
+tags:
+    - attack.defense-evasion
+    - attack.t1564.008
+logsource:
+    product: gcp
+    service: google_workspace.login
+detection:
+    selection:
+        eventName: 'blocked_sender'
+        affected_email_address|contains: 'mailer-daemon'
+    condition: selection
+falsepositives:
+    - A user annoyed by repeated bounce messages from a mistyped distribution list blocking the daemon on purpose. Rare, and worth a phone call regardless.
+level: high

@@ -56,3 +56,6 @@ e40f4962-b02b-4192-9bfe-245f7ece1f99 # Multifactor Authentication Denied
 5496ff55-42ec-4369-81cb-00f417029e25 # Multifactor Authentication Interrupted
 8366030e-7216-476b-9927-271d79f13cf3 # Azure Unusual Authentication Interruption
 9a60e676-26ac-44c3-814b-0c2a8b977adf # User Access Blocked by Azure Conditional Access
+eafe6f2b-cfec-4612-aec2-49563c33a087 # Google Workspace Government Attack Warning - written for the Cloud Logging export schema (protoPayload.*), cannot match Reports API records; covered by suzaku/gws/login/gws_login_google_flagged_account_events.yml
+2a0bb2dd-eb5f-4517-8cb9-404f8ba764a5 # Google Workspace Out Of Domain Email Forwarding - written for the Cloud Logging export schema (protoPayload.*), cannot match Reports API records; covered by suzaku/gws/login/gws_login_email_forwarding_out_of_domain.yml
+38360161-76c4-4283-842e-efcf997dafc8 # Suspicious Login Activity Classified By Google - written for the Cloud Logging export schema (protoPayload.*), cannot match Reports API records; covered by suzaku/gws/login/gws_login_google_flagged_account_events.yml
