@@ -1,0 +1,40 @@
+title: AWS EC2 RunInstances by Auto Scaling Using Service-Linked Role
+id: e2cbdc03-8902-4fa1-b3ec-d1cf0c414e59
+related:
+    - id: 5baf3a88-3eda-596d-bffb-64adbda961ae
+      type: derived
+status: experimental
+description: |
+    Detects accepted instance launch requests invoked by Auto Scaling using its
+    default or custom-suffix service-linked role. Intended for background activity
+    enrichment, not a declaration that the activity is authorized or benign.
+    An attacker can manipulate scaling configuration to cause service-originated
+    launches. API acceptance does not establish instance launch completion.
+references:
+    - https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html
+    - https://aws.amazon.com/blogs/security/cryptomining-campaign-targeting-amazon-ec2-and-amazon-ecs/
+author: truekonrads
+date: 2026-10-30
+tags:
+    - attack.impact
+    - attack.t1496 #Resource Hijacking
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: RunInstances
+    selection_autoscaling:
+        userIdentity.type: AssumedRole
+        userIdentity.invokedBy: autoscaling.amazonaws.com
+        userIdentity.sessionContext.sessionIssuer.type: Role
+        userIdentity.sessionContext.sessionIssuer.arn|re: '^arn:[^:]+:iam::[0-9]{12}:role/aws-service-role/autoscaling\.amazonaws\.com/AWSServiceRoleForAutoScaling(_[A-Za-z0-9_+=,.@-]+)?$'
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and selection_autoscaling and not (error_code or error_msg)
+falsepositives:
+    - Legitimate scaling, instance replacement, and capacity rebalancing.
+level: informational
