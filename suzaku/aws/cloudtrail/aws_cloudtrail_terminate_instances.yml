@@ -1,7 +1,9 @@
-title: AWS EC2 TerminateInstances
+title: AWS EC2 TerminateInstances Outside Auto Scaling Service-Linked Context
 id: 24497139-870a-5c3e-8a6a-56e14cf9de6e
 status: experimental
 description: |
+    Detects accepted instance termination requests outside the complete Auto Scaling
+    service-linked identity context. Missing identity fields remain in this rule.
     Shuts down the specified instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds.
     Security implications: Attackers might use TerminateInstances to permanently delete EC2 instances, resulting in irreversible data loss and service disruption or for defense evasion.
     Ex: aws ec2 terminate-instances --instance-ids TrailDiscoverInstanceID
@@ -16,7 +18,7 @@ references:
     - https://traildiscover.cloud/#EC2-TerminateInstances
 author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
-modified: 2026-07-12
+modified: 2026-10-30
 tags:
     - attack.impact
     - attack.defense-evasion
@@ -30,12 +32,18 @@ detection:
     selection:
         eventSource: ec2.amazonaws.com
         eventName: TerminateInstances
+    filter_autoscaling:
+        userIdentity.type: AssumedRole
+        userIdentity.invokedBy: autoscaling.amazonaws.com
+        userIdentity.sessionContext.sessionIssuer.type: Role
+        userIdentity.sessionContext.sessionIssuer.arn|re: '^arn:[^:]+:iam::[0-9]{12}:role/aws-service-role/autoscaling\.amazonaws\.com/AWSServiceRoleForAutoScaling(_[A-Za-z0-9_+=,.@-]+)?$'
     error_code:
         errorCode|exists: true
     error_msg:
         errorMessage|exists: true
-    condition: selection and not (error_code or error_msg)
+    condition: selection and not (error_code or error_msg) and not filter_autoscaling
 falsepositives:
     - Planned decommissioning, cleanup, or teardown by administrators or CI/CD.
     - Infrastructure-as-code (Terraform, CloudFormation, CDK) destroying or replacing resources.
+    - Auto Scaling calls without the complete service-linked identity context.
 level: medium
