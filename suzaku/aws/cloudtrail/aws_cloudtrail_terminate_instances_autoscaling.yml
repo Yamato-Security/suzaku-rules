@@ -1,0 +1,40 @@
+title: AWS EC2 TerminateInstances by Auto Scaling Using Service-Linked Role
+id: 73c92550-1d4a-448d-a751-e53e04122c20
+related:
+    - id: 24497139-870a-5c3e-8a6a-56e14cf9de6e
+      type: derived
+status: experimental
+description: |
+    Detects accepted instance termination requests invoked by Auto Scaling using
+    its default or custom-suffix service-linked role. Intended for background
+    activity enrichment, not a declaration that the activity is authorized or benign.
+    An attacker can manipulate scaling configuration to cause service-originated
+    terminations. API acceptance does not establish instance termination completion.
+references:
+    - https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html
+    - https://aws.permissions.cloud/iam/ec2#ec2-TerminateInstances
+author: truekonrads
+date: 2026-10-30
+tags:
+    - attack.impact
+    - attack.t1485 #Data Destruction
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: TerminateInstances
+    selection_autoscaling:
+        userIdentity.type: AssumedRole
+        userIdentity.invokedBy: autoscaling.amazonaws.com
+        userIdentity.sessionContext.sessionIssuer.type: Role
+        userIdentity.sessionContext.sessionIssuer.arn|re: '^arn:[^:]+:iam::[0-9]{12}:role/aws-service-role/autoscaling\.amazonaws\.com/AWSServiceRoleForAutoScaling(_[A-Za-z0-9_+=,.@-]+)?$'
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and selection_autoscaling and not (error_code or error_msg)
+falsepositives:
+    - Legitimate scale-in, instance replacement, and group teardown.
+level: informational

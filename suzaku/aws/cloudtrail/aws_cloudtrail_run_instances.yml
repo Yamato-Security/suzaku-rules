@@ -1,7 +1,9 @@
-title: AWS EC2 RunInstances
+title: AWS EC2 RunInstances Outside Auto Scaling Service-Linked Context
 id: 5baf3a88-3eda-596d-bffb-64adbda961ae
 status: experimental
 description: |
+    Detects accepted instance launch requests outside the complete Auto Scaling
+    service-linked identity context. Missing identity fields remain in this rule.
     Launches the specified number of instances using an AMI for which you have permissions.
     Security implications: Attackers might use RunInstances to programmatically launch unauthorized EC2 instances for crypto mining or to create a foothold within the AWS environment for further exploitation.
     Ex: aws ec2 run-instances --image-id ami-0b98a32b1c5e0d105 --instance-type t2.micro --key-name MyKeyPair
@@ -33,7 +35,7 @@ references:
     - https://traildiscover.cloud/#EC2-RunInstances
 author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
-modified: 2026-07-12
+modified: 2026-10-30
 tags:
     - attack.persistence
     - attack.impact
@@ -48,12 +50,18 @@ detection:
     selection:
         eventSource: ec2.amazonaws.com
         eventName: RunInstances
+    filter_autoscaling:
+        userIdentity.type: AssumedRole
+        userIdentity.invokedBy: autoscaling.amazonaws.com
+        userIdentity.sessionContext.sessionIssuer.type: Role
+        userIdentity.sessionContext.sessionIssuer.arn|re: '^arn:[^:]+:iam::[0-9]{12}:role/aws-service-role/autoscaling\.amazonaws\.com/AWSServiceRoleForAutoScaling(_[A-Za-z0-9_+=,.@-]+)?$'
     error_code:
         errorCode|exists: true
     error_msg:
         errorMessage|exists: true
-    condition: selection and not (error_code or error_msg)
+    condition: selection and not (error_code or error_msg) and not filter_autoscaling
 falsepositives:
     - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
     - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
+    - Auto Scaling calls without the complete service-linked identity context.
 level: medium
