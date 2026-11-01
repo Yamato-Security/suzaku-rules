@@ -1,0 +1,47 @@
+title: AWS EC2 Snapshot Created by AWS Backup Using Default Service Role
+id: 232909a5-3301-41b7-9e56-7af2c587cecc
+related:
+    - id: 1f743dbe-94c8-506d-af05-bf1be563d466
+      type: derived
+status: experimental
+description: |
+    Detects accepted EBS snapshot creation requests invoked by AWS Backup with an
+    assumed-role identity whose issuer is the default Backup service role.
+    Intended for background activity enrichment, not a declaration that the backup
+    is authorized or benign. API acceptance does not establish snapshot completion.
+references:
+    - https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html
+    - https://www.crowdstrike.com/blog/bears-midst-intrusion-democratic-national-committee/
+    - https://unit42.paloaltonetworks.com/cloud-lateral-movement-techniques/
+    - https://www.rapid7.com/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/
+    - https://securitylabs.datadoghq.com/cloud-security-atlas/attacks/sharing-ebs-snapshot/
+    - https://stratus-red-team.cloud/attack-techniques/AWS/aws.exfiltration.ec2-share-ebs-snapshot/
+    - https://aws.permissions.cloud/iam/ec2#ec2-ModifySnapshotAttribute
+    - https://traildiscover.cloud/#EC2-CreateSnapshot
+author: Zach Mathis (@YamatoSecurity), truekonrads
+date: 2026-10-30
+tags:
+    - attack.lateral-movement
+    - attack.exfiltration
+    - attack.t1537 #Transfer Data to Cloud Account
+    - attack.t1021 #Remote Services
+logsource:
+    product: aws
+    service: cloudtrail
+detection:
+    selection:
+        eventSource: ec2.amazonaws.com
+        eventName: CreateSnapshot
+    selection_default_backup:
+        userIdentity.type: AssumedRole
+        userIdentity.invokedBy: backup.amazonaws.com
+        userIdentity.sessionContext.sessionIssuer.type: Role
+        userIdentity.sessionContext.sessionIssuer.arn|re: '^arn:[^:]+:iam::[0-9]{12}:role/service-role/AWSBackupDefaultServiceRole$'
+    error_code:
+        errorCode|exists: true
+    error_msg:
+        errorMessage|exists: true
+    condition: selection and selection_default_backup and not (error_code or error_msg)
+falsepositives:
+    - Legitimate scheduled or on-demand backups using AWSBackupDefaultServiceRole.
+level: informational

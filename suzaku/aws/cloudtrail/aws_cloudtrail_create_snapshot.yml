@@ -1,8 +1,10 @@
-title: AWS EC2 CreateSnapshot
+title: AWS EC2 Snapshot Created Outside Default AWS Backup Context
 id: 1f743dbe-94c8-506d-af05-bf1be563d466
 status: experimental
 description: |
-    Creates a snapshot of an EBS volume and stores it in Amazon S3.
+    Detects accepted EBS snapshot creation requests outside the combined AWS Backup
+    invocation and default Backup service-role context. Includes human operators,
+    custom automation, custom Backup roles, and events with incomplete identity fields.
     Security implications: Attackers might create a snapshot of an EBS volume so it can later be shared or copied to an attacker-controlled account or region to exfiltrate its data.
     Ex: aws ec2 modify-snapshot-attribute --snapshot-id snap-1234567890abcdef0 --attribute createVolumePermission --operation-type remove --user-ids 123456789012
     Observed in real-world incidents/reporting, e.g.: CrowdStrike’s work with the Democratic National Committee: Setting the record straight; Navigating the Cloud: Exploring Lateral Movement Techniques; Crimson Collective: A New Threat Group Observed Operating in the Cloud.
@@ -16,7 +18,7 @@ references:
     - https://traildiscover.cloud/#EC2-CreateSnapshot
 author: Zach Mathis (@YamatoSecurity)
 date: 2026-07-12
-modified: 2026-07-12
+modified: 2026-10-30
 tags:
     - attack.lateral-movement
     - attack.exfiltration
@@ -29,12 +31,18 @@ detection:
     selection:
         eventSource: ec2.amazonaws.com
         eventName: CreateSnapshot
+    filter_default_backup:
+        userIdentity.type: AssumedRole
+        userIdentity.invokedBy: backup.amazonaws.com
+        userIdentity.sessionContext.sessionIssuer.type: Role
+        userIdentity.sessionContext.sessionIssuer.arn|re: '^arn:[^:]+:iam::[0-9]{12}:role/service-role/AWSBackupDefaultServiceRole$'
     error_code:
         errorCode|exists: true
     error_msg:
         errorMessage|exists: true
-    condition: selection and not (error_code or error_msg)
+    condition: selection and not (error_code or error_msg) and not filter_default_backup
 falsepositives:
     - Legitimate provisioning or configuration changes by administrators or CI/CD pipelines.
     - Infrastructure-as-code (Terraform, CloudFormation, CDK, Pulumi) applying changes.
-level: high
+    - AWS Backup using a custom role or events without the complete default Backup context.
+level: medium
